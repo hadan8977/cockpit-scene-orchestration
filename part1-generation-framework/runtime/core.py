@@ -76,7 +76,7 @@ def value_schema(cap, kind):
     if isinstance(values,dict) and "range" in values:
         lo,hi,step,unit=values["range"]
         if name=="生效时间": return {"type":"string","pattern":r"^([01]\d|2[0-3]):[0-5]\d(?::00)?$"}
-        return {"type":"string","pattern":r"^-?\d+(?:\.\d+)?"+re.escape(unit)+"$"}
+        return {"type":"string","enum":[f"{lo+i*step:g}{unit}" for i in range(round((hi-lo)/step)+1)]}
     allowed=list(values)
     if kind=="actions":
         denied=cap.get("deny_act_values",[])+(["关闭"] if cap["id"]=="safety.avas" else [])
@@ -97,7 +97,12 @@ def output_schema(snapshot):
             if kind=="conditions": props["op"]={"enum":["==","<","<=",">",">="] if isinstance(c[field],dict) else ["=="]}
             options.append({"type":"object","properties":props,"required":list(props),"additionalProperties":False})
         schema["properties"][kind]["items"]={"oneOf":options} if options else False
-    schema["properties"]["relation"]={"type":"object","properties":{"kind":{"enum":["new","merge"]},"scene_id":{"type":["string","null"]}},"required":["kind","scene_id"],"additionalProperties":False}
+    schema["properties"]["relation"]={"type":"object","properties":{"type":{"enum":["new","extend","modify"]},"scene_id":{"type":["string","null"]}},"required":["type","scene_id"],"additionalProperties":False}
+    schema["properties"]["state_type"]={"enum":["situation","emotion","physiological","none"]}
+    for field in ("offer",):
+        schema["properties"][field]["additionalProperties"]=False
+        schema["properties"][field]["required"]=list(schema["properties"][field]["properties"])
+    schema["properties"]["memory"]["items"]["additionalProperties"]=False
     return schema
 
 
@@ -120,9 +125,59 @@ def dictionary(snapshot):
 def compile_prompt(snapshot, template):
     source=Path(template).read_text(encoding="utf-8")
     marker="[conditions: primary = values; * = 未落地，需warnings]"
-    if marker not in source: raise ValueError("Template has no replaceable registry section")
-    prompt=source.split(marker,1)[0]+dictionary(snapshot)
+    verbose="[CONDITIONS ONLY; * means planned/proposed/sprint ACTION requiring a named warning]"
+    if marker in source:
+        prompt=source.split(marker,1)[0]+dictionary(snapshot)
+    elif verbose in source and "[examples]" in source:
+        before,remaining=source.split(verbose,1)
+        previous_table,after=remaining.split("[examples]",1)
+        parts=previous_table.split("[ACTIONS ONLY; * means planned/proposed/sprint ACTION requiring a named warning]")
+        order={kind:[line.split(" = ",1)[0].lstrip("*") for line in part.splitlines() if " = " in line] for kind,part in zip(("conditions","actions"),parts)}
+        prompt=before+verbose_dictionary(snapshot,order)+"[examples]"+after
+    else: raise ValueError("Template has no replaceable registry section")
     return prompt,{"registry_revision":snapshot["revision"],"prompt_sha256":hashlib.sha256(prompt.encode()).hexdigest(),"schema_sha256":digest(output_schema(snapshot))}
+
+
+def verbose_dictionary(snapshot,order=None):
+    """Keep the evaluated p13/p16 layout, regenerated from the live registry."""
+    parts=[]
+    for kind,field in (("conditions","cond_values"),("actions","act_values")):
+        parts.append("["+kind.upper()+" ONLY; * means planned/proposed/sprint ACTION requiring a named warning]")
+        capabilities=snapshot["capabilities"]
+        if order:
+            positions={name:i for i,name in enumerate(order[kind])}
+            capabilities=sorted(capabilities,key=lambda c:positions.get(c["zh"],len(positions)))
+        for c in capabilities:
+            if c["status"]!="enabled" or not c.get(field):continue
+            name,spec=c["zh"],c[field]
+            if isinstance(spec,dict):
+                lo,hi,step,unit=spec["range"]
+                val="/".join(str(n)+unit for n in range(lo,hi+1,step)) if kind=="actions" else "%s%s..%s%s; step %s%s"%(lo,unit,hi,unit,step,unit)
+            else:
+                vals=spec if kind=="conditions" else [v for v in spec if v not in c.get("deny_act_values",[]) and not(c["id"]=="safety.avas" and v=="关闭")]
+                val="/".join(vals)
+            special={"生效时间":"HH:MM (00:00..23:59)","指定日期":"YYYYMMDD","日期区间":"YYYYMMDD-YYYYMMDD","生效时间段":"全天/HH:MM-HH:MM","播放指定音乐":"actual song title / 实际歌名","壁纸":"actual name / 实际名称","主题":"actual name / 实际名称","延时":"1秒..600秒, step 1秒"}
+            val=special.get(name,val)
+            flag="*" if kind=="actions" and c.get("maturity") in IMMATURE else ""
+            parts.append(flag+name+" = "+val)
+    return "\n".join(parts)+"\n"
+
+
+def strict_tool_schema(snapshot):
+    """DeepSeek strict tool subset. External validator remains authoritative."""
+    def convert(value):
+        if isinstance(value,list):return [convert(x) for x in value]
+        if not isinstance(value,dict):return value
+        result={k:convert(v) for k,v in value.items() if k not in ("$schema","title")}
+        if "const" in result:result["enum"]=[result.pop("const")]
+        if "oneOf" in result:result["anyOf"]=result.pop("oneOf")
+        if isinstance(result.get("type"),list):
+            types=result.pop("type");result["anyOf"]=[{"type":t} for t in types]
+        if result.get("type")=="object":
+            result["required"]=list(result["properties"]);result["additionalProperties"]=False
+        if "enum" in result and "type" not in result:result["type"]="string"
+        return result
+    return convert(output_schema(snapshot))
 
 
 def _typed_value(cap,kind,value):
@@ -210,8 +265,15 @@ def validate(raw,snapshot,context=None,existing_ids=()):
                 reject("self_inverting","唯一条件与动作为同一能力的相反状态")
     relation=raw.get("relation")
     if isinstance(relation,dict):
-        if relation.get("kind")=="merge" and relation.get("scene_id") not in existing_ids:reject("unknown_scene_reference","并入目标场景不存在")
-        if relation.get("kind")=="new" and relation.get("scene_id") is not None:reject("invalid_scene_reference","新建不能引用已有场景id")
+        if relation.get("type") in ("extend","modify") and relation.get("scene_id") not in existing_ids:reject("unknown_scene_reference","并入目标场景不存在")
+        if relation.get("type")=="new" and relation.get("scene_id") is not None:reject("invalid_scene_reference","新建不能引用已有场景id")
+    if raw.get("intent") not in ("none","clarify") and not raw.get("name"):reject("missing_name","可呈现场景必须有名称")
+    if context.get("injection_flags"):reject("injection","输入有指令注入标记，不执行其任何片段")
+    for a in actions:
+        if not isinstance(a,dict):continue
+        for denial in context.get("denied_actions",[]):
+            if a.get("primary")==denial.get("primary") and (denial.get("secondary") is None or a.get("secondary")==denial["secondary"]):
+                reject("negative_preference","动作违反已确认的负面偏好",a.get("primary"))
     valid=not any(d["status"]=="blocked" for d in decisions)
     # Preserve the complete proposal for explaining rejection; no executable sub-scene.
     return {"valid":valid,"savable":valid and raw.get("intent") not in ("none","clarify") and bool(actions or conditions),"executable":valid and bool(actions) and not immature and raw.get("intent") not in ("none","clarify"),"scene":copy.deepcopy(raw),"decisions":decisions,"registry_revision":snapshot["revision"]}

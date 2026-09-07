@@ -75,7 +75,7 @@ class RuntimeTests(unittest.TestCase):
         self.assertTrue(any(d["status"]=="planned" for d in result["decisions"]))
 
     def test_fake_scene_reference_rejected(self):
-        raw={**scene(),"relation":{"kind":"merge","scene_id":"someone-elses-scene"}}
+        raw={**scene(),"relation":{"type":"extend","scene_id":"someone-elses-scene"}}
         result=validate(raw,self.snapshot,existing_ids=["my-scene"])
         self.assertFalse(result["valid"])
         self.assertTrue(any(d.get("code")=="unknown_scene_reference" for d in result["decisions"]))
