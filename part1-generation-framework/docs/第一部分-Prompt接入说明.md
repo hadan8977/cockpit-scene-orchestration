@@ -1,8 +1,6 @@
-> 状态更新：p11 全量验证未达质量目标，以下 p11 路径为历史冻结候选，不代表最终验收。现正测试 p13；参数与接入约定仍适用，最终路径待新验证完成后更新。
+# p13 统一中文 Prompt 的接入约定
 
-# 最终候选的接入约定
-
-冻结交付文件：`eval/prompts/final_dsv4flash.md`（与实测 p11_zh 内容一致）。中英文输入均加载这份中文系统指令；`locale` 决定理解句、场景名、话术和追问的语言。不要把能力词典中的中文 primary/secondary 翻译成英文。最终有效性与未达项以《第一部分-Prompt优化-最终实验报告》为准。
+冻结交付文件：`eval/prompts/final_dsv4flash_p13_zh.md`（与实测 p13_zh 内容一致）。中英文输入均加载这份中文系统指令；`locale` 决定理解句、场景名、话术和追问的语言。不要把能力词典中的中文 primary/secondary 翻译成英文。语言选择由1608次交叉实验决定：分流仅多0.37个百分点且合规更低，目前采用统一中文。最终有效性与未达项以《第一部分-Prompt优化-最终实验报告》为准。
 
 ## 请求
 
@@ -20,7 +18,7 @@
 {"model":"deepseek-v4-flash","temperature":0,"max_tokens":1000,"thinking":{"type":"disabled"},"response_format":{"type":"json_object"},"stream":true,"stream_options":{"include_usage":true}}
 ```
 
-另加 messages（system 全文、user 信封）。API key 从私密环境变量加载，不写入 prompt、配置文件或结果。独立连接复用实验使用持久 Session，并完整读取 SSE 响应；其时延与完整并发回归分开记录。
+另加 messages（system 全文、user 信封）。API key 从私密环境变量加载，不写入 prompt、配置文件或结果。独立连接复用实验使用持久 Session，并完整读取 SSE 响应；其时延与完整并发回归分开记录。建议复用连接：72对实验中配对平均快0.280秒，理解句p50为0.848秒；p95未改善，不能保证每个请求都更快。
 
 ## 响应和确认
 

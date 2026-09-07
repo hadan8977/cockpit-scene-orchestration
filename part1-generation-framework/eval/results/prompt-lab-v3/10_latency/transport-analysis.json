@@ -1,0 +1,72 @@
+{
+  "cold": {
+    "n": 72,
+    "errors": 0,
+    "task_pass": 0.9444444444444444,
+    "usable_pass": 0.9444444444444444,
+    "name_ok": 1.0,
+    "language_ok": 1.0,
+    "safety_violations": 0,
+    "schema_valid": 1.0,
+    "strict_json_valid": 1.0,
+    "latency_p50": 1.5002276499872096,
+    "latency_p95": 1.7212387749925255,
+    "ttft_p50": 0.9652495384216309,
+    "understanding_p50": 1.1333600282669067
+  },
+  "pooled": {
+    "n": 72,
+    "errors": 0,
+    "task_pass": 0.9166666666666666,
+    "usable_pass": 0.9166666666666666,
+    "name_ok": 1.0,
+    "language_ok": 1.0,
+    "safety_violations": 0,
+    "schema_valid": 1.0,
+    "strict_json_valid": 1.0,
+    "latency_p50": 1.2100375999871176,
+    "latency_p95": 1.7569429949624464,
+    "ttft_p50": 0.6738759279251099,
+    "understanding_p50": 0.8484692573547363
+  },
+  "negative_delta_is_faster": true,
+  "usage": {
+    "cold": {
+      "n_with_usage": 72,
+      "input_mean": 7822.083333333333,
+      "output_mean": 94.22222222222223,
+      "input_cache_hit_fraction": 0.9981995418952752
+    },
+    "pooled": {
+      "n_with_usage": 72,
+      "input_mean": 7822.083333333333,
+      "output_mean": 92.94444444444444,
+      "input_cache_hit_fraction": 0.9981995418952752
+    }
+  },
+  "total_mean_paired": {
+    "pairs": 72,
+    "clusters": 12,
+    "ties": 0,
+    "delta_b_minus_a": -0.2800464458301172,
+    "ci95_cluster_bootstrap": [
+      -0.3276239002755473,
+      -0.23437595259727256
+    ],
+    "pooled_faster_pairs": 62,
+    "cold_faster_pairs": 10
+  },
+  "understanding_mean_paired": {
+    "pairs": 72,
+    "clusters": 12,
+    "ties": 0,
+    "delta_b_minus_a": -0.2778308192888896,
+    "ci95_cluster_bootstrap": [
+      -0.3207134654124578,
+      -0.23627093823419676
+    ],
+    "pooled_faster_pairs": 64,
+    "cold_faster_pairs": 8
+  },
+  "note": "Serial same-prompt transport experiment; both arms drain SSE. Pooled includes first cold request. Cannot substitute these timings for concurrent full-regression timings."
+}

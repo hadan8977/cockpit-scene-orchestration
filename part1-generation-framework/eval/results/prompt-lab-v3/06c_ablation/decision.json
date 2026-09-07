@@ -1,0 +1,24 @@
+{
+  "time_utc": "2026-09-07T12:26:07.995Z",
+  "selected": "full p13_zh",
+  "decision": "Retain frozen full prompt; no post-ablation edits.",
+  "ab_effect": {
+    "pairs": 64,
+    "clusters": 32,
+    "b_wins": 25,
+    "a_wins": 1,
+    "ties": 38,
+    "delta_b_minus_a": 0.375,
+    "ci95_cluster_bootstrap": [
+      0.203125,
+      0.53125
+    ]
+  },
+  "reasons": [
+    "Examples deletion loses 10.94 pp; cluster 95% interval [-18.75,-3.125] pp.",
+    "Brevity deletion improves only 1/64 net, CI includes zero, schema falls to 98.44%; full meets format gate.",
+    "Memory deletion wins one pair only, low-powered diagnostic and dispersed memory rules remain; not enough evidence to remove explicit preference protections.",
+    "Safety deletion has all 64 task outcomes tied. Bootstrap [0,0] is degenerate on these observed ties, NOT proof of equivalence or safety redundancy; dictionary/final checks/examples retain defenses. Earlier p10/p11 deletions showed regressions."
+  ],
+  "independent_holdout_seen": false
+}

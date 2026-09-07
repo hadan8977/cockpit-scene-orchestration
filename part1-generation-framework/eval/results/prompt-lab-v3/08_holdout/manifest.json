@@ -1,0 +1,38 @@
+{
+  "plan": {
+    "run_id": "08_holdout",
+    "testset": "experiments/holdout_v2.jsonl",
+    "seed": 20260922,
+    "purpose": "First evaluation of untouched holdout responses, 24 bilingual items and three repetitions; no tuning on its results.",
+    "repeat": 3,
+    "temperature": 0,
+    "max_tokens": 1000,
+    "json_mode": true,
+    "input_envelope": true,
+    "concurrency": 3,
+    "campaign_max_attempts": 7600,
+    "variants": [
+      {
+        "name": "final",
+        "prompt": "prompts/final_dsv4flash_p13_zh.md"
+      }
+    ]
+  },
+  "prompt_sha256": {
+    "final": "57488940054541ba99365f4e9521391783b42902d468ef68699ae171804d8c12"
+  },
+  "items_sha256": "14d2c18623cc1c1b0ec168464821930ec11d9e694277acc39f8f9b8abf510ae7",
+  "files": {
+    "safe_eval.py": "2f32a54865ad88082dc53a9e0c24a74f960ea1fe51bdcd15a4830a3c4f3e90c2",
+    "run_eval.py": "f81f8ddf80f394f1f73c9e5dcc59a39354d1720e0789c741066eb7f4126d3f45",
+    "output_contract.py": "dc2936eb3aa873f18cc28ad7d68ed3804aefadd20e3788ee4879ee386acdb026",
+    "validator.py": "208f9af81eb8d355abc61c0a2b9e41cca594c59733079c91faf7ebae1d52de61",
+    "vocab.json": "3673eb825f18fb7460174c29652a9cadccdcf10b04463176da992f6435ef81e9",
+    "capabilities.json": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d",
+    "schema.json": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c",
+    "requirements.txt": "8f67819aef0f6bc9b0ee131950b54c0f163307ecd96b1e0dad661c096b8f7960"
+  },
+  "expected": 144,
+  "provider": "DeepSeek official",
+  "style": "p3"
+}

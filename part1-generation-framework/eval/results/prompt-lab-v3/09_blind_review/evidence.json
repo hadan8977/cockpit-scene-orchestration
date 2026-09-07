@@ -1,0 +1,21 @@
+{
+  "hash_encoding": "UTF-8 LF",
+  "files": {
+    "judge.jsonl": "6740c15353aa0c9f7d19ae0ea23a37680f17ae2cd1736b8da53150f81ab9e8f7",
+    "samples.jsonl": "616fa7a19d70700862225a180b55478793893b9d3d88c17fec219ab5f7115437",
+    "mapping.json": "7cc4fd840ad054ccd656ef84574b5770a0ae946de9694aede0e8aeb3dd50d1c1",
+    "rubric.txt": "37aebadd52fdba6e079b795c0121578c2306afcea179f8529062dbda9c659cd1",
+    "audited-ratings.json": "95f28f2b8b09a1eefc400aea10b3f60a661e625f325cb424e9c6617fd1f17110",
+    "summary.json": "a18d1ee0a93553d3731cc117d0c1620685ea8cc2c840c13eb8cbbf94993429a8",
+    "summary.strict-original.json": "c3770039ab1962ae2b110e7cf426111c1df1f007fdbcf052d9943dc337095e73",
+    "ledger.json": "3298aac1baf41ff4955fde1e5ce4720434d0b284ec19b77399c3af6bd8de7c76"
+  },
+  "requests": 24,
+  "complete_dimension_pairs": 24,
+  "preference_available": 17,
+  "preference_missing": 7,
+  "no_reruns": true,
+  "source_script": "experiments/frozen-source/blind_review.before-parser-fix.py",
+  "parser": "audit_blind_review.py",
+  "note": "Original producer ledger marks seven missing-preference responses with empty errors and unknown costs; usage.cost in preserved provider responses supplies the 24-request audited cost."
+}

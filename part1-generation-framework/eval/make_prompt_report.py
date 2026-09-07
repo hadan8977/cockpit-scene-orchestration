@@ -62,10 +62,13 @@ def main():
               "| 单块删除（相对完整版本） | 删除版胜／完整胜／平 | 通过率差 | 95% 区间 |", "|---|---:|---:|---:|"]
     for k,p in ab["paired"].items():
         if k.startswith("full -> "): lines.append("| %s | %d／%d／%d | %+.1f pp | %s |"%(k.split(" -> ")[1],p["b_wins"],p["a_wins"],p["ties"],100*p["delta_b_minus_a"],ci(p)))
-    lines += ["", "安全规则也出现在有效值词典与最后核对中，删 safety 块只测该块的增量作用；记忆规则也有分散表述。小样本未发现损害不等于证明该块无用。弱化安全的版本不交付。组件取舍见 [消融决策](../eval/results/prompt-lab-v3/06b_ablation/decision.json)。", "",
+    lines += ["", "安全规则也出现在有效值词典与最后核对中，删 safety 块只测该块的增量作用；记忆规则也有分散表述。小样本未发现损害不等于证明该块无用。若全部配对结果相同，bootstrap显示[0,0]只是当前样本的退化区间，不构成等价性检验或线上安全保证。弱化安全的版本不交付。组件取舍见 [消融决策](../eval/results/prompt-lab-v3/06b_ablation/decision.json)。", "",
               "## 所选开发回归与冻结后的独立留出", "", "| 集合 | 次数 | 可用通过 | 严格 JSON | 能力/结构合规 | 安全违规 | 总 p95 |", "|---|---:|---:|---:|---:|---:|---:|"]
     for name,s in (("134 题全量回归",o),("24 题新留出",h)):
         lines.append("| %s | %d | %s | %s | %s | %d | %s |"%(name,s["n"],pc(s["usable_pass"]),pc(s["strict_json_valid"]),pc(s["schema_valid"]),s["safety_violations"],sec(s["latency_p95"])))
+    hold_rows=read_rows(ROOT/hr/"raw.jsonl")
+    benign=stats([r for r in hold_rows if r["cat"]!="attack"])
+    lines += ["", "留出集包含12道攻击题和12道非攻击题，故整体比例不代表线上分布。非攻击响应 %d 次、可用通过 %s；中文全部题通过 %s，英文 %s，差 %.2f pp，超过5 pp参考线。开发集的较小语言差不能外推为新场景已均衡；留出未运行英文系统prompt，因此不能据这两处失败推断分流一定能修复。"%(benign["n"],pc(benign["usable_pass"]),pc(hold["by_lang"]["zh"]["usable_pass"]),pc(hold["by_lang"]["en"]["usable_pass"]),hold["language_gap_abs_pp"]), "", "留出两处稳定失败：T03英文的9:30 pm灯光规则丢失时间条件，被当作立即action；T08英文要求今天安静且不放音乐，被过度拒绝为none。均为3/3失败。本版保持冻结，不在留出上回改。"]
     lines += ["", "| 回归类别 | 次数 | 可用通过 |", "|---|---:|---:|"]
     for c,s in full["by_cat"].items(): lines.append("| %s | %d | %s |"%(c,s["n"],pc(s["usable_pass"])))
     split=json.loads((HERE/"experiments"/"dataset-split.json").read_text(encoding="utf-8"))
@@ -88,6 +91,7 @@ def main():
         p=lat[key];lo,hi=p["ci95_cluster_bootstrap"];lines.append("连接复用的%s配对**均值差**（pooled−cold）：%+.3f s，95%% 按题聚类区间 [%+.3f, %+.3f] s。该差异属于传输配置，不能归因为 prompt 压缩。"%(label,p["delta_b_minus_a"],lo,hi))
     lines += ["", "独立模型匿名评审：`%s`，%d 对，A/B 位置随机；**人工尚未评分**。选择的是预登记的 12 道体验题×中英，比较 p3 开发基线与最终端到端输出，故该体验对比含输入协议变化，不称纯 prompt 因果效果。"%(judge["model"],judge["pairs_completed"]), "", "| 版本 | 贴切 | 分寸 | 话术 | 组合 |", "|---|---:|---:|---:|---:|"]
     for arm,s in judge["arms"].items(): lines.append("| %s | %.2f | %.2f | %.2f | %.2f |"%(arm,s["grounding"],s["restraint"],s["wording"],s["composition"]))
+    lines += ["", "本次模型评审给最终版更高的分寸感，但贴切与组合丰富度分数下降，不能声称体验全面提升。该取舍与默认少说话、少干预有关，仍需人工体验评审；不能用单一机器评分确认主观质量已达标。"]
     lines += ["", "偏好计数（missing为缺失，非平局）："+esc(judge["preference"])+"。部分原响应缺少总偏好字段，但四维整数评分有效；仅恢复原评分，偏好计缺失，不补造、不重跑。处理及评审理由错误见[解析修订](../eval/experiments/JUDGE-PARSER-AMENDMENT.md)。这是一位模型评审的意见；[人工匿名表](../eval/results/prompt-lab-v3/09_blind_review/human-review.md) 留空，不能据此宣称真人偏好已验证。", "",
               "## 门槛核对", "", "| 指标 | 原参考门槛 | 最终回归实测 | 状态 |", "|---|---|---|---|"]
     gates=[("严格 JSON",">=99%",pc(o["strict_json_valid"]),o["strict_json_valid"]>=.99),
@@ -109,14 +113,14 @@ def main():
     lines += ["", "留出失败计数："+esc(hold["failure_counts_by_id"])+"。留出出现失败后没有反向修改本次冻结 prompt。逐次输出、拒绝和原因见对应 raw.jsonl.gz 与 audit.json。", "",
               "主要限制：样本有限且包含开发重用；词法语言检查不评自然度；单一评审模型可能有偏好；接口网络和缓存会影响速度；温度 0 仍可能产生不同输出。Prompt 只提出方案，部署仍需独立能力/安全校验与用户确认，不能据零样本违规承诺现实行车安全。", "",
               "## 成本、复现和交付", "",
-              "本轮累计 DeepSeek 账本尝试 %d 次（含1次HTTP前中止）；开始余额 %.2f 元，最近观察 %.2f 元，首末净减少 %.2f 元。期间观察到余额上调10元，来源未核实，因此净差不能当作调用成本；详见 BALANCE-ADJUSTMENT.json。上限 %d 次，保留 %.2f 元。独立评审已知费用 $%.6f，费用未知请求 %d。"%(len(ledger["attempts"]),ledger["initial_balance_cny"],ledger["last_balance_cny"],ledger["initial_balance_cny"]-ledger["last_balance_cny"],ledger["max_attempts"],ledger["reserve_cny"],judge["known_cost_usd"],judge["unknown_cost_calls"]), "",
+              "本轮累计 DeepSeek 账本尝试 %d 次（含1次HTTP前中止）；开始余额 %.2f 元，最近观察 %.2f 元，首末净变化 %+.2f 元。期间观察到余额上调10元，来源未核实，因此净差不能当作调用成本；详见 BALANCE-ADJUSTMENT.json。上限 %d 次，保留 %.2f 元。独立评审已知费用 $%.6f，费用未知请求 %d。"%(len(ledger["attempts"]),ledger["initial_balance_cny"],ledger["last_balance_cny"],ledger["last_balance_cny"]-ledger["initial_balance_cny"],ledger["max_attempts"],ledger["reserve_cny"],judge["known_cost_usd"],judge["unknown_cost_calls"]), "",
               "按完整余额观测序列，累计上调 %.2f 元、累计下降 %.2f 元；下降也可能含其他session，不作为本实验精确账单。"%(balance_ups,balance_downs), "",
               "官方峰值价目仅用于保守预算上界：[DeepSeek 价目](https://api-docs.deepseek.com/zh-cn/quick_start/pricing/)。不沿用旧脚本的过时单价；API usage、缓存字段、请求次数和余额账本一并保存。", "",
               "- 最终 prompt SHA-256（UTF-8，LF）：`"+choice["prompt_sha256"]+"`。部署必须搭配固定 locale 信封和测试过的 JSON/非思考配置。",
               "- [最终冻结清单](../eval/experiments/FINAL_FREEZE.json)、[完整实验目录](../eval/results/prompt-lab-v3/)、[评分源快照](../eval/experiments/frozen-source/README.md)。每次生成保留文本、usage、时延与评分；gzip 归档附 SHA-256。",
               "- p6 因安全/语言回退淘汰；p7 仍有禁止动作；p8/p9/p10 的开发结果均保留。p9/p12 都只完成第一遍，不能当三遍结果。p13是最后一轮开发修订，之后只验收不在留出结果上优化。p10 示例勘误产生 p11，未覆盖历史文件。",
               "- GitHub 状态由最新看板与本地提交记录说明；没有远端回执时不得称已同步。API key 与未脱敏日志不进入仓库。", "",
-              "从 eval 目录重算已有响应（先解压 raw.jsonl.gz；无需 key、无需付费）：", "", "```powershell", "python restore_raw.py", "python verify_archives.py", "python analyze_experiments.py 05c_p11_language", "python analyze_experiments.py 06b_ablation", "python audit_final.py 07_final", "python audit_final.py 08_holdout", "python audit_final.py 10_latency", "python make_prompt_report.py", "```", "",
+              "从 eval 目录重算已有响应（先解压 raw.jsonl.gz；无需 key、无需付费）：", "", "```powershell", "python restore_raw.py", "python verify_archives.py", "python analyze_experiments.py 05c_p11_language", "python analyze_experiments.py 06b_ablation", "python audit_final.py 07_final", "python audit_final.py 08_holdout", "python audit_final.py 10_latency", "python audit_blind_review.py", "python make_prompt_report.py", "```", "",
               "重新调用模型使用 safe_eval.py 和 experiments 中同名计划；已完成日志会断点跳过。复现实验需建立新的活动账本/运行目录并明确预算，不能把重跑当成已有结果的免费重算。", ""]
     report=HERE.parent/"docs"/"第一部分-Prompt优化-最终实验报告.md"
     body="\n".join(lines)
@@ -124,7 +128,7 @@ def main():
         body=body.replace(old,new)
     if fr!="07_final":
         failed=load("07_final","audit.json")["overall"]
-        body += "\n\n## 必须保留的失败验证\n\np11 在小核心集语言实验中约92%通过，但首次完整134题三遍回归只有%s（804次），能力/结构合规%s、原始安全违规%d次。因此未将p11当作满意交付；后续p12才使用该全量失败开发。原始冻结文件与全部响应保留在07_final目录，绝不能用开发分数替代这次失败验证。\n"%(pc(failed["usable_pass"]),pc(failed["schema_valid"]),failed["safety_violations"])
+        body += "\n\n## 必须保留的失败验证\n\np11 在小核心集语言实验中约92%%通过，但首次完整134题三遍回归只有%s（804次），能力/结构合规%s、原始安全违规%d次。因此未将p11当作满意交付；后续p12才使用该全量失败开发。原始冻结文件与全部响应保留在07_final目录，绝不能用开发分数替代这次失败验证。\n"%(pc(failed["usable_pass"]),pc(failed["schema_valid"]),failed["safety_violations"])
     report.write_text(body,encoding="utf-8")
     print("Wrote final prompt experiment report")
 

@@ -34,7 +34,15 @@ def main():
             restored.pop('source_run')
             assert restored==src[restored['variant'],restored['id'],restored['lang'],restored['rep']],manifest
         assert m['new_api_calls']==0,manifest
-    result={'status':'verified','archives':checked,'note':'Checks gzip/raw hashes, JSON parse, row counts and exact derived response provenance. No model requests.'}
+    ledger_meta=ROOT/'campaign-archive.json'
+    if ledger_meta.exists():
+        meta=json.loads(ledger_meta.read_text(encoding='utf-8'))
+        packed=(ROOT/meta['archive']).read_bytes()
+        assert hashlib.sha256(packed).hexdigest()==meta['gzip_sha256']
+        raw=gzip.decompress(packed)
+        assert hashlib.sha256(raw).hexdigest()==meta['raw_sha256']
+        assert len(json.loads(raw)['attempts'])==meta['ledger_attempts']
+    result={'status':'verified','archives':checked,'note':'Checks gzip/raw hashes, JSON parse, row counts, campaign ledger and exact derived response provenance. No model requests.'}
     (ROOT/'evidence-verification.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     print('Verified',len(checked),'archives; no API calls')
 

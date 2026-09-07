@@ -1,0 +1,10 @@
+{
+  "archive": "campaign.json.gz",
+  "raw_sha256": "0225e887e06285f29b9acff7aa2cd3b7d598dea74c1d0cf73ac0915a5187910b",
+  "gzip_sha256": "d6afc9eb1fcd7f3d27fe9efc1b33a119d3e007cb03ca9a6f711bb6a790e0f1f2",
+  "ledger_attempts": 7099,
+  "model_requests": 7098,
+  "aborted_before_network": 1,
+  "known_external_balance_increases_cny": 10,
+  "observed_account_decreases_cny": 6.16
+}

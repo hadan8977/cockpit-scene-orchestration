@@ -10,5 +10,5 @@ for s in read_rows(p/"samples.jsonl"):
     for side in ("A", "B"):
         lines += ["### "+side, "", "```json", s[side], "```", ""]
     lines += ["| 候选 | 贴切 | 分寸 | 话术 | 组合 | 理由 |", "|---|---|---|---|---|---|", "| A | | | | | |", "| B | | | | | |", "", "偏好：A / B / 相当（待填）", ""]
-(p/"human-review.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
+(p/"human-review.md").write_text("\n".join(lines).rstrip()+"\n",encoding="utf-8")
 print("Wrote anonymous human-review.md; no ratings filled")

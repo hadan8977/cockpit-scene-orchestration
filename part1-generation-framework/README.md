@@ -1,5 +1,7 @@
 # 第一部分：生成框架与云端小模型选型（2026-09-07）
 
+本轮交付：[p13 Prompt](eval/prompts/final_dsv4flash_p13_zh.md) · [完整实验报告](docs/第一部分-Prompt优化-最终实验报告.md) · [接入说明](docs/第一部分-Prompt接入说明.md)。推荐统一中文系统指令，locale控制展示语言；原门槛仍有未达项，详见报告。
+
 对应 PRD v15 的 2.4 与 GEN_001 到 GEN_004。这个文件夹自成一体，可以单独运行。
 
 | 内容 | 位置 |
@@ -21,7 +23,7 @@
 | 原型 v1（单页，回放真实输出）与概念舱布局草稿（未完成，只作参考） | `demo/gen-app/`、`demo/cockpit/` |
 | Markdown 转 docx | `tools/md2docx.py` |
 
-跑评测（key 到位后）：
+以下为历史矩阵运行示例；当前付费入口已改为带预算保护的safe_eval.py，先阅读eval/README.md，勿直接沿用旧命令：
 
 ```bash
 cd eval

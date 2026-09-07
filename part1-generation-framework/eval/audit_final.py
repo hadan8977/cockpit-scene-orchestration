@@ -84,6 +84,10 @@ def latency():
             "total_mean_paired":paired(cold,pooled,lambda r:r["latency"]),
             "understanding_mean_paired":paired(cold,pooled,lambda r:r["t_und"]),
             "note":"Serial same-prompt transport experiment; both arms drain SSE. Pooled includes first cold request. Cannot substitute these timings for concurrent full-regression timings."}
+    for key in ("total_mean_paired","understanding_mean_paired"):
+        p=result[key]
+        p["pooled_faster_pairs"]=p.pop("a_wins")
+        p["cold_faster_pairs"]=p.pop("b_wins")
     atomic(path/"transport-analysis.json",result);print(json.dumps(result,indent=2))
 
 if __name__=="__main__":

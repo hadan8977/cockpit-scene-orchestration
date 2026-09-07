@@ -1,7 +1,7 @@
 {
-  "attempts": 6442,
+  "attempts": 7099,
   "initial_balance_cny": 13.23,
-  "latest_observed_balance_cny": 17.72,
+  "latest_observed_balance_cny": 17.07,
   "reserve_cny": 3,
   "max_attempts": 7600,
   "note": "Account balance change may include other sessions; unknown provider costs are not zero.",
@@ -17,7 +17,9 @@
     "05e_p13_language": 1608,
     "06_ablation": 384,
     "06b_ablation": 384,
-    "06c_ablation": 15,
-    "07_final": 804
+    "06c_ablation": 384,
+    "07_final": 804,
+    "08_holdout": 144,
+    "10_latency": 144
   }
 }

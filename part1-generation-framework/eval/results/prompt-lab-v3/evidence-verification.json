@@ -42,6 +42,11 @@
       "sha256": "da1c2edfdd89c14debb2ba3913f9435178af3d88e047b29001a8d4c2769326df"
     },
     {
+      "run": "05e_p13_language",
+      "rows": 1608,
+      "sha256": "2b54b8cdfb49daf9605af4cf558e3fd6165e55420fe9a0e1d1439beef8e6d6b8"
+    },
+    {
       "run": "06_ablation",
       "rows": 384,
       "sha256": "b5a83960602016db6d0dbc89900c255de2ae2fdefdb6f9093418523763c47a04"
@@ -52,10 +57,30 @@
       "sha256": "bae8028f5bc2899795ecc76c7328cd677876400605d3486735a44bfd25fe384f"
     },
     {
+      "run": "06c_ablation",
+      "rows": 384,
+      "sha256": "15611491e95f92272bef5259f8db70b02b63aeab8c7d4e249b02b99fd3d81b82"
+    },
+    {
       "run": "07_final",
       "rows": 804,
       "sha256": "a679a28585eee35538b9b6395a82c77ee3560d26e1153602814b80b42bcbd91d"
+    },
+    {
+      "run": "07b_final_selected",
+      "rows": 804,
+      "sha256": "b2c0d96e80b3f7eba6f79fdd682fa661c7226f29e46b89e8a83cb22058a7f2ec"
+    },
+    {
+      "run": "08_holdout",
+      "rows": 144,
+      "sha256": "e4ee676f17390b000e58d41c090b942522cdca6b793ab170d1753462b498cd3b"
+    },
+    {
+      "run": "10_latency",
+      "rows": 144,
+      "sha256": "e18ae9fb43d53b55c68c5959956312a73f4fe1f240e3148acd6bf117f9463325"
     }
   ],
-  "note": "Checks gzip/raw hashes, JSON parse, row counts and exact derived response provenance. No model requests."
+  "note": "Checks gzip/raw hashes, JSON parse, row counts, campaign ledger and exact derived response provenance. No model requests."
 }

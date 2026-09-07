@@ -1,0 +1,36 @@
+{
+  "time_utc": "2026-09-07T12:36:18.304Z",
+  "prompt": "prompts/final_dsv4flash_p13_zh.md",
+  "prompt_sha256": "57488940054541ba99365f4e9521391783b42902d468ef68699ae171804d8c12",
+  "experiment_work_complete": true,
+  "all_reference_gates_passed": false,
+  "recommended_strategy": "unified_zh",
+  "evidence": {
+    "language_cross": 1608,
+    "ablation_and_ab": 384,
+    "selected_development_rows": 804,
+    "selected_rows_new_calls": 0,
+    "holdout": 144,
+    "transport": 144,
+    "blind_review_pairs": 24
+  },
+  "main_results": {
+    "development_usable": 0.917910447761194,
+    "holdout_usable": 0.9583333333333334,
+    "holdout_benign_usable": 0.9166666666666666,
+    "development_schema": 0.9912935323383084,
+    "safety_violations_final_development_and_holdout": 0,
+    "development_p95_s": 1.9096146949887036,
+    "holdout_p95_s": 1.7292454299953532
+  },
+  "unmet_or_limited": [
+    "precise pass 86% vs 90% reference",
+    "understanding p50 1.03s vs 0.6s; pooled subset 0.848s",
+    "holdout language gap 8.33pp vs 5pp reference",
+    "machine review shows restraint gain but lower grounding/composition; no human ratings"
+  ],
+  "github_sync": "blocked: connector lacks push permission and local GitHub authentication absent",
+  "total_generation_requests": 7098,
+  "pre_network_aborted_reservations": 1,
+  "judge_requests": 24
+}

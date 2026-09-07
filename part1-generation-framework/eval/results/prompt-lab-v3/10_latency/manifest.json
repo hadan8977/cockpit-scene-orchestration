@@ -1,0 +1,16 @@
+{
+  "expected": 144,
+  "repeat": 3,
+  "model": "deepseek-v4-flash",
+  "prompt": "prompts/final_dsv4flash_p13_zh.md",
+  "prompt_sha256": "57488940054541ba99365f4e9521391783b42902d468ef68699ae171804d8c12",
+  "items_sha256": "139b7ea177703fcf7282524a45332fb9a3d4e08ad5e1e4d9b581a0436cbd84b9",
+  "code_sha256": "25de4614b759b411bba0e8edadfe9f77140b84cb1bca8c1666f431787bab7d5a",
+  "scorer_sha256": "420cc6d9a8b137f348b449106c81ac9c03573e2d7a21ca8b5251c165516c683f",
+  "one_variable": "requests Session reuse; both arms drain body after DONE",
+  "temperature": 0,
+  "max_tokens": 1000,
+  "json_mode": true,
+  "input_envelope": true,
+  "concurrency": 1
+}
