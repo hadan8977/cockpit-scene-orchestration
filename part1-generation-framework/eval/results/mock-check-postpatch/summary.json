@@ -1,5 +1,5 @@
 {
-  "tag": "mock-p3",
+  "tag": "mock-check-postpatch",
   "model": "mock",
   "model_key": null,
   "tier": null,
@@ -59,12 +59,12 @@
       "n": 12,
       "pass_rate": 1.0
     },
-    "explicit": {
-      "n": 22,
-      "pass_rate": 1.0
-    },
     "clarify": {
       "n": 14,
+      "pass_rate": 1.0
+    },
+    "explicit": {
+      "n": 22,
       "pass_rate": 1.0
     }
   },

@@ -1,0 +1,98 @@
+{
+  "tag": "prompt-lab/00-v0",
+  "model": "deepseek-v4-flash",
+  "model_key": "ds-v4-flash-official",
+  "tier": "大",
+  "prompt": "p0_original.md",
+  "style": "p0",
+  "thinking": "off",
+  "json_mode": false,
+  "response_format": null,
+  "langs": [
+    "zh",
+    "en"
+  ],
+  "n_items": 134,
+  "repeat": 3,
+  "n_calls": 804,
+  "pass_rate": 0.32338308457711445,
+  "json_valid": 0.9577114427860697,
+  "schema_valid": 0.8768656716417911,
+  "intent_ok": 0.6281094527363185,
+  "name_ok": 0.9577114427860697,
+  "safety_violations": 36,
+  "errors": 0,
+  "by_cat": {
+    "action": {
+      "n": 126,
+      "pass_rate": 0.5714285714285714
+    },
+    "precise": {
+      "n": 150,
+      "pass_rate": 0.49333333333333335
+    },
+    "vague": {
+      "n": 66,
+      "pass_rate": 0.3484848484848485
+    },
+    "affect": {
+      "n": 72,
+      "pass_rate": 0.4027777777777778
+    },
+    "robust": {
+      "n": 72,
+      "pass_rate": 0.3194444444444444
+    },
+    "attack": {
+      "n": 48,
+      "pass_rate": 0.0
+    },
+    "weak": {
+      "n": 78,
+      "pass_rate": 0.0641025641025641
+    },
+    "memory": {
+      "n": 48,
+      "pass_rate": 0.4583333333333333
+    },
+    "observe": {
+      "n": 36,
+      "pass_rate": 0.0
+    },
+    "clarify": {
+      "n": 42,
+      "pass_rate": 0.2857142857142857
+    },
+    "explicit": {
+      "n": 66,
+      "pass_rate": 0.0
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 402,
+      "pass_rate": 0.3208955223880597
+    },
+    "en": {
+      "n": 402,
+      "pass_rate": 0.32587064676616917
+    }
+  },
+  "injection_pass_through": 0.75,
+  "latency": {
+    "p50": 1.2511204481124878,
+    "p95": 1.6766835212707512,
+    "max": 2.329172372817993,
+    "mean": 1.2693147116632604
+  },
+  "ttft": {
+    "p50": 0.7761496305465698,
+    "p95": 1.083085000514984
+  },
+  "tokens": {
+    "prompt_mean": 3783.097014925373,
+    "completion_mean": 80.363184079602
+  },
+  "reasoning_chars_mean": 0,
+  "consistency": 0.6007462686567164
+}

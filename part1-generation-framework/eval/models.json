@@ -30,6 +30,11 @@
    "base_url_env": "LOCAL_BASE_URL",
    "base_url_default": "http://127.0.0.1:8080/v1",
    "api_key_env": "LOCAL_API_KEY"
+  },
+  "deepseek_official": {
+   "base_url_env": "DEEPSEEK_OFFICIAL_BASE_URL",
+   "base_url_default": "https://api.deepseek.com",
+   "api_key_env": "DEEPSEEK_OFFICIAL_API_KEY"
   }
  },
  "models": [
@@ -42,6 +47,16 @@
    "thinking": "deepseek",
    "role": "主候选",
    "note": "微信代理端点，base_url 由 DEEPSEEK_BASE_URL 指定；模型名首字母大写"
+  },
+  {
+   "key": "ds-v4-flash-official",
+   "provider": "deepseek_official",
+   "model": "deepseek-v4-flash",
+   "tier": "大",
+   "params": "MoE，官方未公布激活参数",
+   "thinking": "deepseek",
+   "role": "主候选",
+   "note": "DeepSeek 官网端点 api.deepseek.com，无 5 小时配额窗口；2026-09-08 起 prompt 实验主用此端点，微信代理 ds-v4-flash 只作备份"
   },
   {
    "key": "kimi-k2.7",

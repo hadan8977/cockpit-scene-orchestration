@@ -12,6 +12,7 @@
   python3 run_eval.py --mock --mock-style p3 ; python3 run_eval.py --mock-noise --mock-style p3
 输出：results/<tag>/raw.jsonl（每次调用一行）、summary.md、summary.json
 """
+import threading
 import argparse, json, os, re, sys, time, random, statistics
 import concurrent.futures as cf
 from datetime import datetime
@@ -374,14 +375,58 @@ def score_item(item, obj, prompt_style):
     return res
 
 # ---------------- 调用模型 ----------------
-def call_model(cfg, system_prompt, user_msg, _body=None):
-    """带有限重试：429 与 5xx 与网络异常最多重试 3 次（指数退避），避免代理并发限流被记成失败。"""
-    tries = 0
+# ---- 全局限流：微信代理端点是 1200 次 / 5 小时的滑动窗口，另有并发上限 6 ----
+_RL_LOCK = threading.Lock()
+_RL_LAST = [0.0]
+_QUOTA_WALL = [False]
+MIN_INTERVAL = float(os.environ.get("EVAL_MIN_INTERVAL", "0") or 0)
+
+def _rate_limit_gate():
+    if MIN_INTERVAL <= 0:
+        return
     while True:
+        with _RL_LOCK:
+            now = time.time()
+            wait = _RL_LAST[0] + MIN_INTERVAL - now
+            if wait <= 0:
+                _RL_LAST[0] = now
+                return
+        time.sleep(wait)
+
+def call_model(cfg, system_prompt, user_msg, _body=None):
+    """带重试：429 分两种。
+    concurrent limit（端点并发上限）：短退避，最多 10 次。
+    period request limit（1200 次 / 5 小时的配额窗口）：长退避 45 秒，最多 EVAL_QUOTA_TRIES 次（默认 40，约 30 分钟），
+    这样配额窗口滚过去以后运行能自己接上，不会把配额墙记成模型的判分失败。
+    5xx 与网络异常：最多 3 次。
+    """
+    tries = 0; quota_waits = 0; conc_waits = 0
+    quota_tries = int(os.environ.get("EVAL_QUOTA_TRIES", "5"))
+    quota_wait = float(os.environ.get("EVAL_QUOTA_WAIT", "60"))
+    while True:
+        if _QUOTA_WALL[0]:
+            # 已经确认撞上 5 小时窗口配额：后面的调用不再等待，直接记成 error，留给 --resume 补跑
+            return {"text": None, "error": "QUOTA_WALL 跳过（5 小时窗口配额用尽，留给 --resume）", "latency": 0.0,
+                    "ttft": None, "ttfr": None, "t_und": None, "usage": None, "reasoning_chars": 0}
+        _rate_limit_gate()
         r = _call_model_once(cfg, system_prompt, user_msg, _body)
         e = r.get("error") or ""
+        if "period request limit" in e:
+            if quota_waits >= quota_tries:
+                _QUOTA_WALL[0] = True
+                print("!! 撞上 5 小时窗口配额（%s），本次运行停止发新请求，未完成的行留给 --resume" % e[:120], flush=True)
+                r["retries"] = tries; r["quota_blocked"] = True; return r
+            quota_waits += 1; tries += 1
+            time.sleep(quota_wait + random.random() * 10)
+            continue
+        if "concurrent limit" in e:
+            if conc_waits >= 10:
+                r["retries"] = tries; return r
+            conc_waits += 1; tries += 1
+            time.sleep(3 + random.random() * 3)
+            continue
         retryable = ("HTTP 429" in e) or bool(re.match(r"HTTP 5\d\d", e)) or (r.get("text") is None and e and "HTTP" not in e)
-        if not retryable or tries >= 3:
+        if not retryable or tries >= 3 + quota_waits + conc_waits:
             if tries:
                 r["retries"] = tries
             return r
@@ -549,6 +594,9 @@ def main():
     ap.add_argument("--prompt", default="prompts/p3_grammar.md")
     ap.add_argument("--style", choices=["auto", "p0", "p1", "p2", "p3"], default="auto")
     ap.add_argument("--testset", default="testset.jsonl")
+    ap.add_argument("--ids", default="", help="只跑这些题号：逗号分隔，或指向一个每行一个题号的文件")
+    ap.add_argument("--dev-set", action="store_true", help="用分层开发集 testset_core.jsonl（63 题）替代全集")
+    ap.add_argument("--resume", action="store_true", help="results/<tag>/raw.jsonl 已存在时，保留无 error 的行，只补跑缺失或出错的 (题, 语言, 重复)")
     ap.add_argument("--lang", choices=["zh", "en", "both"], default="both")
     ap.add_argument("--repeat", type=int, default=1)
     ap.add_argument("--limit", type=int, default=0)
@@ -581,7 +629,12 @@ def main():
         style = args.mock_style
     apply_style(style)
     system_prompt = open(prompt_path, encoding="utf-8").read()
-    items = [json.loads(l) for l in open(os.path.join(HERE, args.testset), encoding="utf-8") if l.strip()]
+    testset_path = os.path.join(HERE, "testset_core.jsonl") if args.dev_set else os.path.join(HERE, args.testset)
+    items = [json.loads(l) for l in open(testset_path, encoding="utf-8") if l.strip()]
+    if args.ids:
+        want = open(os.path.join(HERE, args.ids), encoding="utf-8").read().split() if os.path.exists(os.path.join(HERE, args.ids)) else args.ids.split(",")
+        want = set(x.strip() for x in want if x.strip())
+        items = [i for i in items if i["id"] in want]
     if args.only:
         cats = set(args.only.split(",")); items = [i for i in items if i["cat"] in cats]
     if args.limit:
@@ -604,6 +657,18 @@ def main():
     outdir = os.path.join(HERE, "results", tag); os.makedirs(outdir, exist_ok=True)
 
     jobs = [(it, lang, rep) for it in items for lang in langs for rep in range(args.repeat)]
+    kept_rows = []
+    if args.resume:
+        rawp = os.path.join(outdir, "raw.jsonl")
+        if os.path.exists(rawp):
+            old = [json.loads(l) for l in open(rawp, encoding="utf-8") if l.strip()]
+            kept_rows = [r for r in old if not r.get("error")]
+            have = set((r["id"], r["lang"], r["rep"]) for r in kept_rows)
+            before = len(jobs)
+            jobs = [j for j in jobs if (j[0]["id"], j[1], j[2]) not in have]
+            print("resume：旧文件 %d 行，保留无 error 的 %d 行，本次补跑 %d / %d" % (len(old), len(kept_rows), len(jobs), before), flush=True)
+        else:
+            print("resume：没有旧的 raw.jsonl，按全新运行处理", flush=True)
     def run_one(job):
         it, lang, rep = job
         inp = it.get("input_en") or it["input"] if lang == "en" else it["input"]
@@ -616,7 +681,7 @@ def main():
             obj = mock_output(it, style, noise=args.mock_noise)
             r = {"text": json.dumps(obj, ensure_ascii=False), "error": None, "latency": 0.0, "ttft": 0.0, "ttfr": None, "t_und": 0.0, "usage": None, "reasoning_chars": 0}
         sc = score_item(it, obj, style)
-        return {"id": it["id"], "cat": it["cat"], "lang": lang, "rep": rep, "input": inp, "context": ctx, "tests": it["tests"], "raw_text": r["text"], "error": r["error"],
+        return {"id": it["id"], "cat": it["cat"], "lang": lang, "rep": rep, "ts": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "input": inp, "context": ctx, "tests": it["tests"], "raw_text": r["text"], "error": r["error"], "attempts": 1 + int(r.get("retries") or 0),
                 "latency": r["latency"], "ttft": r.get("ttft"), "ttfr": r.get("ttfr"), "t_und": r.get("t_und"), "usage": r["usage"], "reasoning_chars": r["reasoning_chars"], "score": sc}
     rows = []
     with cf.ThreadPoolExecutor(max_workers=args.concurrency if live else 8) as ex:
@@ -624,6 +689,8 @@ def main():
             rows.append(row)
             if live:
                 print("%-4s %s rep%d %s %.2fs %s" % (row["id"], row["lang"], row["rep"], "PASS" if row["score"]["pass"] else "FAIL", row["latency"], row["score"]["fail_reason"][:80]), flush=True)
+    if kept_rows:
+        rows = kept_rows + rows
     rows.sort(key=lambda r: (r["id"], r["lang"], r["rep"]))
     with open(os.path.join(outdir, "raw.jsonl"), "w", encoding="utf-8") as f:
         for r in rows:

@@ -1,0 +1,47 @@
+{
+  "tag": "mock-resume-test",
+  "model": "mock",
+  "model_key": null,
+  "tier": null,
+  "prompt": "p3_grammar.md",
+  "style": "p3",
+  "thinking": null,
+  "json_mode": null,
+  "response_format": null,
+  "langs": [
+    "zh",
+    "en"
+  ],
+  "n_items": 10,
+  "repeat": 2,
+  "n_calls": 40,
+  "pass_rate": 1.0,
+  "json_valid": 1.0,
+  "schema_valid": 1.0,
+  "intent_ok": 1.0,
+  "name_ok": 1.0,
+  "safety_violations": 0,
+  "errors": 0,
+  "by_cat": {
+    "action": {
+      "n": 40,
+      "pass_rate": 1.0
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 20,
+      "pass_rate": 1.0
+    },
+    "en": {
+      "n": 20,
+      "pass_rate": 1.0
+    }
+  },
+  "collapse": {
+    "n": 4,
+    "exact": 0.0,
+    "loose": 0.0
+  },
+  "consistency": 1.0
+}

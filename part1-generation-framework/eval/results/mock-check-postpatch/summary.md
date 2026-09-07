@@ -1,4 +1,4 @@
-# 评测结果 mock-p3
+# 评测结果 mock-check-postpatch
 
 模型：mock；prompt：p3_grammar.md；schema 风格：p3；思考：None；输出格式：text；语言：zh+en；题数 134 × 重复 1
 
@@ -35,8 +35,8 @@
 | weak | 26 | 100.0% |
 | memory | 16 | 100.0% |
 | observe | 12 | 100.0% |
-| explicit | 22 | 100.0% |
 | clarify | 14 | 100.0% |
+| explicit | 22 | 100.0% |
 
 ## 未通过（0）
 

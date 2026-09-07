@@ -120,6 +120,8 @@ def main():
     ap.add_argument("--concurrency", type=int, default=3)
     ap.add_argument("--compare", action="store_true")
     ap.add_argument("--force", action="store_true", help="已有 judge.jsonl 也重评")
+    ap.add_argument("--resume", action="store_true", default=True, help="默认开：已评且没出错的条目不重评，只补评缺的与出错的（评审也走同一个代理，计入 1200 次 / 5 小时配额）")
+    ap.add_argument("--no-resume", dest="resume", action="store_false")
     args = ap.parse_args()
     cfg = {"temperature": 0.0, "max_tokens": 400, "thinking": "off", "timeout": 90, "reasoning_effort": None, "json_mode": True, "response_format": "json_object"}
     cfg.update(R.resolve_model(os.path.join(HERE, "models.json"), args.judge_key))
@@ -130,13 +132,26 @@ def main():
     for tag in args.tag.split(","):
         jp = os.path.join(HERE, "results", tag, "judge.jsonl")
         rows = [r for r in load_rows(tag) if r["cat"] in cats and (args.rep < 0 or r["rep"] == args.rep) and (args.lang == "both" or r["lang"] == args.lang)]
+        done = []
         if os.path.exists(jp) and not args.force:
-            js = [json.loads(l) for l in open(jp, encoding="utf-8") if l.strip()]
-        else:
+            old_js = [json.loads(l) for l in open(jp, encoding="utf-8") if l.strip()]
+            if args.resume:
+                done = [j for j in old_js if not j.get("error") and not j.get("skipped") and all(j.get(d) is not None for d in DIMS)]
+            else:
+                done = old_js
+        have = set((j["id"], j["lang"], j.get("rep", 0)) for j in done)
+        todo = [r for r in rows if (r["id"], r["lang"], r["rep"]) not in have]
+        if todo:
+            print("评审 %s：已有可用 %d 条，本次补评 %d 条" % (tag, len(done), len(todo)), flush=True)
             with cf.ThreadPoolExecutor(max_workers=args.concurrency) as ex:
-                js = list(ex.map(lambda r: judge_one(cfg, r), rows))
-            with open(jp, "w", encoding="utf-8") as f:
-                for j in js: f.write(json.dumps(j, ensure_ascii=False) + "\n")
+                new_js = list(ex.map(lambda r: judge_one(cfg, r), todo))
+        else:
+            print("评审 %s：已有可用 %d 条，无需补评" % (tag, len(done)), flush=True)
+            new_js = []
+        js = done + new_js
+        js.sort(key=lambda j: (j["id"], j["lang"], j.get("rep", 0)))
+        with open(jp, "w", encoding="utf-8") as f:
+            for j in js: f.write(json.dumps(j, ensure_ascii=False) + "\n")
         S = summarize(tag, js); summaries.append(S)
         model = json.load(open(os.path.join(HERE, "results", tag, "summary.json"), encoding="utf-8")).get("model")
         S["model"] = model

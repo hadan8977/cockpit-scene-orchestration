@@ -1,0 +1,65 @@
+{
+  "tag": "probe-or-qwen",
+  "model": "qwen/qwen3.8-27b",
+  "model_key": "qwen3.8-27b",
+  "tier": "中",
+  "prompt": "p3_grammar.generated.md",
+  "style": "p3",
+  "thinking": "off",
+  "json_mode": false,
+  "response_format": null,
+  "langs": [
+    "zh"
+  ],
+  "n_items": 1,
+  "repeat": 1,
+  "n_calls": 1,
+  "pass_rate": 0.0,
+  "json_valid": 1.0,
+  "schema_valid": 0.0,
+  "intent_ok": 1.0,
+  "name_ok": 1.0,
+  "safety_violations": 0,
+  "errors": 0,
+  "by_cat": {
+    "observe": {
+      "n": 1,
+      "pass_rate": 0.0
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 1,
+      "pass_rate": 0.0
+    }
+  },
+  "relevance_ok": {
+    "n": 1,
+    "rate": 1.0
+  },
+  "latency": {
+    "p50": 5.1622326374053955,
+    "p95": 5.1622326374053955,
+    "max": 5.1622326374053955,
+    "mean": 5.1622326374053955
+  },
+  "ttft": {
+    "p50": 0.7163181304931641,
+    "p95": 0.7163181304931641
+  },
+  "t_understanding": {
+    "p50": 1.3322079181671143,
+    "p95": 1.3322079181671143,
+    "n": 1
+  },
+  "tokens": {
+    "prompt_mean": 4544,
+    "completion_mean": 286
+  },
+  "cost_usd": {
+    "total": 0.00171976,
+    "per_call": 0.00171976,
+    "n": 1
+  },
+  "reasoning_chars_mean": 0
+}
