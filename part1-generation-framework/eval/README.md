@@ -11,7 +11,9 @@
 - `presets.json`：十二个情绪预设，只用于离线兜底与坍缩率计算。
 - `results/`：每次运行一个目录，含 `raw.jsonl`、`summary.md`、`summary.json`。
 
-状态（2026-09-07）：题集扩到 114 题 11 类（新增弱意图 F、记忆 G、观察 H、追问 I、显式创建 J）；注册表加条件语义层 5 条；harness 支持 `--model-key`（models.json 多供应商）、`--response-format json_schema`、理解句出齐时延、relevance 区间、记忆期望；新增 `run_matrix.py` 批跑与对比、`judge.py` 机器评审、`blind_pack.py` 盲评打包、`export_cases.py` 原型回放数据。Kimi K2.7 冒烟 32 句通过 81%。计划见 `../docs/第一部分-测试计划-生成框架与选型-v1.md`。
+状态（2026-09-07 晚）：注册表改为从公司 2026-07 原子能力表导入（`import_capabilities.py` → `vocab.json` v2 → `capabilities.json`，96 条带成熟度；旧表 `vocab_v1.json` 给 p0 到 p2 用）；题集 126 题 12 类（新增 N 类 12 题）；验证器加成熟度档位。
+
+状态（2026-09-07 午）：题集扩到 114 题 11 类（新增弱意图 F、记忆 G、观察 H、追问 I、显式创建 J）；注册表加条件语义层 5 条；harness 支持 `--model-key`（models.json 多供应商）、`--response-format json_schema`、理解句出齐时延、relevance 区间、记忆期望；新增 `run_matrix.py` 批跑与对比、`judge.py` 机器评审、`blind_pack.py` 盲评打包、`export_cases.py` 原型回放数据。Kimi K2.7 冒烟 32 句通过 81%。计划见 `../docs/第一部分-测试计划-生成框架与选型-v1.md`。
 
 旧状态（2026-09-02）：离线自检 P2 全部 66 题通过；P0 与 P1 风格下情感题里离不开音乐的几题按预期失败（原能力表没有音乐）。尚未对真实模型运行，等 dsv4flash 的 key。
 

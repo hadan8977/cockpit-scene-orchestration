@@ -57,24 +57,43 @@ def save(reg):
     reg["version"] = datetime.now().strftime("%Y-%m-%d.%H%M")
     json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
+SLUG = {"车窗": "window", "空调与空气": "hvac", "乘员": "occupant", "座椅": "seat", "门": "door", "氛围": "ambient", "车辆状态": "vehicle", "环境": "env",
+        "灯光": "light", "声音": "audio", "设备": "device", "条件语义": "ctx", "话": "voice", "编排": "flow", "供": "offer", "惊喜": "surprise", "预设": "preset", "屏幕": "screen", "其他": "misc"}
+
+def _id(zh, group, kind):
+    if zh in IDS: return IDS[zh][0]
+    base = SLUG.get(group, "x") + "." + re.sub(r"[^a-z0-9]+", "_", zh.lower()).strip("_")
+    if not re.search(r"[a-z0-9]", base.split(".")[1]):
+        base = SLUG.get(group, "x") + "." + "c%04x" % (sum(ord(ch) for ch in zh) % 0xffff)
+    return base
+
 def build():
+    """从 vocab.json（v2，带 meta）生成 capabilities.json；已有条目保留 status 与 notes。"""
     vocab = json.load(open(os.path.join(HERE, "vocab.json"), encoding="utf-8"))
+    old = {c["id"]: c for c in load()["capabilities"]} if os.path.exists(REG) else {}
+    meta = vocab.get("meta", {"conditions": {}, "actions": {}})
     caps = {}
     def put(zh, kind, values):
-        cid, en, group, cls = IDS[zh]
-        c = caps.setdefault(cid, {"id": cid, "zh": zh, "en": en, "group": group, "class": cls, "status": "enabled", "cond_values": None, "act_values": None, "deny_act_values": [], "notes": ""})
-        c[kind] = values
-    for zh, v in vocab["conditions"].items():
-        put(zh, "cond_values", v)
-    for zh, v in vocab["actions"].items():
-        put(zh, "act_values", v)
-    for zh, v in vocab.get("extensions_p2", {}).get("actions", {}).items():
-        put(zh, "act_values", v); caps[IDS[zh][0]]["notes"] = "扩展能力，demo 原表没有"
-    caps["safety.avas"]["deny_act_values"] = ["关闭"]; caps["safety.avas"]["notes"] = "AVAS 不允许自动化关闭（欧盟 R138、美国 FMVSS 141）"
-    for cid in ("door.front_left", "door.front_right", "door.rear_left", "door.rear_right", "door.tailgate", "door.frunk", "drive.gear"):
-        caps[cid]["notes"] = "只作条件，不作动作"
+        m = meta[kind].get(zh, {})
+        group = m.get("group") or (IDS[zh][2] if zh in IDS else "其他")
+        cid = m.get("id") or _id(zh, group, kind)
+        en = m.get("en") or (IDS[zh][1] if zh in IDS else zh)
+        c = caps.setdefault(cid, {"id": cid, "zh": zh, "en": en, "group": group, "class": m.get("class") or (IDS[zh][3] if zh in IDS else "A"), "status": "enabled",
+                                  "maturity": m.get("maturity", "released"), "source": m.get("source", ""), "exec": m.get("exec", ""), "cond_values": None, "act_values": None, "deny_act_values": [], "notes": m.get("note", "")})
+        c[{"conditions": "cond_values", "actions": "act_values"}[kind]] = values
+        if kind == "actions" and m.get("maturity") and c["maturity"] == "released" and m["maturity"] != "released":
+            c["maturity"] = m["maturity"]
+        if cid in old:
+            c["status"] = old[cid]["status"]
+            if old[cid].get("notes") and "演练" in old[cid]["notes"]: c["notes"] = (c["notes"] + " | " if c["notes"] else "") + old[cid]["notes"]
+    for zh, v in vocab["conditions"].items(): put(zh, "conditions", v)
+    for zh, v in vocab["actions"].items(): put(zh, "actions", v)
+    for s_ in vocab.get("safety_must_not", []):
+        for c in caps.values():
+            if c["zh"] == s_["primary"]: c["deny_act_values"] = list(s_["secondary_any"])
     save({"version": "", "capabilities": list(caps.values())})
-    print("built", len(caps), "capabilities ->", REG)
+    from collections import Counter
+    print("built", len(caps), "capabilities ->", REG, dict(Counter(c["maturity"] for c in caps.values())))
 
 def sync():
     """把 vocab.json 里新增的能力并入已有注册表，不动已有条目的状态与备注。"""
@@ -102,18 +121,20 @@ def fmt_values(v):
 def enabled(reg):
     return [c for c in reg["capabilities"] if c["status"] == "enabled"]
 
+MAT_TAG = {"released": "", "no_ux": "", "sprint": "（规划中）", "planned": "（规划中）", "proposed": "（提议，需共建）"}
+
 def render():
     reg = load(); caps = enabled(reg)
     conds = [c for c in caps if c["cond_values"]]
-    sw = [c["zh"] for c in conds if c["cond_values"] == ["开启", "关闭"]]
+    sw = [c["zh"] + MAT_TAG.get(c.get("maturity", "released"), "") for c in conds if c["cond_values"] == ["开启", "关闭"]]
     en = [c for c in conds if isinstance(c["cond_values"], list) and c["cond_values"] != ["开启", "关闭"]]
     num = [c for c in conds if isinstance(c["cond_values"], dict)]
-    cond_txt = "开关型（开启/关闭）：" + "、".join(sw) + "\n枚举型：" + "、".join("%s（%s）" % (c["zh"], "/".join(c["cond_values"])) for c in en) + "\n数值型：" + "、".join("%s（%s）" % (c["zh"], fmt_values(c["cond_values"])) for c in num)
+    cond_txt = "开关型（开启/关闭）：" + "、".join(sw) + "\n枚举型：" + "、".join("%s%s（%s）" % (c["zh"], MAT_TAG.get(c.get("maturity", "released"), ""), "/".join(c["cond_values"])) for c in en) + "\n数值型：" + "、".join("%s（%s）" % (c["zh"], fmt_values(c["cond_values"])) for c in num)
     acts = [c for c in caps if c["act_values"]]
     groups = {}
     for c in acts:
         groups.setdefault(c["group"], []).append(c)
-    order = ["车窗", "空调与空气", "座椅", "氛围", "声音", "其他"]
+    order = ["空调与空气", "座椅", "车窗", "门", "氛围", "声音", "话", "供", "预设", "惊喜", "屏幕", "设备", "编排", "其他"]
     lines = []
     for g in order + [g for g in groups if g not in order]:
         if g not in groups: continue
@@ -122,7 +143,7 @@ def render():
             v = c["act_values"]
             if c["deny_act_values"] and isinstance(v, list):
                 v = [x for x in v if x not in c["deny_act_values"]]
-            parts.append("%s（%s）" % (c["zh"], fmt_values(v)))
+            parts.append("%s%s（%s）" % (c["zh"], MAT_TAG.get(c.get("maturity", "released"), ""), fmt_values(v)))
         lines.append("%s：%s" % (g, "、".join(parts)))
     act_txt = "\n".join(lines)
     tpl = open(os.path.join(HERE, "prompts", "p3_template.md"), encoding="utf-8").read()
@@ -181,4 +202,4 @@ if __name__ == "__main__":
     else:
         reg = load(); print("version", reg["version"])
         for c in reg["capabilities"]:
-            print("%-28s %-10s %-8s %s %s" % (c["id"], c["zh"], c["status"], c["class"], c["notes"]))
+            print("%-32s %-10s %-8s %s %-9s %s" % (c["id"], c["zh"], c["status"], c["class"], c.get("maturity", ""), c["notes"][:60]))

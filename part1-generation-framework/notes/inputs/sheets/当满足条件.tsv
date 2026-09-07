@@ -1,0 +1,137 @@
+配置字	UX情况	能力分类	一级能力	二级能力	三级能力	单位	事件	事件名称	别名	方法	参数	逻辑关系	返回值	NAME	备注	协议定制	更新时间
+	UX已出	门窗	主驾车窗	开启时			状态变化	DRIVER_WINDOW_OPEN_STATE_CHANGE	door	getDriveWindowOpenHeightOfPosition	null	等于	1	DRIVER_WINDOW_OPEN_STATE_CHANGE		是	
+	UX已出	门窗	主驾车窗	关闭时			状态变化				null	等于	0			是	
+	UX已出	门窗	副驾车窗	开启时			状态变化	PASSENGER_WINDOW_OPEN_STATE_CHANGE		getPassengerWindowOpenHeightOfPosition	null	等于	1	PASSENGER_WINDOW_OPEN_STATE_CHANGE		是	
+	UX已出	门窗	副驾车窗	关闭时			状态变化				null	等于	0			是	
+	UX已出	门窗	左后排车窗	开启时			状态变化	BACK_LEFT_OPEN_STATE_CHANGE		getBackLeftWindowOpenHeightOfPosition	null	等于	1	BACK_LEFT_OPEN_STATE_CHANGE		是	
+	UX已出	门窗	左后排车窗	关闭时			状态变化				null	等于	0			是	
+	UX已出	门窗	右后排车窗	开启时			状态变化	BACK_RIGHT_OPEN_STATE_CHANGE		getBackRightWindowOpenHeightOfPosition	null	等于	1	BACK_RIGHT_OPEN_STATE_CHANGE		是	
+	UX已出	门窗	右后排车窗	关闭时			状态变化				null	等于	0			是	
+	UX已出	门窗	任意车窗	开启时			状态变化	WINDOW_OPEN_STATE_CHANGE	door	getWindowState	1	等于	1	WINDOW_OPEN_STATE_CHANGE			2026-05-27 00:00:00
+	UX已出	门窗	任意车窗	关闭时			状态变化		door		0	等于	0				2026-05-27 00:00:00
+	UX已出	空调	空调开关	开启时			状态变化	AIR_SWITCH_CHANGE	air	getSystemSwitchStatus	null	等于	1	AIR_SWITCH_CHANGE		是	
+	UX已出	空调	空调开关	关闭时			状态变化				null	等于	0			是	
+	UX未出	空调	MAX AC / 极速降温	开启时			状态变化	MAX_AC_CHANGE		getMaxAcSwitch	null	等于	1	MAX_AC_CHANGE		是	
+	UX未出	空调	MAX AC / 极速降温	关闭时			状态变化				null	等于	0			是	
+	UX未出	空调	极速升温	开启			状态变化	HEAT_MAX_SWITCH_CHANGE	air	getHeatMaxSwitch	null	等于	1	HEAT_MAX_SWITCH_CHANGE			2026-05-28 00:00:00
+	UX未出	空调	极速升温	关闭			状态变化				null	等于	0				2026-05-28 00:00:00
+	UX已出	座椅	主驾座椅	有人入座时			状态变化	DRIVER_PERSON_CHANGE	seat	getDriverSts	null	等于	1	DRIVER_PERSON_CHANGE		是	
+	UX已出	座椅	主驾座椅	有人离座时			状态变化				null	等于	0			是	
+	UX已出	座椅	副驾座椅	有人入座时			状态变化	PASSENGER_PERSON_CHANGE		getPassengerSts	null	等于	1	PASSENGER_PERSON_CHANGE		是	
+	UX已出	座椅	副驾座椅	有人离座时			状态变化				null	等于	0			是	
+	UX已出	座椅	任意位置	有人入座时			状态变化	PERSON_CHANGE_YES	seat	getPersonState	1	等于	1	PERSON_CHANGE_YES			2026-05-27 00:00:00
+	UX已出	座椅	任意位置	有人离座时			状态变化	PERSON_CHANGE_NO	seat	getPersonState	0	等于	0	PERSON_CHANGE_NO			2026-05-27 00:00:00
+Y	UX已出	舒适	主驾座椅加热	开启加热时			状态变化	DRIVER_SEAT_HEATING_CHANGE		getDriverHeating	null	等于	1	DRIVER_SEAT_HEATING_CHANGE		是	
+Y	UX已出	舒适	主驾座椅加热	关闭加热时			状态变化				null	等于	0			是	
+Y	UX已出	舒适	副驾座椅加热	开启加热时			状态变化	PASSENGER_SEAT_HEATING_CHANGE		getPassengerHeating	null	等于	1	PASSENGER_SEAT_HEATING_CHANGE		是	
+Y	UX已出	舒适	副驾座椅加热	关闭加热时			状态变化				null	等于	0			是	
+Y	UX已出	舒适	主驾座椅通风	开启通风时			状态变化	DRIVER_SEAT_VENTILATING_CHANGE		getDriverVentilating	null	等于	1	DRIVER_SEAT_VENTILATING_CHANGE		是	
+Y	UX已出	舒适	主驾座椅通风	关闭通风时			状态变化				null	等于	0			是	
+Y	UX已出	舒适	副驾座椅通风	开启通风时			状态变化	PASSENGER_SEAT_VENTILATING_CHANGE		getPassengerVentilating	null	等于	1	PASSENGER_SEAT_VENTILATING_CHANGE		是	
+Y	UX已出	舒适	副驾座椅通风	关闭通风时			状态变化				null	等于	0			是	
+Y	UX已出	舒适	主驾座椅按摩	开启按摩时			状态变化	DRIVER_SEAT_MASSAGE_CHANGE	seat	getDriverMassage	null	等于	1	DRIVER_SEAT_MASSAGE_CHANGE		是	
+Y	UX已出	舒适	主驾座椅按摩	关闭按摩时			状态变化		seat	getDriverMassage	null	等于	0			是	
+Y	UX已出	舒适	副驾座椅按摩	开启按摩时			状态变化	PASSENGER_SEAT_MASSAGE_CHANGE	seat	getPassengerMassage	null	等于	1	PASSENGER_SEAT_MASSAGE_CHANGE		是	
+Y	UX已出	舒适	副驾座椅按摩	关闭按摩时			状态变化		seat	getPassengerMassage	null	等于	0			是	
+	UX已出	门窗	主驾车门	开启时			状态变化	DRIVER_DOOR_CHANGE	door	getDriverDoorSwitch	null	等于	1	DRIVER_DOOR_CHANGE		是	
+	UX已出	门窗	主驾车门	关闭时			状态变化			getDriverDoorSwitch	null	等于	0			是	
+	UX已出	门窗	副驾车门	开启时			状态变化	PASSENGER_DOOR_CHANGE		getPassengerDoorSwitch	null	等于	1	PASSENGER_DOOR_CHANGE		是	
+	UX已出	门窗	副驾车门	关闭时			状态变化			getPassengerDoorSwitch	null	等于	0			是	
+	UX已出	门窗	左后排车门	开启时			状态变化	BACK_LEFT_DOOR_CHANGE		getBackLeftDoorSwitch	null	等于	1	BACK_LEFT_DOOR_CHANGE		是	
+	UX已出	门窗	左后排车门	关闭时			状态变化			getBackLeftDoorSwitch	null	等于	0			是	
+	UX已出	门窗	右后排车门	开启时			状态变化	BACK_RIGHT_DOOR_CHANGE		getBackRightDoorSwitch	null	等于	1	BACK_RIGHT_DOOR_CHANGE		是	
+	UX已出	门窗	右后排车门	关闭时			状态变化			getBackRightDoorSwitch	null	等于	0			是	
+	UX已出	门窗	任意车门	开启时			状态变化	DOOR_CHANGE_YES	door	getDoorState	1	等于	1	DOOR_CHANGE_YES			2026-05-27 00:00:00
+	UX已出	门窗	任意车门	关闭时			状态变化	DOOR_CHANGE_NO	door	getDoorState	0	等于	0	DOOR_CHANGE_NO			2026-05-27 00:00:00
+	UX已出	门窗	车锁	有门未锁			状态变化	DOOR_LOOK	door	getLockState		等于	1	DOOR_LOOK			
+	UX已出	门窗	车锁	全部上锁			状态变化	DOOR_LOOK	door	getLockState		等于	0	DOOR_LOOK			
+	删除	时间	时间区间				状态变化		time	isBetweenTime				time.isBetweenTime		是	
+	删除	时间	日期区间				状态变化		time	isBetweenDate				time.isBetweenDate		是	
+	UX已出	时间	生效时间	00:00:00			状态变化	TIME_CHANGE	time	isTime	null	等于	00.00-23.59	TIME_CHANGE			
+	UX已出	空调	AUTO模式	开启时			状态变化	AIR_AUTO_CHANGE	air	getAutoSwitchStatus	null	等于	1	AIR_AUTO_CHANGE		是	
+	UX已出	空调	AUTO模式	关闭时			状态变化			getAutoSwitchStatus	null	等于	0			是	
+	删除	空调	温度控制	主驾温度	*step / 18-32 / 					getDriverTemperature	null		18-32	air.getDriverTemperature		是	
+	删除	空调	温度控制	副驾温度	*step / 18-32 / 					getPassengerTemperature	null		18-32	air.getPassengerTemperature		是	
+	删除	空调	风量调节	前排风量至	*select / 1档 / 2档 / 3档 / 4档 / 5档 / 6档 / 7档 / 8档					getFanSpeedGlobal	null		SPEED_1 = 1  / SPEED_2 = 2  / SPEED_3 = 3  / SPEED_4 = 4  / SPEED_5 = 5  / SPEED_6 = 6  / SPEED_7 = 7  / SPEED_8 = 8 	air.getFanSpeedGlobal		是	
+	删除	空调	出风模式设置		*select / 吹面 / 吹脚 / 吹面吹脚 / 加吹脚除霜 / 除霜					getFrontAirOutletMode	null		AIR_DISPLAY_MODE_FACE = 0  / AIR_DISPLAY_MODE_FOOT = 2  / AIR_DISPLAY_MODE_FACE_FOOT = 1  / AIR_DISPLAY_MODE_FOOT_DEFROST = 4  /  AIR_DISPLAY_MODE_DEFROST = 5 	air.getFrontAirOutletMode		是	
+	UX已出	空调	前风窗除雾	开启时			状态变化	FRONT_DEFROSTER_CHANGE		getFrontDefrosterStatus	null	等于	1	FRONT_DEFROSTER_CHANGE		是	
+	UX已出	空调	前风窗除雾	关闭时			状态变化			getFrontDefrosterStatus	null	等于	0			是	
+	UX已出	空调	内外循环状态	内循环 / 			状态变化	RECIRCULATION_CHANGE		getRecirculationMode	null	等于	1	RECIRCULATION_CHANGE		是	
+	UX已出	空调	内外循环状态	外循环			状态变化			getRecirculationMode	null	等于	2			是	
+	UX已出	空调	自动空气净化	开启时			状态变化	AUTO_CLEAN_CHANGE		getAutoAirCleanSwitchStatus	null	等于	1	AUTO_CLEAN_CHANGE		是	
+	UX已出	空调	自动空气净化	关闭时			状态变化			getAutoAirCleanSwitchStatus	null	等于	0			是	
+Y	UX已出	舒适	左后排座椅加热	开启加热时			状态变化	BACK_LEFT_SEAT_HEATING_CHANGE	seat	getBackLeftHeating	null	等于	1	BACK_LEFT_SEAT_HEATING_CHANGE		是	
+Y	UX已出	舒适	左后排座椅加热	关闭加热时			状态变化			getBackLeftHeating	null	等于	0			是	
+Y	UX已出	舒适	右后排座椅加热	开启加热时			状态变化	BACK_RIGHT_SEAT_HEATING_CHANGE		getBackRightHeating	null	等于	1	BACK_RIGHT_SEAT_HEATING_CHANGE		是	
+Y	UX已出	舒适	右后排座椅加热	关闭加热时			状态变化			getBackRightHeating	null	等于	0			是	
+Y	UX已出	舒适	左后排座椅通风	开启通风时			状态变化	BACK_LEFT_SEAT_VENTILATING_CHANGE		getBackLeftVentilating	null	等于	1	BACK_LEFT_SEAT_VENTILATING_CHANGE		是	
+Y	UX已出	舒适	左后排座椅通风	关闭通风时			状态变化			getBackLeftVentilating	null	等于	0			是	
+Y	UX已出	舒适	右后排座椅通风	开启通风时			状态变化	BACK_RIGHT_SEAT_VENTILATING_CHANGE		getBackRightVentilating	null	等于	1	BACK_RIGHT_SEAT_VENTILATING_CHANGE		是	
+Y	UX已出	舒适	右后排座椅通风	关闭通风时			状态变化			getBackRightVentilating	null	等于	0			是	
+	UX已出	门窗	后备箱	开启时			状态变化	REAR_CHANGE	door	getRearDoorSwitch	null	等于	1	REAR_CHANGE		是	
+	UX已出	门窗	后备箱	关闭时			状态变化				null	等于	0			是	
+Y	UX已出	门窗	前备箱	开启时			状态变化	 		getHoodSwitch	null	等于	1	HOOD_CHANGE		是	
+Y	UX已出	门窗	前备箱	关闭时			状态变化				null	等于	0			是	
+Y	UX已出	舒适	香氛开关	开启时			状态变化	FRAGRANCE_SWITCH_CHANGE	air	getFragranceSwitch	null	等于	1	FRAGRANCE_SWITCH_CHANGE		是	
+Y	UX已出	舒适	香氛开关	关闭时			状态变化			getFragranceSwitch	null	等于	0			是	
+	删除	香氛	类型		*select / 类型1 / 类型2 / 类型3				air	getFragranceSelection	null		CHANNEL_1 = 1 / CHANNEL_2 = 2 / CHANNEL_3 = 3	air.getFragranceSelection			
+	删除	香氛	浓度		*select / 淡雅 / 自然 / 馥郁				air	getFragranceLevel	null		LEVEL_1 = 1 / LEVEL_2 = 2 / LEVEL_3 = 3	air.getFragranceLevel			
+	删除	空调	温度控制	温区同步	*select / 关闭 / 开启				air	getIsSyncActiveStatus	null		SWITCH_OFF = 0 / SWITCH_ON = 1	api.setIsSyncActiveStatus			
+	UX已出	驾驶	挡位	挡位N			状态变化	GEAR_CHANGE	transmission	getTransmissionGear	null	等于	1	GEAR_CHANGE		是	
+	UX已出	驾驶	挡位	挡位D			状态变化				null	等于	2			是	
+	UX已出	驾驶	挡位	挡位P			状态变化				null	等于	3			是	
+	UX已出	驾驶	挡位	档位R			状态变化				null	等于	4			是	
+	UX已出	驾驶	车辆电量	上升至	*step / 1-100 / 1	%	上升趋势	BATTERY_REMAIN_UP	energy	getBatteryRemainPercentage	null	大于	1-100	BATTERY_REMAIN_UP		是	
+	UX已出	驾驶	车辆电量	下降至	*step / 1-100 / 1	%	下降趋势	BATTERY_REMAIN_DOWN		getBatteryRemainPercentage	null	小于	1-100	BATTERY_REMAIN_DOWN		是	
+	UX已出	驾驶	车辆速度	上升至	*step / 0-200 / 10	KM/小时	上升趋势	VEHICLE_SPEED_UP		getVehicleSpeed	null	大于	0-200	VEHICLE_SPEED_UP		是	
+	UX已出	驾驶	车辆速度	下降至	*step / 0-200 / 10	KM/小时	下降趋势	VEHICLE_SPEED_DOWN		getVehicleSpeed	null	小于	0-200	VEHICLE_SPEED_DOWN		是	
+	UX已出	驾驶	续航里程	上升至	*step / 1-100 / 1	%	上升趋势	RANGE_REMAINING_UP	energy	getRangeRemaining	null	大于		RANGE_REMAINING_UP		是	
+	UX已出	驾驶	续航里程	下降至	*step / 1-100 / 1	%	下降趋势	RANGE_REMAINING_DOWN	energy	getRangeRemaining	null	小于		RANGE_REMAINING_DOWN		是	
+	UX已出	驾驶	主驾安全带	解开				DRV_SEAT_BELT_STS_CHANGE	driving	getDrvSeatBeltSts	null	等于	1	DRV_SEAT_BELT_STS_CHANGE		是	
+	UX已出	驾驶	主驾安全带	系上				DRV_SEAT_BELT_STS_CHANGE	driving	getDrvSeatBeltSts	null	等于	0	DRV_SEAT_BELT_STS_CHANGE		是	
+	UX已出	驾驶	副驾安全带	解开				PASS_SEAT_BELT_STS_CHANGE	driving	getPassSeatBeltSts	null	等于	1	PASS_SEAT_BELT_STS_CHANGE		是	
+	UX已出	驾驶	副驾安全带	系上				PASS_SEAT_BELT_STS_CHANGE	driving	getPassSeatBeltSts	null	等于	0	PASS_SEAT_BELT_STS_CHANGE		是	
+	UX已出	驾驶	左后排安全带	解开				ROW2_LEFT_BELT_STS_CHANGE	driving	getBackLeftBeltSts	null	等于	1	ROW2_LEFT_BELT_STS_CHANGE			2026-05-26 00:00:00
+	UX已出	驾驶	左后排安全带	系上				ROW2_LEFT_BELT_STS_CHANGE	driving	getBackLeftBeltSts	null	等于	0	ROW2_LEFT_BELT_STS_CHANGE			2026-05-26 00:00:00
+	UX已出	驾驶	右后排安全带	解开				ROW2_MIDDLE_BELT_STS_CHANGE	driving	getBackRightBeltSts	null	等于	1	ROW2_MIDDLE_BELT_STS_CHANGE			2026-05-26 00:00:00
+	UX已出	驾驶	右后排安全带	系上				ROW2_MIDDLE_BELT_STS_CHANGE	driving	getBackRightBeltSts	null	等于	0	ROW2_MIDDLE_BELT_STS_CHANGE			2026-05-26 00:00:00
+	UX已出	驾驶	后排中间安全带	解开				ROW2_MIDDLE_BELT_STS_CHANGE	driving	getBackMiBeltSts	null	等于	1	ROW2_MIDDLE_BELT_STS_CHANGE			2026-05-26 00:00:00
+	UX已出	驾驶	后排中间安全带	系上				ROW2_MIDDLE_BELT_STS_CHANGE	driving	getBackMiBeltSts	null	等于	0	ROW2_MIDDLE_BELT_STS_CHANGE			2026-05-26 00:00:00
+	UX已出	驾驶	任意安全带	解开			状态变化	BELT_STS_CHANGE_YES	driving	getBeltState	1	等于	1	BELT_STS_CHANGE_YES			2026-05-27 00:00:00
+	UX已出	驾驶	任意安全带	系上			状态变化	BELT_STS_CHANGE_NO	driving	getBeltState	0	等于	0	BELT_STS_CHANGE_NO			2026-05-27 00:00:00
+	UX已出	环境	车内温度	上升至	*step / -10-50 / 1	℃	上升趋势	IN_CAR_TEMP_UP	air	getInCarTemperature	null	大于	-10-50	IN_CAR_TEMP_UP			
+	UX已出	环境	车内温度	下降至	*step / -10-50 / 1	℃	下降趋势	IN_CAR_TEMP_DOWN		getInCarTemperature	null	小于	-10-50	IN_CAR_TEMP_DOWN			
+	UX已出	环境	车外温度	上升至	*step / -10-50 / 1	℃	上升趋势	OUT_SIDE_TEMP_UP		getOutsideTemperature	null	大于	-10-50	OUT_SIDE_TEMP_UP			
+	UX已出	环境	车外温度	下降至	*step / -10-50 / 1	℃	下降趋势	OUT_SIDE_TEMP_DOWN		getOutsideTemperature	null	小于	-10-50	OUT_SIDE_TEMP_UP			
+Y	UX已出	环境	车内PM2.5	上升至	*step / 0-250 / 10	μg/m³	上升趋势	PM_UP		getParticulateConcentration	null	大于	0-250	PM_UP			
+Y	UX已出	环境	车内PM2.5	下降至	*step / 0-250 / 10	μg/m³	下降趋势	PM_DOWN		getParticulateConcentration	null	小于	0-250	PM_DOWN			
+	UX已出	灯光	近光灯	打开				LOW_BEAM_STATUS_CHANGE	light	getLowBeamStatus	null	等于	1	LOW_BEAM_STATUS_CHANGE		是	
+	UX已出	灯光	近光灯	关闭				LOW_BEAM_STATUS_CHANGE	light	getLowBeamStatus	null	等于	0	LOW_BEAM_STATUS_CHANGE		是	
+	UX已出	灯光	远光灯	打开				HIGH_BEAM_STATUS_CHANGE	light	getHighBeamStatus	null	等于	1	HIGH_BEAM_STATUS_CHANGE		是	
+	UX已出	灯光	远光灯	关闭				HIGH_BEAM_STATUS_CHANGE	light	getHighBeamStatus	null	等于	0	HIGH_BEAM_STATUS_CHANGE		是	
+	UX已出	灯光	后雾灯	打开				REAR_FOG_STATUS_CHANGE	light	getRearFogStatus	null	等于	1	REAR_FOG_STATUS_CHANGE		是	
+	UX已出	灯光	后雾灯	关闭				REAR_FOG_STATUS_CHANGE	light	getRearFogStatus	null	等于	0	REAR_FOG_STATUS_CHANGE		是	
+	待定	位置	在某地	当前位置			对云端有依赖										
+	待定	位置	在某地	家			对云端有依赖										
+	待定	位置	在某地	公司			对云端有依赖										
+	待定	位置	在某地	收藏地点			对云端有依赖										
+	待定	位置	在某地	地点搜索			对云端有依赖										
+	待定	位置	不在某地	当前位置			对云端有依赖										
+	待定	位置	不在某地	家			对云端有依赖										
+	待定	位置	不在某地	公司			对云端有依赖										
+	待定	位置	不在某地	收藏地点			对云端有依赖										
+	待定	位置	不在某地	地点搜索			对云端有依赖										
+	待定	导航	导航至	当前位置													
+	待定	导航	导航至	家													
+	待定	导航	导航至	公司													
+	待定	导航	导航至	收藏地点													
+	待定	导航	导航至	地点搜索													
+	删除	导航	导航状态	正在导航													
+	删除	导航	导航状态	未导航													
+	删除	导航	预计到达时间	小时&分钟 / 0-12小时 / 0-59分钟													
+	删除	导航	预计到达距离	1-999KM		公里											
+	UX已出	声音	音量	媒体音量	*step / 0-100% / 1	%		MEDIA_VOLUME_CHANGE	settings	getMediaVolume	null	等于	0-20	MEDIA_VOLUME_CHANGE			
+260707	26409	娱乐	多媒体	播放中				MEDIA_STATE_CHANGE	media	mediaState	null	等于	1	MEDIA_STATE_CHANGE			
+Y	UX已出	设备	主驾充电面板（无线充电）	充电中				DRIVER_WIRELESS_CHARGING_STATUS_CHANGE	energy	getWirelessChargingStatusLeft	null	等于	2	DRIVER_WIRELESS_CHARGING_STATUS_CHANGE			
+Y	UX已出	设备	主驾充电面板（无线充电）	未充电（待机状态）				DRIVER_WIRELESS_CHARGING_STATUS_CHANGE	energy	getWirelessChargingStatusLeft	null	等于	1	DRIVER_WIRELESS_CHARGING_STATUS_CHANGE			
+	删除	设备	电动遮阳帘	开度 / 0-100%													

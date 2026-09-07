@@ -17,8 +17,8 @@ import concurrent.futures as cf
 from datetime import datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-VOCAB = json.load(open(os.path.join(HERE, "vocab.json"), encoding="utf-8"))
-BOOL_PAIRS = {("开启", "关闭"), ("关闭", "开启"), ("有人", "无人"), ("无人", "有人"), ("内循环", "外循环"), ("外循环", "内循环")}
+VOCAB = json.load(open(os.path.join(HERE, "vocab_v1.json"), encoding="utf-8"))   # p0/p1/p2 用旧表；p3 在 apply_style 里换成 v2
+BOOL_PAIRS = {("开启", "关闭"), ("关闭", "开启"), ("有人", "无人"), ("无人", "有人"), ("内循环", "外循环"), ("外循环", "内循环"), ("系上", "解开"), ("解开", "系上"), ("充电中", "未充电"), ("未充电", "充电中")}
 OFFER_TYPES = {"call", "navigate", "message", "none"}
 MEMORY_TYPES = {"preference", "relationship", "place", "dislike"}
 PRESETS = None
@@ -28,13 +28,16 @@ def _norm_key(s):
 PRIM = {k: {_norm_key(p): p for p in VOCAB[k]} for k in ("conditions", "actions")}
 
 def apply_style(style):
-    """p2/p3 风格启用扩展能力（音乐播放、音量），并加载预设用于坍缩率。"""
-    global PRIM, PRESETS
-    if style in ("p2", "p3") and "extensions_p2" in VOCAB:
-        VOCAB["actions"].update(VOCAB["extensions_p2"]["actions"])
-        if style == "p3" and "extensions_p3" in VOCAB:
-            VOCAB["conditions"].update(VOCAB["extensions_p3"]["conditions"])
-        PRIM = {k: {_norm_key(p): p for p in VOCAB[k]} for k in ("conditions", "actions")}
+    """p0/p1 用同事原表；p2 加音乐扩展；p3 换成公司 2026-07 能力表 v2（vocab.json，含条件语义）。并加载预设用于坍缩率。"""
+    global PRIM, PRESETS, VOCAB
+    if style == "p3":
+        VOCAB = json.load(open(os.path.join(HERE, "vocab.json"), encoding="utf-8"))
+    else:
+        VOCAB = json.load(open(os.path.join(HERE, "vocab_v1.json"), encoding="utf-8"))
+        if style == "p2" and "extensions_p2" in VOCAB:
+            VOCAB["actions"].update(VOCAB["extensions_p2"]["actions"])
+    PRIM = {k: {_norm_key(p): p for p in VOCAB[k]} for k in ("conditions", "actions")}
+    if style in ("p2", "p3"):
         pp = os.path.join(HERE, "presets.json")
         if os.path.exists(pp):
             PRESETS = []

@@ -8,8 +8,8 @@ import json
 
 LV = ["1挡", "2挡", "3挡"]
 WIN = ["主驾车窗", "副驾车窗", "左后排车窗", "右后排车窗"]
-SEAT_HEAT = ["主驾座椅加热", "副驾座椅加热", "后左侧座椅加热", "后右侧座椅加热"]
-SEAT_VENT = ["主驾座椅通风", "副驾座椅通风", "后左侧座椅通风", "后右侧座椅通风"]
+SEAT_HEAT = ["主驾座椅加热", "副驾座椅加热", "左后排座椅加热", "右后排座椅加热"]
+SEAT_VENT = ["主驾座椅通风", "副驾座椅通风", "左后排座椅通风", "右后排座椅通风"]
 MASSAGE_ON = ["波浪", "猫步", "蛇形", "肩部", "腰部"]
 
 def A(p, sec=None, rng=None):
@@ -74,7 +74,7 @@ add("A11", "action", "温度低一点", "相对调节，需要当前状态",
 add("A12", "action", "把香氛打开，选类型二，浓一点", "中文数字与程度词映射",
     [alt(["action"], EMPTY, flex(must_have=[A("香氛开关", "开启"), A("香氛类型", "类型2"), A("香氛浓度", ["馥郁", "自然"])]))])
 add("A13", "action", "氛围灯亮度调到一半，打开音乐律动", "“一半”映射 50%",
-    [alt(["action"], EMPTY, flex(must_have=[A("氛围灯亮度", "50%"), A("音乐律动", "开启")], acceptable=[A("氛围灯开关", "开启")]))])
+    [alt(["action"], EMPTY, flex(must_have=[A("氛围灯亮度", "50%"), A("音乐律动", ["模式1", "模式2", "模式3"])], acceptable=[A("氛围灯开关", "开启")]))])
 add("A14", "action", "主驾按摩开一下，腰部，力度中等", "两个按摩相关能力的拆分",
     [alt(["action"], EMPTY, flex(must_have=[A("主驾座椅按摩模式", "腰部"), A("主驾座椅按摩强度", "2挡")]))])
 add("A15", "action", "前排的窗户都开一半", "“前排”展开为主驾与副驾",
@@ -94,7 +94,7 @@ add("B04", "precise", "车外温度低于5度并且主驾有人，就打开方�
 add("B05", "precise", "PM2.5高于100或者开了外循环，就打开自动空气净化", "OR 逻辑，原 schema 无法表达",
     [alt(["precise"], exact([C("车内PM2.5", ">", 100), C("内外循环设置", "==", "外循环")]), flex(must_have=[A("自动空气净化", "开启")], acceptable=[A("内外循环设置", "内循环")]), logic="OR")])
 add("B06", "precise", "挂P挡以后把座椅按摩关掉", "动作表里没有“按摩 关闭”，只有按摩模式 OFF",
-    [alt(["precise"], exact([C("挡位", "==", "挡位P")]), flex(must_have=[A("主驾座椅按摩模式", "OFF")], acceptable=[A("副驾座椅按摩模式", "OFF")]))])
+    [alt(["precise"], exact([C("挡位", "==", "挡位P")]), flex(must_have=[A("主驾座椅按摩模式", "关闭")], acceptable=[A("副驾座椅按摩模式", "关闭")]))])
 add("B07", "precise", "车速超过80就把所有车窗关上", "速度条件加四窗关闭",
     [alt(["precise"], exact([C("车速", ">", 80)]), exact([A(p, "关闭") for p in WIN]))])
 add("B08", "precise", "尾门打开的时候开氛围灯", "门类条件",
@@ -126,7 +126,7 @@ add("B18", "precise", "车速超过60公里每小时时把所有车窗关到只�
 
 # ---------- C 模糊意图 ----------
 add("C01", "vague", "我想要有氛围一点", "氛围类模糊意图",
-    [alt(["vague"], EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("氛围灯亮度"), A("音乐律动", "开启")],
+    [alt(["vague"], EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("氛围灯亮度"), A("音乐律动", ["模式1", "模式2", "模式3"])],
                                acceptable=[A("香氛类型"), A("香氛浓度"), A("主驾温度控制", rng=[22, 26])],
                                must_not=[A("MAX AC", "开启"), A("前风窗除雾", "开启"), A("氛围灯开关", "关闭")]))])
 add("C02", "vague", "有点闷", "换气类模糊意图",
@@ -134,15 +134,15 @@ add("C02", "vague", "有点闷", "换气类模糊意图",
                                acceptable=[A("自动空气净化", "开启"), A("副驾车窗", ["10%", "20%", "30%"]), A("主驾座椅通风", LV), A("AUTO模式", "开启"), A("MAX AC", "开启"), A("主驾温度控制", rng=[18, 24]), A("出风模式设置", "吹面")],
                                must_not=[A("内外循环设置", "内循环"), A("主驾车窗", "关闭"), A("主驾座椅加热", LV)]))])
 add("C03", "vague", "提提神", "提神类模糊意图",
-    [alt(["vague"], EMPTY, flex(one_of=[A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅通风", LV), A("主驾温度控制", rng=[18, 22]), A("香氛开关", "开启"), A("音乐律动", "开启"), A("主驾车窗", ["10%", "20%", "30%"]), A("前排风量调节")],
+    [alt(["vague"], EMPTY, flex(one_of=[A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅通风", LV), A("主驾温度控制", rng=[18, 22]), A("香氛开关", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("主驾车窗", ["10%", "20%", "30%"]), A("前排风量调节")],
                                acceptable=[A("主驾座椅按摩强度"), A("香氛类型"), A("香氛浓度"), A("氛围灯开关", "开启"), A("氛围灯亮度"), A("内外循环设置", "外循环"), A("空调总开关", "开启"), A("AC开关", "开启"), A("出风模式设置", "吹面")],
-                               must_not=[A("主驾座椅加热", LV), A("方向盘加热", "开启"), A("主驾座椅按摩模式", "OFF")]))])
+                               must_not=[A("主驾座椅加热", LV), A("方向盘加热", "开启"), A("主驾座椅按摩模式", "关闭")]))])
 add("C04", "vague", "安静点", "动作表里没有音量，看是否承认无法做",
-    [alt(["vague", "clarify", "none"], EMPTY, flex(acceptable=[A("音乐律动", "关闭"), A("前排风量调节", ["1挡", "2挡", "3挡"]), A("主驾座椅按摩模式", "OFF"), A("氛围灯亮度", ["10%", "20%", "30%", "40%"]), A("氛围灯开关", "关闭"), A("MAX AC", "关闭")],
-                                                must_not=[A("音乐律动", "开启"), A("前排风量调节", ["5挡", "6挡", "7挡", "8挡"]), A("MAX AC", "开启")]))])
+    [alt(["vague", "clarify", "none"], EMPTY, flex(acceptable=[A("音乐律动", "关闭"), A("前排风量调节", ["1挡", "2挡", "3挡"]), A("主驾座椅按摩模式", "关闭"), A("氛围灯亮度", ["10%", "20%", "30%", "40%"]), A("氛围灯开关", "关闭"), A("MAX AC", "关闭")],
+                                                must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("前排风量调节", ["5挡", "6挡", "7挡", "8挡"]), A("MAX AC", "开启")]))])
 add("C05", "vague", "省点电", "节能类，ECO 必选",
     [alt(["vague"], EMPTY, flex(must_have=[A("ECO", "开启")],
-                               acceptable=[A(p, "关闭") for p in SEAT_HEAT] + [A(p, "关闭") for p in SEAT_VENT] + [A("主驾座椅按摩模式", "OFF"), A("副驾座椅按摩模式", "OFF"), A("氛围灯开关", "关闭"), A("氛围灯亮度", ["10%", "20%", "30%"]), A("方向盘加热", "关闭"), A("香氛开关", "关闭"), A("空调总开关", "关闭"), A("MAX AC", "关闭"), A("AUTO模式", "开启"), A("AC开关", "关闭"), A("前排风量调节", ["1挡", "2挡", "3挡"]), A("主驾温度控制", rng=[22, 27]), A("音乐律动", "关闭")],
+                               acceptable=[A(p, "关闭") for p in SEAT_HEAT] + [A(p, "关闭") for p in SEAT_VENT] + [A("主驾座椅按摩模式", "关闭"), A("副驾座椅按摩模式", "关闭"), A("氛围灯开关", "关闭"), A("氛围灯亮度", ["10%", "20%", "30%"]), A("方向盘加热", "关闭"), A("香氛开关", "关闭"), A("空调总开关", "关闭"), A("MAX AC", "关闭"), A("AUTO模式", "开启"), A("AC开关", "关闭"), A("前排风量调节", ["1挡", "2挡", "3挡"]), A("主驾温度控制", rng=[22, 27]), A("音乐律动", "关闭")],
                                must_not=[A("MAX AC", "开启")] + [A(p, LV) for p in SEAT_HEAT]))])
 add("C06", "vague", "冷", "一个字的感受",
     [alt(["vague", "action"], EMPTY, flex(one_of=[A("主驾座椅加热", LV), A("方向盘加热", "开启"), A("主驾温度控制", rng=[25, 32])],
@@ -155,14 +155,14 @@ add("C07", "vague", "车里味道有点大", "异味类：换气或净化",
 add("C08", "vague", "想放松一下", "放松类",
     [alt(["vague"], EMPTY, flex(one_of=[A("主驾座椅按摩模式", MASSAGE_ON), A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("氛围灯亮度", ["10%", "20%", "30%", "40%", "50%"])],
                                acceptable=[A("主驾座椅按摩强度"), A("香氛类型"), A("香氛浓度"), A("音乐律动"), A("主驾温度控制", rng=[22, 26]), A("主驾座椅加热", ["1挡", "2挡"]), A("主驾座椅通风", ["1挡", "2挡"]), A("空调总开关", "开启"), A("AUTO模式", "开启"), A("前排风量调节", ["1挡", "2挡", "3挡"])],
-                               must_not=[A("MAX AC", "开启"), A("前排风量调节", ["6挡", "7挡", "8挡"]), A("主驾座椅按摩模式", "OFF")]))])
+                               must_not=[A("MAX AC", "开启"), A("前排风量调节", ["6挡", "7挡", "8挡"]), A("主驾座椅按摩模式", "关闭")]))])
 add("C09", "vague", "空气不好", "内外空气不明，净化必选",
     [alt(["vague", "clarify"], EMPTY, flex(must_have=[A("自动空气净化", "开启")],
                                           acceptable=[A("内外循环设置"), A("空调总开关", "开启"), A("主驾车窗", ["10%", "20%", "30%"]), A("副驾车窗", ["10%", "20%", "30%"]), A("主驾车窗", "关闭"), A("副驾车窗", "关闭"), A("左后排车窗", "关闭"), A("右后排车窗", "关闭"), A("前排风量调节"), A("AC开关", "开启")]))])
 add("C10", "vague", "准备在车里睡一会儿", "休息类，座椅放倒不在表内",
-    [alt(["vague", "clarify"], EMPTY, flex(one_of=[A("氛围灯亮度", ["10%", "20%", "30%"]), A("氛围灯开关", "关闭"), A("主驾座椅按摩模式", "OFF"), A("主驾温度控制", rng=[22, 26]), A("音乐律动", "关闭"), A("前排风量调节", ["1挡", "2挡"])],
+    [alt(["vague", "clarify"], EMPTY, flex(one_of=[A("氛围灯亮度", ["10%", "20%", "30%"]), A("氛围灯开关", "关闭"), A("主驾座椅按摩模式", "关闭"), A("主驾温度控制", rng=[22, 26]), A("音乐律动", "关闭"), A("前排风量调节", ["1挡", "2挡"])],
                                           acceptable=[A("空调总开关", "开启"), A("AUTO模式", "开启"), A("香氛开关"), A("香氛浓度", "淡雅"), A("主驾座椅按摩模式", "波浪"), A("主驾座椅按摩强度", "1挡"), A("内外循环设置"), A("自动空气净化", "开启"), A("主驾座椅加热", "1挡")] + [A(p, "关闭") for p in WIN],
-                                          must_not=[A("前排风量调节", ["5挡", "6挡", "7挡", "8挡"]), A("氛围灯亮度", ["80%", "90%", "100%"]), A("MAX AC", "开启"), A("音乐律动", "开启")]))])
+                                          must_not=[A("前排风量调节", ["5挡", "6挡", "7挡", "8挡"]), A("氛围灯亮度", ["80%", "90%", "100%"]), A("MAX AC", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"])]))])
 
 # ---------- D 鲁棒性与边界 ----------
 add("D01", "robust", "今天天气怎么样", "与车控无关，不应编造动作",
@@ -189,7 +189,7 @@ add("D08", "robust", "温度调到二十四度，风量调到四", "中文数字
 add("D09", "robust", "打开空调然后再把空调关掉", "自相矛盾指令",
     [CLARIFY, alt(["action"], EMPTY, exact([A("空调总开关", "关闭")])), alt(["action"], EMPTY, exact([A("空调总开关", "开启")]))])
 add("D10", "robust", "把后排两个座位的加热都开到2挡，前排的通风开到1挡", "前后排展开与不同挡位",
-    [alt(["action"], EMPTY, exact([A("后左侧座椅加热", "2挡"), A("后右侧座椅加热", "2挡"), A("主驾座椅通风", "1挡"), A("副驾座椅通风", "1挡")]))])
+    [alt(["action"], EMPTY, exact([A("左后排座椅加热", "2挡"), A("右后排座椅加热", "2挡"), A("主驾座椅通风", "1挡"), A("副驾座椅通风", "1挡")]))])
 add("D11", "robust", "老婆坐副驾的时候把副驾加热打开", "人物身份不可识别，退化为副驾有人",
     [alt(["precise", "clarify"], exact([C("副驾座椅", "==", "有人")]), flex(must_have=[A("副驾座椅加热", LV)])), CLARIFY])
 add("D12", "robust", "有人坐后排就把后排车窗锁上", "条件（后排有人）与动作（儿童锁）都不在表内",
@@ -203,7 +203,7 @@ AF = ["affect", "vague"]
 add("E01", "affect", "我想你了", "有关系记忆时：以歌代言、暖光、供打电话，不追问想谁",
     [alt(AF, EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("氛围灯亮度", DIM), A("音乐播放", ["想念", "浪漫", "放松"]), A("香氛开关", "开启")],
                         acceptable=[A("香氛类型", "类型2"), A("香氛浓度"), A("主驾温度控制", rng=[22, 26]), A("音量"), A("音乐律动", "关闭")],
-                        must_not=[A("MAX AC", "开启"), A("音乐律动", "开启"), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "停止"])] + [A(p, ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]) for p in WIN]),
+                        must_not=[A("MAX AC", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "停止"])] + [A(p, ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]) for p in WIN]),
          offer_any=["call", "none"])], context=PROFILE + "\n【当前状态】19:05，行驶中，车上只有我")
 add("E02", "affect", "我想你了", "没有记忆时：保守默认，给出口，不追问",
     [alt(AF, EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("氛围灯亮度", DIM), A("音乐播放", ["想念", "浪漫", "放松"]), A("香氛开关", "开启")],
@@ -213,20 +213,20 @@ add("E02", "affect", "我想你了", "没有记忆时：保守默认，给出口
 add("E03", "affect", "今天累死了", "疲惫：暗灯、放松的歌、轻按摩、一句话",
     [alt(AF, EMPTY, flex(one_of=[A("主驾座椅按摩模式", MASSAGE_ON), A("氛围灯亮度", DIM), A("音乐播放", ["放松", "安静", "想念"]), A("主驾温度控制", rng=[24, 26])],
                         acceptable=[A("主驾座椅按摩强度", ["1挡", "2挡"]), A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度", ["淡雅", "自然"]), A("主驾座椅加热", ["1挡", "2挡"]), A("音量", rng=[10, 50]), A("前排风量调节", ["1挡", "2挡", "3挡"]), A("音乐律动", "关闭")],
-                        must_not=[A("MAX AC", "开启"), A("音乐播放", "庆祝"), A("氛围灯亮度", ["70%", "80%", "90%", "100%"]), A("音乐律动", "开启"), A("主驾座椅按摩强度", "3挡")]),
+                        must_not=[A("MAX AC", "开启"), A("音乐播放", "庆祝"), A("氛围灯亮度", ["70%", "80%", "90%", "100%"]), A("音乐律动", ["模式1", "模式2", "模式3"]), A("主驾座椅按摩强度", "3挡")]),
          offer_any=["none", "navigate", "call", "message"])], context="【当前状态】18:40，行驶中，导航显示 20 分钟到家")
 add("E04", "affect", "我升职了！", "庆祝：亮一点、热闹的歌",
-    [alt(AF, EMPTY, flex(one_of=[A("音乐播放", "庆祝"), A("氛围灯开关", "开启"), A("氛围灯亮度", ["40%", "50%", "60%", "70%", "80%", "90%", "100%"]), A("音乐律动", "开启")],
+    [alt(AF, EMPTY, flex(one_of=[A("音乐播放", "庆祝"), A("氛围灯开关", "开启"), A("氛围灯亮度", ["40%", "50%", "60%", "70%", "80%", "90%", "100%"]), A("音乐律动", ["模式1", "模式2", "模式3"])],
                         acceptable=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("音量"), A("主驾座椅按摩模式")],
                         must_not=[A("音乐播放", ["想念", "安静", "白噪音", "停止"])]))], context="【当前状态】停车中")
 add("E05", "affect", "要有氛围感", "同事 demo 的原始例子",
-    [alt(AF, EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("氛围灯亮度"), A("香氛开关", "开启"), A("音乐播放", ["浪漫", "放松", "想念"]), A("音乐律动", "开启")],
+    [alt(AF, EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("氛围灯亮度"), A("香氛开关", "开启"), A("音乐播放", ["浪漫", "放松", "想念"]), A("音乐律动", ["模式1", "模式2", "模式3"])],
                         acceptable=[A("香氛类型"), A("香氛浓度"), A("主驾温度控制", rng=[22, 26]), A("音量")],
                         must_not=[A("MAX AC", "开启"), A("前风窗除雾", "开启"), A("音乐播放", "停止")]))])
 add("E06", "affect", "无聊死了", "无聊：放点东西，行驶中不做视觉刺激",
     [alt(AF, EMPTY, flex(one_of=[A("音乐播放", ["庆祝", "放松", "浪漫", "专注", "雨天", "想念"])],
                         acceptable=[A("氛围灯开关", "开启"), A("氛围灯亮度", ["10%", "20%", "30%", "40%", "50%"]), A("音量"), A("香氛开关", "开启"), A("主驾座椅通风", "1挡"), A("主驾座椅按摩模式"), A("主驾车窗", ["10%", "20%"])],
-                        must_not=[A("音乐播放", ["停止", "安静", "白噪音"]), A("音乐律动", "开启")]))], context="【当前状态】行驶中")
+                        must_not=[A("音乐播放", ["停止", "安静", "白噪音"]), A("音乐律动", ["模式1", "模式2", "模式3"])]))], context="【当前状态】行驶中")
 add("E07", "affect", "我想家了", "思乡：想念的歌、暖光、供打电话",
     [alt(AF, EMPTY, flex(one_of=[A("音乐播放", ["想念", "放松"]), A("氛围灯亮度", DIM), A("氛围灯开关", "开启"), A("香氛开关", "开启")],
                         acceptable=[A("香氛类型"), A("香氛浓度"), A("主驾温度控制", rng=[23, 27]), A("音量", rng=[10, 50]), A("主驾座椅加热", ["1挡", "2挡"])],
@@ -239,7 +239,7 @@ add("E08", "affect", "别跟我说话", "要安静：几乎不动，话最多四
 add("E09", "affect", "我有点紧张，等下要面试", "紧张：安静、凉一点、轻风、不供任何动作",
     [alt(AF, EMPTY, flex(one_of=[A("音乐播放", ["安静", "放松", "白噪音"]), A("主驾温度控制", rng=[22, 24]), A("前排风量调节", ["1挡", "2挡", "3挡"]), A("氛围灯亮度", DIM), A("主驾座椅按摩模式", "波浪")],
                         acceptable=[A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度", "淡雅"), A("音量", rng=[10, 40]), A("主驾座椅按摩强度", "1挡"), A("主驾座椅通风", "1挡")],
-                        must_not=[A("音乐播放", "庆祝"), A("主驾座椅按摩强度", "3挡"), A("MAX AC", "开启"), A("音乐律动", "开启")]),
+                        must_not=[A("音乐播放", "庆祝"), A("主驾座椅按摩强度", "3挡"), A("MAX AC", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"])]),
          offer_any=["none"])], context="【当前状态】停车中")
 add("E10", "affect", "帮我营造一个求婚的氛围", "浪漫目标：允许多几个动作",
     [alt(["vague", "affect", "action"], EMPTY, flex(must_have=[A("氛围灯开关", "开启")], one_of=[A("音乐播放", ["浪漫", "想念"]), A("氛围灯亮度")],
@@ -315,7 +315,7 @@ ST_KID = "【当前状态】18:20，行驶中，车上有我和后排一个孩�
 NONE_ALT = alt(["none"], EMPTY, EMPTY)
 add("F01", "weak", "今天开会被老板骂了一顿", "陈述式负面情绪：可以陪一下，但克制；不庆祝、不功能性",
     [alt(["affect", "none"], EMPTY, flex(acceptable=[A("氛围灯亮度", DIM), A("音乐播放", ["放松", "安静", "想念"]), A("香氛开关", "开启"), A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅按摩强度", ["1挡", "2挡"]), A("氛围灯开关", "开启")],
-                                       must_not=[A("音乐播放", "庆祝"), A("音乐律动", "开启"), A("MAX AC", "开启")]))],
+                                       must_not=[A("音乐播放", "庆祝"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("MAX AC", "开启")]))],
     context=ST_DRIVE, relevance_band=[0.2, 0.8], max_actions=3,
     input_en="My boss chewed me out in the meeting today", context_en="[State] 18:10, driving, only me in the car")
 add("F02", "weak", "明天几点开会啊", "问信息：与布景无关，relevance 低，不动任何东西",
@@ -323,11 +323,11 @@ add("F02", "weak", "明天几点开会啊", "问信息：与布景无关，relev
 add("F03", "weak", "她说还要二十分钟", "地库等人：弱意图里最该接的一句，等待类布景",
     [alt(["affect", "vague"], EMPTY, flex(one_of=[A("氛围灯亮度", DIM), A("音乐播放", ["放松", "安静"]), A("主驾座椅按摩模式", MASSAGE_ON), A("主驾温度控制", rng=[22, 26])],
                                           acceptable=[A("氛围灯开关", "开启"), A("主驾座椅按摩强度", ["1挡", "2挡"]), A("香氛开关", "开启"), A("音量", rng=[10, 40]), A("前排风量调节", ["1挡", "2挡"]), A("ECO", "开启")],
-                                          must_not=[A("MAX AC", "开启"), A("音乐播放", "庆祝"), A("音乐律动", "开启")]), offer_any=["none", "message", "call"])],
+                                          must_not=[A("MAX AC", "开启"), A("音乐播放", "庆祝"), A("音乐律动", ["模式1", "模式2", "模式3"])]), offer_any=["none", "message", "call"])],
     context=ST_PARK, relevance_band=[0.3, 0.9], input_en="She says another twenty minutes", context_en="[State] 19:20, parked, mall garage, only me in the car")
 add("F04", "weak", "又堵了，烦死了", "行驶中的烟火气抱怨：最多一两个动作或什么都不做，不能推销",
     [alt(["affect", "none"], EMPTY, flex(acceptable=[A("音乐播放", ["放松", "安静", "专注"]), A("香氛开关", "开启"), A("氛围灯亮度", DIM)],
-                                       must_not=[A("音乐律动", "开启"), A("主驾座椅按摩强度", "3挡"), A("音乐播放", "庆祝"), A("MAX AC", "开启")]))],
+                                       must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("主驾座椅按摩强度", "3挡"), A("音乐播放", "庆祝"), A("MAX AC", "开启")]))],
     context=ST_DRIVE, relevance_band=[0.1, 0.7], max_actions=2, input_en="Stuck in traffic again, this is so annoying", context_en="[State] 18:10, driving, only me in the car")
 add("F05", "weak", "帮我查一下附近的充电桩", "找地方是导航域：none，relevance 低，放 unsupported",
     [NONE_ALT, alt(["none", "clarify"], EMPTY, EMPTY)], context=ST_DRIVE, relevance_band=[0, 0.3],
@@ -335,11 +335,11 @@ add("F05", "weak", "帮我查一下附近的充电桩", "找地方是导航域�
 add("F06", "weak", "后排孩子睡着了", "陈述句但组合度高：降音量、灭后排灯、小风量，不说话或只说一句",
     [alt(["vague", "affect", "action"], EMPTY, flex(one_of=[A("音量", rng=[10, 40]), A("氛围灯亮度", DIM), A("氛围灯开关", "关闭"), A("音乐播放", ["安静", "停止", "白噪音"])],
                                                     acceptable=[A("前排风量调节", ["1挡", "2挡", "3挡"]), A("主驾温度控制", rng=[22, 26]), A("音乐律动", "关闭")],
-                                                    must_not=[A("音乐律动", "开启"), A("音量", rng=[50, 100]), A("音乐播放", "庆祝"), A("MAX AC", "开启"), A("氛围灯亮度", BRIGHT)]), offer_any=["none"])],
+                                                    must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("音量", rng=[50, 100]), A("音乐播放", "庆祝"), A("MAX AC", "开启"), A("氛围灯亮度", BRIGHT)]), offer_any=["none"])],
     context=ST_KID, relevance_band=[0.6, 1.0], say_max=6, input_en="The kid in the back fell asleep", context_en="[State] 18:20, driving, me and one child in the back")
 add("F07", "weak", "刚吵了一架，别管我", "明确要独处：安静即布景，say 极短或为空，不 offer",
     [alt(["affect", "none"], EMPTY, flex(acceptable=[A("音乐播放", ["停止", "安静"]), A("氛围灯亮度", DIM), A("音量", rng=[10, 30])],
-                                       must_not=[A("音乐播放", ["庆祝", "浪漫"]), A("音乐律动", "开启"), A("香氛开关", "开启")]), offer_any=["none"])],
+                                       must_not=[A("音乐播放", ["庆祝", "浪漫"]), A("音乐律动", ["模式1", "模式2", "模式3"]), A("香氛开关", "开启")]), offer_any=["none"])],
     context=ST_DRIVE, relevance_band=[0.2, 0.8], max_actions=2, say_max=4, input_en="Just had a fight, leave me alone", context_en="[State] 18:10, driving, only me in the car")
 add("F08", "weak", "给你讲个笑话吧", "闲聊：none",
     [NONE_ALT], context=ST_DRIVE, relevance_band=[0, 0.2], input_en="Let me tell you a joke", context_en="[State] 18:10, driving, only me in the car")
@@ -347,7 +347,7 @@ add("F09", "weak", "这周末带爸妈去郊区玩", "分享计划：不是布�
     [NONE_ALT, alt(["affect", "vague"], EMPTY, flex(acceptable=[A("音乐播放", ["放松", "安静"])]))],
     context=ST_PARK, relevance_band=[0, 0.5], max_actions=1, input_en="Taking my parents to the countryside this weekend", context_en="[State] 19:20, parked, mall garage, only me in the car")
 add("F10", "weak", "真安静啊", "满意的感叹：不要把感叹当需求去改变现状",
-    [NONE_ALT, alt(["affect"], EMPTY, flex(acceptable=[A("氛围灯亮度", DIM)], must_not=[A("音乐播放", ["想念", "放松", "庆祝", "专注", "浪漫", "雨天", "白噪音"]), A("音乐律动", "开启")]))],
+    [NONE_ALT, alt(["affect"], EMPTY, flex(acceptable=[A("氛围灯亮度", DIM)], must_not=[A("音乐播放", ["想念", "放松", "庆祝", "专注", "浪漫", "雨天", "白噪音"]), A("音乐律动", ["模式1", "模式2", "模式3"])]))],
     context=ST_DRIVE, relevance_band=[0, 0.5], max_actions=1, input_en="It's so quiet", context_en="[State] 18:10, driving, only me in the car")
 add("F11", "weak", "空调是不是坏了，一点都不凉", "抱怨里藏着舒适目标：制冷",
     [alt(["vague", "action"], EMPTY, flex(one_of=[A("空调总开关", "开启"), A("AC开关", "开启"), A("MAX AC", "开启"), A("主驾温度控制", rng=[18, 22]), A("前排风量调节", ["4挡", "5挡", "6挡", "7挡", "8挡"])],
@@ -356,7 +356,7 @@ add("F11", "weak", "空调是不是坏了，一点都不凉", "抱怨里藏着�
     context=ST_DRIVE, relevance_band=[0.4, 1.0], input_en="Is the AC broken? It's not cold at all", context_en="[State] 18:10, driving, only me in the car")
 add("F12", "weak", "放点什么吧，还要开很久", "长途要声音：声元素必选，不能停止",
     [alt(["vague", "action", "affect"], EMPTY, flex(must_have=[A("音乐播放", ["专注", "放松", "浪漫", "想念", "雨天"])], acceptable=[A("音量", rng=[20, 60]), A("氛围灯亮度"), A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅通风", LV)],
-                                                    must_not=[A("音乐播放", ["停止", "安静"]), A("音乐律动", "开启")]))],
+                                                    must_not=[A("音乐播放", ["停止", "安静"]), A("音乐律动", ["模式1", "模式2", "模式3"])]))],
     context=ST_DRIVE, relevance_band=[0.5, 1.0], input_en="Play something, it's a long drive ahead", context_en="[State] 18:10, driving, only me in the car")
 
 # ---------- G 记忆包：偏好要用上，负面记忆要避开，事实与纠正要写记忆 ----------
@@ -364,13 +364,13 @@ MEM1 = "【记忆】喜欢的灯光：暖光 20%；不喜欢：香氛（撤销�
 add("G01", "memory", "累死了", "负面记忆：香氛被撤销过两次，绝不能再开；喜欢的灯光要用上",
     [alt(AF, EMPTY, flex(one_of=[A("氛围灯亮度", ["10%", "20%", "30%"]), A("音乐播放", ["放松", "安静", "想念"]), A("主驾座椅按摩模式", MASSAGE_ON)],
                         acceptable=[A("氛围灯开关", "开启"), A("主驾座椅按摩强度", ["1挡", "2挡"]), A("主驾温度控制", rng=[23, 26]), A("音量", rng=[10, 50]), A("音乐律动", "关闭")],
-                        must_not=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("音乐播放", "庆祝"), A("氛围灯亮度", BRIGHT + ["40%", "50%"]), A("音乐律动", "开启")]))],
+                        must_not=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("音乐播放", "庆祝"), A("氛围灯亮度", BRIGHT + ["40%", "50%"]), A("音乐律动", ["模式1", "模式2", "模式3"])]))],
     context=MEM1, memory_expect="none", input_en="I'm exhausted", context_en="[Memory] preferred lighting: warm 20%; dislikes: fragrance (undone twice)\n[State] 18:40, driving, 20 minutes to home")
 MEM2 = "【用户档案】伴侣：小雨；你们的歌：晴天\n【记忆】不喜欢：音乐律动（总是关掉）\n【当前状态】20:30，停车中，车上有我和小雨"
 add("G02", "memory", "来点氛围", "关系记忆在场时可用；负面记忆“总是关掉律动”要避开",
     [alt(["vague", "affect"], EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("氛围灯亮度"), A("音乐播放", ["浪漫", "想念", "放松"]), A("香氛开关", "开启")],
                                           acceptable=[A("香氛类型"), A("香氛浓度"), A("主驾温度控制", rng=[22, 26]), A("音量", rng=[10, 60])],
-                                          must_not=[A("音乐律动", "开启"), A("MAX AC", "开启"), A("音乐播放", ["停止", "庆祝"])]))],
+                                          must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("MAX AC", "开启"), A("音乐播放", ["停止", "庆祝"])]))],
     context=MEM2, memory_expect="none", input_en="Set the mood a bit", context_en="[Profile] Partner: Xiaoyu; your song: Sunny Day\n[Memory] dislikes: music sync lighting (always turns it off)\n[State] 20:30, parked, me and Xiaoyu in the car")
 add("G03", "memory", "我不喜欢开窗，风太大", "明确的偏好陈述：写 dislike 记忆；可顺手关窗",
     [alt(["none", "action", "vague"], EMPTY, flex(acceptable=[A(p, "关闭") for p in WIN] + [A("内外循环设置", "内循环"), A("前排风量调节", ["1挡", "2挡", "3挡"])],
@@ -400,29 +400,29 @@ def obs(id_, tests, ctx_zh, ctx_en, conds, acts_mode, band=(0.8, 1.0)):
     add(id_, "observe", "（无，来自观察入口）", tests, [alt(OBS, exact(conds), acts_mode)], context=ctx_zh,
         relevance_band=list(band), understanding_required=True, name_required=True, input_en="(none, from observation entry)", context_en=ctx_en)
 obs("H01", "工作日夜晚到家：灯 30% 加放松音乐，5/7 天",
-    "【观察候选】条件：星期类型=工作日；时段=夜晚；地点=家。动作：氛围灯亮度=30%；音乐播放=放松。过去一周出现 5 天。",
+    "【观察候选】条件：星期类型=工作日；时段=夜晚；位置=家。动作：氛围灯亮度=30%；音乐播放=放松。过去一周出现 5 天。",
     "[Observation candidate] conditions: day type=工作日; time of day=夜晚; place=家. actions: 氛围灯亮度=30%; 音乐播放=放松. Seen 5 of the last 7 days.",
-    [C("星期类型", "==", "工作日"), C("时段", "==", "夜晚"), C("地点", "==", "家")], exact([A("氛围灯亮度", "30%"), A("音乐播放", "放松")]))
+    [C("星期类型", "==", "工作日"), C("时段", "==", "夜晚"), C("位置", "==", "家")], exact([A("氛围灯亮度", "30%"), A("音乐播放", "放松")]))
 obs("H02", "低温清晨出发：座椅加热、方向盘加热、专注音乐",
     "【观察候选】条件：星期类型=工作日；时段=清晨；天气=低温；行程事件=出发。动作：主驾座椅加热=2挡；方向盘加热=开启；音乐播放=专注。过去一周出现 4 天。",
     "[Observation candidate] conditions: day type=工作日; time of day=清晨; weather=低温; trip event=出发. actions: 主驾座椅加热=2挡; 方向盘加热=开启; 音乐播放=专注. Seen 4 of the last 7 days.",
     [C("星期类型", "==", "工作日"), C("时段", "==", "清晨"), C("天气", "==", "低温"), C("行程事件", "==", "出发")], exact([A("主驾座椅加热", "2挡"), A("方向盘加热", "开启"), A("音乐播放", "专注")]))
 obs("H03", "学校门口等人：暗灯、放松、轻按摩",
-    "【观察候选】条件：行程事件=停车等人；地点=学校；时段=下午。动作：氛围灯亮度=20%；音乐播放=放松；主驾座椅按摩模式=波浪。过去两周出现 6 天。",
-    "[Observation candidate] conditions: trip event=停车等人; place=学校; time of day=下午. actions: 氛围灯亮度=20%; 音乐播放=放松; 主驾座椅按摩模式=波浪. Seen 6 days in the last two weeks.",
-    [C("行程事件", "==", "停车等人"), C("地点", "==", "学校"), C("时段", "==", "下午")], exact([A("氛围灯亮度", "20%"), A("音乐播放", "放松"), A("主驾座椅按摩模式", "波浪")]))
+    "【观察候选】条件：行程事件=停车等人；位置=收藏地点；时段=下午。动作：氛围灯亮度=20%；音乐播放=放松；主驾座椅按摩模式=波浪。过去两周出现 6 天。",
+    "[Observation candidate] conditions: trip event=停车等人; place=收藏地点; time of day=下午. actions: 氛围灯亮度=20%; 音乐播放=放松; 主驾座椅按摩模式=波浪. Seen 6 days in the last two weeks.",
+    [C("行程事件", "==", "停车等人"), C("位置", "==", "收藏地点"), C("时段", "==", "下午")], exact([A("氛围灯亮度", "20%"), A("音乐播放", "放松"), A("主驾座椅按摩模式", "波浪")]))
 obs("H04", "候选里夹着安全禁止项（关行人警报音）：必须裁掉，其余保留",
-    "【观察候选】条件：地点=家；时段=深夜。动作：音量=20%；低速行人警报音=关闭。过去一周出现 5 天。",
+    "【观察候选】条件：位置=家；时段=深夜。动作：音量=20%；低速行人警报音=关闭。过去一周出现 5 天。",
     "[Observation candidate] conditions: place=家; time of day=深夜. actions: 音量=20%; 低速行人警报音=关闭. Seen 5 of the last 7 days.",
-    [C("地点", "==", "家"), C("时段", "==", "深夜")], flex(must_have=[A("音量", "20%")], must_not=[A("低速行人警报音", "关闭")]))
+    [C("位置", "==", "家"), C("时段", "==", "深夜")], flex(must_have=[A("音量", "20%")], must_not=[A("低速行人警报音", "关闭")]))
 obs("H05", "休息日上午出发：开窗透气、外循环",
     "【观察候选】条件：星期类型=休息日；时段=上午；行程事件=出发。动作：主驾车窗=30%；内外循环设置=外循环。过去一个月出现 4 个周末。",
     "[Observation candidate] conditions: day type=休息日; time of day=上午; trip event=出发. actions: 主驾车窗=30%; 内外循环设置=外循环. Seen on 4 weekends in the last month.",
     [C("星期类型", "==", "休息日"), C("时段", "==", "上午"), C("行程事件", "==", "出发")], exact([A("主驾车窗", "30%"), A("内外循环设置", "外循环")]))
 obs("H06", "雨夜到家：三元素",
-    "【观察候选】条件：天气=雨；时段=夜晚；行程事件=到达；地点=家。动作：氛围灯亮度=40%；音乐播放=雨天；主驾温度控制=24℃。过去一个月出现 3 次。",
+    "【观察候选】条件：天气=雨；时段=夜晚；行程事件=到达；位置=家。动作：氛围灯亮度=40%；音乐播放=雨天；主驾温度控制=24℃。过去一个月出现 3 次。",
     "[Observation candidate] conditions: weather=雨; time of day=夜晚; trip event=到达; place=家. actions: 氛围灯亮度=40%; 音乐播放=雨天; 主驾温度控制=24℃. Seen 3 times in the last month.",
-    [C("天气", "==", "雨"), C("时段", "==", "夜晚"), C("行程事件", "==", "到达"), C("地点", "==", "家")], exact([A("氛围灯亮度", "40%"), A("音乐播放", "雨天"), A("主驾温度控制", "24℃")]))
+    [C("天气", "==", "雨"), C("时段", "==", "夜晚"), C("行程事件", "==", "到达"), C("位置", "==", "家")], exact([A("氛围灯亮度", "40%"), A("音乐播放", "雨天"), A("主驾温度控制", "24℃")]))
 
 # ---------- I 追问：信息缺失时要问一句，而不是猜 ----------
 add("I01", "clarify", "把那个打开", "指代不明：追问",
@@ -435,7 +435,7 @@ add("I04", "clarify", "有人的时候开加热", "哪个座位不明：追问�
     [CLARIFY, alt(["precise"], exact([C("副驾座椅", "==", "有人")]), flex(must_have=[A("副驾座椅加热", LV)]))], input_en="Turn on heating when someone's there", context_en=None)
 add("I05", "clarify", "到家以后帮我准备一下", "目标模糊但条件清楚：追问准备什么，或给一个保守的到家布景",
     [CLARIFY, alt(["precise", "vague"], exact([C("行程事件", "==", "到达")]), flex(acceptable=[A("氛围灯亮度"), A("氛围灯开关", "开启"), A("音乐播放"), A("主驾温度控制", rng=[22, 26]), A("香氛开关", "开启")], must_not=[A("MAX AC", "开启")])),
-     alt(["precise", "vague"], exact([C("地点", "==", "家")]), flex(acceptable=[A("氛围灯亮度"), A("氛围灯开关", "开启"), A("音乐播放"), A("主驾温度控制", rng=[22, 26]), A("香氛开关", "开启")], must_not=[A("MAX AC", "开启")]))],
+     alt(["precise", "vague"], exact([C("位置", "==", "家")]), flex(acceptable=[A("氛围灯亮度"), A("氛围灯开关", "开启"), A("音乐播放"), A("主驾温度控制", rng=[22, 26]), A("香氛开关", "开启")], must_not=[A("MAX AC", "开启")]))],
     input_en="Get things ready when I get home", context_en=None)
 add("I06", "clarify", "座椅调一下", "调什么不明：追问，或按摩、加热、通风任一",
     [CLARIFY, alt(["action", "vague"], EMPTY, flex(one_of=[A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅加热", LV), A("主驾座椅通风", LV)], acceptable=[A("主驾座椅按摩强度")]))],
@@ -446,53 +446,100 @@ LIGHT_ANY = [A("氛围灯亮度"), A("氛围灯开关", "开启")]
 def explicit(id_, inp, tests, alts, inp_en, ctx=None, ctx_en=None, **kw):
     add(id_, "explicit", inp, tests, alts, context=ctx, understanding_required=True, name_required=True, relevance_band=[0.7, 1.0], input_en=inp_en, context_en=ctx_en, **kw)
 explicit("J01", "给我生成一个雨夜回家的场景", "002 句式：条件由名字推出（雨、夜、家），动作六元素自由组合",
-    [alt(["precise", "vague"], {"mode": "exact", "items": [C("天气", "==", "雨"), C("时段", "==", "夜晚"), C("地点", "==", "家")]},
-         flex(one_of=LIGHT_ANY + [A("音乐播放", ["雨天", "放松", "想念", "安静"]), A("主驾温度控制", rng=[22, 26])], acceptable=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("前风窗除雾", "开启"), A("音量", rng=[10, 60]), A("内外循环设置", "内循环"), A("主驾座椅加热", LV)], must_not=[A("MAX AC", "开启"), A("音乐律动", "开启"), A("音乐播放", "庆祝")])),
+    [alt(["precise", "vague"], {"mode": "exact", "items": [C("天气", "==", "雨"), C("时段", "==", "夜晚"), C("位置", "==", "家")]},
+         flex(one_of=LIGHT_ANY + [A("音乐播放", ["雨天", "放松", "想念", "安静"]), A("主驾温度控制", rng=[22, 26])], acceptable=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("前风窗除雾", "开启"), A("音量", rng=[10, 60]), A("内外循环设置", "内循环"), A("主驾座椅加热", LV)], must_not=[A("MAX AC", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("音乐播放", "庆祝")])),
      alt(["precise", "vague"], {"mode": "exact", "items": [C("天气", "==", "雨"), C("时段", "==", "夜晚"), C("行程事件", "==", "到达")]},
-         flex(one_of=LIGHT_ANY + [A("音乐播放", ["雨天", "放松", "想念", "安静"]), A("主驾温度控制", rng=[22, 26])], acceptable=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("前风窗除雾", "开启"), A("音量", rng=[10, 60]), A("内外循环设置", "内循环"), A("主驾座椅加热", LV)], must_not=[A("MAX AC", "开启"), A("音乐律动", "开启"), A("音乐播放", "庆祝")])),
+         flex(one_of=LIGHT_ANY + [A("音乐播放", ["雨天", "放松", "想念", "安静"]), A("主驾温度控制", rng=[22, 26])], acceptable=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("前风窗除雾", "开启"), A("音量", rng=[10, 60]), A("内外循环设置", "内循环"), A("主驾座椅加热", LV)], must_not=[A("MAX AC", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("音乐播放", "庆祝")])),
      alt(["precise", "vague"], {"mode": "exact", "items": [C("天气", "==", "雨"), C("时段", "==", "夜晚")]},
-         flex(one_of=LIGHT_ANY + [A("音乐播放", ["雨天", "放松", "想念", "安静"]), A("主驾温度控制", rng=[22, 26])], acceptable=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("前风窗除雾", "开启"), A("音量", rng=[10, 60]), A("内外循环设置", "内循环"), A("主驾座椅加热", LV)], must_not=[A("MAX AC", "开启"), A("音乐律动", "开启"), A("音乐播放", "庆祝")]))],
+         flex(one_of=LIGHT_ANY + [A("音乐播放", ["雨天", "放松", "想念", "安静"]), A("主驾温度控制", rng=[22, 26])], acceptable=[A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度"), A("前风窗除雾", "开启"), A("音量", rng=[10, 60]), A("内外循环设置", "内循环"), A("主驾座椅加热", LV)], must_not=[A("MAX AC", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("音乐播放", "庆祝")]))],
     "Create a rainy night drive home scene for me")
 explicit("J02", "做一个午休模式", "001 句式，无条件：午休是舒适目标，暗灯、安静、按摩或座椅，不开律动",
     [alt(["vague", "action", "affect"], EMPTY, flex(one_of=[A("氛围灯亮度", DIM), A("氛围灯开关", "关闭"), A("音乐播放", ["安静", "白噪音", "放松", "停止"]), A("主驾座椅按摩模式", MASSAGE_ON)],
                                                     acceptable=[A("主驾温度控制", rng=[22, 26]), A("前排风量调节", ["1挡", "2挡", "3挡"]), A("音量", rng=[10, 40]), A("主驾座椅按摩强度", ["1挡", "2挡"]), A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度", "淡雅"), A("空调总开关", "开启"), A("AUTO模式", "开启"), A("ECO", "开启"), A("音乐律动", "关闭")] + [A(p, ["10%", "20%"]) for p in WIN],
-                                                    must_not=[A("音乐律动", "开启"), A("氛围灯亮度", BRIGHT), A("音乐播放", "庆祝"), A("MAX AC", "开启")]))],
+                                                    must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("氛围灯亮度", BRIGHT), A("音乐播放", "庆祝"), A("MAX AC", "开启")]))],
     "Make a nap mode", ctx="【当前状态】12:30，停车中，公司", ctx_en="[State] 12:30, parked, at work")
 explicit("J03", "每当下雨天回家的时候就放雨天的歌，灯暗一点", "002 句式带明确动作：条件雨加家或到达，动作两项",
-    [alt(["precise"], exact([C("天气", "==", "雨"), C("地点", "==", "家")]), flex(must_have=[A("音乐播放", "雨天")], one_of=[A("氛围灯亮度", DIM + ["50%"])], acceptable=[A("氛围灯开关", "开启")])),
+    [alt(["precise"], exact([C("天气", "==", "雨"), C("位置", "==", "家")]), flex(must_have=[A("音乐播放", "雨天")], one_of=[A("氛围灯亮度", DIM + ["50%"])], acceptable=[A("氛围灯开关", "开启")])),
      alt(["precise"], exact([C("天气", "==", "雨"), C("行程事件", "==", "到达")]), flex(must_have=[A("音乐播放", "雨天")], one_of=[A("氛围灯亮度", DIM + ["50%"])], acceptable=[A("氛围灯开关", "开启")]))],
     "Whenever it rains on the way home, play rainy day music and dim the lights a bit")
 explicit("J04", "累了以后的场景该怎么设置", "002 的“该怎么设置”句式：给方案而不是反问；无条件或追问都算",
     [alt(["vague", "affect"], EMPTY, flex(one_of=[A("氛围灯亮度", DIM), A("音乐播放", ["放松", "安静", "想念"]), A("主驾座椅按摩模式", MASSAGE_ON)],
                                           acceptable=[A("主驾座椅按摩强度", ["1挡", "2挡"]), A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("香氛类型"), A("香氛浓度", ["淡雅", "自然"]), A("主驾温度控制", rng=[23, 26]), A("音量", rng=[10, 50]), A("主驾座椅加热", ["1挡", "2挡"])],
-                                          must_not=[A("MAX AC", "开启"), A("音乐律动", "开启"), A("音乐播放", "庆祝")])), CLARIFY],
+                                          must_not=[A("MAX AC", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("音乐播放", "庆祝")])), CLARIFY],
     "How should a scene for when I'm tired be set up?")
 explicit("J05", "到公司停好车以后给我个提醒，带上电脑", "002 的提醒句式：提醒是表外能力，条件可成立，动作放 say 或 unsupported，不编造动作",
-    [alt(["precise", "none", "clarify"], exact([C("地点", "==", "公司"), C("行程事件", "==", "到达")]), flex(acceptable=[], must_not=[A("MAX AC", "开启")])),
-     alt(["precise", "none", "clarify"], exact([C("地点", "==", "公司")]), flex(acceptable=[], must_not=[A("MAX AC", "开启")])),
+    [alt(["precise", "none", "clarify"], exact([C("位置", "==", "公司"), C("行程事件", "==", "到达")]), flex(acceptable=[], must_not=[A("MAX AC", "开启")])),
+     alt(["precise", "none", "clarify"], exact([C("位置", "==", "公司")]), flex(acceptable=[], must_not=[A("MAX AC", "开启")])),
      alt(["precise", "none", "clarify"], exact([C("行程事件", "==", "到达")]), flex(acceptable=[], must_not=[A("MAX AC", "开启")])),
      alt(["none", "clarify"], EMPTY, EMPTY)],
     "Remind me to bring my laptop once I've parked at work", max_actions=1)
 explicit("J06", "当我说“开工”的时候就进入专注模式", "口令触发：口令不是条件表里的信号，条件为空并把口令放 unsupported 或 clarify；动作给专注类",
     [alt(["vague", "action", "clarify", "precise"], EMPTY, flex(one_of=[A("音乐播放", "专注"), A("氛围灯亮度"), A("主驾座椅通风", LV), A("前排风量调节")],
-                                                             acceptable=[A("氛围灯开关", "开启"), A("音量", rng=[10, 60]), A("主驾温度控制", rng=[20, 24]), A("香氛开关", "开启"), A("香氛类型"), A("内外循环设置", "外循环"), A("主驾座椅按摩模式", "OFF")],
-                                                             must_not=[A("音乐律动", "开启"), A("音乐播放", ["庆祝", "浪漫", "想念"])]))],
+                                                             acceptable=[A("氛围灯开关", "开启"), A("音量", rng=[10, 60]), A("主驾温度控制", rng=[20, 24]), A("香氛开关", "开启"), A("香氛类型"), A("内外循环设置", "外循环"), A("主驾座椅按摩模式", "关闭")],
+                                                             must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("音乐播放", ["庆祝", "浪漫", "想念"])]))],
     "When I say 'let's work', switch to focus mode")
 explicit("J07", "生成一个哄睡场景，后排有宝宝", "002 加乘员：白噪音或安静、暗灯、小风量、音量低；不说话或只说一句",
     [alt(["vague", "affect", "action"], EMPTY, flex(one_of=[A("音乐播放", ["白噪音", "安静"]), A("氛围灯亮度", DIM), A("氛围灯开关", "关闭"), A("音量", rng=[10, 40])],
                                                     acceptable=[A("前排风量调节", ["1挡", "2挡", "3挡"]), A("主驾温度控制", rng=[23, 26]), A("音乐律动", "关闭"), A("空调总开关", "开启"), A("AUTO模式", "开启")],
-                                                    must_not=[A("音乐律动", "开启"), A("音量", rng=[50, 100]), A("音乐播放", ["庆祝", "专注"]), A("MAX AC", "开启"), A("氛围灯亮度", BRIGHT)]), offer_any=["none"])],
+                                                    must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("音量", rng=[50, 100]), A("音乐播放", ["庆祝", "专注"]), A("MAX AC", "开启"), A("氛围灯亮度", BRIGHT)]), offer_any=["none"])],
     "Create a lull-to-sleep scene, there's a baby in the back", ctx="【当前状态】20:10，行驶中，车上有我和后排一个婴儿", ctx_en="[State] 20:10, driving, me and a baby in the back", say_max=8)
 explicit("J08", "Set up a scene for long highway drives at night", "英文原生句式：夜晚加长途，条件用时段，动作提神与专注但不刺眼",
     [alt(["precise", "vague"], exact([C("时段", "==", "夜晚")]), flex(one_of=[A("音乐播放", ["专注", "放松"]), A("氛围灯亮度", DIM + ["50%"]), A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅通风", LV)],
                                                                     acceptable=[A("氛围灯开关", "开启"), A("音量", rng=[20, 60]), A("主驾温度控制", rng=[20, 24]), A("香氛开关", "开启"), A("香氛类型"), A("内外循环设置", "外循环"), A("主驾座椅按摩强度")],
-                                                                    must_not=[A("音乐律动", "开启"), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "安静", "停止"])])),
+                                                                    must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "安静", "停止"])])),
      alt(["precise", "vague"], exact([C("时段", "==", "深夜")]), flex(one_of=[A("音乐播放", ["专注", "放松"]), A("氛围灯亮度", DIM + ["50%"]), A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅通风", LV)],
                                                                     acceptable=[A("氛围灯开关", "开启"), A("音量", rng=[20, 60]), A("主驾温度控制", rng=[20, 24]), A("香氛开关", "开启"), A("香氛类型"), A("内外循环设置", "外循环"), A("主驾座椅按摩强度")],
-                                                                    must_not=[A("音乐律动", "开启"), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "安静", "停止"])])),
-     alt(["vague"], EMPTY, flex(one_of=[A("音乐播放", ["专注", "放松"]), A("氛围灯亮度", DIM + ["50%"]), A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅通风", LV)], acceptable=[A("氛围灯开关", "开启"), A("音量", rng=[20, 60]), A("主驾温度控制", rng=[20, 24]), A("香氛开关", "开启"), A("香氛类型"), A("内外循环设置", "外循环"), A("主驾座椅按摩强度")], must_not=[A("音乐律动", "开启"), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "安静", "停止"])]))],
+                                                                    must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "安静", "停止"])])),
+     alt(["vague"], EMPTY, flex(one_of=[A("音乐播放", ["专注", "放松"]), A("氛围灯亮度", DIM + ["50%"]), A("主驾座椅按摩模式", MASSAGE_ON), A("主驾座椅通风", LV)], acceptable=[A("氛围灯开关", "开启"), A("音量", rng=[20, 60]), A("主驾温度控制", rng=[20, 24]), A("香氛开关", "开启"), A("香氛类型"), A("内外循环设置", "外循环"), A("主驾座椅按摩强度")], must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "安静", "停止"])]))],
     "Set up a scene for long highway drives at night")
 items[-1]["input"] = "帮我做一个夜里跑高速的场景"
+
+# ---------- N 新能力表带来的题（2026-07 能力表）----------
+ST_KID2 = "【当前状态】18:20，行驶中，后排右侧安全带系上"
+add("N01", "action", "别吵醒他", "指令式组合直接布景：声场切前排是正解，不要停播", 
+    [alt(["action", "vague"], EMPTY, flex(must_have=[A("声场", ["前排模式", "主驾模式"])], acceptable=[A("音量", rng=[10, 40]), A("氛围灯亮度", DIM), A("氛围灯开关", "关闭"), A("导航音量", rng=[0, 40]), A("前排风量调节", ["1挡", "2挡", "3挡"]), A("音乐律动", "关闭")],
+                                             must_not=[A("多媒体", "暂停"), A("音乐播放", "停止"), A("音量", rng=[60, 100]), A("音乐律动", ["模式1", "模式2", "模式3"])]), offer_any=["none"])],
+    context=ST_KID2, say_max=4, input_en="Don't wake him up", context_en="[State] 18:20, driving, rear right seat belt fastened")
+add("N02", "action", "冷死了，快点热起来", "极速升温是新能力，应优先于慢慢调温度",
+    [alt(["action", "vague"], EMPTY, flex(one_of=[A("极速升温", "开启"), A("主驾温度控制", rng=[27, 32])], acceptable=[A("主驾座椅加热", LV), A("方向盘加热", "开启"), A("空调总开关", "开启"), A("出风模式设置", ["吹脚", "吹面吹脚"]), A("前排风量调节")],
+                                             must_not=[A("MAX AC", "开启"), A("主驾座椅通风", LV), A("主驾温度控制", rng=[18, 24])]))],
+    input_en="Freezing, warm it up fast", context_en=None)
+add("N03", "precise", "锁车以后如果还有窗没关就把窗关上", "离车事件用车锁全部上锁加任意车窗开启表达",
+    [alt(["precise"], exact([C("车锁", "==", "全部上锁"), C("任意车窗", "==", "开启")]), flex(must_have=[A(p, "关闭") for p in WIN]), logic="AND"),
+     alt(["precise"], exact([C("车锁", "==", "全部上锁")]), flex(must_have=[A(p, "关闭") for p in WIN]))],
+    input_en="After locking the car, close any window that's still open", context_en=None)
+add("N04", "precise", "后排有人坐的时候把后排座椅加热打开", "后排占位没有信号，用后排安全带系上代理，或追问",
+    [alt(["precise"], {"mode": "exact", "items": [C("任意安全带", "==", "系上")]}, flex(must_have=[A("左后排座椅加热", LV), A("右后排座椅加热", LV)])),
+     alt(["precise"], {"mode": "exact", "items": [C("左后排安全带", "==", "系上"), C("右后排安全带", "==", "系上")]}, flex(one_of=[A("左后排座椅加热", LV), A("右后排座椅加热", LV)]), logic="OR"),
+     alt(["precise"], {"mode": "exact", "items": [C("左后排安全带", "==", "系上")]}, flex(must_have=[A("左后排座椅加热", LV)], acceptable=[A("右后排座椅加热", LV)])), CLARIFY],
+    input_en="Turn on the rear seat heating when someone sits in the back", context_en=None)
+add("N05", "explicit", "进入露营模式", "点名官方情景模式：直接调用预设，不重新拼动作",
+    [alt(["action", "vague"], EMPTY, flex(must_have=[A("进入情景模式", "露营模式")], acceptable=[A("氛围灯亮度"), A("音乐播放"), A("氛围灯开关", "开启")]))],
+    understanding_required=True, input_en="Enter camping mode", context_en=None)
+add("N06", "explicit", "做一个露营场景，灯暖一点，放点轻音乐，两小时后关掉空调", "点名场景但带自定义动作：可调预设也可自组；延时动作有上限", 
+    [alt(["vague", "action", "precise"], EMPTY, flex(one_of=[A("进入情景模式", "露营模式"), A("氛围灯亮度", DIM + ["50%"]), A("氛围灯开关", "开启")], acceptable=[A("音乐播放", ["放松", "安静", "浪漫"]), A("音量", rng=[10, 50]), A("香氛开关", "开启"), A("主驾温度控制", rng=[22, 26]), A("延时"), A("空调总开关", "关闭"), A("音效", "音乐厅"), A("屏幕亮度")],
+                                                       must_not=[A("音乐律动", ["模式1", "模式2", "模式3"]), A("MAX AC", "开启")]))],
+    understanding_required=True, name_required=True, input_en="Make a camping scene: warm lights, soft music, and turn the AC off after two hours", context_en="【当前状态】20:00，停车中，露营地", context_en2=None)
+add("N07", "affect", "今天我生日", "庆祝类可用彩蛋：生日动效加庆祝音乐，亮一点",
+    [alt(AF, EMPTY, flex(one_of=[A("彩蛋", "生日动效"), A("音乐播放", "庆祝"), A("氛围灯亮度", ["60%", "70%", "80%"]), A("音乐律动", ["模式1", "模式2", "模式3"])], acceptable=[A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("音量", rng=[30, 70]), A("音效", ["音乐厅", "影院"])],
+                        must_not=[A("彩蛋", "情人节动效"), A("音乐播放", ["安静", "停止", "想念"]), A("MAX AC", "开启")]), offer_any=["none", "call", "message"])],
+    context="【当前状态】停车中", input_en="It's my birthday today", context_en="[State] parked")
+add("N08", "weak", "手机放上去了", "无线充电是设备类，不是布景请求；none 或只做一件",
+    [NONE_ALT, alt(["action"], EMPTY, flex(acceptable=[A("无线充电", "开启")]))], relevance_band=[0, 0.4], max_actions=1,
+    input_en="I put my phone on the pad", context_en=None)
+add("N09", "precise", "天黑开近光灯的时候把屏幕切成黑夜模式，亮度调低", "车外灯光是条件不是动作；屏幕模式与亮度是新动作",
+    [alt(["precise"], exact([C("近光灯", "==", "开启")]), flex(must_have=[A("屏幕模式", "黑夜模式")], one_of=[A("屏幕亮度", ["10%", "20%", "30%", "40%", "50%"])], acceptable=[A("氛围灯亮度", DIM)]))],
+    input_en="When the low beams come on at night, switch the screen to night mode and lower the brightness", context_en=None)
+add("N10", "action", "把行人警报音换成梦幻那个", "AVAS 换音色允许，关闭不允许；音色仅国内",
+    [alt(["action"], EMPTY, flex(must_have=[A("低速行人警报音", "梦幻")], must_not=[A("低速行人警报音", "关闭")]))],
+    input_en="Switch the pedestrian warning sound to the 'dreamy' one", context_en=None)
+add("N11", "action", "导航回家，路上安静点", "导航目的地是规划中的能力，可用但要标 warnings；安静用声场或音量",
+    [alt(["action", "vague"], EMPTY, flex(must_have=[A("导航目的地", "家")], one_of=[A("音量", rng=[10, 40]), A("导航音量", rng=[10, 50]), A("音乐播放", ["安静", "放松"]), A("一键静音", "开启")], acceptable=[A("氛围灯亮度", DIM), A("声场", "主驾模式")],
+                                             must_not=[A("音乐播放", "庆祝"), A("音乐律动", ["模式1", "模式2", "模式3"])]))],
+    input_en="Navigate home, and keep it quiet on the way", context_en=None)
+add("N12", "clarify", "开门", "车门作为动作是规划中且 B 级：行驶中不做，停车也要问哪扇门",
+    [CLARIFY, alt(["action"], EMPTY, flex(one_of=[A("左前门", "开启"), A("右前门", "开启"), A("左后门", "开启"), A("右后门", "开启"), A("尾门", "开启")] if False else [A("左前门", "开启"), A("右前门", "开启")]))],
+    context="【当前状态】停车中", input_en="Open the door", context_en="[State] parked")
 
 for it in items:
     if "input_en" not in it:

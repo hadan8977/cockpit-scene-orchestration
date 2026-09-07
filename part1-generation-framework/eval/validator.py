@@ -17,20 +17,25 @@ def suspect_injection(text):
     t = (text or "").lower()
     return [m for m in INJECTION_MARKERS if m.lower() in t]
 
-def validate_scene(obj, style="p3", driving=False, max_actions_soft=4, say_max=15):
+def validate_scene(obj, style="p3", driving=False, max_actions_soft=4, say_max=15, allow_maturity=("released", "no_ux", "sprint", "planned", "proposed")):
+    """allow_maturity：量产验证器只放 released 与 no_ux；demo 放全部，规划中与提议的能力在卡片上标注。"""
     R.apply_style(style if style in ("p2", "p3") else "p1")
     out = R.parse_output(obj)
     errors = list(out["schema_errors"])
     dropped = []
     keep = []
-    disabled = set()
+    disabled = set(); immature = {}
     regp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "capabilities.json")
     if os.path.exists(regp):
-        disabled = {c["zh"] for c in json.load(open(regp, encoding="utf-8"))["capabilities"] if c["status"] != "enabled"}
+        caps = json.load(open(regp, encoding="utf-8"))["capabilities"]
+        disabled = {c["zh"] for c in caps if c["status"] != "enabled"}
+        immature = {c["zh"]: c.get("maturity", "released") for c in caps if c.get("maturity", "released") not in allow_maturity}
     for a in out["actions"]:
         p, v, raw = a["primary"], a["value"], a["raw"]
         if p in disabled:
             dropped.append((p, raw, "能力已下线")); continue
+        if p in immature:
+            dropped.append((p, raw, "能力规划中，本版不执行")); continue
         if p not in R.VOCAB["actions"]:
             dropped.append((p, raw, "不在能力表")); continue
         if any(R.act_match(a, s) for s in R.VOCAB.get("safety_must_not", [])):

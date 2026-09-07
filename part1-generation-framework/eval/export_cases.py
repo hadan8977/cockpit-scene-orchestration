@@ -9,9 +9,11 @@ import run_eval as R
 from validator import validate_scene
 HERE = os.path.dirname(os.path.abspath(__file__))
 ELEMENT = {}
-for p in ["氛围灯开关", "氛围灯亮度", "音乐律动"]: ELEMENT[p] = "光"
-for p in ["音乐播放", "音量"]: ELEMENT[p] = "声"
+for p in ["氛围灯开关", "氛围灯亮度", "音乐律动", "屏幕模式", "屏幕亮度", "电动遮阳帘"]: ELEMENT[p] = "光"
+for p in ["音乐播放", "多媒体", "音量", "导航音量", "语音音量", "声场", "音效", "声浪", "一键静音", "低速行人警报音"]: ELEMENT[p] = "声"
 for p in ["香氛开关", "香氛类型", "香氛浓度", "自动空气净化", "内外循环设置", "空气自干燥", "主驾车窗", "副驾车窗", "左后排车窗", "右后排车窗"]: ELEMENT[p] = "气"
+ELEMENT["小塔播报"] = "话"; ELEMENT["导航目的地"] = "供"; ELEMENT["彩蛋"] = "惊喜"; ELEMENT["延时"] = "编排"
+for p in ["进入情景模式", "退出情景模式"]: ELEMENT[p] = "预设"
 def element(p): return ELEMENT.get(p, "温")
 
 def main():

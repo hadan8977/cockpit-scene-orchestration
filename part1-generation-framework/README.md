@@ -1,22 +1,20 @@
 # 第一部分：生成框架与云端小模型选型（2026-09-07）
 
-对应 PRD v14 的 2.4 与 GEN_001 到 GEN_004。这个文件夹自成一体，可以单独运行。
+对应 PRD v15 的 2.4 与 GEN_001 到 GEN_004。这个文件夹自成一体，可以单独运行。
 
 | 内容 | 位置 |
 |---|---|
-| 测试计划（问题、候选、题集、双路体验门、门槛、命令、节奏、PRD 需同步的改动） | `docs/第一部分-测试计划-生成框架与选型-v1.md` |
-| 原型设计 prompt（给 Figma Make / kimi） | `docs/原型设计prompt-场景app一句话生成.md` |
-| 评测套件：114 题中英题集、注册表（含条件语义层）、prompt、验证器、harness | `eval/` |
-| 模型候选清单（16 条，id 待 `run_matrix.py --check` 核对） | `eval/models.json` |
-| 批跑与对比 / 机器评审 / 盲评打包 / 原型回放导出 | `eval/run_matrix.py`、`eval/judge.py`、`eval/blind_pack.py`、`eval/export_cases.py` |
+| PRD v15（按评审意见与 2026-07 能力表更新，顶层 docs 也放了一份） | `docs/场景编排主动层-最终方案-v15-PRD.md` / `.docx` |
+| 能力表对照结论（解决了什么、拿走了什么、值域变化、提议三条） | `docs/能力表对照-2026-07版-结论与改动.md` |
+| 测试计划 v1.1 | `docs/第一部分-测试计划-生成框架与选型-v1.md` |
+| Figma Make 提示词：概念舱场景原型 v2（视觉与人体工学） | `docs/FigmaMake提示词-概念舱场景原型-v2.md` |
+| 设计 prompt v1：场景 app 单页 | `docs/原型设计prompt-场景app一句话生成.md` |
+| 评测套件：126 题中英、注册表 96 条（公司能力表导入，含成熟度）、prompt、验证器、harness | `eval/` |
+| 能力表导入脚本与原始表 | `eval/import_capabilities.py`、`notes/inputs/` |
+| 模型候选清单 / 批跑 / 机器评审 / 盲评打包 / 原型回放导出 | `eval/models.json`、`run_matrix.py`、`judge.py`、`blind_pack.py`、`export_cases.py` |
 | Kimi K2.7 冒烟结果（32 句，通过 81%） | `eval/results/smoke-kimi-k27-p3-zh/` |
-| 原型页（回放真实模型输出） | `demo/gen-app/index.html` 加 `cases.json` |
-
-看原型：
-
-```bash
-cd demo/gen-app && python3 -m http.server 8765   # 打开 http://127.0.0.1:8765/
-```
+| 原型 v1（单页，回放真实输出）与概念舱布局草稿（未完成，只作参考） | `demo/gen-app/`、`demo/cockpit/` |
+| Markdown 转 docx | `tools/md2docx.py` |
 
 跑评测（key 到位后）：
 
@@ -27,4 +25,8 @@ python3 run_matrix.py --check
 python3 run_matrix.py --role 主候选 --prompts p3 --thinking off --judge --judge-key ds-v4-flash
 ```
 
-顶层 `eval/` 是 9 月 3 日的版本，这里的 `eval/` 是在它之上扩展的，以这里为准。
+能力表更新后重建注册表：
+
+```bash
+cd eval && python3 import_capabilities.py && python3 registry.py build && python3 registry.py render && python3 registry.py schema && python3 build_testset.py && python3 run_eval.py --mock
+```

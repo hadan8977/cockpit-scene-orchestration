@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>座舱场景 · 概念舱原型 v2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* ===== 设计令牌：夜间为默认；亮度与对比按 75cm 视距、夜间低眩光取值 ===== */
+:root{
+  --bg:#07080b; --dash:#0e1015; --dash2:#12151c; --glass:rgba(255,255,255,.035); --line:rgba(255,255,255,.08);
+  --fg:#E9ECF1; --fg2:#AEB6C4; --fg3:#6E7787; --scene:#D8B27A; --scene-rgb:216,178,122; --ok:#8BC49A; --warn:#E2A15B; --danger:#E07A7A;
+  --r:28px; --r2:18px;
+  --t-hero:40px; --t-h1:34px; --t-body:30px; --t-sub:26px; --t-cap:22px; /* 1920 画布；30px ≈ 5.8mm，满足 ≥5mm@75cm */
+  --touch:72px; /* ≈ 14mm，超过 9mm 下限，留出行驶抖动余量 */
+}
+html.day{ --bg:#c9ccd3; --dash:#e9eaee; --dash2:#f3f4f6; --glass:rgba(0,0,0,.04); --line:rgba(0,0,0,.10); --fg:#15181e; --fg2:#3d4552; --fg3:#7a8290; }
+*{box-sizing:border-box} body{margin:0;background:#000;color:var(--fg);font-family:-apple-system,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;overflow:hidden;height:100vh}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center;transform:translate(-50%,-50%) scale(var(--k,1));background:var(--bg);overflow:hidden}
+/* ===== 舱体轮廓 ===== */
+.dash{position:absolute;left:0;right:0;top:0;height:1080px;background:
+  radial-gradient(1400px 500px at 50% -120px, rgba(var(--scene-rgb),.10), transparent 60%),
+  linear-gradient(180deg,var(--dash) 0 300px,var(--bg) 620px)}
+.windshield{position:absolute;left:0;right:0;top:0;height:250px;background:linear-gradient(180deg,#000 0,#020306 70%,transparent);opacity:.9}
+.road{position:absolute;left:35%;top:40px;width:30%;height:200px;background:radial-gradient(60% 100% at 50% 100%, rgba(255,255,255,.05), transparent);}
+/* 全景带：A 柱到 A 柱，一眼可读；正文 30px+ */
+.pano{position:absolute;left:120px;right:120px;top:262px;height:78px;display:grid;grid-template-columns:520px 1fr 640px;align-items:center;color:var(--fg);font-size:var(--t-sub)}
+.pano .cluster{display:flex;gap:34px;align-items:baseline}
+.pano .cluster b{font-size:54px;font-weight:600;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.pano .cluster span{color:var(--fg2)}
+.pano .mid{display:flex;gap:40px;justify-content:center;color:var(--fg2)}
+.pano .scenebar{display:flex;align-items:center;justify-content:flex-end;gap:16px;color:var(--fg2);font-size:var(--t-sub)}
+.pano .scenebar .dot{width:16px;height:16px;border-radius:50%;background:var(--fg3);box-shadow:0 0 0 0 rgba(var(--scene-rgb),.0);transition:all .4s}
+.pano .scenebar .dot.think{background:var(--scene);animation:pulse 1.6s infinite}
+.pano .scenebar .dot.exec{background:var(--ok)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(var(--scene-rgb),.5)}70%{box-shadow:0 0 0 14px rgba(var(--scene-rgb),0)}100%{box-shadow:0 0 0 0 rgba(var(--scene-rgb),0)}}
+/* 氛围灯光带：仪表台下沿一条，两侧门板各一条；颜色只来自“光”元素 */
+.amb{position:absolute;background:rgba(var(--scene-rgb),var(--amb,.15));box-shadow:0 0 30px 6px rgba(var(--scene-rgb),calc(var(--amb,.15)*.9));transition:all 1.2s ease;border-radius:6px}
+.amb.top{left:100px;right:100px;top:352px;height:4px}
+.amb.l{left:40px;top:420px;width:4px;height:560px}.amb.r{right:40px;top:420px;width:4px;height:560px}
+/* 中控屏：15.6 寸横屏，向驾驶员偏置；副驾屏在右 */
+.screen{position:absolute;background:#05060a;border-radius:var(--r);border:1px solid var(--line);overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+html.day .screen{background:#f7f8fa}
+#center{left:600px;top:372px;width:1000px;height:660px}
+#pass{left:1622px;top:392px;width:262px;height:620px}
+.screen .bg{position:absolute;inset:0;background:radial-gradient(900px 400px at 30% 120%, rgba(var(--scene-rgb),.08), transparent 60%)}
+.screen .hint{position:absolute;left:34px;top:24px;color:var(--fg3);font-size:var(--t-cap);letter-spacing:.5px}
+.screen .state{position:absolute;right:34px;top:24px;color:var(--fg3);font-size:var(--t-cap)}
+/* 零层卡：底部停靠（拇指区），三行摘要态；停车时可展开 */
+.card{position:absolute;left:28px;right:28px;bottom:28px;padding:22px 28px;max-height:500px;overflow:hidden;background:var(--glass);border:1px solid var(--line);border-left:6px solid var(--scene);border-radius:var(--r2);backdrop-filter:blur(18px);transform:translateY(24px);opacity:0;transition:transform .3s ease,opacity .3s ease}
+.card.show{transform:none;opacity:1}
+.card .heard{color:var(--fg2);font-size:var(--t-sub);display:flex;gap:14px;align-items:center}
+.card .heard b{color:var(--fg);font-weight:500}
+.card .name{font-size:var(--t-h1);font-weight:600;margin-top:8px;min-height:44px;display:flex;gap:18px;align-items:baseline}
+.card .name small{font-size:var(--t-sub);color:var(--fg2);font-weight:400}
+.card .und{font-size:var(--t-body);color:var(--fg);line-height:1.35;min-height:40px;margin-top:4px}
+.card .und .cur{display:inline-block;width:10px;height:28px;background:var(--scene);vertical-align:-4px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+.card .chips{display:none;flex-wrap:wrap;gap:10px 12px;margin-top:14px}
+.card.expanded .chips{display:flex}
+.chip{display:flex;align-items:center;gap:10px;height:56px;padding:0 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:var(--t-sub);opacity:0;transform:scale(.96);transition:all .25s}
+html.day .chip{background:rgba(0,0,0,.05)}
+.chip.in{opacity:1;transform:none}
+.chip i{font-style:normal;color:var(--scene);width:26px;text-align:center}
+.chip .v{color:var(--scene)}
+.chip.gray{color:var(--fg3);border-style:dashed}
+.chip.gray .v{color:var(--fg3);text-decoration:line-through}
+.chip.gray .why{color:var(--warn);font-size:var(--t-cap);margin-left:6px}
+.chip.plan{border-color:rgba(var(--scene-rgb),.5)} .chip.plan .why{color:var(--fg2);font-size:var(--t-cap)}
+.chip.mem{border-color:#3b4a6b;color:#aab6d0}
+.chip.changed{border-color:var(--ok);box-shadow:0 0 0 3px rgba(139,196,154,.25)}
+.card .say{margin-top:10px;font-size:var(--t-body);color:var(--fg)}
+.card .say small{color:var(--fg3);font-size:var(--t-cap);margin-right:10px}
+.card .actions{display:flex;gap:16px;margin-top:14px;align-items:center}
+.btn{height:var(--touch);min-width:200px;padding:0 34px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--fg);font-size:var(--t-body);cursor:pointer}
+html.day .btn{background:rgba(0,0,0,.05)}
+.btn.primary{background:var(--scene);color:#1b1408;border-color:transparent;font-weight:600}
+.btn.ghost{background:transparent;color:var(--fg2)}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.card .actions .why{margin-left:auto;color:var(--fg3);font-size:var(--t-cap);cursor:pointer;padding:12px}
+.card.summary .actions,.card.summary .say{display:none}
+.card.summary .und{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* 语音气泡与输入：停车时可打字，行驶时只语音 */
+.talk{position:absolute;left:28px;right:28px;top:64px;display:flex;gap:14px;align-items:center;height:64px}
+.talk .mic{width:64px;height:64px;border-radius:50%;background:rgba(var(--scene-rgb),.15);display:grid;place-items:center;color:var(--scene);font-size:26px;border:1px solid rgba(var(--scene-rgb),.35)}
+.talk input{flex:1;height:64px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--fg);font-size:var(--t-sub);padding:0 22px;outline:0}
+html.day .talk input{background:rgba(0,0,0,.04)}
+.talk .go{height:64px;padding:0 28px;border-radius:16px;background:var(--scene);color:#1b1408;border:0;font-size:var(--t-sub);font-weight:600;cursor:pointer}
+.sugg{position:absolute;left:28px;right:28px;top:150px;display:flex;gap:10px;flex-wrap:wrap;max-height:400px;overflow:hidden;align-content:flex-start}
+.sugg.hide{display:none!important}
+.sugg span{font-size:var(--t-cap);color:var(--fg2);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;background:rgba(255,255,255,.02)}
+.sugg span:hover{color:var(--fg)}
+
+/* 副驾屏 */
+#pass .title{position:absolute;left:30px;top:26px;font-size:var(--t-sub);color:var(--fg2)}
+#pass .body{position:absolute;left:30px;right:30px;top:80px;bottom:30px;display:flex;flex-direction:column;gap:12px}
+#pass .empty{color:var(--fg3);font-size:var(--t-cap);margin-top:20px;line-height:1.6}
+#pass .chips{display:flex;flex-wrap:wrap;gap:10px}
+#pass .chip{height:46px;font-size:20px;padding:0 12px;gap:6px} #pass .chip i{width:18px}
+#pass .note{color:var(--fg3);font-size:var(--t-cap);margin-top:auto}
+/* 方向盘与方控键 */
+.wheel{position:absolute;left:60px;top:560px;width:500px;height:500px;border-radius:50%;border:26px solid #1a1d24;box-shadow:inset 0 0 0 6px #0c0e12;background:radial-gradient(circle at 50% 50%, #0b0d11 0 40%, transparent 41%)}
+html.day .wheel{border-color:#c9ccd3}
+.wheel .hub{position:absolute;left:50%;top:50%;width:200px;height:120px;transform:translate(-50%,-50%);background:#14171d;border-radius:30px}
+html.day .wheel .hub{background:#d8dbe1}
+.wheel .keys{position:absolute;right:-10px;top:100px;display:flex;flex-direction:column;gap:12px}
+.key{width:120px;height:60px;border-radius:14px;background:#181b22;border:1px solid var(--line);display:grid;place-items:center;font-size:var(--t-cap);color:var(--fg3);transition:all .3s}
+.key.hot{color:#1b1408;background:var(--scene);box-shadow:0 0 24px rgba(var(--scene-rgb),.6)}
+.key.hot2{color:var(--fg);border-color:var(--fg3)}
+/* 提示 */
+.toast{position:absolute;left:50%;top:880px;transform:translateX(-50%);background:rgba(20,23,30,.92);border:1px solid var(--line);color:var(--fg);padding:16px 26px;border-radius:16px;font-size:var(--t-sub);opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1}
+/* 内部抽屉 */
+.tab{position:absolute;right:0;top:470px;width:44px;height:150px;background:#171a21;border:1px solid var(--line);border-right:0;border-radius:14px 0 0 14px;writing-mode:vertical-rl;display:grid;place-items:center;color:var(--fg2);font-size:20px;cursor:pointer;z-index:5}
+.drawer{position:absolute;right:-560px;top:0;width:560px;height:1080px;background:#0f1218;border-left:1px solid var(--line);padding:34px 30px;transition:right .3s;z-index:6;color:var(--fg);font-size:22px;overflow:auto}
+.drawer.open{right:0}
+.drawer h3{font-size:20px;color:var(--fg3);letter-spacing:1px;margin:26px 0 12px;font-weight:500}
+.drawer select,.drawer button.tg{width:100%;height:52px;border-radius:12px;border:1px solid var(--line);background:#161a22;color:var(--fg);font-size:22px;padding:0 12px;margin-bottom:8px}
+.drawer .row{display:flex;gap:8px}.drawer .row button{flex:1}
+.drawer button.tg.on{border-color:var(--scene);color:var(--scene)}
+.bar{position:relative;height:10px;background:#1c2029;border-radius:5px;margin:30px 0 8px}
+.bar .mark{position:absolute;top:-24px;font-size:18px;color:var(--fg3);transform:translateX(-50%)}
+.bar .fill{position:absolute;left:0;top:0;height:10px;width:0;border-radius:5px;background:linear-gradient(90deg,var(--ok),var(--scene));transition:width .1s linear}
+.bar .dot{position:absolute;top:-4px;width:18px;height:18px;border-radius:50%;background:var(--fg);transform:translateX(-50%);opacity:0}.bar .dot.on{opacity:1}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;color:var(--fg2);font-size:20px}.kv b{color:var(--fg);font-weight:500}
+.route .s{display:flex;gap:10px;align-items:center;color:var(--fg2);font-size:20px;line-height:1.8}.route .s i{width:10px;height:10px;border-radius:50%;background:var(--fg3)}.route .s.on i{background:var(--ok)}.route .s.off i{background:var(--warn)}
+/* 人体工学叠加层 */
+.ergo{position:absolute;inset:0;pointer-events:none;display:none;z-index:4}
+.ergo.on{display:block}
+.ergo .reach{position:absolute;left:310px;top:1100px;width:1300px;height:1300px;transform:translate(-50%,-50%);border-radius:50%;border:2px dashed rgba(139,196,154,.55)}
+.ergo .reach2{position:absolute;left:310px;top:1100px;width:1900px;height:1900px;transform:translate(-50%,-50%);border-radius:50%;border:2px dashed rgba(226,161,91,.45)}
+.ergo .glance{position:absolute;left:600px;top:372px;width:1000px;height:220px;border:2px solid rgba(139,196,154,.5);border-radius:28px 28px 0 0}
+.ergo .lab{position:absolute;background:rgba(10,12,16,.9);color:#fff;font-size:20px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.2);line-height:1.4}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="dash"></div><div class="windshield"></div><div class="road"></div>
+  <div class="pano">
+    <div class="cluster"><b id="spd">0</b><span>km/h</span><span id="gear">P</span><span id="rng">续航 68%</span></div>
+    <div class="mid"><span id="clock">19:20</span><span>车外 27℃</span><span id="loc">商场地库</span></div>
+    <div class="scenebar"><span id="pstate">场景 · 无</span><div class="dot" id="pdot"></div></div>
+  </div>
+  <div class="amb top"></div><div class="amb l"></div><div class="amb r"></div>
+
+  <div class="screen" id="center">
+    <div class="bg"></div>
+    <div class="hint">场景</div><div class="state" id="cstate">停车中 · 展开态</div>
+    <div class="talk"><div class="mic">●</div><input id="inp" placeholder="说一句，比如：做一个雨夜回家的场景"><button class="go" id="go">说</button></div>
+    <div class="card" id="card">
+      <div class="heard">听到的 <b id="heard"></b><span id="ctx" style="color:var(--fg3);font-size:var(--t-cap)"></span></div>
+      <div class="name"><span id="name"></span><small id="rel"></small></div>
+      <div class="und" id="und"></div>
+      <div class="chips" id="chips"></div>
+      <div class="say" id="say"></div>
+      <div class="actions">
+        <button class="btn primary" id="okBtn">就这样</button>
+        <button class="btn" id="tryBtn">试一下</button>
+        <button class="btn ghost" id="noBtn">不用</button>
+        <span class="why" id="whyBtn">为什么</span>
+      </div>
+    </div>
+    <div class="sugg" id="sugg"></div>
+  </div>
+
+  <div class="screen" id="pass">
+    <div class="title">副驾 · 可看可改</div>
+    <div class="body"><div class="empty" id="pempty">场景生成后，细节在这里展开。行驶中主驾屏只留摘要，改动交给副驾。</div><div class="chips" id="pchips"></div><div class="note" id="pnote"></div></div>
+  </div>
+
+  <div class="wheel"><div class="hub"></div><div class="keys"><div class="key" id="k1">确认</div><div class="key" id="k2">取消</div></div></div>
+  <div class="toast" id="toast"></div>
+
+  <div class="ergo" id="ergo">
+    <div class="reach"></div><div class="reach2"></div><div class="glance"></div>
+    <div class="lab" style="left:600px;top:1036px">绿虚线：主驾坐姿一级触达区（肩点半径约 650mm）<br>橙虚线：二级触达区（需前倾）。卡片按键全部落在一级区内</div>
+    <div class="lab" style="left:600px;top:598px">视线下倾 ≤ 30° 的一眼区：摘要态三行放在这里，行驶中不出 chips</div>
+    <div class="lab" style="left:1180px;top:1016px">正文 30px ≈ 5.8mm（15.6" 1920 宽，0.193mm/px）≥ 5mm@75cm<br>按键高 72px ≈ 14mm ≥ 9mm；相邻间距 16px ≈ 3mm</div>
+    <div class="lab" style="left:120px;top:350px">全景带 26–54px，A 柱到 A 柱，不需要低头；场景状态在右端，助手状态点只有四态</div>
+    <div class="lab" style="left:60px;top:1040px">方控键：一句话询问与计时器确认用“确认/取消”应答，手不离盘、眼不离路</div>
+  </div>
+
+  <div class="tab" id="tab">内部</div>
+  <div class="drawer" id="drawer">
+    <h3>回放来源</h3><select id="modelSel"></select>
+    <h3>状态</h3>
+    <div class="row"><button class="tg on" id="tgPark">停车</button><button class="tg" id="tgDrive">行驶</button></div>
+    <div class="row"><button class="tg on" id="tgNight">夜</button><button class="tg" id="tgDay">昼</button></div>
+    <div class="row"><button class="tg" id="tgErgo">人体工学叠加</button><button class="tg" id="tgLang">中文 / EN</button></div>
+    <h3>时延（真实测量）</h3>
+    <div class="bar"><span class="mark" style="left:20%">0.6s 理解句</span><span class="mark" style="left:83%">2.5s 卡片</span><div class="fill" id="fill"></div><div class="dot" id="dUnd"></div><div class="dot" id="dEnd" style="background:var(--scene)"></div></div>
+    <div class="kv" id="kv"></div>
+    <h3>路由与裁决</h3><div class="route" id="route"></div>
+    <h3>设计依据</h3>
+    <div style="color:var(--fg2);font-size:19px;line-height:1.6">全景带借 BMW Neue Klasse 的 Panoramic Vision 思路：把要一眼看的放在 A 柱到 A 柱的一条带上。零层卡借 MBUX Zero Layer：不进菜单，情境卡直接停在拇指区。氛围灯只做场景色载体、默认低亮，参考奔驰 Vision EQXX 与 Polestar Precept 的“光线即状态”。以上为公开概念的设计原则借鉴，不复刻界面 [常识，未核实细节]。人体工学阈值：字高 ≥ 5mm@75cm、触控 ≥ 9mm、单次注视 ≤ 2s、行驶中选项 ≤ 3 [常识]。</div>
+  </div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const GLYPH={"条件":"◇","光":"◐","声":"♪","气":"✿","温":"∿","话":"❝","供":"➜","惊喜":"✦","编排":"⧗","预设":"▣","其他":"·","记忆":"✎"};
+const ORDER=["条件","光","声","气","温","话","供","惊喜","编排","预设","其他","记忆"];
+let CASES=[],lang="zh",driving=false,cur=null,timers=[];
+function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);document.documentElement.style.setProperty('--k',k)}addEventListener('resize',fit);fit();
+const FALLBACK=[{"id":"J01","cat":"explicit","lang":"zh","model":"示例（手工）","prompt":"p3","input":"给我生成一个雨夜回家的场景","context":"【当前状态】21:30，停车中","driving":false,"latency":1.9,"ttft":0.35,"t_und":0.55,"understanding":"“雨夜回家”：下雨的晚上往家开，要的是安稳和一点暖意","name":"雨夜回家","intent":"precise","relevance":0.95,"conditions":[{"primary":"天气","op":"==","value":"雨"},{"primary":"时段","op":"==","value":"夜晚"},{"primary":"位置","op":"==","value":"家"}],"actions":[{"element":"光","primary":"氛围灯亮度","value":"30%","dropped":false,"reason":""},{"element":"声","primary":"音乐播放","value":"雨天","dropped":false,"reason":"提议，需共建"},{"element":"温","primary":"主驾温度控制","value":"24℃","dropped":false,"reason":""},{"element":"温","primary":"前风窗除雾","value":"开启","dropped":false,"reason":""},{"element":"声","primary":"低速行人警报音","value":"关闭","dropped":true,"reason":"法规不允许关"}],"say":"雨夜，慢点开","offer":{"type":"none"},"memory":[],"unsupported":[],"warnings":[],"clarify":null,"validator_ok":true,"pass":true}];
+fetch("cases.json").then(r=>r.json()).then(c=>{CASES=c.concat(FALLBACK);init()}).catch(()=>{CASES=FALLBACK;init()});
+function init(){
+  const models=[...new Set(CASES.map(c=>c.model+" · "+c.prompt))];$("modelSel").innerHTML=models.map(m=>`<option>${m}</option>`).join("");$("modelSel").onchange=renderSugg;renderSugg();
+  $("go").onclick=()=>{const c=pick($("inp").value.trim());c?play(c):toast("原型只回放已跑过的句子，点下面任一句")};$("inp").onkeydown=e=>{if(e.key==="Enter")$("go").click()};
+  $("tab").onclick=()=>$("drawer").classList.toggle("open");
+  $("tgPark").onclick=()=>setDrive(false);$("tgDrive").onclick=()=>setDrive(true);
+  $("tgNight").onclick=()=>{document.documentElement.classList.remove("day");$("tgNight").classList.add("on");$("tgDay").classList.remove("on")};
+  $("tgDay").onclick=()=>{document.documentElement.classList.add("day");$("tgDay").classList.add("on");$("tgNight").classList.remove("on")};
+  $("tgErgo").onclick=()=>{$("ergo").classList.toggle("on");$("tgErgo").classList.toggle("on")};
+  $("tgLang").onclick=()=>{lang=lang==="zh"?"en":"zh";renderSugg()};
+  $("okBtn").onclick=()=>{if(!cur)return;setPano("已保存 · "+(cur.name||"场景"),"exec");toast("已保存到场景中心，触发条件由场景引擎持有");hotkeys(false)};
+  $("noBtn").onclick=()=>{$("card").classList.remove("show");$("sugg").classList.remove("hide");setPano("场景 · 无","");setAmb(.15);toast("好，不记这条");hotkeys(false)};
+  $("tryBtn").onclick=rehearse;$("whyBtn").onclick=()=>{if(cur)toast("因为你说了“"+quote(cur)+"”，相关度 "+cur.relevance)};
+  $("k1").onclick=()=>{if($("k1").classList.contains("hot"))$("okBtn").click()};$("k2").onclick=()=>{if($("k2").classList.contains("hot2"))$("noBtn").click()};
+  setDrive(false);
+}
+function setDrive(d){driving=d;$("tgDrive").classList.toggle("on",d);$("tgPark").classList.toggle("on",!d);$("spd").textContent=d?"62":"0";$("gear").textContent=d?"D":"P";$("loc").textContent=d?"高架 · 回家 18 分钟":"商场地库";$("cstate").textContent=d?"行驶中 · 摘要态":"停车中 · 展开态";$("card").classList.toggle("summary",d);$("card").classList.toggle("expanded",!d);$("inp").parentElement.style.display=d?"none":"flex";$("sugg").classList.toggle("hide",d||!!cur);$("pnote").textContent=d?"行驶中：主驾只看三行，改动请副驾操作或说一句":"停车中：主驾屏已展开，这里同步显示";}
+function set(){return CASES.filter(c=>c.model+" · "+c.prompt===$("modelSel").value&&c.lang===lang)}
+function label(c){return c.input.startsWith("（无")||c.input.startsWith("(none")?"观察："+(c.context||"").replace(/^【观察候选】|^\[Observation candidate\] /,"").slice(0,22)+"…":c.input.split("\n").pop()}
+function renderSugg(){const s=set();$("sugg").innerHTML=s.map(c=>`<span data-id="${c.id}">${label(c)}</span>`).join("")||"<span>该来源没有此语言的结果</span>";$("sugg").querySelectorAll("span[data-id]").forEach(el=>el.onclick=()=>{$("inp").value=el.textContent;play(s.find(c=>c.id===el.dataset.id))})}
+function pick(t){return set().find(c=>c.input===t||c.input.endsWith(t)||label(c)===t)}
+function quote(c){const m=(c.understanding||"").match(/[“"]([^”"]{1,12})[”"]/);return m?m[1]:c.input.slice(0,6)}
+function clear(){timers.forEach(clearTimeout);timers=[]}function at(ms,f){timers.push(setTimeout(f,ms))}
+function setPano(t,cls){$("pstate").textContent=t;$("pdot").className="dot "+(cls||"")}
+function setAmb(a){document.querySelectorAll(".amb").forEach(e=>e.style.setProperty("--amb",a))}
+function hotkeys(on){$("k1").classList.toggle("hot",on);$("k2").classList.toggle("hot2",on)}
+function brightnessOf(c){const b=c.actions.find(a=>a.primary==="氛围灯亮度"&&!a.dropped);if(!b)return .15;return Math.max(.12,Math.min(.9,parseInt(b.value)/100))}
+function play(c){
+  clear();cur=c;const card=$("card");card.classList.remove("show");$("chips").innerHTML="";$("pchips").innerHTML="";$("say").innerHTML="";$("name").textContent="";$("rel").textContent="";$("und").innerHTML='<span class="cur"></span>';
+  $("heard").textContent=c.input.split("\n").pop();$("ctx").textContent=c.context?c.context.replace(/^【当前状态】/,"").replace(/\n/g," · ").slice(0,40):"";
+  setPano("在想…","think");hotkeys(false);
+  const W=v=>Math.min(100,v/3*100);$("fill").style.width="0%";$("dUnd").classList.remove("on");$("dEnd").classList.remove("on");
+  $("kv").innerHTML=`<span>首字</span><b>${c.ttft}s</b><span>理解句出齐</span><b>${c.t_und}s</b><span>输出结束</span><b>${c.latency}s</b><span>意图 / 相关度</span><b>${c.intent} / ${c.relevance}</b><span>验证器</span><b>${c.validator_ok?"通过":"有裁剪"}</b>`;
+  const nd=c.actions.filter(a=>a.dropped).length,np=c.actions.filter(a=>!a.dropped&&/规划|提议/.test(a.reason||"")).length;
+  $("route").innerHTML=[["语音入口 · scene 域直达","on"],["门控：显式请求不经门控","on"],["场景大脑一次调用 · "+c.model,"on"],["验证器 · "+(nd?nd+" 项裁掉":"无裁剪")+(np?"，"+np+" 项规划中":""),nd?"off":"on"],["呈现调度 · "+(driving?"行驶中，摘要态，细节去副驾屏":"停车中，展开态"),"on"]].map(s=>`<div class="s ${s[1]}"><i></i>${s[0]}</div>`).join("");
+  requestAnimationFrame(()=>card.classList.add("show"));$("sugg").classList.add("hide");
+  const k=Math.min(1,3.5/Math.max(c.latency,.1)),tU=c.t_und*1000*k,tE=c.latency*1000*k,t0=performance.now();
+  (function tick(){const e=(performance.now()-t0)/k/1000;$("fill").style.width=W(Math.min(e,c.latency))+"%";if(e<c.latency)timers.push(setTimeout(tick,40))})();
+  const und=c.understanding||(c.intent==="none"?"这句不需要布置什么":"（无理解句）"),st=Math.max(c.ttft*1000*k,80),per=Math.max((tU-st)/Math.max(und.length,1),8);
+  for(let i=1;i<=und.length;i++)at(st+per*i,()=>{$("und").innerHTML=und.slice(0,i)+(i<und.length?'<span class="cur"></span>':"")});
+  at(tU,()=>{$("dUnd").style.left=W(c.t_und)+"%";$("dUnd").classList.add("on");$("name").textContent=c.name||(c.intent==="none"?"不布景":c.intent==="clarify"?"想问一句":"");$("rel").textContent=c.intent==="none"?"":"";});
+  const g={};c.conditions.forEach(x=>(g["条件"]=g["条件"]||[]).push({l:x.primary,v:(x.op&&x.op!=="==")?x.op+" "+x.value:x.value}));
+  c.actions.forEach(a=>(g[a.element]=g[a.element]||[]).push({l:a.primary,v:a.value,gray:a.dropped,plan:!a.dropped&&/规划|提议/.test(a.reason||""),why:a.reason}));
+  (c.unsupported||[]).forEach(u=>(g["其他"]=g["其他"]||[]).push({l:u,v:"",gray:true,why:"做不了"}));
+  if(c.offer&&c.offer.type&&c.offer.type!=="none")(g["供"]=g["供"]||[]).push({l:{call:"打电话",navigate:"导航",message:"发消息"}[c.offer.type]||c.offer.type,v:c.offer.target||""});
+  (c.memory||[]).forEach(m=>(g["记忆"]=g["记忆"]||[]).push({l:"建议记住："+m.content,v:"",mem:true}));
+  const flat=[];ORDER.forEach(e=>(g[e]||[]).forEach(ch=>flat.push([e,ch])));const span=Math.max(tE-tU,400);
+  flat.forEach(([e,ch],i)=>at(tU+120+span*(i/Math.max(flat.length,1)),()=>{for(const box of [$("chips"),$("pchips")]){const d=document.createElement("div");d.className="chip"+(ch.gray?" gray":"")+(ch.plan?" plan":"")+(ch.mem?" mem":"");d.dataset.label=ch.l;d.innerHTML=`<i>${GLYPH[e]||"·"}</i>${ch.l}${ch.v?`<span class="v">${ch.v}</span>`:""}${ch.gray?`<span class="why">${ch.why}</span>`:ch.plan?`<span class="why">${ch.why}</span>`:""}`;box.appendChild(d);requestAnimationFrame(()=>d.classList.add("in"))}}));
+  $("pempty").style.display="none";
+  at(tE,()=>{$("dEnd").style.left=W(c.latency)+"%";$("dEnd").classList.add("on");if(c.clarify)$("say").innerHTML=`<small>问</small>${c.clarify}`;else if(c.say)$("say").innerHTML=`<small>说</small>“${c.say}”`;else $("say").innerHTML=`<small>说</small><span style="color:var(--fg3)">不说话</span>`;
+    const one=c.actions.filter(a=>!a.dropped).map(a=>a.primary+" "+a.value).slice(0,2).join(" · ");setPano((c.name||"场景")+(one?" · "+one:""),"think");hotkeys(c.intent!=="none");setAmb(brightnessOf(c)*.6)});
+}
+function rehearse(){if(!cur)return;setPano("试演中 · 3 秒","exec");const b=brightnessOf(cur);setAmb(b);toast("只动灯和声，三秒后回来。说“就这样”或“不用”");document.querySelectorAll(".chip").forEach(ch=>{if(/氛围灯|音乐|声场|音量|多媒体/.test(ch.dataset.label))ch.classList.add("changed")});setTimeout(()=>{setAmb(.15);document.querySelectorAll(".chip").forEach(ch=>ch.classList.remove("changed"));setPano((cur.name||"场景")+" · 等你决定","think")},3000)}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2400)}
+</script>
+</body>
+</html>

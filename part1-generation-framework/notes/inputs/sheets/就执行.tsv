@@ -1,0 +1,205 @@
+配置字	UX情况	能力分类	一级能力	二级能力 	三级能力	单位	范围	前置条件	车型车系	别名	方法	参数	NAME	备注名称	协议制定情况	恢复动作能力	更新日期
+	UX已出	空调	空调开关	开启					平台化	air	setSystemSwitchStatus	SWITCH_ON = 1	air.setSystemSwitchStatus		是	reSystemSwitch	
+	UX已出	空调	空调开关	关闭					平台化	air	setSystemSwitchStatus	SWITCH_OFF = 0	air.setSystemSwitchStatus		是	reSystemSwitch	
+	UX已出	空调	MAX AC / 极速降温	开启					平台化	air	setMaxAcSwitch	SWITCH_ON = 1	air.setMaxAcSwitch		是	reMaxAcSwitch	
+	UX已出	空调	MAX AC / 极速降温	关闭					平台化	air	setMaxAcSwitch	SWITCH_OFF = 0	air.setMaxAcSwitch		是	reMaxAcSwitch	
+	UX已出	空调	极速升温	开启					平台化	air	setHeatMaxSwitch	1	air.setHeatMaxSwitch				
+	UX已出	空调	极速升温	关闭					平台化	air	setHeatMaxSwitch	0	air.setHeatMaxSwitch				
+	UX已出	空调	内外循环	外循环					平台化	air	setRecirculationMode	AIR_CIRCULATION_OUTER = 2 	air.setRecirculationMode		是	reRecirculationMode	
+	UX已出	空调	内外循环	内循环					平台化	air	setRecirculationMode	AIR_CIRCULATION_INNER = 1 	air.setRecirculationMode		是	reRecirculationMode	
+	UX已出	空调	AUTO模式	开启					平台化	air	setAutoSwitchStatus	SWITCH_ON = 1	air.setAutoSwitchStatus		是	reAutoSwitchStatus	
+	UX已出	空调	AUTO模式	关闭					平台化	air	setAutoSwitchStatus	SWITCH_OFF = 0	air.setAutoSwitchStatus		是	reAutoSwitchStatus	
+	UX已出	空调	温度控制	主驾温度 / *step / 18-32 / 17.5-32.5 / 1 / 0.5		℃	*step / min-max / 步长值 / 手动输入值类型,step 数值步长类型		平台化	air	setAirTemperature	18-32 / 17.5-32.5	air.setAirTemperature		是	reAirTemperature	
+	UX已出	空调	温度控制	主驾温度	*step / 18-32 / 	℃	*step / min-max / 步长值 / 手动输入值类型,step 数值步长类型		平台化	air	setDriverTemperature	float：18-32	air.setDriverTemperature				
+	UX已出	空调	温度控制	副驾温度	*step / 18-32 / 	℃	*step / min-max / 步长值 / 手动输入值类型,step 数值步长类型		平台化	air	setPassengerTemperature	float：18-32	air.setPassengerTemperature				
+	待定	舒适	左前门	*select / 关闭 / 开启					平台化	door	setDriverDoorSwitch	SWITCH_OFF = 0  / SWITCH_ON = 1 	door.setDriverDoorSwitch		是		
+	待定	舒适	右前门	*select / 关闭 / 开启					平台化	door	setPassengerDoorSwitch	SWITCH_OFF = 0  / SWITCH_ON = 1 	door.setPassengerDoorSwitch		是		
+	待定	舒适	左后门	*select / 关闭 / 开启					平台化	door	setBackLeftDoorSwitch	SWITCH_OFF = 0  / SWITCH_ON = 1 	door.setBackLeftDoorSwitch		是		
+	待定	舒适	右后门	*select / 关闭 / 开启					平台化	door	setBackRightDoorSwitch	SWITCH_OFF = 0  / SWITCH_ON = 1 	door.setBackRightDoorSwitch		是		
+	UX已出	空调	温区同步	开启					平台化	air	setIsSyncActiveStatus	SWITCH_ON = 1	api.setIsSyncActiveStatus		是	reIsSyncActiveStatus	
+	UX已出	空调	温区同步	关闭					平台化	air	setIsSyncActiveStatus	SWITCH_OFF = 0	api.setIsSyncActiveStatus		是	reIsSyncActiveStatus	
+	UX已出	空调	风量调节	前排风量 / 1档					平台化	air	setFanSpeedGlobal	SPEED_1 = 1 	air.setFanSpeedGlobal		是	reFanSpeedGlobal	
+	UX已出	空调	风量调节	前排风量 / 2档					平台化	air	setFanSpeedGlobal	SPEED_2 = 2 	air.setFanSpeedGlobal		是	reFanSpeedGlobal	
+	UX已出	空调	风量调节	前排风量 / 3档					平台化	air	setFanSpeedGlobal	SPEED_3 = 3 	air.setFanSpeedGlobal		是	reFanSpeedGlobal	
+	UX已出	空调	风量调节	前排风量 / 4档					平台化	air	setFanSpeedGlobal	SPEED_4 = 4 	air.setFanSpeedGlobal		是	reFanSpeedGlobal	
+	UX已出	空调	风量调节	前排风量 / 5档					平台化	air	setFanSpeedGlobal	SPEED_5 = 5 	air.setFanSpeedGlobal		是	reFanSpeedGlobal	
+	UX已出	空调	风量调节	前排风量 / 6档					平台化	air	setFanSpeedGlobal	SPEED_6 = 6 	air.setFanSpeedGlobal		是	reFanSpeedGlobal	
+	UX已出	空调	风量调节	前排风量 / 7档					平台化	air	setFanSpeedGlobal	SPEED_7 = 7 	air.setFanSpeedGlobal		是	reFanSpeedGlobal	
+	UX已出	空调	风量调节	前排风量 / 8档					平台化	air	setFanSpeedGlobal	SPEED_8 = 8 	air.setFanSpeedGlobal		是	reFanSpeedGlobal	
+	UX已出	空调	出风模式	吹面					平台化	air	setFrontAirOutletMode	AIR_DISPLAY_MODE_FACE = 0 	air.setFrontAirOutletMode		是	reFrontAirOutletMode	
+	UX已出	空调	出风模式	吹脚					平台化	air	setFrontAirOutletMode	AIR_DISPLAY_MODE_FOOT = 2 	air.setFrontAirOutletMode		是	reFrontAirOutletMode	
+	UX已出	空调	出风模式	吹面吹脚					平台化	air	setFrontAirOutletMode	AIR_DISPLAY_MODE_FACE_FOOT = 1 	air.setFrontAirOutletMode		是	reFrontAirOutletMode	
+	UX已出	空调	出风模式	吹脚除霜					平台化	air	setFrontAirOutletMode	AIR_DISPLAY_MODE_FOOT_DEFROST = 4	air.setFrontAirOutletMode		是	reFrontAirOutletMode	
+	UX已出	空调	出风模式	除霜					平台化	air	setFrontAirOutletMode	AIR_DISPLAY_MODE_DEFROST = 5 	air.setFrontAirOutletMode		是	reFrontAirOutletMode	
+	UX已出	空调	前风窗除雾	开启 / 					平台化	air	setAutoDefrosterSwitch	SWITCH_ON = 1 	air.setAutoDefrosterSwitch		是	reAutoDefrosterSwitch	
+	UX已出	空调	前风窗除雾	关闭					平台化	air	setAutoDefrosterSwitch	SWITCH_OFF = 0 	air.setAutoDefrosterSwitch		是	reAutoDefrosterSwitch	
+	UX已出	空调	AC开关	开启 / 					平台化	air	setAcSwitchStatus	SWITCH_ON = 1 	air.setAcSwitchStatus		是	reAcSwitchStatus	
+	UX已出	空调	AC开关	关闭					平台化	air	setAcSwitchStatus	SWITCH_OFF = 0 	air.setAcSwitchStatus		是	reAcSwitchStatus	
+Y	UX已出	空调	ECO	开启 / 					平台化	air	setEnergySavingSwitch	SWITCH_ON = 1 	air.setEnergySavingSwitch		是	reEnergySavingSwitch	
+Y	UX已出	空调	ECO	关闭					平台化	air	setEnergySavingSwitch	SWITCH_OFF = 0 	air.setEnergySavingSwitch		是	reEnergySavingSwitch	
+	UX已出	空调	主驾模式	开启 / 					平台化	air	setDriveOnlyMode	SWITCH_ON = 1 	air.setDriveOnlyMode		是	reDriveOnlyMode	
+	UX已出	空调	主驾模式	关闭					平台化	air	setDriveOnlyMode	SWITCH_OFF = 0 	air.setDriveOnlyMode		是	reDriveOnlyMode	
+Y	UX已出	空调	自动空气净化	开启 / 					平台化	air	setAutoAirCleanSwitchStatus	SWITCH_ON = 1 	air.setAutoAirCleanSwitchStatus		是	reAutoAirCleanSwitch	
+Y	UX已出	空调	自动空气净化	关闭					平台化	air	setAutoAirCleanSwitchStatus	SWITCH_OFF = 0 	air.setAutoAirCleanSwitchStatus		是	reAutoAirCleanSwitch	
+Y	UX已出	空调	后视镜加热	开启					平台化	mirror	setRearMirrorDefrosterSwitch	1	mirror.setRearMirrorDefrosterSwitch				
+Y	UX已出	空调	后视镜加热	关闭					平台化	mirror	setRearMirrorDefrosterSwitch	0	mirror.setRearMirrorDefrosterSwitch				
+Y	UX已出	香氛	香氛类型	类型1				香氛开关开启	平台化	air	setFragranceSelection	CHANNEL_1 = 1	air.setFragranceSelection		是	reFragranceSelection	
+Y	UX已出	香氛	香氛类型	类型2				香氛开关开启	平台化	air	setFragranceSelection	CHANNEL_2 = 2	air.setFragranceSelection		是	reFragranceSelection	
+Y	UX已出	香氛	香氛类型	类型3				香氛开关开启	平台化	air	setFragranceSelection	CHANNEL_3 = 3	air.setFragranceSelection		是	reFragranceSelection	
+Y	UX已出	香氛	香氛浓度	淡雅				香氛开关开启	平台化	air	setFragranceLevel	LEVEL_1 = 1	air.setFragranceLevel		是	reFragranceLevel	
+Y	UX已出	香氛	香氛浓度	自然				香氛开关开启	平台化	air	setFragranceLevel	LEVEL_2 = 2	air.setFragranceLevel		是	reFragranceLevel	
+Y	UX已出	香氛	香氛浓度	馥郁				香氛开关开启	平台化	air	setFragranceLevel	LEVEL_3 = 3	air.setFragranceLevel		是	reFragranceLevel	
+Y	UX未出	香氛	香氛开关	开启					平台化	air	setFragranceSwitch	SWITCH_ON = 1 	air.setFragranceSwitch		是	reFragranceSwitch	
+Y	UX未出	香氛	香氛开关	关闭					平台化	air	setFragranceSwitch	SWITCH_OFF = 0 	air.setFragranceSwitch		是	reFragranceSwitch	
+	UX已出	空调	空调自干燥	开启					平台化	air	setSelfDryingSwitch	1	air.setSelfDryingSwitch		是	reSelfDryingSwitch	
+	UX已出	空调	空调自干燥	关闭					平台化	air	setSelfDryingSwitch	0	air.setSelfDryingSwitch		是	reSelfDryingSwitch	
+	UX已出	门窗	主驾车窗	关闭 / 10 / 20 / 30 / 40 / 50 / 60 / 70 / 80 / 90 / 100					平台化	door	setDriveWindowOpenHeightOfPosition	WINDOW_OPEN_DEGREE_0 = 0  / WINDOW_OPEN_DEGREE_10 = 10  / WINDOW_OPEN_DEGREE_20 = 20  / WINDOW_OPEN_DEGREE_30 = 30   / WINDOW_OPEN_DEGREE_40 = 40  / WINDOW_OPEN_DEGREE_50 = 50  / WINDOW_OPEN_DEGREE_60 = 60  / WINDOW_OPEN_DEGREE_70 = 70  / WINDOW_OPEN_DEGREE_80 = 80  / WINDOW_OPEN_DEGREE_90 = 90  / WINDOW_OPEN_DEGREE_100 = 100 	door.setDriveWindowOpenHeightOfPosition	名称：0-100%	是	reDriveWindowOpenHeightOfPosition	
+	UX已出	门窗	副驾车窗	关闭 / 10 / 20 / 30 / 40 / 50 / 60 / 70 / 80 / 90 / 100					平台化	door	setPassengerWindowOpenHeightOfPosition	NDOW_OPEN_DEGREE_0 = 0 / WINDOW_OPEN_DEGREE_10 = 10 / WINDOW_OPEN_DEGREE_20 = 20 / WINDOW_OPEN_DEGREE_30 = 30 / WINDOW_OPEN_DEGREE_40 = 40 / WINDOW_OPEN_DEGREE_50 = 50 / WINDOW_OPEN_DEGREE_60 = 60 / WINDOW_OPEN_DEGREE_70 = 70 / WINDOW_OPEN_DEGREE_80 = 80 / WINDOW_OPEN_DEGREE_90 = 90 / WINDOW_OPEN_DEGREE_100 = 100	door.setPassengerWindowOpenHeightOfPosition	名称：0-100%	是	rePassengerWindowOpenHeightOfPosition	
+	UX已出	门窗	左后排车窗	关闭 / 10 / 20 / 30 / 40 / 50 / 60 / 70 / 80 / 90 / 100					平台化	door	setBackLeftWindowOpenHeightOfPosition	WINDOW_OPEN_DEGREE_0 = 0  / WINDOW_OPEN_DEGREE_10 = 10 / WINDOW_OPEN_DEGREE_20 = 20 / WINDOW_OPEN_DEGREE_30 = 30 / WINDOW_OPEN_DEGREE_40 = 40 / WINDOW_OPEN_DEGREE_50 = 50 / WINDOW_OPEN_DEGREE_60 = 60 / WINDOW_OPEN_DEGREE_70 = 70 / WINDOW_OPEN_DEGREE_80 = 80 / WINDOW_OPEN_DEGREE_90 = 90 / WINDOW_OPEN_DEGREE_100 = 100	door.setBackLeftWindowOpenHeightOfPosition	名称：0-100%	是	reBackLeftWindowOpenHeightOfPosition	
+	UX已出	门窗	右后排车窗	关闭 / 10 / 20 / 30 / 40 / 50 / 60 / 70 / 80 / 90 / 100					平台化	door	setBackRightWindowOpenHeightOfPosition	WINDOW_OPEN_DEGREE_0 = 0  / WINDOW_OPEN_DEGREE_10 = 10 / WINDOW_OPEN_DEGREE_20 = 20 / WINDOW_OPEN_DEGREE_30 = 30 / WINDOW_OPEN_DEGREE_40 = 40 / WINDOW_OPEN_DEGREE_50 = 50 / WINDOW_OPEN_DEGREE_60 = 60 / WINDOW_OPEN_DEGREE_70 = 70 / WINDOW_OPEN_DEGREE_80 = 80 / WINDOW_OPEN_DEGREE_90 = 90 / WINDOW_OPEN_DEGREE_100 = 100	door.setBackRightWindowOpenHeightOfPosition	名称：0-100%	是	reBackRightWindowOpenHeightOfPosition	
+Y	UX已出	声音	低速行人警报音	开启					平台化	driving	setVspActiveStatus	1	driving.setVspActiveStatus		是	reVspActive	
+Y	UX已出	声音	低速行人警报音	关闭					平台化	driving	setVspActiveStatus	0	driving.setVspActiveStatus		是	reVspActive	
+Y	UX已出	声音	低速行人警报音	微风				仅国内项目支持	平台化	driving	setVspVoiceType	1			是		
+Y	UX已出	声音	低速行人警报音	梦幻				仅国内项目支持	平台化	driving	setVspVoiceType	2			是		
+Y	UX已出	声音	低速行人警报音	无尽				仅国内项目支持	平台化	driving	setVspVoiceType	3			是		
+	UX未出	声音	一键静音	关闭					平台化	settings	setMute	0			是		
+	UX未出	声音	一键静音	开启					平台化	settings	setMute	1			是		
+	UX已出	声音	音量	媒体音量	*step / 0-100% / 1	%			平台化	settings	setMediaVolume	0-20			是		
+	UX已出	声音	音量	导航音量	*step / 0-100% / 1	%			平台化	settings	setNavigationVolume	0-20			是		
+	UX已出	声音	音量	语音音量	*step / 0-100% / 1	%			平台化	settings	setVoiceVolume	0-20			是		
+	UX已出	声音	音量	通话音量	*step / 0-100% / 1	%			平台化	settings	setCallVolume	0-20			是		
+	UX已出	声音	音效	立体声					平台化	settings	setSoundEffect	0			是		
+	UX已出	声音	音效	音乐厅					平台化	settings	setSoundEffect	1			是		
+	UX已出	声音	音效	VIP					平台化	settings	setSoundEffect	2			是		
+	UX已出	声音	音效	影院					平台化	settings	setSoundEffect	3			是		
+	UX已出	声音	音效	自定义					平台化	settings	setSoundEffect	4			是		
+	UX已出	声音	声场	全车模式					平台化	settings	setSoundField	2			是		
+	UX已出	声音	声场	前排模式					平台化	settings	setSoundField	1			是		
+	UX已出	声音	声场	主驾模式					平台化	settings	setSoundField	0			是		
+	UX已出	声音	声场	自定义					平台化	settings	setSoundField	4			是		
+	UX已出	声音	声浪	静音					平台化	cabin	setSoundWaveStyle	0			是		
+	UX已出	声音	声浪	超跑					平台化	cabin	setSoundWaveStyle	1			是		
+	UX已出	声音	声浪	量子					平台化	cabin	setSoundWaveStyle	2			是		
+	UX已出	声音	声浪	无尽					平台化	cabin	setSoundWaveStyle	3			是		
+	UX已出	小塔	小塔播报	输入内容					平台化	voice	playTts	string：播报内容内容	voice.playTts		是	无	
+	UX已出	小塔	小塔播报	播放天气					平台化	voice	reportWeather	0	voice.reportWeather				2026-05-28 00:00:00
+	UX已出	灯光	氛围灯开关	开启					平台化	light	setAtmosphereLampSwitch	1	light.setAtmosphereLampSwitch		是	reAtmosphereLampSwitch	
+	UX已出	灯光	氛围灯开关	关闭					平台化	light	setAtmosphereLampSwitch	2	light.setAtmosphereLampSwitch		是	reAtmosphereLampSwitch	
+Y		灯光	氛围灯音乐律动	模式1					平台化	light	setAtmosphereLampSyncedToMusicMode	1	light.setAtmosphereLampSyncedToMusicMode		是		2026-07-24 00:00:00
+Y		灯光	氛围灯音乐律动	模式2					平台化	light	setAtmosphereLampSyncedToMusicMode	2	light.setAtmosphereLampSyncedToMusicMode		是		2026-07-24 00:00:00
+Y		灯光	氛围灯音乐律动	模式3					平台化	light	setAtmosphereLampSyncedToMusicMode	3	light.setAtmosphereLampSyncedToMusicMode		是		2026-07-24 00:00:00
+Y		灯光	氛围灯音乐律动	关闭					平台化	light	setAtmosphereLampSyncedToMusicMode	7	light.setAtmosphereLampSyncedToMusicMode		是		2026-07-24 00:00:00
+	UX已出	灯光	氛围灯亮度	亮度1至10	 				平台化	light	setAtmosphereLampBrightness	int KEY_ATMO_BRIGHTNESS_PRECENT_10 = 1; / int KEY_ATMO_BRIGHTNESS_PRECENT_20 = 2; / int KEY_ATMO_BRIGHTNESS_PRECENT_30 = 3; / int KEY_ATMO_BRIGHTNESS_PRECENT_40 = 4; / int KEY_ATMO_BRIGHTNESS_PRECENT_50 = 5; / int KEY_ATMO_BRIGHTNESS_PRECENT_60 = 6; / int KEY_ATMO_BRIGHTNESS_PRECENT_70 = 7; / int KEY_ATMO_BRIGHTNESS_PRECENT_80 = 8; / int KEY_ATMO_BRIGHTNESS_PRECENT_90 = 9; / int KEY_ATMO_BRIGHTNESS_PRECENT_100 = 10;	light.setAtmosphereLampBrightness	亮度：10-100%	是	reAtmosphereLampBrightness	
+Y	UX已出	舒适	主驾座椅加热	1档					平台化	seat	setDriverHeating	SEAT_HEAT_1 = 1 	seat.setDriverHeating	0x1=Level1/0x2=Level2/0x3=Level3/0x6=Off信号	是	reDriverHeating	
+Y	UX已出	舒适	主驾座椅加热	2档					平台化	seat	setDriverHeating	SEAT_HEAT_2 = 2 	seat.setDriverHeating		是	reDriverHeating	
+Y	UX已出	舒适	主驾座椅加热	3档					平台化	seat	setDriverHeating	SEAT_HEAT_3 = 3 	seat.setDriverHeating		是	reDriverHeating	
+Y	UX已出	舒适	主驾座椅加热	关闭					平台化	seat	setDriverHeating	SEAT_HEAT_OFF = 0 	seat.setDriverHeating		是	reDriverHeating	
+Y	UX已出	舒适	副驾座椅加热	1档					平台化	seat	setPassengerHeating	SEAT_HEAT_1 = 1 	seat.setPassengerHeating	0x1=Level1/0x2=Level2/0x3=Level3/0x6=Off信号	是	rePassengerHeating	
+Y	UX已出	舒适	副驾座椅加热	2档					平台化	seat	setPassengerHeating	SEAT_HEAT_2 = 2 	seat.setPassengerHeating		是	rePassengerHeating	
+Y	UX已出	舒适	副驾座椅加热	3档					平台化	seat	setPassengerHeating	SEAT_HEAT_3 = 3 	seat.setPassengerHeating		是	rePassengerHeating	
+Y	UX已出	舒适	副驾座椅加热	关闭					平台化	seat	setPassengerHeating	SEAT_HEAT_OFF = 0 	seat.setPassengerHeating		是	rePassengerHeating	
+Y	UX已出	舒适	主驾座椅通风	1档					平台化	seat	setDriverVentilating	SEAT_HEAT_1 = 1 	seat.setDriverVentilating	0x1=Level1/0x2=Level2/0x3=Level3/0x6=Off信号，然后恢复为0x0	是	reDriverVentilating	
+Y	UX已出	舒适	主驾座椅通风	2档					平台化	seat	setDriverVentilating	SEAT_HEAT_2 = 2 	seat.setDriverVentilating		是	reDriverVentilating	
+Y	UX已出	舒适	主驾座椅通风	3档					平台化	seat	setDriverVentilating	SEAT_HEAT_3 = 3 	seat.setDriverVentilating		是	reDriverVentilating	
+Y	UX已出	舒适	主驾座椅通风	关闭					平台化	seat	setDriverVentilating	SEAT_HEAT_OFF = 0 	seat.setDriverVentilating		是	reDriverVentilating	
+Y	UX已出	舒适	副驾座椅通风	1档					平台化	seat	setPassengerVentilating	SEAT_HEAT_1 = 1 	seat.setPassengerVentilating	0x1=Level1/0x2=Level2/0x3=Level3/0x6=Off信号，然后恢复为0x0	是	rePassengerVentilating	
+Y	UX已出	舒适	副驾座椅通风	2档					平台化	seat	setPassengerVentilating	SEAT_HEAT_2 = 2 	seat.setPassengerVentilating		是	rePassengerVentilating	
+Y	UX已出	舒适	副驾座椅通风	3档					平台化	seat	setPassengerVentilating	SEAT_HEAT_3 = 3 	seat.setPassengerVentilating		是	rePassengerVentilating	
+Y	UX已出	舒适	副驾座椅通风	关闭					平台化	seat	setPassengerVentilating	SEAT_HEAT_OFF = 0 	seat.setPassengerVentilating		是	rePassengerVentilating	
+Y	UX已出	舒适	主驾座椅按摩	强度调节 / Level1				主驾座椅按摩开启	平台化	seat	setDriverMassage	INTENSITY_1 = 1 	seat.setDriverMassage	0x1=Level1/0x2=Level2/0x3=Level3信号，然后恢复为0x0	是	reDriverMassage	
+Y	UX已出	舒适	主驾座椅按摩	强度调节 / Level2				主驾座椅按摩开启	平台化	seat	setDriverMassage	INTENSITY_2 = 2 	seat.setDriverMassage		是	reDriverMassage	
+Y	UX已出	舒适	主驾座椅按摩	强度调节 / Level3				主驾座椅按摩开启	平台化	seat	setDriverMassage	INTENSITY_3 = 3 	seat.setDriverMassage		是	reDriverMassage	
+Y	UX已出	舒适	主驾座椅按摩	模式调节 / 关闭				主驾座椅按摩开启	平台化	seat	setDriverMassage	OFF = 0 	seat.setDriverMassage	0x1=波浪/0x2=猫步/0x3=蛇形/0x4=肩部/0x5=腰部/0x6=Off信号，	是	reDriverMassage	
+	sprint1	舒适	主驾座椅按摩	模式调节	波浪			主驾座椅按摩开启	平台化	seat	setDriverMassageMode	SEAT_MODE_1 = 1 	seat.setDriverMassageMode		是		
+	sprint1	舒适	主驾座椅按摩	模式调节	猫步			主驾座椅按摩开启	平台化	seat	setDriverMassageMode	SEAT_MODE_2 = 2 	seat.setDriverMassageMode		是		
+	sprint1	舒适	主驾座椅按摩	模式调节	蛇形			主驾座椅按摩开启	平台化	seat	setDriverMassageMode	SEAT_MODE_3 = 3 	seat.setDriverMassageMode		是		
+	sprint1	舒适	主驾座椅按摩	模式调节	肩部			主驾座椅按摩开启	平台化	seat	setDriverMassageMode	SEAT_MODE_4 = 4 	seat.setDriverMassageMode		是		
+	sprint1	舒适	主驾座椅按摩	模式调节	腰部			主驾座椅按摩开启	平台化	seat	setDriverMassageMode	SEAT_MODE_5 = 5 	seat.setDriverMassageMode		是		
+Y	UX已出	舒适	副驾座椅按摩	强度调节 / Level1				副驾座椅按摩开启	平台化	seat	setPassengerMassage	INTENSITY_1 = 1 	seat.setPassengerMassage	CdcFrRiMassgIntensitySet"=0x1=Level1/0x2=Level2/0x3=Level3信号，然后恢复为0x0	是	rePassengerMassage	
+Y	UX已出	舒适	副驾座椅按摩	强度调节 / Level2				副驾座椅按摩开启	平台化	seat	setPassengerMassage	INTENSITY_2 = 2 	seat.setPassengerMassage		是	rePassengerMassage	
+Y	UX已出	舒适	副驾座椅按摩	强度调节 / Level3				副驾座椅按摩开启	平台化	seat	setPassengerMassage	INTENSITY_3 = 3 	seat.setPassengerMassage		是	rePassengerMassage	
+Y	UX已出	舒适	副驾座椅按摩	模式调节 / 关闭				副驾座椅按摩开启	平台化	seat	setPassengerMassage	SEAT_MODE_OFF = 0 	seat.setPassengerMassage	0x1=波浪/0x2=猫步/0x3=蛇形/0x4=肩部/0x5=腰部/0x6=Off信号，	是	rePassengerMassage	
+	sprint1	舒适	副驾座椅按摩	模式调节	波浪			副驾座椅按摩开启	平台化	seat	setPassengerMassageMode	SEAT_MODE_1 = 1 	seat.setPassengerMassageMode		是		
+	sprint1	舒适	副驾座椅按摩	模式调节	猫步			副驾座椅按摩开启	平台化	seat	setPassengerMassageMode	SEAT_MODE_2 = 2 	seat.setPassengerMassageMode		是		
+	sprint1	舒适	副驾座椅按摩	模式调节	蛇形			副驾座椅按摩开启	平台化	seat	setPassengerMassageMode	SEAT_MODE_3 = 3 	seat.setPassengerMassageMode		是		
+	sprint1	舒适	副驾座椅按摩	模式调节	肩部			副驾座椅按摩开启	平台化	seat	setPassengerMassageMode	SEAT_MODE_4 = 4 	seat.setPassengerMassageMode		是		
+	sprint1	舒适	副驾座椅按摩	模式调节	腰部			副驾座椅按摩开启	平台化	seat	setPassengerMassageMode	SEAT_MODE_5 = 5 	seat.setPassengerMassageMode		是		
+Y	UX已出	舒适	左后排座椅加热	1档					平台化	seat	setBackLeftHeating	SEAT_HEAT_1 = 1 	seat.setBackLeftHeating		是	reBackLeftHeating	
+Y	UX已出	舒适	左后排座椅加热	2档					平台化	seat	setBackLeftHeating	SEAT_HEAT_2 = 2 	seat.setBackLeftHeating		是	reBackLeftHeating	
+Y	UX已出	舒适	左后排座椅加热	3档					平台化	seat	setBackLeftHeating	SEAT_HEAT_3 = 3 	seat.setBackLeftHeating		是	reBackLeftHeating	
+Y	UX已出	舒适	左后排座椅加热	关闭					平台化	seat	setBackLeftHeating	SEAT_HEAT_OFF = 0 	seat.setBackLeftHeating		是	reBackLeftHeating	
+Y	UX已出	舒适	右后排座椅加热	1档					平台化	seat	setBackRightHeating	SEAT_HEAT_1 = 1 	seat.setBackRightHeating		是	reBackRightHeating	
+Y	UX已出	舒适	右后排座椅加热	2档					平台化	seat	setBackRightHeating	SEAT_HEAT_2 = 2 	seat.setBackRightHeating		是	reBackRightHeating	
+Y	UX已出	舒适	右后排座椅加热	3档					平台化	seat	setBackRightHeating	SEAT_HEAT_3 = 3 	seat.setBackRightHeating		是	reBackRightHeating	
+Y	UX已出	舒适	右后排座椅加热	关闭					平台化	seat	setBackRightHeating	SEAT_HEAT_OFF = 0 	seat.setBackRightHeating		是	reBackRightHeating	
+Y	UX已出	舒适	左后排座椅通风	1档					平台化	seat	setBackLeftVentilating	SEAT_HEAT_1 = 1 	seat.setBackLeftVentilating		是	reBackLeftVentilating	
+Y	UX已出	舒适	左后排座椅通风	2档					平台化	seat	setBackLeftVentilating	SEAT_HEAT_2 = 2 	seat.setBackLeftVentilating		是	reBackLeftVentilating	
+Y	UX已出	舒适	左后排座椅通风	3档					平台化	seat	setBackLeftVentilating	SEAT_HEAT_3 = 3 	seat.setBackLeftVentilating		是	reBackLeftVentilating	
+Y	UX已出	舒适	左后排座椅通风	关闭					平台化	seat	setBackLeftVentilating	SEAT_HEAT_OFF = 0 	seat.setBackLeftVentilating		是	reBackLeftVentilating	
+Y	UX已出	舒适	右后排座椅通风	1档					平台化	seat	setBackRightVentilating	SEAT_HEAT_1 = 1 	seat.setBackRightVentilating		是	reBackRightVentilating	
+Y	UX已出	舒适	右后排座椅通风	2档					平台化	seat	setBackRightVentilating	SEAT_HEAT_2 = 2 	seat.setBackRightVentilating		是	reBackRightVentilating	
+Y	UX已出	舒适	右后排座椅通风	3档					平台化	seat	setBackRightVentilating	SEAT_HEAT_3 = 3 	seat.setBackRightVentilating		是	reBackRightVentilating	
+Y	UX已出	舒适	右后排座椅通风	关闭					平台化	seat	setBackRightVentilating	SEAT_HEAT_OFF = 0 	seat.setBackRightVentilating		是	reBackRightVentilating	
+Y	UX已出	舒适	方向盘加热	开启 / 					平台化	steeringWheel	setHeating	KEY_LEVEL_1 = 1 	steeringWheel.setHeating		是	reSteeringWheelHeating	
+Y	UX已出	舒适	方向盘加热	关闭					平台化	steeringWheel	setHeating	KEY_CLOSE = 3	steeringWheel.setHeating		是		
+	UX已出	时间	延时	延时设置	0-59分钟 / 0-59秒	分钟&秒	*step / min-max / 0-59 / 步长值1 / 手动输入值类型		平台化	system	delay	time=5	system.delay		是		
+	待定	导航	目的地	当前位置													
+	26409	导航	目的地	家					平台化	navi	navigationToAddress	'1'	navi.navigationToAddress		是		
+	26409	导航	目的地	公司					平台化	navi	navigationToAddress	'2'	navi.navigationToAddress		是		
+	待定	导航	目的地	收藏地点					平台化	navi	navigationToAddress('')	String Poi	nav.navigationToFavorite				
+	待定	导航	目的地	常用地点													
+	待定	导航	目的地	地点搜索													
+	待定	娱乐	QQ音乐	播放“我喜欢”列表													
+	待定	娱乐	QQ音乐	播放猜你喜欢													
+	待定	娱乐	QQ音乐	播放今日私享													
+	待定	娱乐	QQ音乐	播放新歌推荐													
+	待定	娱乐	QQ音乐	续播上次音乐													
+	待定	娱乐	QQ音乐	指定歌曲													
+	待定	娱乐	网易云音乐	播放猜你喜欢													
+	待定	娱乐	网易云音乐	播放今日私享													
+	待定	娱乐	网易云音乐	播放新歌推荐													
+	待定	娱乐	网易云音乐	续播上次音乐													
+	待定	娱乐	网易云音乐	指定歌曲													
+	26409	娱乐	多媒体	播放						media	execMedia	1	media.execMedia				
+	26409	娱乐	多媒体	暂停						media	execMedia	2	media.execMedia				
+	26409	娱乐	多媒体	播放下一首						media	execMedia	3	media.execMedia				
+	26409	娱乐	多媒体	播放上一首						media	execMedia	4	media.execMedia				
+	待定	娱乐	多媒体	播放指定音乐	请输入歌曲名称		用户手动输入搜索内容 / 国内支持中文、英文 / 海外支持系统适配的全部语言										
+	待定	娱乐	本地视频	打开													
+	待定	娱乐	本地视频	退出													
+	待定	娱乐	腾讯视频	打开													
+	待定	娱乐	腾讯视频	退出													
+	待定	娱乐	爱奇艺	打开													
+	待定	娱乐	爱奇艺	退出													
+	待定	娱乐	唱吧	打开													
+	待定	娱乐	唱吧	退出													
+	待定	娱乐	全民K歌	打开													
+	待定	娱乐	全民K歌	退出													
+	待定	娱乐	酷狗K歌	打开													
+	待定	娱乐	酷狗K歌	退出													
+	待定	娱乐	YouTube	打开													
+	待定	娱乐	YouTube	退出													
+	UX已出	娱乐	彩蛋	生日动效1	油画风格				平台化	surprise	playEasterEgg	1	surprise.playEasterEgg				
+	待定	娱乐	彩蛋	生日动效2													
+	UX已出	娱乐	彩蛋	情人节动效					平台化	surprise	playEasterEgg	2	surprise.playEasterEgg				
+	待定	娱乐	彩蛋	自定义动效													
+	待定	娱乐	情景模式	进入	休憩模式												
+	待定	娱乐	情景模式	退出	休憩模式												
+	待定	娱乐	情景模式	进入	露营模式												
+	待定	娱乐	情景模式	退出	露营模式												
+	待定	娱乐	情景模式	进入	洗车模式												
+	待定	娱乐	情景模式	退出	洗车模式												
+	待定	娱乐	情景模式	进入	后排查看												
+	待定	娱乐	情景模式	退出	后排查看												
+	待定	娱乐	情景模式	进入	离车不下电模式												
+	待定	娱乐	情景模式	退出	离车不下电模式												
+	待定	娱乐	情景模式	进入	多人同乘隐私模式												
+	待定	娱乐	情景模式	退出	多人同乘隐私模式												
+	待定	屏幕	壁纸	选择壁纸													
+	待定	屏幕	主题	选择主题													
+	UX已出	屏幕	模式	白天模式					平台化	settings	setTheme	1：白天	settings.setTheme				
+	UX已出	屏幕	模式	黑夜模式					平台化	settings	setTheme	2：黑夜	settings.setTheme				
+	UX已出	屏幕	亮度	0-100%					平台化	settings	setBrightness	1-100	settings.setBrightness				
+Y	UX已出	设备	主驾充电面板（无线充电）	打开					平台化	energy	setWirelessChargingSwitch	2：开	settings.setWirelessCharge				
+Y	UX已出	设备	主驾充电面板（无线充电）	关闭					平台化	energy	setWirelessChargingSwitch	1：关 / 	settings.setWirelessCharge				
+Y	UX已出	设备	电动遮阳帘	开度 / 0-100%			 		平台化	carProperty	setSunShadeRun	0-100	carProperty.setSunShadeRun				
