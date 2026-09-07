@@ -29,7 +29,7 @@
     "holdout language gap 8.33pp vs 5pp reference",
     "machine review shows restraint gain but lower grounding/composition; no human ratings"
   ],
-  "github_sync": "blocked: connector lacks push permission and local GitHub authentication absent",
+  "github_sync": "uploaded and remote-verified; see GITHUB_SYNC.json",
   "total_generation_requests": 7098,
   "pre_network_aborted_reservations": 1,
   "judge_requests": 24

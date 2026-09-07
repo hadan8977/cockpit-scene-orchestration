@@ -1,0 +1,17 @@
+{
+  "status": "uploaded_and_remote_verified",
+  "repository": "hadan8977/cockpit-scene-orchestration",
+  "branch": "main",
+  "account": "hadan8977",
+  "results_commit": "15f72439552410ed716d7dbcb627a84bf0f839ad",
+  "published_merge_commit": "b27f991f431826a2a6b91d91bd5fdee319fd16f4",
+  "remote_head_at_verification": "b27f991f431826a2a6b91d91bd5fdee319fd16f4",
+  "verified_at_utc": "2026-09-07T13:42:57.466Z",
+  "verification": "Successful non-force git push followed by git ls-remote matching the local HEAD",
+  "notes": [
+    "The six experiment commits ending at 15f7243 were preserved unchanged.",
+    "Remote PRD v17 commit f7decb0 was merged without conflicts before upload. No prompt or experiment was changed by this merge.",
+    "The experiment preregistrations were local at the time they were made; this later publication does not change that history.",
+    "This receipt and current status documents are published in a subsequent commit. No new model calls were made for synchronization."
+  ]
+}
