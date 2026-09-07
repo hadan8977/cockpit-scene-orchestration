@@ -1,0 +1,18 @@
+{
+  "luna": {
+    "total": 8,
+    "valid": 8,
+    "expected_preferences": 8,
+    "identical_ties": true,
+    "dimension_reversals": [],
+    "calibrated": true
+  },
+  "qwen": {
+    "total": 8,
+    "valid": 7,
+    "expected_preferences": 7,
+    "identical_ties": true,
+    "dimension_reversals": [],
+    "calibrated": true
+  }
+}
