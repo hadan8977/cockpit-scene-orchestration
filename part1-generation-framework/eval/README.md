@@ -23,3 +23,14 @@ export EVAL_BASE_URL=https://api.deepseek.com EVAL_API_KEY=sk-xxx EVAL_MODEL=dee
 python3 run_eval.py --prompt prompts/p2_affect.md --thinking off --repeat 3 --tag v4flash-p2-nothink
 python3 run_eval.py --prompt prompts/p0_original.md --thinking off --repeat 3 --tag v4flash-p0-nothink
 ```
+# 当前 prompt 专项实验
+
+2026-09-07 接手后，付费生成入口为 `safe_eval.py`，仅 DeepSeek 官网 V4 Flash；腾讯／微信端点禁用。按[预登记](experiments/PREREGISTRATION.md)执行，原始历史结果保留。`run_eval.py` 的旧矩阵/评审直调入口暂不用于付费运行。
+
+```powershell
+python -m pip install -r requirements.txt
+python -m unittest test_repairs -v
+python safe_eval.py --env-file /private/path/.env --plan experiments/01_screen.json
+```
+
+同一 plan 重跑会跳过成功响应；prompt、题集、评分器或配置哈希变化时拒绝混跑。`--max-new N` 可限本次新增请求。结果位于 `results/prompt-lab-v3/<run_id>`，每个响应追加并落盘。归档使用 `raw.jsonl.gz`；不要提交 `.env` 或凭据日志。

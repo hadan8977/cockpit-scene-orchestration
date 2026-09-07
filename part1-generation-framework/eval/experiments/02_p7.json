@@ -1,0 +1,13 @@
+{
+  "run_id":"02_p7",
+  "purpose":"Development revision: typed dictionary, ambiguity and security boundaries, mandatory names/warnings and fixed bilingual examples; compare matched instruction languages",
+  "testset":"testset_core.jsonl",
+  "repeat":1,
+  "temperature":0,
+  "max_tokens":1000,
+  "json_mode":false,
+  "concurrency":3,
+  "seed":20260908,
+  "campaign_max_attempts":3000,
+  "variants":[{"name":"p7_zh","prompt":"prompts/p7_zh.md"},{"name":"p7_en","prompt":"prompts/p7_en.md"}]
+}

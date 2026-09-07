@@ -1,3 +1,7 @@
+# 2026-09-07 Codex prompt专项实验
+
+预登记：`../experiments/PREREGISTRATION.md`。原p3保留，新增p6中英匹配变体。01_screen共378次已完成，p6虽更快但安全回退，因此不采用。p7针对单位、第三方记忆、歧义边界与回复语言修订，测试中。原始响应压缩归档并绑定manifest。评分器修复后的开发集结果不能与历史全量73.8%直接比较。
+
 # prompt 迭代记录
 
 模型固定 DeepSeek V4 Flash（`--model-key ds-v4-flash`，非思考，temperature 0），题集 126 题中英各一版共 252 句，判分器 `run_eval.py --style p3`，评审 `judge.py --judge-key qwen3.8-27b`。结果目录 `eval/results/prompt-lab/`。

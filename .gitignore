@@ -1,2 +1,8 @@
 __pycache__/
 *.pyc
+.env
+.env.*
+**/campaign.lock
+**/*.tmp
+part1-generation-framework/eval/results/prompt-lab-v3/**/raw.jsonl
+**/campaign.json

@@ -1,0 +1,42 @@
+{
+  "plan": {
+    "run_id": "02_p7",
+    "purpose": "Development revision: typed dictionary, ambiguity and security boundaries, mandatory names/warnings and fixed bilingual examples; compare matched instruction languages",
+    "testset": "testset_core.jsonl",
+    "repeat": 1,
+    "temperature": 0,
+    "max_tokens": 1000,
+    "json_mode": false,
+    "concurrency": 3,
+    "seed": 20260908,
+    "campaign_max_attempts": 3000,
+    "variants": [
+      {
+        "name": "p7_zh",
+        "prompt": "prompts/p7_zh.md"
+      },
+      {
+        "name": "p7_en",
+        "prompt": "prompts/p7_en.md"
+      }
+    ]
+  },
+  "prompt_sha256": {
+    "p7_zh": "233914c1529989b15123a58a30c7f5a0347b88ce0681ed4bc914ea50775761ac",
+    "p7_en": "a947e1ed79d7977e0817e4efd20c2c07dff822b11f1c651b5c38891939989b3a"
+  },
+  "items_sha256": "0baa9321fafd3f6a1285dae96830dc4f980951d699a8d88b65eea6386b69f8a4",
+  "files": {
+    "safe_eval.py": "c9482e2413ad6c06fe332c94c4c6f9254974190bd1bbdc2a4cad25373aceaa5c",
+    "run_eval.py": "420cc6d9a8b137f348b449106c81ac9c03573e2d7a21ca8b5251c165516c683f",
+    "output_contract.py": "dc2936eb3aa873f18cc28ad7d68ed3804aefadd20e3788ee4879ee386acdb026",
+    "validator.py": "859bf7ec8f3bc972dd2c5f0360145a46e7585a3c18a227b8194deadee803c303",
+    "vocab.json": "f2f4066fb8be7a969c1c9a4812e08bf8e9d800536b9d09bc3c2b64f2edcdc55e",
+    "capabilities.json": "98bdbaad3871e597ed9fc64471e6c0c878bcaac54e1d5128586eed98e0bc7d05",
+    "schema.json": "efa9349ea7310fd2eae54a328f2da7d3d60fef01ea22ec21d916457a60d5864a",
+    "requirements.txt": "8f67819aef0f6bc9b0ee131950b54c0f163307ecd96b1e0dad661c096b8f7960"
+  },
+  "expected": 252,
+  "provider": "DeepSeek official",
+  "style": "p3"
+}

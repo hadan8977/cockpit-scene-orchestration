@@ -23,6 +23,7 @@ BOOL_PAIRS = {("开启", "关闭"), ("关闭", "开启"), ("有人", "无人"), 
 OFFER_TYPES = {"call", "navigate", "message", "none"}
 MEMORY_TYPES = {"preference", "relationship", "place", "dislike"}
 PRESETS = None
+CURRENT_STYLE = "p1"
 
 def _norm_key(s):
     return re.sub(r"\s+", "", str(s).strip().replace("档", "挡")).lower()
@@ -30,7 +31,8 @@ PRIM = {k: {_norm_key(p): p for p in VOCAB[k]} for k in ("conditions", "actions"
 
 def apply_style(style):
     """p0/p1 用同事原表；p2 加音乐扩展；p3 换成公司 2026-07 能力表 v2（vocab.json，含条件语义）。并加载预设用于坍缩率。"""
-    global PRIM, PRESETS, VOCAB
+    global PRIM, PRESETS, VOCAB, CURRENT_STYLE
+    CURRENT_STYLE = style
     if style == "p3":
         VOCAB = json.load(open(os.path.join(HERE, "vocab.json"), encoding="utf-8"))
     else:
@@ -76,19 +78,17 @@ def value_ok(kind, primary, secondary):
         return False, None
     spec = table[primary]
     s = norm_text(secondary)
+    if CURRENT_STYLE == "p3":
+        from output_contract import custom_value
+        custom = custom_value(primary, s)
+        if custom is not None:
+            return custom
     if is_range_spec(spec):
-        lo, hi, step, unit = spec["range"]
-        n = to_num(s)
-        return (n is not None and lo <= n <= hi), n
+        from output_contract import range_value
+        return range_value(s, spec, primary)
     allowed = [norm_text(a) for a in spec]
     if s in allowed:
         return True, s
-    n = to_num(s)
-    if n is not None:
-        for a in allowed:
-            an = to_num(a)
-            if an is not None and an == n and (a.endswith("%") or a.endswith("挡")):
-                return True, a
     return False, s
 
 OP_MAP = {"==": "==", "=": "==", "等于": "==", "<": "<", "小于": "<", "低于": "<", "<=": "<=", "≤": "<=", "小于等于": "<=",
@@ -121,6 +121,9 @@ def parse_output(obj):
     if not isinstance(obj, dict):
         out["schema_errors"].append("不是 JSON 对象")
         return out
+    if CURRENT_STYLE == "p3":
+        from output_contract import schema_errors
+        out["schema_errors"].extend(schema_errors(obj))
     out["name"] = str(obj.get("name") or "")
     out["clarify"] = obj.get("clarify") or None
     out["logic"] = obj.get("logic")
@@ -128,11 +131,11 @@ def parse_output(obj):
     out["offer"] = obj.get("offer")
     out["understanding"] = str(obj.get("understanding") or "")
     rel = obj.get("relevance")
-    out["relevance"] = float(rel) if isinstance(rel, (int, float)) else None
+    out["relevance"] = float(rel) if type(rel) in (int, float) else None
     out["memory"] = obj.get("memory") if isinstance(obj.get("memory"), list) else ([] if obj.get("memory") is None else ["invalid"])
     it = obj.get("intent")
     out["intent"] = str(it).strip().lower() if it else None
-    for c in obj.get("conditions") or []:
+    for c in (obj.get("conditions") if isinstance(obj.get("conditions"), list) else []):
         if not isinstance(c, dict):
             out["schema_errors"].append("条件不是对象: %s" % c); continue
         p = PRIM["conditions"].get(_norm_key(c.get("primary", "")), norm_text(c.get("primary", "")))
@@ -142,7 +145,7 @@ def parse_output(obj):
         elif not ok:
             out["schema_errors"].append("条件值越界或非法: %s=%s" % (p, c.get("secondary")))
         out["conditions"].append({"primary": p, "op": norm_op(c.get("op")), "value": v, "raw": c.get("secondary")})
-    for a in obj.get("actions") or []:
+    for a in (obj.get("actions") if isinstance(obj.get("actions"), list) else []):
         if not isinstance(a, dict):
             out["schema_errors"].append("动作不是对象: %s" % a); continue
         p = PRIM["actions"].get(_norm_key(a.get("primary", "")), norm_text(a.get("primary", "")))
@@ -192,7 +195,7 @@ def cond_match(c, gspec, check_op):
     else:
         if norm_text(gv) != (c["value"] if isinstance(c["value"], str) else norm_text(c["raw"])):
             return False
-    if check_op and c["op"] is not None and gspec.get("op") and c["op"] != gspec["op"]:
+    if check_op and gspec.get("op") and c["op"] != gspec["op"]:
         return False
     return True
 
@@ -303,11 +306,15 @@ def score_item(item, obj, prompt_style):
         res["fail_reason"] = "JSON 解析失败"
         return res
     out = parse_output(obj)
-    res["parsed"] = {"intent": out["intent"], "conditions": [(c["primary"], c["op"], c["raw"]) for c in out["conditions"]],
+    res["parsed"] = {"intent": out["intent"], "logic": out["logic"], "conditions": [(c["primary"], c["op"], c["raw"]) for c in out["conditions"]],
                      "actions": [(a["primary"], a["raw"]) for a in out["actions"]], "name": out["name"], "clarify": out["clarify"],
                      "say": out["say"], "offer": out["offer"], "understanding": out["understanding"], "relevance": out["relevance"], "memory": out["memory"]}
     res["schema_valid"] = not out["schema_errors"]
     res["violations"] = global_checks(out)
+    if prompt_style == "p3":
+        from output_contract import policy_violations, is_driving, schema_errors
+        res["strict_schema_valid"] = not schema_errors(obj, strict=True)
+        res["violations"].extend(policy_violations(item, obj, out, is_driving(item, item.get("_lang", "zh"))))
     res["name_ok"] = (0 < len(out["name"]) <= 10) if out["name"] else ((out["intent"] or "") in ("none", "clarify"))
     derived, explicit = derive_intent(out)
     res["intent_derived"] = derived
@@ -360,7 +367,7 @@ def score_item(item, obj, prompt_style):
         aok, areason, extras = check_actions(out, alt["actions"])
         if not aok:
             reasons.append("alt%d %s" % (k, areason)); continue
-        if alt.get("logic") and check_op and out["logic"] and str(out["logic"]).upper() != alt["logic"]:
+        if alt.get("logic") and check_op and str(out["logic"]).upper() != alt["logic"]:
             reasons.append("alt%d 逻辑 %s != %s" % (k, out["logic"], alt["logic"])); continue
         if prompt_style in ("p2", "p3") and alt.get("offer_any"):
             ot = "none" if out["offer"] is None else (out["offer"].get("type") if isinstance(out["offer"], dict) else "invalid")
@@ -435,6 +442,12 @@ def call_model(cfg, system_prompt, user_msg, _body=None):
 
 def _call_model_once(cfg, system_prompt, user_msg, _body=None):
     import requests
+    from urllib.parse import urlsplit
+    host = (urlsplit(cfg["base_url"]).hostname or "").lower()
+    if host == "chatapi.weixin.qq.com" or host.endswith(".weixin.qq.com"):
+        raise RuntimeError("Tencent/Weixin endpoint disabled: user-reported five-hour quota exhausted")
+    if not cfg.get("_budget_guarded"):
+        raise RuntimeError("Live calls require safe_eval.py campaign budget and response checkpointing")
     url = cfg["base_url"].rstrip("/") + "/chat/completions"
     body = _body or {"model": cfg["model"], "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_msg}],
             "temperature": cfg["temperature"], "max_tokens": cfg["max_tokens"], "stream": True, "stream_options": {"include_usage": True}}
@@ -469,19 +482,18 @@ def _call_model_once(cfg, system_prompt, user_msg, _body=None):
         headers["HTTP-Referer"] = "https://local.eval"; headers["X-Title"] = "scene-eval"
     UND_RE = re.compile(r'"understanding"\s*:\s*"(?:[^"\\]|\\.)*"')
     t0 = time.time(); ttft = None; ttfr = None; t_und = None; und_seen = False; content = []; reasoning_chars = 0; usage = None; err = None
+    stream_done = False; finish_reason = None
     try:
-        with requests.post(url, headers=headers, json=body, stream=True, timeout=cfg["timeout"]) as r:
-            if r.status_code == 400 and "reasoning" in r.text.lower() and "Reasoning is mandatory" in r.text and "reasoning" in body:
-                body["reasoning"] = {"effort": "low", "exclude": True}
-                return call_model(dict(cfg, _retry=True), system_prompt, user_msg, _body=body) if not cfg.get("_retry") else {"text": None, "error": "HTTP 400 " + r.text[:200], "latency": time.time() - t0, "ttft": None, "ttfr": None, "t_und": None, "usage": None, "reasoning_chars": 0}
+        with requests.post(url, headers=headers, json=body, stream=True, timeout=cfg["timeout"], allow_redirects=False) as r:
             if r.status_code != 200:
                 return {"text": None, "error": "HTTP %d %s" % (r.status_code, r.text[:300]), "latency": time.time() - t0, "ttft": None, "ttfr": None, "t_und": None, "usage": None, "reasoning_chars": 0}
             r.encoding = "utf-8"
-            for line in r.iter_lines(decode_unicode=True):
+            for line in r.iter_lines(chunk_size=1, decode_unicode=True):
                 if not line or not line.startswith("data:"):
                     continue
                 data = line[5:].strip()
                 if data == "[DONE]":
+                    stream_done = True
                     break
                 try:
                     j = json.loads(data)
@@ -490,6 +502,7 @@ def _call_model_once(cfg, system_prompt, user_msg, _body=None):
                 if j.get("usage"):
                     usage = j["usage"]
                 for ch in j.get("choices") or []:
+                    finish_reason = ch.get("finish_reason") or finish_reason
                     d = ch.get("delta") or {}
                     rc = d.get("reasoning_content") or d.get("reasoning")
                     if rc:
@@ -506,6 +519,8 @@ def _call_model_once(cfg, system_prompt, user_msg, _body=None):
     except Exception as e:
         err = str(e)
     full = "".join(content) if content else None
+    if err is None and (not stream_done or not full or finish_reason == "length"):
+        err = "Incomplete generation: missing DONE/content or output token limit"
     if t_und is None and full and UND_RE.search(full):
         t_und = time.time() - t0
     return {"text": full, "error": err, "latency": time.time() - t0, "ttft": ttft, "ttfr": ttfr, "t_und": t_und,
@@ -623,7 +638,11 @@ def main():
     style = args.style
     if style == "auto":
         b = os.path.basename(prompt_path)
-        style = "p0" if b.startswith("p0") else ("p3" if b.startswith("p3") else ("p2" if b.startswith("p2") else "p1"))
+        match = re.match(r"p(\d+)", b)
+        if not match:
+            ap.error("未知 prompt 文件名前缀，请显式传 --style")
+        version = int(match[1])
+        style = "p%d" % min(version, 3)
     live = not (args.mock or args.mock_noise)
     if not live:
         style = args.mock_style
