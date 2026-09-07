@@ -105,6 +105,7 @@ def handler_for(service,token):
                     result={"cancelled":bool(cancel)}
                 elif path=="/confirm":result=service.engine.confirm(body["proposal_id"],body["operation"],body["registry_revision"])
                 elif path=="/restore":result=service.engine.restore(body["proposal_id"])
+                elif path=="/execution/cancel":result=service.engine.cancel_execution(body["proposal_id"])
                 elif path=="/registry/toggle":result=service.engine.registry.set_enabled(body["id"],body["enabled"],body["registry_revision"])
                 elif path=="/simulation/state":result=service.engine.update_vehicle(body["values"],body["driving"])
                 elif path=="/demo/context":result=service.engine.demo_context(body)

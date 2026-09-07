@@ -22,6 +22,25 @@ class PipelineTests(unittest.TestCase):
         prompt,_=compile_prompt(self.registry.snapshot(),self.template)
         self.assertEqual(prompt,self.template.read_text(encoding="utf-8"))
 
+    def test_demo_context_replaces_deleted_scenes_and_rejects_atomically(self):
+        raw=scene();self.engine.demo_context({"driving":False,"saved_scenes":[{"id":"browser-one","scene":raw}]})
+        self.assertIn("browser-one",self.engine.state["saved"])
+        before=copy.deepcopy(self.engine.state)
+        with self.assertRaises(ValueError):self.engine.demo_context({"driving":True,"vehicle":{"氛围灯亮度":"20%"},"memories":[{"type":"invalid"}]})
+        self.assertEqual(before,self.engine.state)
+        self.engine.demo_context({"driving":False})
+        self.assertIn("browser-one",self.engine.state["saved"])
+        self.engine.demo_context({"driving":False,"saved_scenes":[]})
+        self.assertFalse(self.engine.state["saved"])
+
+    def test_user_cancel_stops_pending_segments_without_undoing_completed_ones(self):
+        raw={**scene([{"primary":"氛围灯亮度","secondary":"20%"},{"primary":"主驾座椅加热","secondary":"1挡"}]),"intent":"vague"}
+        p=self.engine.propose(raw,{})
+        self.engine.confirm(p["proposal_id"],"apply_once",p["registry_revision"])
+        self.engine.cancel_execution(p["proposal_id"]);self.engine.advance(3)
+        self.assertEqual(self.engine.state["vehicle"],{"氛围灯亮度":"20%"})
+        self.assertTrue(any(j["status"]=="cancelled_by_user" for j in self.engine.state["timeline"]))
+
     def test_duplicate_keys_and_nonfinite_values_cannot_be_parsed(self):
         for text in ('{"a":1,"a":2}','{"a":NaN}','[]'):
             with self.assertRaises(ValueError):parse_json(text)

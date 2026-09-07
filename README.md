@@ -4,7 +4,7 @@
 
 **第一部分当前交付在 [part1-generation-framework/delivery](part1-generation-framework/delivery/README.md)。** 先看[结论与 Demo 状态](part1-generation-framework/delivery/01-结论与Demo状态.md)，再看报告和 Prompt。
 
-截至 2026-09-07：DS V4 Flash 的 Prompt 专项实验已完成，推荐 p13 统一中文系统指令；实验仍有未达指标。交互 Demo 在独立仓库，尚未完成这份 p13 的接入与端到端验收，不能把实验交付称为整个 Demo 完工。
+截至 2026-09-07：第一轮实验已结束，但未满足用户新要求的逐项胜出；第二轮正在优化。最新状态见[第二轮进展](part1-generation-framework/delivery/06-第二轮进展.md)，可运行的[技术结构](part1-generation-framework/runtime/README.md)已接入独立 Demo 代码，尚未完成最终 Prompt 与整体产品验收。
 
 | 要看什么 | 唯一入口 |
 |---|---|
@@ -26,4 +26,4 @@ archive/project-history/           仓库早期整体方案与旧评测副本
 tools/                             文档生成与仓库整理校验工具
 ```
 
-历史文件的版本号、结果和失败记录保留。[迁移清单](archive/file-moves-2026-09-07.json)可由旧路径查到新位置。当前推荐 Prompt 只有交付目录的 p13，旧文件名中的 `final` 不代表当前推荐。
+历史文件的版本号、结果和失败记录保留。[迁移清单](archive/file-moves-2026-09-07.json)可由旧路径查到新位置。交付目录的 p13 是第一轮快照；第二轮尚无验收通过的最终版本，旧文件名中的 `final` 不代表当前推荐。

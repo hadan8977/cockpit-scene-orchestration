@@ -153,6 +153,16 @@ class RuntimeEngine(Engine):
                 if job["execution_id"]==pid and job["status"]=="pending":job["status"]="cancelled_by_restore"
             self._persist();return result
 
+    def cancel_execution(self,pid):
+        with self.lock:
+            if pid not in self.state["history"]:raise ValueError("Unknown execution")
+            count=0
+            for job in self.state["timeline"]:
+                if job["execution_id"]==pid and job["status"]=="pending":
+                    job["status"]="cancelled_by_user";count+=1
+            event=self._event("execution_cancelled",execution_id=pid,cancelled_segments=count)
+            self._persist();return event
+
     def confirm_memory(self,pid,index):
         """A distinct user confirmation; generation never writes preferences."""
         with self.lock:
@@ -179,7 +189,6 @@ class RuntimeEngine(Engine):
         authenticated state/memory services rather than a browser-owned snapshot.
         """
         with self.lock:
-            self.update_vehicle(body.get("vehicle",{}),body["driving"])
             memories=body.get("memories",[]);saved=body.get("saved_scenes",[])
             if not isinstance(memories,list) or len(memories)>24 or not isinstance(saved,list) or len(saved)>60:raise ValueError("Demo context too large")
             by_name={c["zh"]:c for c in self.registry.snapshot()["capabilities"]}
@@ -191,12 +200,18 @@ class RuntimeEngine(Engine):
                     name=m["primary"]
                     if name not in by_name:raise ValueError("Unknown negative preference capability")
                     denied.append({"primary":name,"secondary":m.get("value"),"except":["关闭"] if "车窗" in name else []})
-            self.state["memories"]=records;self.context["denied_actions"]=denied
+            imported={}
             for s in saved:
                 if not isinstance(s,dict) or not isinstance(s.get("id"),str) or len(s["id"])>80:raise ValueError("Invalid existing scene id")
                 # Invalid imported scenes remain visible, but validation gates
                 # prevent scheduling them. Never drop an invalid condition.
                 raw=s.get("scene")
-                if not isinstance(raw,dict):raise ValueError("Invalid saved scene")
-                self.state["saved"][s["id"]]={"id":s["id"],"scene":copy.deepcopy(raw),"registry_revision":self.registry.snapshot()["revision"]}
+                if not isinstance(raw,dict) or not isinstance(raw.get("conditions"),list) or not isinstance(raw.get("actions"),list) or raw.get("logic") not in ("AND","OR"):raise ValueError("Invalid saved scene")
+                if any(not isinstance(c,dict) or not all(isinstance(c.get(k),str) for k in ("primary","secondary","op")) for c in raw["conditions"]):raise ValueError("Malformed saved condition")
+                imported[s["id"]]={"id":s["id"],"scene":copy.deepcopy(raw),"registry_revision":self.registry.snapshot()["revision"]}
+            self.update_vehicle(body.get("vehicle",{}),body["driving"])
+            self.state["memories"]=records;self.context["denied_actions"]=denied
+            # A supplied browser snapshot is authoritative (including deletions
+            # and profile switches). Operations omitting it preserve saved state.
+            if "saved_scenes" in body:self.state["saved"]=imported
             self._persist();return {"simulation":True,"memory_count":len(records),"saved_count":len(self.state["saved"])}
