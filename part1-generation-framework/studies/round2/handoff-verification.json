@@ -1,0 +1,60 @@
+{
+  "checked_at_utc": "2026-09-07T16:14:44.195383+00:00",
+  "source_commit": "b8a98787b451e2aff786477066e3cab7c540c44e",
+  "verification": "Fresh independent checkout; restore from committed artifacts; no private env or credentials copied",
+  "generation_runs": [
+    {
+      "run": "01_screen",
+      "rows": 640,
+      "manifest_inputs_and_task_coverage": "verified"
+    },
+    {
+      "run": "02_refinement",
+      "rows": 512,
+      "manifest_inputs_and_task_coverage": "verified"
+    },
+    {
+      "run": "03_completion",
+      "rows": 256,
+      "manifest_inputs_and_task_coverage": "verified"
+    },
+    {
+      "run": "04_examples",
+      "rows": 384,
+      "manifest_inputs_and_task_coverage": "verified"
+    },
+    {
+      "run": "05_experience_route",
+      "rows": 384,
+      "manifest_inputs_and_task_coverage": "verified"
+    },
+    {
+      "run": "06_transfer",
+      "rows": 384,
+      "manifest_inputs_and_task_coverage": "verified"
+    },
+    {
+      "run": "07_completeness",
+      "rows": 384,
+      "manifest_inputs_and_task_coverage": "verified"
+    },
+    {
+      "run": "08_ablation",
+      "rows": 640,
+      "manifest_inputs_and_task_coverage": "verified"
+    },
+    {
+      "run": "09_language",
+      "rows": 512,
+      "manifest_inputs_and_task_coverage": "verified"
+    }
+  ],
+  "review_calls_verified": 528,
+  "restored_generation_budget_calls": 4107,
+  "restored_review_budget_calls": 528,
+  "budget_constructors_load_existing_counts": true,
+  "next_generation_plan_expected_calls": 384,
+  "next_generation_and_ablation_review_not_started": true,
+  "worktree_clean_after_restore": true,
+  "new_model_calls": 0
+}

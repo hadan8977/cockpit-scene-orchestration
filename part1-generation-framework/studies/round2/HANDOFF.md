@@ -34,6 +34,7 @@
 在框架仓库根目录执行。Python需要requests、jsonschema；建议安装本目录`requirements.txt`。
 
 ```powershell
+python -m pip install -r part1-generation-framework/studies/round2/requirements.txt
 python part1-generation-framework/studies/round2/handoff.py verify
 python part1-generation-framework/studies/round2/handoff.py restore
 python part1-generation-framework/studies/round2/handoff.py verify
@@ -42,6 +43,8 @@ python tools/check_repository.py
 ```
 
 `restore`验证9份生成原始响应压缩包的SHA-256，再解压为被gitignore的raw.jsonl，并从[去凭据的预算检查点](handoff-budget/manifest.json)恢复缺失的私有账本。已有raw必须同哈希，已有账本不会被覆写。评审raw.jsonl已直接跟踪。**不要在新的checkout先运行study.py或review.py再恢复账本，那会把调用次数重新从0计算。**
+
+已在不复制私有env、凭据或原账本的新checkout中实际执行恢复：9轮输入哈希和任务覆盖一致、528份评审计数一致，两种Budget构造器读取恢复计数而不新建账本，Python30项与仓库校验通过。见[独立检出验证回执](handoff-verification.json)。请使用Git克隆并保留历史；仓库校验依赖旧提交对象，单独下载ZIP不能运行全部Git历史检查。历史manifest中Windows路径分隔符保留，跨平台离线读取可规范化路径；不得为重跑已完成实验而覆写原manifest。
 
 预算当前：DS4107/7000，剩2893；官网余额末次观测12.90元，初始17.01元，观测保底7.01元（最多下降10元且账户至少3元）。余额变化可能包含外部调用。评审528/1200，已计费用约$0.840707，总上限$2.50。腾讯/微信端点本轮0次且不要调用。每个provider同时只跑一个会写账本的进程；DS与OR分别有账本，可以各跑一个。
 
