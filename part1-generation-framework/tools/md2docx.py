@@ -62,6 +62,14 @@ def main(src, out):
             j = i; buf = []
             while j < len(lines) and lines[j].strip().startswith("|"): buf.append(lines[j]); j += 1
             table(doc, buf); i = j; continue
+        mi = re.match(r"^!\[([^\]]*)\]\(([^)]+)\)", l.strip())
+        if mi:
+            import os
+            path = os.path.join(os.path.dirname(os.path.abspath(src)), mi.group(2))
+            if os.path.exists(path):
+                doc.add_picture(path, width=Cm(15.5))
+                cap = doc.add_paragraph(); cap.alignment = WD_ALIGN_PARAGRAPH.CENTER; set_font(cap.add_run(mi.group(1)), 9, color="666666")
+            i += 1; continue
         m = re.match(r"^(#{1,4})\s+(.*)", l)
         if m:
             lvl = len(m.group(1)); h = doc.add_heading(level=min(lvl, 4)); h.text = ""

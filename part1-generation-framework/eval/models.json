@@ -1,5 +1,5 @@
 {
- "_说明": "候选模型清单。每条：provider（决定 base_url 与 key 的环境变量）、model（接口里的模型 id，以 run_matrix.py --check 对 /models 的核对为准）、tier（小/中/大）、thinking（思考开关的写法：deepseek=thinking:{type}, openrouter=reasoning:{enabled}, qwen=enable_thinking, none=不带参数）、role（主候选/对照/端侧参考）。id 标 [待核对] 的是凭记忆写的，拿到 key 后先跑 --check。",
+ "_说明": "候选模型清单。每条：provider（决定 base_url 与 key 的环境变量）、model（接口里的模型 id，以 run_matrix.py --check 对 /models 的核对为准）、tier（小/中/大）、thinking（思考开关的写法：deepseek=thinking:{type}, openrouter=reasoning:{enabled}, qwen=enable_thinking, none=不带参数）、role（主候选/对照/端侧参考）。id 标 [待核对] 的是凭记忆写的，拿到 key 后先跑 --check。 2026-09-08 OpenRouter 清单按用户最终决定替换为 17 条。",
  "providers": {
   "deepseek": {
    "base_url_env": "DEEPSEEK_BASE_URL",
@@ -55,46 +55,6 @@
    "temperature": 0.6
   },
   {
-   "key": "glm-5.3-flash",
-   "provider": "openrouter",
-   "model": "z-ai/glm-5.3-flash",
-   "tier": "大",
-   "params": "[待核对]",
-   "thinking": "openrouter",
-   "role": "主候选",
-   "note": "id [待核对]，用户点名"
-  },
-  {
-   "key": "minimax-m3",
-   "provider": "openrouter",
-   "model": "minimax/minimax-m3",
-   "tier": "大",
-   "params": "[待核对]",
-   "thinking": "openrouter",
-   "role": "主候选",
-   "note": "id [待核对]，用户点名"
-  },
-  {
-   "key": "qwen3.5-flash",
-   "provider": "openrouter",
-   "model": "qwen/qwen3.5-flash",
-   "tier": "大",
-   "params": "[待核对]",
-   "thinking": "openrouter",
-   "role": "对照",
-   "note": "PRD 里的 Qwen3 Flash；id [待核对]"
-  },
-  {
-   "key": "doubao-seed-flash",
-   "provider": "volc",
-   "model": "doubao-seed-2.0-flash",
-   "tier": "大",
-   "params": "[待核对]",
-   "thinking": "deepseek",
-   "role": "对照",
-   "note": "需火山引擎 key，无则跳过"
-  },
-  {
    "key": "hy4",
    "provider": "hy",
    "model": "hy4",
@@ -105,86 +65,6 @@
    "note": "公司内端点，用户补 base_url 与 key"
   },
   {
-   "key": "qwen3-32b",
-   "provider": "openrouter",
-   "model": "qwen/qwen3-32b",
-   "tier": "中",
-   "params": "32B dense",
-   "thinking": "openrouter",
-   "role": "对照",
-   "note": "中体量上限参考"
-  },
-  {
-   "key": "qwen3-30b-a3b",
-   "provider": "openrouter",
-   "model": "qwen/qwen3-30b-a3b",
-   "tier": "中",
-   "params": "30B MoE / 3B 激活",
-   "thinking": "openrouter",
-   "role": "主候选",
-   "note": "速度与质量折中的重点对象"
-  },
-  {
-   "key": "qwen3-14b",
-   "provider": "openrouter",
-   "model": "qwen/qwen3-14b",
-   "tier": "中",
-   "params": "14B dense",
-   "thinking": "openrouter",
-   "role": "对照",
-   "note": ""
-  },
-  {
-   "key": "mistral-small-3.2",
-   "provider": "openrouter",
-   "model": "mistralai/mistral-small-3.2-24b-instruct",
-   "tier": "中",
-   "params": "24B dense",
-   "thinking": "none",
-   "role": "对照",
-   "note": "英文侧对照，看中文是否掉队"
-  },
-  {
-   "key": "qwen3-8b",
-   "provider": "openrouter",
-   "model": "qwen/qwen3-8b",
-   "tier": "小",
-   "params": "8B dense",
-   "thinking": "openrouter",
-   "role": "主候选",
-   "note": "端侧路线的云端替身"
-  },
-  {
-   "key": "qwen3-4b",
-   "provider": "openrouter",
-   "model": "qwen/qwen3-4b",
-   "tier": "小",
-   "params": "4B dense",
-   "thinking": "openrouter",
-   "role": "主候选",
-   "note": "端侧路线下限参考"
-  },
-  {
-   "key": "gemma-3-4b",
-   "provider": "openrouter",
-   "model": "google/gemma-3-4b-it",
-   "tier": "小",
-   "params": "4B dense",
-   "thinking": "none",
-   "role": "对照",
-   "note": "非 Qwen 系小模型对照"
-  },
-  {
-   "key": "phi-4-mini",
-   "provider": "openrouter",
-   "model": "microsoft/phi-4-mini-instruct",
-   "tier": "小",
-   "params": "3.8B dense",
-   "thinking": "none",
-   "role": "对照",
-   "note": "id [待核对]；中文预期偏弱，看差多少"
-  },
-  {
    "key": "local-qwen3-1.7b",
    "provider": "local",
    "model": "qwen3-1.7b",
@@ -193,6 +73,176 @@
    "thinking": "qwen",
    "role": "端侧参考",
    "note": "本机 llama.cpp 或 vLLM 起服务时用，展望用"
+  },
+  {
+   "key": "qwen3.8-flash",
+   "provider": "openrouter",
+   "model": "qwen/qwen3.8-flash",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "Qwen 系 flash 级"
+  },
+  {
+   "key": "qwen3.8-27b",
+   "provider": "openrouter",
+   "model": "qwen/qwen3.8-27b",
+   "tier": "中",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "27B dense"
+  },
+  {
+   "key": "qwen3.6-35b-a3b",
+   "provider": "openrouter",
+   "model": "qwen/qwen3.6-35b-a3b",
+   "tier": "中",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "35B MoE 3B 激活，速度与质量折中"
+  },
+  {
+   "key": "qwen3.5-9b",
+   "provider": "openrouter",
+   "model": "qwen/qwen3.5-9b",
+   "tier": "小",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "端侧路线的云端替身"
+  },
+  {
+   "key": "glm-5.3-flash",
+   "provider": "openrouter",
+   "model": "z-ai/glm-5.3-flash",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "用户点名"
+  },
+  {
+   "key": "glm-4.5-air",
+   "provider": "openrouter",
+   "model": "z-ai/glm-4.5-air",
+   "tier": "中",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "对照",
+   "note": ""
+  },
+  {
+   "key": "gemini-2.5-flash-lite",
+   "provider": "openrouter",
+   "model": "google/gemini-2.5-flash-lite",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "none",
+   "role": "对照",
+   "note": "闭源对照，看开源差距"
+  },
+  {
+   "key": "gemini-3.5-flash-lite",
+   "provider": "openrouter",
+   "model": "google/gemini-3.5-flash-lite",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "none",
+   "role": "对照",
+   "note": "闭源对照"
+  },
+  {
+   "key": "kimi-k2.6",
+   "provider": "openrouter",
+   "model": "moonshotai/kimi-k2.6",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "对照",
+   "note": "替代已耗尽配额的 K2.7 编程端点"
+  },
+  {
+   "key": "minimax-m3-free",
+   "provider": "openrouter",
+   "model": "minimax/minimax-m3:free",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "free 通道有限流，测时延要换付费通道"
+  },
+  {
+   "key": "minimax-m2.7-free",
+   "provider": "openrouter",
+   "model": "minimax/minimax-m2.7:free",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "对照",
+   "note": "free 通道"
+  },
+  {
+   "key": "gpt-5.6-luna",
+   "provider": "openrouter",
+   "model": "openai/gpt-5.6-luna",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "对照",
+   "note": "闭源上限参考"
+  },
+  {
+   "key": "gpt-4o-mini",
+   "provider": "openrouter",
+   "model": "openai/gpt-4o-mini",
+   "tier": "中",
+   "params": "以 /models 为准",
+   "thinking": "none",
+   "role": "对照",
+   "note": "闭源小模型参考"
+  },
+  {
+   "key": "hy4-preview",
+   "provider": "openrouter",
+   "model": "tencent/hy4-preview",
+   "tier": "大",
+   "params": "以 /models 为准",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "公司内模型的 OpenRouter 版本"
+  },
+  {
+   "key": "muse-spark-1.3",
+   "provider": "openrouter",
+   "model": "meta/muse-spark-1.3-contributor",
+   "tier": "中",
+   "params": "以 /models 为准",
+   "thinking": "none",
+   "role": "对照",
+   "note": "id 以 --check 为准"
+  },
+  {
+   "key": "llama-3.1-8b",
+   "provider": "openrouter",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "tier": "小",
+   "params": "以 /models 为准",
+   "thinking": "none",
+   "role": "对照",
+   "note": "英文侧小模型，看中文掉多少"
+  },
+  {
+   "key": "llama-3.2-3b",
+   "provider": "openrouter",
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "tier": "小",
+   "params": "以 /models 为准",
+   "thinking": "none",
+   "role": "对照",
+   "note": "小模型下限"
   }
  ]
 }
