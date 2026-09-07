@@ -1,0 +1,60 @@
+{
+  "ids_by_contrast": {
+    "without_routing": [
+      "N04",
+      "N05",
+      "F05",
+      "A10"
+    ],
+    "without_composition": [
+      "C03",
+      "C08",
+      "E05",
+      "J04"
+    ],
+    "without_personalization": [
+      "E06",
+      "E03",
+      "G02",
+      "G04"
+    ],
+    "without_wording": [
+      "E03",
+      "E05",
+      "J04",
+      "C08"
+    ],
+    "without_examples": [
+      "E03",
+      "C03",
+      "A10",
+      "N04"
+    ],
+    "without_safety": [
+      "K03",
+      "K07",
+      "K04",
+      "K08"
+    ],
+    "without_finalcheck": [
+      "N04",
+      "G04",
+      "D05",
+      "J05"
+    ],
+    "p25_grouped_dictionary": [
+      "A10",
+      "N04",
+      "C03",
+      "E05"
+    ]
+  },
+  "models": [
+    "luna",
+    "qwen"
+  ],
+  "sample_sha256": "03963d22e060a3394bd83299e9eddb5ce2a707230304265eab9e53c83b2a22d3",
+  "calls": 256,
+  "selection": "Four mechanism-relevant development IDs per contrast, both locales and AB/BA. Fixed before these judge calls; selected for relevance, not observed delta.",
+  "limitation": "Four original IDs per component is exploratory, not a population necessity claim. Missing ratings retained. Within each judge Holm across all 32 component-dimension tests. The larger 16-ID wording study is separately disclosed."
+}
