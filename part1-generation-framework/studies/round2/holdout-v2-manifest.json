@@ -1,0 +1,24 @@
+{
+  "sha256": "d9b8bcd0828e2fdbfd3a1ab47d244ae010bf7c63a767aead0601d90462f0dd21",
+  "cases": 80,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "per_category": {
+    "action": 12,
+    "affect": 8,
+    "attack": 8,
+    "clarify": 6,
+    "explicit": 8,
+    "memory": 4,
+    "observe": 4,
+    "precise": 12,
+    "robust": 6,
+    "vague": 8,
+    "weak": 4
+  },
+  "exposure": "Authored by the same agent after development analysis; never queried against candidate models before freeze. Not an external human benchmark.",
+  "gold": "Frozen original scorer plus explicit capability-aware alternatives. Old 134 cases remain separately reported; no historical gold edited.",
+  "rule": "After first evaluation no prompt optimization on this set. Any failure remains in the confirmation report."
+}
