@@ -1,0 +1,1972 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "scene_v3_2026-09-03.0225",
+ "type": "object",
+ "properties": {
+  "relevance": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "intent": {
+   "enum": [
+    "action",
+    "precise",
+    "vague",
+    "affect",
+    "clarify",
+    "none"
+   ]
+  },
+  "understanding": {
+   "type": "string",
+   "maxLength": 80
+  },
+  "name": {
+   "type": "string",
+   "maxLength": 10
+  },
+  "logic": {
+   "enum": [
+    "AND",
+    "OR"
+   ]
+  },
+  "conditions": {
+   "type": "array",
+   "maxItems": 4,
+   "items": {
+    "oneOf": [
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾车窗"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾车窗"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "左后排车窗"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "右后排车窗"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "空调总开关"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "MAX AC"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "AUTO模式"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "前风窗除雾"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "内外循环设置"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "内循环",
+         "外循环"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "自动空气净化"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾座椅"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "有人",
+         "无人"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾座椅"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "有人",
+         "无人"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾座椅加热"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾座椅加热"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "后左侧座椅加热"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "后右侧座椅加热"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾座椅通风"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾座椅通风"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "后左侧座椅通风"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "后右侧座椅通风"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾座椅按摩"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾座椅按摩"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "左前门"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "右前门"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "左后门"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "右后门"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "尾门"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "前备箱"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "香氛开关"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "挡位"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "挡位N",
+         "挡位D",
+         "挡位P",
+         "挡位R"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "电量"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "车速"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "车内温度"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "车外温度"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "车内PM2.5"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     }
+    ]
+   }
+  },
+  "actions": {
+   "type": "array",
+   "maxItems": 8,
+   "items": {
+    "oneOf": [
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾车窗"
+       },
+       "secondary": {
+        "enum": [
+         "关闭",
+         "10%",
+         "20%",
+         "30%",
+         "40%",
+         "50%",
+         "60%",
+         "70%",
+         "80%",
+         "90%",
+         "100%"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾车窗"
+       },
+       "secondary": {
+        "enum": [
+         "关闭",
+         "10%",
+         "20%",
+         "30%",
+         "40%",
+         "50%",
+         "60%",
+         "70%",
+         "80%",
+         "90%",
+         "100%"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "左后排车窗"
+       },
+       "secondary": {
+        "enum": [
+         "关闭",
+         "10%",
+         "20%",
+         "30%",
+         "40%",
+         "50%",
+         "60%",
+         "70%",
+         "80%",
+         "90%",
+         "100%"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "右后排车窗"
+       },
+       "secondary": {
+        "enum": [
+         "关闭",
+         "10%",
+         "20%",
+         "30%",
+         "40%",
+         "50%",
+         "60%",
+         "70%",
+         "80%",
+         "90%",
+         "100%"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "空调总开关"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "MAX AC"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "AUTO模式"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "前风窗除雾"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "内外循环设置"
+       },
+       "secondary": {
+        "enum": [
+         "内循环",
+         "外循环"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "自动空气净化"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾座椅加热"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾座椅加热"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "后左侧座椅加热"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "后右侧座椅加热"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾座椅通风"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾座椅通风"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "后左侧座椅通风"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "后右侧座椅通风"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "香氛开关"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾温度控制"
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "温区同步"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "前排风量调节"
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "出风模式设置"
+       },
+       "secondary": {
+        "enum": [
+         "吹面",
+         "吹脚",
+         "吹面吹脚",
+         "加吹脚除霜",
+         "除霜"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "AC开关"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "ECO"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾模式"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "空气自干燥"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾座椅按摩强度"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾座椅按摩强度"
+       },
+       "secondary": {
+        "enum": [
+         "1挡",
+         "2挡",
+         "3挡"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主驾座椅按摩模式"
+       },
+       "secondary": {
+        "enum": [
+         "OFF",
+         "波浪",
+         "猫步",
+         "蛇形",
+         "肩部",
+         "腰部"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "副驾座椅按摩模式"
+       },
+       "secondary": {
+        "enum": [
+         "OFF",
+         "波浪",
+         "猫步",
+         "蛇形",
+         "肩部",
+         "腰部"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "氛围灯开关"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "音乐律动"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "氛围灯亮度"
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "香氛类型"
+       },
+       "secondary": {
+        "enum": [
+         "类型1",
+         "类型2",
+         "类型3"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "香氛浓度"
+       },
+       "secondary": {
+        "enum": [
+         "淡雅",
+         "自然",
+         "馥郁"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "方向盘加热"
+       },
+       "secondary": {
+        "enum": [
+         "开启",
+         "关闭"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "低速行人警报音"
+       },
+       "secondary": {
+        "enum": [
+         "开启"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "音乐播放"
+       },
+       "secondary": {
+        "enum": [
+         "想念",
+         "放松",
+         "庆祝",
+         "专注",
+         "安静",
+         "浪漫",
+         "雨天",
+         "白噪音",
+         "停止"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "音量"
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     }
+    ]
+   }
+  },
+  "say": {
+   "type": "string",
+   "maxLength": 15
+  },
+  "offer": {
+   "type": "object",
+   "properties": {
+    "type": {
+     "enum": [
+      "call",
+      "navigate",
+      "message",
+      "none"
+     ]
+    },
+    "target": {
+     "type": "string",
+     "maxLength": 20
+    }
+   },
+   "required": [
+    "type"
+   ]
+  },
+  "memory": {
+   "type": "array",
+   "maxItems": 3,
+   "items": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "enum": [
+       "preference",
+       "relationship",
+       "place",
+       "dislike"
+      ]
+     },
+     "content": {
+      "type": "string",
+      "maxLength": 80
+     },
+     "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+     }
+    },
+    "required": [
+     "type",
+     "content",
+     "confidence"
+    ]
+   }
+  },
+  "unsupported": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "warnings": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "clarify": {
+   "type": [
+    "string",
+    "null"
+   ]
+  }
+ },
+ "required": [
+  "relevance",
+  "intent",
+  "name",
+  "logic",
+  "conditions",
+  "actions",
+  "say",
+  "offer",
+  "memory",
+  "unsupported",
+  "warnings",
+  "clarify"
+ ],
+ "additionalProperties": false
+}
