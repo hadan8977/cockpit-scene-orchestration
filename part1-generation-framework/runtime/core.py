@@ -318,7 +318,7 @@ class Engine:
     def confirm(self,pid,operation,expected_revision):
         with self.lock,self.registry.lock:
             p=self.proposals.get(pid)
-            if not p or p["status"]!="pending":raise Conflict("Proposal missing or already handled")
+            if not p or (p["status"]!="pending" and not(operation=="save" and p["status"]=="applied")):raise Conflict("Proposal missing or already handled")
             if self.clock()-p["created"]>300:raise Conflict("Proposal expired")
             if expected_revision!=p["revision"]:raise Conflict("Client proposal version mismatch")
             snapshot=self.registry.snapshot()
@@ -331,7 +331,7 @@ class Engine:
             elif operation=="save":
                 if not result["savable"]:raise ValueError("Proposal is not savable")
                 self.state["saved"][pid]={"id":pid,"scene":copy.deepcopy(p["raw"]),"registry_revision":snapshot["revision"]}
-                p["status"]="saved"
+                p["status"]="saved_after_apply" if p["status"]=="applied" else "saved"
             else:
                 if not result["executable"]:raise ValueError("Proposal cannot be executed in this state")
                 if p["raw"]["conditions"]:raise ValueError("Conditional rules must be saved; cannot silently execute now")

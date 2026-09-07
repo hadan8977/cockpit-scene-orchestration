@@ -1,0 +1,83 @@
+{
+  "p18": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.9375,
+    "task_pass": 0.9375,
+    "schema": 0.9921875,
+    "intent": 1.0,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 0,
+    "p50": 1.5034471999679226,
+    "p95": 1.967451069978415,
+    "understanding_p50": 1.1889665499911644,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 1.0,
+      "attack": 1.0,
+      "clarify": 1.0,
+      "explicit": 0.75,
+      "memory": 1.0,
+      "observe": 0.6666666666666666,
+      "precise": 0.9166666666666666,
+      "robust": 1.0,
+      "vague": 0.8,
+      "weak": 1.0
+    }
+  },
+  "p19": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.9765625,
+    "task_pass": 0.9765625,
+    "schema": 1.0,
+    "intent": 0.984375,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 0,
+    "p50": 1.4929099000291899,
+    "p95": 1.8983370249829021,
+    "understanding_p50": 1.1163430500018876,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 1.0,
+      "attack": 1.0,
+      "clarify": 1.0,
+      "explicit": 1.0,
+      "memory": 0.875,
+      "observe": 0.6666666666666666,
+      "precise": 1.0,
+      "robust": 1.0,
+      "vague": 1.0,
+      "weak": 1.0
+    }
+  },
+  "p20": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.9296875,
+    "task_pass": 0.9296875,
+    "schema": 0.9921875,
+    "intent": 0.9921875,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 0,
+    "p50": 1.5452111499907915,
+    "p95": 2.042391594997025,
+    "understanding_p50": 1.2320795999839902,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 1.0,
+      "attack": 1.0,
+      "clarify": 0.6666666666666666,
+      "explicit": 0.875,
+      "memory": 0.875,
+      "observe": 0.6666666666666666,
+      "precise": 0.9166666666666666,
+      "robust": 1.0,
+      "vague": 0.9,
+      "weak": 1.0
+    }
+  }
+}

@@ -107,6 +107,10 @@ def handler_for(service,token):
                 elif path=="/restore":result=service.engine.restore(body["proposal_id"])
                 elif path=="/registry/toggle":result=service.engine.registry.set_enabled(body["id"],body["enabled"],body["registry_revision"])
                 elif path=="/simulation/state":result=service.engine.update_vehicle(body["values"],body["driving"])
+                elif path=="/demo/context":result=service.engine.demo_context(body)
+                elif path=="/demo/prepare":
+                    raw=body["scene"]
+                    result=service.engine.propose(raw,{"source":"demo_import","simulation":True})
                 elif path=="/simulation/advance":result={"events":service.engine.advance(body["seconds"])}
                 elif path=="/simulation/trigger":result={"events":service.engine.trigger()}
                 elif path=="/memory/confirm":result=service.engine.confirm_memory(body["proposal_id"],body["index"])
@@ -120,7 +124,7 @@ def handler_for(service,token):
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument("--port",type=int,default=8787);ap.add_argument("--env-file");ap.add_argument("--mode",choices=["json_object","strict_tool","responses_schema"],default="json_object");ap.add_argument("--template",default=str(PART/"delivery/prompt/system-zh.md"));ap.add_argument("--fixture");ap.add_argument("--storage",default=str(PART/"runtime-state"))
+    ap=argparse.ArgumentParser();ap.add_argument("--port",type=int,default=8787);ap.add_argument("--env-file");ap.add_argument("--mode",choices=["json_object","strict_tool","responses_schema"],default="strict_tool");ap.add_argument("--template",default=str(PART/"delivery/prompt/system-zh.md"));ap.add_argument("--fixture");ap.add_argument("--storage",default=str(PART/"runtime-state"))
     args=ap.parse_args()
     credentials=dict(os.environ)
     if args.env_file:

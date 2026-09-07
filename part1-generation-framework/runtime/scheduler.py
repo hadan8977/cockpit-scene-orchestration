@@ -82,7 +82,7 @@ class RuntimeEngine(Engine):
                         self.state["saved"].pop(pid);target["scene"]=merged;target["registry_revision"]=expected_revision
                         self._persist();return {**event,"scene_id":target["id"],"relation":relation}
                 return super().confirm(pid,operation,expected_revision)
-            if not p or p["status"]!="pending" or self.clock()-p["created"]>300:raise Conflict("Proposal missing, handled or expired")
+            if not p or p["status"] not in ("pending","saved") or self.clock()-p["created"]>300:raise Conflict("Proposal missing, handled or expired")
             if expected_revision!=p["revision"] or self.registry.snapshot()["revision"]!=p["revision"]:raise Conflict("Registry changed; regenerate")
             result=validate(p["raw"],self.registry.snapshot(),self.context,self.state["saved"])
             if not result["executable"] or p["raw"]["conditions"]:raise ValueError("Cannot immediately execute this proposal")
@@ -158,6 +158,8 @@ class RuntimeEngine(Engine):
         with self.lock:
             p=self.proposals.get(pid)
             if not p or type(index) is not int or not 0<=index<len(p["raw"].get("memory",[])):raise ValueError("Unknown memory suggestion")
+            if p["status"]=="rejected" or self.clock()-p["created"]>300:raise ValueError("Memory proposal rejected or expired")
+            if not validate(p["raw"],self.registry.snapshot(),self.context,self.state["saved"])["valid"]:raise ValueError("Invalid proposal cannot become memory")
             if p["provenance"].get("injection_flags"):raise ValueError("Flagged input cannot become memory")
             m=p["raw"]["memory"][index]
             if any(x.get("proposal_id")==pid and x.get("index")==index for x in self.state["memories"]):raise Conflict("Memory already confirmed")
@@ -169,3 +171,32 @@ class RuntimeEngine(Engine):
             old=len(self.state["memories"]);self.state["memories"]=[m for m in self.state["memories"] if m["id"]!=memory_id]
             if len(self.state["memories"])==old:raise ValueError("Unknown memory")
             self._event("memory_deleted",memory_id=memory_id);self._persist();return {"deleted":memory_id}
+
+    def demo_context(self,body):
+        """Authenticated product-Demo boundary; all supplied state is simulated.
+
+        The model never calls this endpoint. A production app would use its
+        authenticated state/memory services rather than a browser-owned snapshot.
+        """
+        with self.lock:
+            self.update_vehicle(body.get("vehicle",{}),body["driving"])
+            memories=body.get("memories",[]);saved=body.get("saved_scenes",[])
+            if not isinstance(memories,list) or len(memories)>24 or not isinstance(saved,list) or len(saved)>60:raise ValueError("Demo context too large")
+            by_name={c["zh"]:c for c in self.registry.snapshot()["capabilities"]}
+            records=[];denied=[]
+            for i,m in enumerate(memories):
+                if not isinstance(m,dict) or m.get("type") not in ("dislike","preference","place","relationship") or not isinstance(m.get("content"),str) or len(m["content"])>200:raise ValueError("Invalid confirmed demo memory")
+                records.append({"id":"demo-"+str(i),"type":m["type"],"content":m["content"],"confirmed":True})
+                if m.get("type")=="dislike" and m.get("primary"):
+                    name=m["primary"]
+                    if name not in by_name:raise ValueError("Unknown negative preference capability")
+                    denied.append({"primary":name,"secondary":m.get("value")})
+            self.state["memories"]=records;self.context["denied_actions"]=denied
+            for s in saved:
+                if not isinstance(s,dict) or not isinstance(s.get("id"),str) or len(s["id"])>80:raise ValueError("Invalid existing scene id")
+                # Invalid imported scenes remain visible, but validation gates
+                # prevent scheduling them. Never drop an invalid condition.
+                raw=s.get("scene")
+                if not isinstance(raw,dict):raise ValueError("Invalid saved scene")
+                self.state["saved"][s["id"]]={"id":s["id"],"scene":copy.deepcopy(raw),"registry_revision":self.registry.snapshot()["revision"]}
+            self._persist();return {"simulation":True,"memory_count":len(records),"saved_count":len(self.state["saved"])}
