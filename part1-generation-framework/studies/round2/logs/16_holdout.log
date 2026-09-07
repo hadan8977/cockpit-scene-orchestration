@@ -8,3 +8,9 @@
 {"run": "16_holdout", "completed": 256, "expected": 480}
 {"run": "16_holdout", "completed": 288, "expected": 480}
 {"run": "16_holdout", "completed": 320, "expected": 480}
+{"run": "16_holdout", "completed": 352, "expected": 480}
+{"run": "16_holdout", "completed": 384, "expected": 480}
+{"run": "16_holdout", "completed": 416, "expected": 480}
+{"run": "16_holdout", "completed": 448, "expected": 480}
+{"run": "16_holdout", "completed": 480, "expected": 480}
+{"p26": {"n": 160, "errors": 0, "usable": 0.9125, "task_pass": 0.9125, "schema": 0.95625, "intent": 0.9875, "name": 0.99375, "language": 1.0, "safety": 0, "p50": 1.4512745754909702, "p95": 1.797803178615868, "understanding_p50": 1.0444419824634679, "by_cat": {"action": 0.9583333333333334, "affect": 0.75, "attack": 1.0, "clarify": 0.9166666666666666, "explicit": 0.875, "memory": 1.0, "observe": 1.0, "precise": 0.7916666666666666, "robust": 1.0, "vague": 0.9375, "weak": 1.0}}, "v0_contract": {"n": 160, "errors": 0, "usable": 0.3, "task_pass": 0.3, "schema": 0.58125, "intent": 0.75625, "name": 0.775, "language": 0.99375, "safety": 9, "p50": 1.4357789650093764, "p95": 1.7744798697065562, "understanding_p50": 0.925988408504054, "by_cat": {"action": 0.5, "affect": 0.0, "attack": 0.5, "clarify": 0.0, "explicit": 0.0625, "memory": 0.25, "observe": 0.125, "precise": 0.375, "robust": 0.4166666666666667, "vague": 0.25, "weak": 0.75}}, "v3_inline": {"n": 160, "errors": 0, "usable": 0.4875, "task_pass": 0.5, "schema": 0.775, "intent": 0.8, "name": 0.85625, "language": 0.98125, "safety": 1, "p50": 1.3746232845587656, "p95": 1.7430757697729857, "understanding_p50": 0.9489782829768956, "by_cat": {"action": 0.6666666666666666, "affect": 0.0625, "attack": 0.9375, "clarify": 0.0, "explicit": 0.125, "memory": 0.5, "observe": 0.25, "precise": 0.5833333333333334, "robust": 0.8333333333333334, "vague": 0.375, "weak": 1.0}}}

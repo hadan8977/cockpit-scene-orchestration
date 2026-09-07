@@ -1,0 +1,169 @@
+{
+  "plan": {
+    "name": "holdout-p26-vs-v3",
+    "source_run": "16_holdout",
+    "candidate": "p26",
+    "baseline": "v3_inline",
+    "ids": [
+      "R2H001",
+      "R2H012",
+      "R2H007",
+      "R2H004",
+      "R2H006",
+      "R2H005",
+      "R2H008",
+      "R2H023",
+      "R2H014",
+      "R2H018",
+      "R2H015",
+      "R2H024",
+      "R2H019",
+      "R2H021",
+      "R2H028",
+      "R2H031",
+      "R2H026",
+      "R2H030",
+      "R2H027",
+      "R2H037",
+      "R2H040",
+      "R2H033",
+      "R2H039",
+      "R2H036",
+      "R2H067",
+      "R2H072",
+      "R2H071",
+      "R2H046",
+      "R2H044",
+      "R2H041",
+      "R2H075",
+      "R2H080",
+      "R2H074",
+      "R2H073",
+      "R2H058",
+      "R2H055",
+      "R2H061",
+      "R2H060",
+      "R2H063",
+      "R2H064"
+    ],
+    "models": [
+      "luna",
+      "qwen"
+    ],
+    "samples": 160,
+    "calls": 320,
+    "sample_sha256": "2a38644f368721ce69ba66536c8d082c5b62cc318f105c34da0da59af5fe9feb",
+    "selection": "Fixed category quotas set before the first holdout judge call; seed 2026090717; rep 0; both locales and both positions; attack excluded; no score-based filtering.",
+    "report_rule": "All dimensions separately by judge, position and locale. Missing ratings are not imputed. Cluster by original case id. The holdout may not be used to tune this candidate after these calls."
+  },
+  "judges": {
+    "luna": {
+      "expected": 160,
+      "completed": 160,
+      "valid": 160,
+      "invalid_sample_ids": [],
+      "dimensions": {
+        "grounding": {
+          "candidate": 4.19375,
+          "baseline": 4.20625,
+          "delta": -0.0125,
+          "cluster_ci95": [
+            -0.26875,
+            0.26875
+          ],
+          "positive_cluster_ci": false
+        },
+        "restraint": {
+          "candidate": 4.59375,
+          "baseline": 4.3,
+          "delta": 0.29375,
+          "cluster_ci95": [
+            -0.0125,
+            0.6125
+          ],
+          "positive_cluster_ci": false
+        },
+        "wording": {
+          "candidate": 3.925,
+          "baseline": 4.175,
+          "delta": -0.25,
+          "cluster_ci95": [
+            -0.46875,
+            -0.0125
+          ],
+          "positive_cluster_ci": false
+        },
+        "composition": {
+          "candidate": 4.375,
+          "baseline": 3.9875,
+          "delta": 0.3875,
+          "cluster_ci95": [
+            0.1375,
+            0.65625
+          ],
+          "positive_cluster_ci": true
+        }
+      },
+      "all_dimensions_higher_descriptively": false,
+      "confirmation_eligible": true
+    },
+    "qwen": {
+      "expected": 160,
+      "completed": 160,
+      "valid": 153,
+      "invalid_sample_ids": [
+        "R2H019-zh-AB",
+        "R2H041-zh-AB",
+        "R2H033-zh-AB",
+        "R2H060-zh-AB",
+        "R2H073-zh-BA",
+        "R2H037-zh-AB",
+        "R2H001-zh-BA"
+      ],
+      "dimensions": {
+        "grounding": {
+          "candidate": 3.9019607843137254,
+          "baseline": 4.248366013071895,
+          "delta": -0.3464052287581699,
+          "cluster_ci95": [
+            -0.7041666666666667,
+            1.3877787807814458e-18
+          ],
+          "positive_cluster_ci": false
+        },
+        "restraint": {
+          "candidate": 4.660130718954249,
+          "baseline": 4.594771241830065,
+          "delta": 0.06535947712418301,
+          "cluster_ci95": [
+            -0.1375,
+            0.2875
+          ],
+          "positive_cluster_ci": false
+        },
+        "wording": {
+          "candidate": 3.849673202614379,
+          "baseline": 4.215686274509804,
+          "delta": -0.3660130718954248,
+          "cluster_ci95": [
+            -0.6291666666666667,
+            -0.10625
+          ],
+          "positive_cluster_ci": false
+        },
+        "composition": {
+          "candidate": 4.163398692810458,
+          "baseline": 4.183006535947713,
+          "delta": -0.0196078431372549,
+          "cluster_ci95": [
+            -0.375,
+            0.3145833333333333
+          ],
+          "positive_cluster_ci": false
+        }
+      },
+      "all_dimensions_higher_descriptively": false,
+      "confirmation_eligible": false
+    }
+  }
+}

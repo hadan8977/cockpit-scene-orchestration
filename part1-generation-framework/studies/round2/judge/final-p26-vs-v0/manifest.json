@@ -1,0 +1,118 @@
+{
+  "run": "final-p26-vs-v0",
+  "sample_sha256": "9d39afd5728a3ea7a6708574dd0bdf560791da26f875e438b01e5e703dec13f8",
+  "rubric_sha256": "af7d146f7ced59c918fc927ce9fffe3cb58ba53e858ab06c3bca9c35ca31fe96",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "A": {
+        "type": "object",
+        "properties": {
+          "grounding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "restraint": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wording": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "composition": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "grounding",
+          "restraint",
+          "wording",
+          "composition",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "B": {
+        "type": "object",
+        "properties": {
+          "grounding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "restraint": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wording": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "composition": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "grounding",
+          "restraint",
+          "wording",
+          "composition",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "preference": {
+        "enum": [
+          "A",
+          "B",
+          "tie"
+        ]
+      }
+    },
+    "required": [
+      "A",
+      "B",
+      "preference"
+    ],
+    "additionalProperties": false
+  },
+  "models": {
+    "luna": {
+      "id": "openai/gpt-5.6-luna",
+      "prices": [
+        2e-07,
+        1.2e-06
+      ],
+      "reasoning": {
+        "effort": "low"
+      }
+    },
+    "qwen": {
+      "id": "qwen/qwen3.8-27b",
+      "prices": [
+        4.2e-07,
+        3e-06
+      ],
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "source_sha256": "15e9c3a34972e130e5a870e544f6c29c693489552468ddbe38380a01d8ecc853"
+}
