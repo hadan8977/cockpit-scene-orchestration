@@ -81,6 +81,8 @@ node --experimental-strip-types part1-generation-framework/runtime/sdk/test_demo
 
 后者启动真实 Python HTTP 服务并导入实际产品 TypeScript 客户端，用固定数据验证完整传输和确认链路，不消耗模型调用，也不计入模型质量分数。
 
+截至2026-09-08，Python离线30项通过。另有[真实模型HTTP/SSE冒烟](../studies/round2/architecture/live-smoke-p24/summary.json)：6场景通过、5次模型调用，包含拒绝、注入前拦截、确认与恢复；小样本不能代替完整质量测试。产品接入提交为`0ad75616f80610d82987a46ef37867edc74e6996`；最新完成程度和接手命令见[HANDOFF](../studies/round2/HANDOFF.md)。
+
 ## PRD 差异，不能写成已完成
 
 - 2.5 秒卡片、0.6 秒理解句是目标，尚未稳定达到；官网严格工具的 3 次探测总时延为约 2.22–2.80 秒。

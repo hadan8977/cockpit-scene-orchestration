@@ -1,14 +1,18 @@
 # 第一部分：生成框架与 Prompt 实验
 
-**本轮成果统一放在 [delivery](delivery/README.md)。** Prompt 专项实验完成，推荐 DS V4 Flash + p13 统一中文系统指令；整个 Demo 尚未完成该版本的端到端接入与验收。
+**当前结论：Prompt 仍未通过全维度验收；技术服务已实现并接入产品 Demo 代码，通过本地联调，公共站点尚未启用新结构。** 第一轮 p13 和语言结论是历史快照。
+
+先看 [最新进度报告](delivery/06-第二轮进展.md)。其他 agent 从 [HANDOFF](studies/round2/HANDOFF.md) 接手，内含恢复命令、预算、失败记录及下一步计划；当前没有后台付费评测。
 
 | 位置 | 内容 |
 |---|---|
-| [delivery](delivery/README.md) | 汇报入口：完成状态、架构、报告、最终 Prompt、参数、契约和后续计划 |
-| [eval](eval/README.md) | 可复算的实验源码、题集、全部版本和原始响应；原路径保留 |
+| [delivery](delivery/README.md) | 集中的汇报入口；06 为当前状态，01—05 与 p13 为第一轮快照 |
+| [studies/round2](studies/round2/README.md) | 当前 A/B、消融、语言交叉、独立评审、原始响应与接手计划 |
+| [runtime](runtime/README.md) | 技术结构、可启动服务、约束与执行模块、Demo SDK 和测试 |
+| [eval](eval/README.md) | 第一轮冻结源码、题集、版本、实验和原始响应；禁止覆盖 |
 | [notes/inputs](notes/inputs/) | 能力表原始材料 |
 | [archive](archive/README.md) | 旧报告、旧计划、旧设计与回放原型 |
 
-完整产品方案在仓库根目录的 [PRD v17](../docs/README.md)。可交互应用在独立 [scene-studio-demo](https://github.com/hadan8977/scene-studio-demo)；目前仍使用独立 Prompt 与 OpenRouter 调用链，具体差异见[Demo 状态](delivery/01-结论与Demo状态.md)。
+完整产品方案见 [PRD v17](../docs/README.md)，产品源码见 [scene-studio-demo](https://github.com/hadan8977/scene-studio-demo)。通过服务端配置启用新运行结构；未配置时仍走旧 p13 链路，不能把旧站点展示当成本轮端到端验收。
 
-只看当前成果无需翻阅 archive 或逐个猜测 eval/prompts 的版本号。当前推荐资产为 [delivery/prompt/system-zh.md](delivery/prompt/system-zh.md)，来源是冻结的 p13；旧 final_dsv4flash.md 是历史 p11。
+只看当前进度无需翻阅 archive 或逐个猜测 Prompt 版本号；候选选择依据和未通过项均在交接入口中。旧文件名中的 final 不代表当前推荐。

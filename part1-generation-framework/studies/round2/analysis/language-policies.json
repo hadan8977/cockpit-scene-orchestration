@@ -1,0 +1,511 @@
+{
+  "results": {
+    "p24": {
+      "policies": {
+        "uniform_zh": {
+          "n": 128,
+          "rates": {
+            "usable": 0.9375,
+            "task_pass": 0.9453125,
+            "schema": 0.9921875,
+            "intent": 0.984375,
+            "name": 1,
+            "locale_v2": 0.9921875,
+            "safe": 1
+          },
+          "latency_p50": 1.6941734499996528,
+          "latency_p95": 2.6346011099638416,
+          "by_input_language": {
+            "zh": {
+              "usable": 0.96875,
+              "task_pass": 0.96875,
+              "schema": 1,
+              "intent": 1,
+              "name": 1,
+              "locale_v2": 1,
+              "safe": 1
+            },
+            "en": {
+              "usable": 0.90625,
+              "task_pass": 0.921875,
+              "schema": 0.984375,
+              "intent": 0.96875,
+              "name": 1,
+              "locale_v2": 0.984375,
+              "safe": 1
+            }
+          }
+        },
+        "uniform_en": {
+          "n": 128,
+          "rates": {
+            "usable": 0.9140625,
+            "task_pass": 0.9140625,
+            "schema": 0.9921875,
+            "intent": 0.984375,
+            "name": 1,
+            "locale_v2": 1,
+            "safe": 1
+          },
+          "latency_p50": 1.6546842000097968,
+          "latency_p95": 2.542636500028311,
+          "by_input_language": {
+            "zh": {
+              "usable": 0.9375,
+              "task_pass": 0.9375,
+              "schema": 1,
+              "intent": 0.984375,
+              "name": 1,
+              "locale_v2": 1,
+              "safe": 1
+            },
+            "en": {
+              "usable": 0.890625,
+              "task_pass": 0.890625,
+              "schema": 0.984375,
+              "intent": 0.984375,
+              "name": 1,
+              "locale_v2": 1,
+              "safe": 1
+            }
+          }
+        },
+        "routed": {
+          "n": 128,
+          "rates": {
+            "usable": 0.9296875,
+            "task_pass": 0.9296875,
+            "schema": 0.9921875,
+            "intent": 0.9921875,
+            "name": 1,
+            "locale_v2": 1,
+            "safe": 1
+          },
+          "latency_p50": 1.6733080500271171,
+          "latency_p95": 2.571758299990324,
+          "by_input_language": {
+            "zh": {
+              "usable": 0.96875,
+              "task_pass": 0.96875,
+              "schema": 1,
+              "intent": 1,
+              "name": 1,
+              "locale_v2": 1,
+              "safe": 1
+            },
+            "en": {
+              "usable": 0.890625,
+              "task_pass": 0.890625,
+              "schema": 0.984375,
+              "intent": 0.984375,
+              "name": 1,
+              "locale_v2": 1,
+              "safe": 1
+            }
+          }
+        }
+      },
+      "comparisons": {
+        "uniform_en_minus_uniform_zh": {
+          "usable": {
+            "n_clusters": 64,
+            "delta": -0.0234375,
+            "ci95": [
+              -0.0546875,
+              0.0
+            ],
+            "p_two_sided": 0.25317468253174685,
+            "p_holm": 1
+          },
+          "task_pass": {
+            "n_clusters": 64,
+            "delta": -0.03125,
+            "ci95": [
+              -0.0625,
+              -0.0078125
+            ],
+            "p_two_sided": 0.1260873912608739,
+            "p_holm": 0.8826117388261173
+          },
+          "schema": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "intent": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "name": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "locale_v2": {
+            "n_clusters": 64,
+            "delta": 0.0078125,
+            "ci95": [
+              0.0,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "safe": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          }
+        },
+        "routed_minus_uniform_zh": {
+          "usable": {
+            "n_clusters": 64,
+            "delta": -0.0078125,
+            "ci95": [
+              -0.03125,
+              0.015625
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "task_pass": {
+            "n_clusters": 64,
+            "delta": -0.015625,
+            "ci95": [
+              -0.046875,
+              0.015625
+            ],
+            "p_two_sided": 0.6193380661933806,
+            "p_holm": 1
+          },
+          "schema": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "intent": {
+            "n_clusters": 64,
+            "delta": 0.0078125,
+            "ci95": [
+              0.0,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "name": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "locale_v2": {
+            "n_clusters": 64,
+            "delta": 0.0078125,
+            "ci95": [
+              0.0,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "safe": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          }
+        }
+      }
+    },
+    "p25": {
+      "policies": {
+        "uniform_zh": {
+          "n": 128,
+          "rates": {
+            "usable": 0.9296875,
+            "task_pass": 0.9375,
+            "schema": 0.9765625,
+            "intent": 0.984375,
+            "name": 1,
+            "locale_v2": 0.9921875,
+            "safe": 1
+          },
+          "latency_p50": 1.6984560499840882,
+          "latency_p95": 2.5418548949965043,
+          "by_input_language": {
+            "zh": {
+              "usable": 0.984375,
+              "task_pass": 0.984375,
+              "schema": 1,
+              "intent": 1,
+              "name": 1,
+              "locale_v2": 1,
+              "safe": 1
+            },
+            "en": {
+              "usable": 0.875,
+              "task_pass": 0.890625,
+              "schema": 0.953125,
+              "intent": 0.96875,
+              "name": 1,
+              "locale_v2": 0.984375,
+              "safe": 1
+            }
+          }
+        },
+        "uniform_en": {
+          "n": 128,
+          "rates": {
+            "usable": 0.8984375,
+            "task_pass": 0.8984375,
+            "schema": 0.9765625,
+            "intent": 0.984375,
+            "name": 0.9921875,
+            "locale_v2": 1,
+            "safe": 1
+          },
+          "latency_p50": 1.6184972999908496,
+          "latency_p95": 2.5827304449805526,
+          "by_input_language": {
+            "zh": {
+              "usable": 0.921875,
+              "task_pass": 0.921875,
+              "schema": 1,
+              "intent": 0.984375,
+              "name": 1,
+              "locale_v2": 1,
+              "safe": 1
+            },
+            "en": {
+              "usable": 0.875,
+              "task_pass": 0.875,
+              "schema": 0.953125,
+              "intent": 0.984375,
+              "name": 0.984375,
+              "locale_v2": 1,
+              "safe": 1
+            }
+          }
+        },
+        "routed": {
+          "n": 128,
+          "rates": {
+            "usable": 0.9296875,
+            "task_pass": 0.9296875,
+            "schema": 0.9765625,
+            "intent": 0.9921875,
+            "name": 0.9921875,
+            "locale_v2": 1,
+            "safe": 1
+          },
+          "latency_p50": 1.7353895500127692,
+          "latency_p95": 2.562579419987742,
+          "by_input_language": {
+            "zh": {
+              "usable": 0.984375,
+              "task_pass": 0.984375,
+              "schema": 1,
+              "intent": 1,
+              "name": 1,
+              "locale_v2": 1,
+              "safe": 1
+            },
+            "en": {
+              "usable": 0.875,
+              "task_pass": 0.875,
+              "schema": 0.953125,
+              "intent": 0.984375,
+              "name": 0.984375,
+              "locale_v2": 1,
+              "safe": 1
+            }
+          }
+        }
+      },
+      "comparisons": {
+        "uniform_en_minus_uniform_zh": {
+          "usable": {
+            "n_clusters": 64,
+            "delta": -0.03125,
+            "ci95": [
+              -0.0703125,
+              0.0
+            ],
+            "p_two_sided": 0.21447855214478553,
+            "p_holm": 1
+          },
+          "task_pass": {
+            "n_clusters": 64,
+            "delta": -0.0390625,
+            "ci95": [
+              -0.078125,
+              0.0
+            ],
+            "p_two_sided": 0.11948805119488051,
+            "p_holm": 0.8364163583641636
+          },
+          "schema": {
+            "n_clusters": 64,
+            "delta": 0.0,
+            "ci95": [
+              -0.0234375,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "intent": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "name": {
+            "n_clusters": 64,
+            "delta": -0.0078125,
+            "ci95": [
+              -0.0234375,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "locale_v2": {
+            "n_clusters": 64,
+            "delta": 0.0078125,
+            "ci95": [
+              0.0,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "safe": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          }
+        },
+        "routed_minus_uniform_zh": {
+          "usable": {
+            "n_clusters": 64,
+            "delta": 0.0,
+            "ci95": [
+              -0.03125,
+              0.03125
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "task_pass": {
+            "n_clusters": 64,
+            "delta": -0.0078125,
+            "ci95": [
+              -0.0390625,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "schema": {
+            "n_clusters": 64,
+            "delta": 0.0,
+            "ci95": [
+              -0.0234375,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "intent": {
+            "n_clusters": 64,
+            "delta": 0.0078125,
+            "ci95": [
+              0.0,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "name": {
+            "n_clusters": 64,
+            "delta": -0.0078125,
+            "ci95": [
+              -0.0234375,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "locale_v2": {
+            "n_clusters": 64,
+            "delta": 0.0078125,
+            "ci95": [
+              0.0,
+              0.0234375
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          },
+          "safe": {
+            "n_clusters": 64,
+            "delta": 0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "p_two_sided": 1.0,
+            "p_holm": 1
+          }
+        }
+      }
+    }
+  },
+  "new_calls": 0,
+  "generation_calls": 512,
+  "note": "Each policy uses exactly one output per input. Routed rows are selected from the crossed arms, not fresh calls. Chinese and English examples and capability dictionaries remain unchanged; translated rule prose may still have semantic nuances. Both prompt versions are development candidates; no claim of universal language superiority."
+}

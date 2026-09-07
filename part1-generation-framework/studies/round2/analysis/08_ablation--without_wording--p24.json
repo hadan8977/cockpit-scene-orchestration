@@ -1,0 +1,228 @@
+{
+  "run": "08_ablation",
+  "candidate": "without_wording",
+  "baseline": "p24",
+  "pairs": 64,
+  "summary": {
+    "without_wording": {
+      "n": 64,
+      "errors": 0,
+      "rates": {
+        "usable": 0.9375,
+        "task_pass": 0.9375,
+        "schema": 0.984375,
+        "intent": 0.96875,
+        "name": 1,
+        "locale_v2": 1,
+        "safe": 1
+      },
+      "latency": {
+        "latency_p50": 1.5341752999811433,
+        "latency_p95": 1.9236978900240498,
+        "ttft_p50": 0.9427222000085749,
+        "ttft_p95": 1.2747153500036803,
+        "t_und_p50": 1.1569644499977585,
+        "t_und_p95": 1.4604179099726025
+      },
+      "by_locale": {
+        "zh": {
+          "usable": 0.96875,
+          "task_pass": 0.96875,
+          "schema": 1,
+          "intent": 0.96875,
+          "name": 1,
+          "locale_v2": 1,
+          "safe": 1
+        },
+        "en": {
+          "usable": 0.90625,
+          "task_pass": 0.90625,
+          "schema": 0.96875,
+          "intent": 0.96875,
+          "name": 1,
+          "locale_v2": 1,
+          "safe": 1
+        }
+      },
+      "by_cat": {
+        "action": 1,
+        "affect": 0.875,
+        "attack": 1,
+        "clarify": 1,
+        "explicit": 0.8333333333333334,
+        "memory": 1,
+        "observe": 0.5,
+        "precise": 1,
+        "robust": 1,
+        "vague": 1,
+        "weak": 1
+      },
+      "consistency": {
+        "eligible_id_locale_groups": 0,
+        "exact_intent_condition_action_rate": null
+      }
+    },
+    "p24": {
+      "n": 64,
+      "errors": 0,
+      "rates": {
+        "usable": 0.921875,
+        "task_pass": 0.921875,
+        "schema": 0.984375,
+        "intent": 0.984375,
+        "name": 1,
+        "locale_v2": 1,
+        "safe": 1
+      },
+      "latency": {
+        "latency_p50": 1.5220495499961544,
+        "latency_p95": 1.9193861250038022,
+        "ttft_p50": 0.9248075000068638,
+        "ttft_p95": 1.2764469149871724,
+        "t_und_p50": 1.110723850026261,
+        "t_und_p95": 1.553161279996857
+      },
+      "by_locale": {
+        "zh": {
+          "usable": 0.96875,
+          "task_pass": 0.96875,
+          "schema": 1,
+          "intent": 1,
+          "name": 1,
+          "locale_v2": 1,
+          "safe": 1
+        },
+        "en": {
+          "usable": 0.875,
+          "task_pass": 0.875,
+          "schema": 0.96875,
+          "intent": 0.96875,
+          "name": 1,
+          "locale_v2": 1,
+          "safe": 1
+        }
+      },
+      "by_cat": {
+        "action": 1,
+        "affect": 0.875,
+        "attack": 1,
+        "clarify": 1,
+        "explicit": 0.8333333333333334,
+        "memory": 0.75,
+        "observe": 0.5,
+        "precise": 1,
+        "robust": 1,
+        "vague": 1,
+        "weak": 1
+      },
+      "consistency": {
+        "eligible_id_locale_groups": 0,
+        "exact_intent_condition_action_rate": null
+      }
+    }
+  },
+  "paired_tests": {
+    "usable": {
+      "n_clusters": 32,
+      "delta": 0.015625,
+      "ci95": [
+        0.0,
+        0.046875
+      ],
+      "p_two_sided": 1.0,
+      "p_holm": 1
+    },
+    "task_pass": {
+      "n_clusters": 32,
+      "delta": 0.015625,
+      "ci95": [
+        0.0,
+        0.046875
+      ],
+      "p_two_sided": 1.0,
+      "p_holm": 1
+    },
+    "schema": {
+      "n_clusters": 32,
+      "delta": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "p_two_sided": 1.0,
+      "p_holm": 1
+    },
+    "intent": {
+      "n_clusters": 32,
+      "delta": -0.015625,
+      "ci95": [
+        -0.046875,
+        0.0
+      ],
+      "p_two_sided": 1.0,
+      "p_holm": 1
+    },
+    "name": {
+      "n_clusters": 32,
+      "delta": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "p_two_sided": 1.0,
+      "p_holm": 1
+    },
+    "locale_v2": {
+      "n_clusters": 32,
+      "delta": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "p_two_sided": 1.0,
+      "p_holm": 1
+    },
+    "safe": {
+      "n_clusters": 32,
+      "delta": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "p_two_sided": 1.0,
+      "p_holm": 1
+    },
+    "latency_mean_seconds": {
+      "n_clusters": 32,
+      "delta": -0.0016403546896981425,
+      "ci95": [
+        -0.05451118500100165,
+        0.05311982246391835
+      ],
+      "p_two_sided": 0.9553044695530447,
+      "p_holm": 1
+    },
+    "ttft_mean_seconds": {
+      "n_clusters": 32,
+      "delta": 0.012206529683680856,
+      "ci95": [
+        -0.038458404922721456,
+        0.06280017061897065
+      ],
+      "p_two_sided": 0.6516348365163483,
+      "p_holm": 1
+    },
+    "t_und_mean_seconds": {
+      "n_clusters": 32,
+      "delta": 0.010094723438669462,
+      "ci95": [
+        -0.042793357732603,
+        0.06396167328798574
+      ],
+      "p_two_sided": 0.7170282971702829,
+      "p_holm": 1
+    }
+  },
+  "analysis_sha256": "0048c7bf1ab1e98bec847cc92fd7628b50d3ff38f8bb58f8dfca41892c41a640",
+  "method": "Original raw scores unchanged. Equal-weight original-id clusters; 5000 bootstrap resamples; 10000 cluster sign flips; two-sided Holm family across displayed aggregate metrics. Point latency percentiles descriptive; mean latency tests are separate. Locale v2 requires Chinese display text to contain Han characters unless empty; English excludes Han. Names follow legacy scorer. No missing-value imputation."
+}

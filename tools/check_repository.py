@@ -60,7 +60,7 @@ def main():
         preserved += 1
 
     active = ["README.md", "tools/README.md", "archive/README.md", "part1-generation-framework/README.md", "part1-generation-framework/notes/README.md", "part1-generation-framework/archive/README.md", "part1-generation-framework/eval/README.md", "part1-generation-framework/eval/results/prompt-lab/STATE.md"]
-    active += sorted(p for p in tracked if p.endswith(".md") and (p.startswith("docs/") or p.startswith("part1-generation-framework/delivery/")))
+    active += sorted(p for p in tracked if p.endswith(".md") and (p.startswith("docs/") or p.startswith("part1-generation-framework/delivery/") or p.startswith("part1-generation-framework/studies/round2/") or p.startswith("part1-generation-framework/runtime/")))
     link_count = 0
     for name in active:
         fenced = False

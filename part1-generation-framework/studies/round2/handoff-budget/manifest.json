@@ -1,0 +1,38 @@
+{
+  "exported_at_utc": "2026-09-07T16:13:23.490891+00:00",
+  "files": {
+    "generation": {
+      "file": "generation.json.gz",
+      "sha256": "d12010feedd4eff61f4966077ffe0afa95fd1664af41eddb49da18ff395a105c",
+      "json_sha256": "4fb333507bfefa93d5d1dfe6205c65fc94814173acd244d451746ed3d9c8f68d",
+      "attempts": 4107,
+      "reserved": 0
+    },
+    "judge": {
+      "file": "judge.json.gz",
+      "sha256": "5f7ad331b5713c0e3d66abf9bfc0f333dad8f84ae28c220c157770de0562744e",
+      "json_sha256": "3b3e251504e9c78a7d3343ae7e3dcc74c01b3c83b006ee8c60056991821a33e4",
+      "attempts": 528,
+      "reserved": 0
+    }
+  },
+  "budget": {
+    "generation": {
+      "attempts": 4107,
+      "max_calls": 7000,
+      "remaining_calls": 2893,
+      "initial_observed_cny": 17.01,
+      "last_observed_cny": 12.9,
+      "floor_cny": 7.010000000000002,
+      "observed_balance_change_cny": 4.11
+    },
+    "judge": {
+      "attempts": 528,
+      "max_calls": 1200,
+      "remaining_calls": 672,
+      "charged_or_reserved_usd": 0.840706598,
+      "max_usd": 2.5
+    }
+  },
+  "note": "Accounting checkpoints only; no credentials. Generation balance change may include outside calls. Restore before any paid call in a fresh checkout."
+}

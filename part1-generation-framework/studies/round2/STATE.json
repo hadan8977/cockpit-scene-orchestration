@@ -1,0 +1,135 @@
+{
+  "as_of_utc": "2026-09-07T16:13:23.506786+00:00",
+  "status": "handoff; no paid evaluation jobs running",
+  "final_prompt_accepted": false,
+  "working_candidates": [
+    "p24_zh",
+    "p24_without_wording"
+  ],
+  "screening_control": "p24_zh; not P-final",
+  "baseline": "v3_protocol primary, v0_protocol supplementary; both current 114-capability adapters",
+  "registry_version": "2026-09-07.0807",
+  "runs": {
+    "01_screen": {
+      "expected": 640,
+      "archived_rows": 640,
+      "complete": true,
+      "summary": "results/01_screen/summary.json"
+    },
+    "02_refinement": {
+      "expected": 512,
+      "archived_rows": 512,
+      "complete": true,
+      "summary": "results/02_refinement/summary.json"
+    },
+    "03_completion": {
+      "expected": 256,
+      "archived_rows": 256,
+      "complete": true,
+      "summary": "results/03_completion/summary.json"
+    },
+    "04_examples": {
+      "expected": 384,
+      "archived_rows": 384,
+      "complete": true,
+      "summary": "results/04_examples/summary.json"
+    },
+    "05_experience_route": {
+      "expected": 384,
+      "archived_rows": 384,
+      "complete": true,
+      "summary": "results/05_experience_route/summary.json"
+    },
+    "06_transfer": {
+      "expected": 384,
+      "archived_rows": 384,
+      "complete": true,
+      "summary": "results/06_transfer/summary.json"
+    },
+    "07_completeness": {
+      "expected": 384,
+      "archived_rows": 384,
+      "complete": true,
+      "summary": "results/07_completeness/summary.json"
+    },
+    "08_ablation": {
+      "expected": 640,
+      "archived_rows": 640,
+      "complete": true,
+      "summary": "results/08_ablation/summary.json"
+    },
+    "09_language": {
+      "expected": 512,
+      "archived_rows": 512,
+      "complete": true,
+      "summary": "results/09_language/summary.json"
+    }
+  },
+  "reviews": {
+    "ablation-wording": {
+      "calls": 128,
+      "valid": 127,
+      "summary_exists": true
+    },
+    "calibration": {
+      "calls": 16,
+      "valid": 15,
+      "summary_exists": true
+    },
+    "development-p17": {
+      "calls": 128,
+      "valid": 127,
+      "summary_exists": true
+    },
+    "development-p23": {
+      "calls": 128,
+      "valid": 126,
+      "summary_exists": true
+    },
+    "development-p24": {
+      "calls": 128,
+      "valid": 125,
+      "summary_exists": true
+    }
+  },
+  "budget": {
+    "generation": {
+      "attempts": 4107,
+      "max_calls": 7000,
+      "remaining_calls": 2893,
+      "initial_observed_cny": 17.01,
+      "last_observed_cny": 12.9,
+      "floor_cny": 7.010000000000002,
+      "observed_balance_change_cny": 4.11
+    },
+    "judge": {
+      "attempts": 528,
+      "max_calls": 1200,
+      "remaining_calls": 672,
+      "charged_or_reserved_usd": 0.840706598,
+      "max_usd": 2.5
+    }
+  },
+  "next_registered_generation": "plans/10_wording_followup.json",
+  "next_registered_review": "judge/ablation-all-plan.json",
+  "holdout": {
+    "file": "holdout-v2.1.jsonl",
+    "cases": 80,
+    "model_calls": 0,
+    "status": "frozen; do not tune prompts after first query"
+  },
+  "demo": {
+    "repository": "https://github.com/hadan8977/scene-studio-demo",
+    "integration_commit": "0ad75616f80610d82987a46ef37867edc74e6996",
+    "python_offline_tests": 30,
+    "product_logic_tests": 67,
+    "product_ui_tests": 29,
+    "runtime_ui_tests": 1,
+    "live_smoke_cases": 6,
+    "live_smoke_passed": 6,
+    "live_smoke_paid_calls": 5,
+    "public_runtime_enabled": false,
+    "local_demo_url": "http://127.0.0.1:3101",
+    "browser_visual_walkthrough": "blocked: no browser available; not claimed completed"
+  }
+}
