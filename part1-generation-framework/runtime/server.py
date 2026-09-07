@@ -132,7 +132,9 @@ def main():
     if args.env_file:
         for line in Path(args.env_file).read_text(encoding="utf-8-sig").splitlines():
             k,sep,v=line.partition("=")
-            if sep and k.strip() in ("DEEPSEEK_API_KEY","DEEPSEEK_OFFICIAL_API_KEY","PART1_RUNTIME_TOKEN"):credentials[k.strip()]=v.strip().strip('"').strip("'")
+            if sep and k.strip() in ("DEEPSEEK_API_KEY","DEEPSEEK_OFFICIAL_API_KEY","PART1_RUNTIME_TOKEN"):
+                if k.strip()=="PART1_RUNTIME_TOKEN" and credentials.get("PART1_RUNTIME_TOKEN"):continue
+                credentials[k.strip()]=v.strip().strip('"').strip("'")
     token=credentials.get("PART1_RUNTIME_TOKEN")
     if not token:raise SystemExit("Set PART1_RUNTIME_TOKEN in the private environment or env file")
     reg=Registry(storage=args.storage);engine=RuntimeEngine(reg,args.storage)

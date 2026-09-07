@@ -1,0 +1,173 @@
+{
+  "judges": {
+    "luna": {
+      "valid": 63,
+      "expected": 64,
+      "coverage_complete": false,
+      "dimensions": {
+        "grounding": {
+          "n_clusters": 16,
+          "delta": 0.16666666666666669,
+          "ci95": [
+            -0.16679687499999996,
+            0.46875
+          ],
+          "p_two_sided": 0.3545645435456454,
+          "candidate": 4.158730158730159,
+          "baseline": 3.9682539682539684,
+          "p_holm": 0.7091290870912909
+        },
+        "restraint": {
+          "n_clusters": 16,
+          "delta": 0.8125,
+          "ci95": [
+            0.46875,
+            1.15625
+          ],
+          "p_two_sided": 0.0013998600139986002,
+          "candidate": 4.492063492063492,
+          "baseline": 3.6666666666666665,
+          "p_holm": 0.005599440055994401
+        },
+        "wording": {
+          "n_clusters": 16,
+          "delta": -0.03645833333333333,
+          "ci95": [
+            -0.3333333333333333,
+            0.28125
+          ],
+          "p_two_sided": 0.8541145885411459,
+          "candidate": 4.015873015873016,
+          "baseline": 4.031746031746032,
+          "p_holm": 0.8541145885411459
+        },
+        "composition": {
+          "n_clusters": 16,
+          "delta": 0.4270833333333333,
+          "ci95": [
+            0.1875,
+            0.65625
+          ],
+          "p_two_sided": 0.0035996400359964,
+          "candidate": 4.317460317460317,
+          "baseline": 3.873015873015873,
+          "p_holm": 0.010798920107989201
+        }
+      },
+      "all_higher_and_holm_significant": false,
+      "by_locale": {
+        "en": {
+          "grounding": 0.2903225806451613,
+          "restraint": 0.6451612903225806,
+          "wording": 0,
+          "composition": 0.4838709677419355
+        },
+        "zh": {
+          "grounding": 0.09375,
+          "restraint": 1,
+          "wording": -0.03125,
+          "composition": 0.40625
+        }
+      },
+      "by_candidate_position": {
+        "A": {
+          "grounding": 0.3125,
+          "restraint": 1.0625,
+          "wording": 0.15625,
+          "composition": 0.6875
+        },
+        "B": {
+          "grounding": 0.06451612903225806,
+          "restraint": 0.5806451612903226,
+          "wording": -0.1935483870967742,
+          "composition": 0.1935483870967742
+        }
+      }
+    },
+    "qwen": {
+      "valid": 62,
+      "expected": 64,
+      "coverage_complete": false,
+      "dimensions": {
+        "grounding": {
+          "n_clusters": 16,
+          "delta": -0.031249999999999993,
+          "ci95": [
+            -0.46875,
+            0.4010416666666667
+          ],
+          "p_two_sided": 0.9245075492450755,
+          "candidate": 3.967741935483871,
+          "baseline": 4.016129032258065,
+          "p_holm": 1
+        },
+        "restraint": {
+          "n_clusters": 16,
+          "delta": 0.2760416666666667,
+          "ci95": [
+            -0.026041666666666668,
+            0.5885416666666666
+          ],
+          "p_two_sided": 0.1136886311368863,
+          "candidate": 4.67741935483871,
+          "baseline": 4.403225806451613,
+          "p_holm": 0.4547545245475452
+        },
+        "wording": {
+          "n_clusters": 16,
+          "delta": -0.02604166666666667,
+          "ci95": [
+            -0.3125,
+            0.30221354166666475
+          ],
+          "p_two_sided": 0.9252074792520748,
+          "candidate": 4.016129032258065,
+          "baseline": 4.064516129032258,
+          "p_holm": 1
+        },
+        "composition": {
+          "n_clusters": 16,
+          "delta": -0.171875,
+          "ci95": [
+            -0.484375,
+            0.15625
+          ],
+          "p_two_sided": 0.3487651234876512,
+          "candidate": 3.870967741935484,
+          "baseline": 4.048387096774194,
+          "p_holm": 1
+        }
+      },
+      "all_higher_and_holm_significant": false,
+      "by_locale": {
+        "en": {
+          "grounding": 0.125,
+          "restraint": 0.28125,
+          "wording": 0,
+          "composition": 0.03125
+        },
+        "zh": {
+          "grounding": -0.23333333333333334,
+          "restraint": 0.26666666666666666,
+          "wording": -0.1,
+          "composition": -0.4
+        }
+      },
+      "by_candidate_position": {
+        "A": {
+          "grounding": 0.12903225806451613,
+          "restraint": 0.25806451612903225,
+          "wording": -0.06451612903225806,
+          "composition": -0.12903225806451613
+        },
+        "B": {
+          "grounding": -0.22580645161290322,
+          "restraint": 0.2903225806451613,
+          "wording": -0.03225806451612903,
+          "composition": -0.22580645161290322
+        }
+      }
+    }
+  },
+  "method": "Separate judge families; four dimensions Holm adjusted within judge; cluster by original id. Descriptive scores are paired valid responses only. Missing coverage prohibits confirmed superiority. Locale and position diagnostics descriptive."
+}
