@@ -1,0 +1,11 @@
+{
+  "time_utc": "2026-09-07T11:11:07.950Z",
+  "decision": "retain full p11_zh",
+  "reason": [
+    "Safety-block removal produced one raw safety violation.",
+    "Removing brevity or examples decreased observed usable pass and did not improve p95.",
+    "Memory deletion gained 2/64 on N04-zh (precise) and C07-en (vague), with 95% clustered interval [0,7.8125] pp. These are not memory tasks; evidence is exploratory and does not establish a reliable deletion benefit.",
+    "Full p11 already has complete language confirmation. Do not switch on an underpowered component screen without renewed confirmation."
+  ],
+  "follow_up": "Memory-block redundancy remains a recorded optimization hypothesis, not a demonstrated necessity or proven redundancy."
+}

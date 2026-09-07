@@ -1,0 +1,82 @@
+{
+  "time_utc": "2026-09-07T11:03:25.546Z",
+  "strategy": "unified_zh",
+  "prompt_path": "prompts/p11_zh.md",
+  "reason": "统一中文在开发语言确认中可用通过率92.33%，与统一英文92.59%仅差0.26个百分点；能力/结构合规99.47%，高于统一英文98.41%和分流98.68%，且时延略低。分流可用通过93.92%仅比统一中文高1.59个百分点，各输入语言的配对置信区间均含0，尚不能证明分流优势。按预登记的安全、能力合规优先顺序，选择统一中文作为综合折中，保留后续分流复核的可能，不声称中文在每个场景都最好。",
+  "policy_point_estimates": {
+    "unified_zh": {
+      "n": 378,
+      "errors": 0,
+      "task_pass": 0.9232804232804233,
+      "usable_pass": 0.9232804232804233,
+      "name_ok": 1,
+      "language_ok": 1,
+      "safety_violations": 0,
+      "schema_valid": 0.9947089947089947,
+      "strict_json_valid": 1,
+      "latency_p50": 1.2567979499872308,
+      "latency_p95": 1.676590604992816,
+      "ttft_p50": 0.7505910396575928,
+      "understanding_p50": 0.8835694789886475
+    },
+    "unified_en": {
+      "n": 378,
+      "errors": 0,
+      "task_pass": 0.9259259259259259,
+      "usable_pass": 0.9259259259259259,
+      "name_ok": 1,
+      "language_ok": 1,
+      "safety_violations": 0,
+      "schema_valid": 0.9841269841269841,
+      "strict_json_valid": 1,
+      "latency_p50": 1.3026585500047076,
+      "latency_p95": 1.6970934250217395,
+      "ttft_p50": 0.764739990234375,
+      "understanding_p50": 0.9004496335983276
+    },
+    "matched_split": {
+      "n": 378,
+      "errors": 0,
+      "task_pass": 0.9391534391534392,
+      "usable_pass": 0.9391534391534392,
+      "name_ok": 1,
+      "language_ok": 1,
+      "safety_violations": 0,
+      "schema_valid": 0.9867724867724867,
+      "strict_json_valid": 1,
+      "latency_p50": 1.2721579500066582,
+      "latency_p95": 1.6638242150016593,
+      "ttft_p50": 0.7499473094940186,
+      "understanding_p50": 0.8915519714355469
+    }
+  },
+  "paired_language_effects": {
+    "zh": {
+      "pairs": 189,
+      "clusters": 63,
+      "b_wins": 4,
+      "a_wins": 9,
+      "ties": 176,
+      "delta_b_minus_a": -0.026455026455026454,
+      "ci95_cluster_bootstrap": [
+        -0.07936507936507936,
+        0.015873015873015872
+      ]
+    },
+    "en": {
+      "pairs": 189,
+      "clusters": 63,
+      "b_wins": 9,
+      "a_wins": 3,
+      "ties": 177,
+      "delta_b_minus_a": 0.031746031746031744,
+      "ci95_cluster_bootstrap": [
+        -0.010582010582010581,
+        0.08465608465608465
+      ]
+    }
+  },
+  "selected_before_full_regression": true,
+  "selected_before_holdout": true,
+  "component_validation_pending": true
+}

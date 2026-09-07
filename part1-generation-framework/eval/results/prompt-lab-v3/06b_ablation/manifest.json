@@ -1,0 +1,63 @@
+{
+  "plan": {
+    "run_id": "06b_ablation",
+    "purpose": "Four single-block deletion ablations of p11; other bytes/config fixed. Safety remains partly encoded in effective dictionary and final check, so this tests incremental safety-block value, not removal of all defenses.",
+    "testset": "experiments/ablation32.jsonl",
+    "repeat": 1,
+    "temperature": 0,
+    "max_tokens": 1000,
+    "json_mode": true,
+    "input_envelope": true,
+    "concurrency": 3,
+    "seed": 20260912,
+    "campaign_max_attempts": 5000,
+    "variants": [
+      {
+        "name": "full",
+        "prompt": "prompts/p11_zh.md"
+      },
+      {
+        "name": "baseline_p3",
+        "prompt": "prompts/p3_grammar.generated.md"
+      },
+      {
+        "name": "without_safety",
+        "prompt": "prompts/p11_zh_without_safety.md"
+      },
+      {
+        "name": "without_memory",
+        "prompt": "prompts/p11_zh_without_memory.md"
+      },
+      {
+        "name": "without_brevity",
+        "prompt": "prompts/p11_zh_without_brevity.md"
+      },
+      {
+        "name": "without_examples",
+        "prompt": "prompts/p11_zh_without_examples.md"
+      }
+    ]
+  },
+  "prompt_sha256": {
+    "full": "d4213a8e218f0b0cba136112d9889d3192f77bbe8b186407e0ff43a2ff6bbb37",
+    "baseline_p3": "2b1a9fabaecb326ac91eb9bb36401af4bbf5ad17f39bd3eedf10099b7dcb5777",
+    "without_safety": "bc5d10b4e782c49f0d348c5557df929a1d656babd8657fe8ec8dc965d15ef27b",
+    "without_memory": "35d87bd107579287caf1035f62784d22f95be4366384902aa11f962c6c1194e1",
+    "without_brevity": "6a0047d0374f97c87aeb7cefdff7bb1473abe32facaedd29977b1d85acfab2c1",
+    "without_examples": "f40b70edf806bc3fa698d471bfbcaa6dd907c9f04d95ab772566340513a92eca"
+  },
+  "items_sha256": "f61c8de21cb30716982fdc2520f1cd76ae80b81ae6191827032986b546b2bed4",
+  "files": {
+    "safe_eval.py": "dae829c3d52e4272671271aaa3f242c9a01743fa62bf4635433f075f562a770b",
+    "run_eval.py": "f81f8ddf80f394f1f73c9e5dcc59a39354d1720e0789c741066eb7f4126d3f45",
+    "output_contract.py": "dc2936eb3aa873f18cc28ad7d68ed3804aefadd20e3788ee4879ee386acdb026",
+    "validator.py": "208f9af81eb8d355abc61c0a2b9e41cca594c59733079c91faf7ebae1d52de61",
+    "vocab.json": "3673eb825f18fb7460174c29652a9cadccdcf10b04463176da992f6435ef81e9",
+    "capabilities.json": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d",
+    "schema.json": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c",
+    "requirements.txt": "8f67819aef0f6bc9b0ee131950b54c0f163307ecd96b1e0dad661c096b8f7960"
+  },
+  "expected": 384,
+  "provider": "DeepSeek official",
+  "style": "p3"
+}

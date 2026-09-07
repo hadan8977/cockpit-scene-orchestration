@@ -54,13 +54,15 @@ def run(env):
         result={"sample_id":sample["sample_id"],"scores":None,"error":None};t=time.time()
         try:
             response=requests.post("https://openrouter.ai/api/v1/chat/completions",headers=headers,json=body,timeout=90,allow_redirects=False)
-            if response.status_code!=200: raise RuntimeError("Judge HTTP %d"%response.status_code)
+            if response.status_code!=200:
+                raise RuntimeError("Judge HTTP %d: %s"%(response.status_code,response.text[:500].replace(key,"[REDACTED]")))
             data=response.json();result["provider_response"]=data
             content=data["choices"][0]["message"].get("content") or ""
             scores=json.loads(content)
             for side in ("A","B"):
                 for dim in ("grounding","restraint","wording","composition"):
                     assert type(scores[side][dim]) is int and 1<=scores[side][dim]<=5
+            assert scores.get("preference") in ("A","B","tie")
             result["scores"]=scores
             cost=(data.get("usage") or {}).get("cost")
             if isinstance(cost,(int,float)): event["cost_usd"]=cost
@@ -70,6 +72,9 @@ def run(env):
         append(OUT/"judge.jsonl",result)
         event["status"]="completed";event["error"]=result["error"];atomic(ledgerp,ledger)
         print(sample["sample_id"],"OK" if result["scores"] else result["error"],flush=True)
+        if result["error"]:
+            # Preserve the first failure and inspect it before spending more calls.
+            break
     mapping={x["sample_id"]:x for x in json.loads((OUT/"mapping.json").read_text(encoding="utf-8"))}
     groups={"p3":[],"final":[]};prefs={"p3":0,"final":0,"tie":0}
     for row in read_rows(OUT/"judge.jsonl"):

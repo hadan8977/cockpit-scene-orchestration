@@ -1,0 +1,19 @@
+{
+  "run_id": "08_holdout",
+  "testset": "experiments/holdout_v2.jsonl",
+  "seed": 20260922,
+  "purpose": "First evaluation of untouched holdout responses, 24 bilingual items and three repetitions; no tuning on its results.",
+  "repeat": 3,
+  "temperature": 0,
+  "max_tokens": 1000,
+  "json_mode": true,
+  "input_envelope": true,
+  "concurrency": 3,
+  "campaign_max_attempts": 5000,
+  "variants": [
+    {
+      "name": "final",
+      "prompt": "prompts/p11_zh.md"
+    }
+  ]
+}

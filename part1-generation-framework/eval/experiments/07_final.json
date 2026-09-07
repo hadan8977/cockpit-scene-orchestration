@@ -1,0 +1,19 @@
+{
+  "run_id": "07_final",
+  "testset": "testset.jsonl",
+  "seed": 20260921,
+  "purpose": "Frozen unified-Chinese p11 full regression, 134 bilingual items and three repetitions; no prompt edits during or after holdout.",
+  "repeat": 3,
+  "temperature": 0,
+  "max_tokens": 1000,
+  "json_mode": true,
+  "input_envelope": true,
+  "concurrency": 3,
+  "campaign_max_attempts": 5000,
+  "variants": [
+    {
+      "name": "final",
+      "prompt": "prompts/p11_zh.md"
+    }
+  ]
+}
