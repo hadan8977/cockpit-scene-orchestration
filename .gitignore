@@ -6,3 +6,6 @@ __pycache__/
 **/*.tmp
 part1-generation-framework/eval/results/prompt-lab-v3/**/raw.jsonl
 **/campaign.json
+**/private-ledger.json
+**/runtime-state/
+part1-generation-framework/studies/**/results/**/raw.jsonl

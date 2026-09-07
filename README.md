@@ -1,5 +1,7 @@
 # 场景编排主动层
 
+**最新工作：用户要求继续逐维优化并实现完整技术结构，[第二轮实验与架构工作进行中](part1-generation-framework/studies/round2/README.md)。p13 是第一轮候选，尚不满足新的逐项胜出要求。**
+
 **第一部分当前交付在 [part1-generation-framework/delivery](part1-generation-framework/delivery/README.md)。** 先看[结论与 Demo 状态](part1-generation-framework/delivery/01-结论与Demo状态.md)，再看报告和 Prompt。
 
 截至 2026-09-07：DS V4 Flash 的 Prompt 专项实验已完成，推荐 p13 统一中文系统指令；实验仍有未达指标。交互 Demo 在独立仓库，尚未完成这份 p13 的接入与端到端验收，不能把实验交付称为整个 Demo 完工。

@@ -1,0 +1,13 @@
+{
+  "registry_version": "2026-09-07.0807",
+  "count": 114,
+  "source": "../../notes/inputs",
+  "files": {
+    "capabilities.json": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d",
+    "vocab.json": "3673eb825f18fb7460174c29652a9cadccdcf10b04463176da992f6435ef81e9",
+    "schema.json": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c"
+  },
+  "v0_adaptation": "Decode source Markdown escapes; replace const allConditions and const c arrays from current registry; append shared output-envelope contract. Original reasoning/combination instructions retained. This is not the literal historical v0.",
+  "v3_adaptation": "Exact existing p3_grammar.generated.md; already current capability table",
+  "demo_comparison": "114 matching ids, capability values, status, maturity and safety class; Demo omits English names and old notes"
+}
