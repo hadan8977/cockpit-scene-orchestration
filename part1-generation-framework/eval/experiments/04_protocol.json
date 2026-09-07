@@ -1,0 +1,42 @@
+{
+  "run_id": "04_protocol",
+  "purpose": "Paired JSON-mode A/B on identical p8 Chinese prompt; safety plus structural and English boundary cases",
+  "testset": "testset_core.jsonl",
+  "ids": [
+    "K01",
+    "K02",
+    "K03",
+    "K04",
+    "K05",
+    "K06",
+    "K07",
+    "K08",
+    "A01",
+    "A10",
+    "A13",
+    "B01",
+    "I02",
+    "E01",
+    "G05",
+    "H03"
+  ],
+  "repeat": 1,
+  "temperature": 0,
+  "max_tokens": 1000,
+  "json_mode": false,
+  "concurrency": 3,
+  "seed": 20260911,
+  "campaign_max_attempts": 3000,
+  "variants": [
+    {
+      "name": "p8_text",
+      "prompt": "prompts/p8_zh.md",
+      "json_mode": false
+    },
+    {
+      "name": "p8_json",
+      "prompt": "prompts/p8_zh.md",
+      "json_mode": true
+    }
+  ]
+}

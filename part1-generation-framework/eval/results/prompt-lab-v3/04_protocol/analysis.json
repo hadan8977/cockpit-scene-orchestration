@@ -1,0 +1,188 @@
+{
+  "run_id": "04_protocol",
+  "metric_note": "usable = original task pass AND required name AND reply language; identical checks for all arms; language check is lexical and needs qualitative review",
+  "variants": {
+    "p8_json": {
+      "n": 32,
+      "errors": 0,
+      "task_pass": 0.875,
+      "usable_pass": 0.875,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.1329072499938775,
+      "latency_p95": 1.3968112900212872,
+      "ttft_p50": 0.7181507349014282,
+      "understanding_p50": 0.8484305143356323,
+      "by_lang": {
+        "zh": {
+          "n": 16,
+          "errors": 0,
+          "task_pass": 0.875,
+          "usable_pass": 0.875,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 1.0,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.1392244499875233,
+          "latency_p95": 1.4437240000115708,
+          "ttft_p50": 0.7404841184616089,
+          "understanding_p50": 0.8592112064361572
+        },
+        "en": {
+          "n": 16,
+          "errors": 0,
+          "task_pass": 0.875,
+          "usable_pass": 0.875,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 1.0,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.1035419999971054,
+          "latency_p95": 1.369155825013877,
+          "ttft_p50": 0.7181507349014282,
+          "understanding_p50": 0.8484305143356323
+        }
+      }
+    },
+    "p8_text": {
+      "n": 32,
+      "errors": 0,
+      "task_pass": 0.875,
+      "usable_pass": 0.875,
+      "name_ok": 1.0,
+      "language_ok": 0.96875,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.0828850500111002,
+      "latency_p95": 1.3878978649707276,
+      "ttft_p50": 0.6659550666809082,
+      "understanding_p50": 0.7962372303009033,
+      "by_lang": {
+        "zh": {
+          "n": 16,
+          "errors": 0,
+          "task_pass": 0.875,
+          "usable_pass": 0.875,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 1.0,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.1179638000030536,
+          "latency_p95": 1.3660127249750076,
+          "ttft_p50": 0.7109969854354858,
+          "understanding_p50": 0.8216079473495483
+        },
+        "en": {
+          "n": 16,
+          "errors": 0,
+          "task_pass": 0.875,
+          "usable_pass": 0.875,
+          "name_ok": 1.0,
+          "language_ok": 0.9375,
+          "safety_violations": 0,
+          "schema_valid": 1.0,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.0464559999818448,
+          "latency_p95": 1.3425808000029065,
+          "ttft_p50": 0.6278063058853149,
+          "understanding_p50": 0.7556517124176025
+        }
+      }
+    }
+  },
+  "paired": {
+    "p8_json -> p8_text": {
+      "pairs": 32,
+      "clusters": 16,
+      "b_wins": 0,
+      "a_wins": 0,
+      "ties": 32,
+      "delta_b_minus_a": 0.0,
+      "ci95_cluster_bootstrap": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "failures": [
+    {
+      "variant": "p8_text",
+      "id": "I02",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾温度控制=[25, 28]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_json",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个; 缺少 understanding",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_json",
+      "id": "I02",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾温度控制=[25, 28]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_text",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_json",
+      "id": "H03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_json",
+      "id": "I02",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾温度控制=[25, 28]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_text",
+      "id": "H03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": false
+    },
+    {
+      "variant": "p8_text",
+      "id": "I02",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾温度控制=[25, 28]",
+      "name_ok": true,
+      "language_ok": true
+    }
+  ]
+}

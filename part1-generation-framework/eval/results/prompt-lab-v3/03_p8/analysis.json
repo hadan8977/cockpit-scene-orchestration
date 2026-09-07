@@ -1,0 +1,621 @@
+{
+  "run_id": "03_p8",
+  "metric_note": "usable = original task pass AND required name AND reply language; identical checks for all arms; language check is lexical and needs qualitative review",
+  "variants": {
+    "p8_en": {
+      "n": 126,
+      "errors": 0,
+      "task_pass": 0.8015873015873016,
+      "usable_pass": 0.8015873015873016,
+      "name_ok": 0.9841269841269841,
+      "language_ok": 0.9920634920634921,
+      "safety_violations": 0,
+      "schema_valid": 0.9603174603174603,
+      "strict_json_valid": 0.9841269841269841,
+      "latency_p50": 1.2500665499828756,
+      "latency_p95": 1.6413043250213377,
+      "ttft_p50": 0.7260274887084961,
+      "understanding_p50": 0.8687441349029541,
+      "by_lang": {
+        "zh": {
+          "n": 63,
+          "errors": 0,
+          "task_pass": 0.8571428571428571,
+          "usable_pass": 0.8571428571428571,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 0.9682539682539683,
+          "strict_json_valid": 0.9841269841269841,
+          "latency_p50": 1.2167623999994248,
+          "latency_p95": 1.6960319300065747,
+          "ttft_p50": 0.7256581783294678,
+          "understanding_p50": 0.8649733066558838
+        },
+        "en": {
+          "n": 63,
+          "errors": 0,
+          "task_pass": 0.746031746031746,
+          "usable_pass": 0.746031746031746,
+          "name_ok": 0.9682539682539683,
+          "language_ok": 0.9841269841269841,
+          "safety_violations": 0,
+          "schema_valid": 0.9523809523809523,
+          "strict_json_valid": 0.9841269841269841,
+          "latency_p50": 1.2908486000378616,
+          "latency_p95": 1.6014986499736552,
+          "ttft_p50": 0.7353343963623047,
+          "understanding_p50": 0.870046854019165
+        }
+      }
+    },
+    "p8_zh": {
+      "n": 126,
+      "errors": 0,
+      "task_pass": 0.8412698412698413,
+      "usable_pass": 0.8174603174603174,
+      "name_ok": 0.9682539682539683,
+      "language_ok": 0.9761904761904762,
+      "safety_violations": 0,
+      "schema_valid": 0.9603174603174603,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.2372308500052895,
+      "latency_p95": 1.5787605500372592,
+      "ttft_p50": 0.7072696685791016,
+      "understanding_p50": 0.8479678630828857,
+      "by_lang": {
+        "zh": {
+          "n": 63,
+          "errors": 0,
+          "task_pass": 0.873015873015873,
+          "usable_pass": 0.873015873015873,
+          "name_ok": 0.9841269841269841,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 0.9682539682539683,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.2031050000223331,
+          "latency_p95": 1.5841189100116027,
+          "ttft_p50": 0.6846935749053955,
+          "understanding_p50": 0.8504164218902588
+        },
+        "en": {
+          "n": 63,
+          "errors": 0,
+          "task_pass": 0.8095238095238095,
+          "usable_pass": 0.7619047619047619,
+          "name_ok": 0.9523809523809523,
+          "language_ok": 0.9523809523809523,
+          "safety_violations": 0,
+          "schema_valid": 0.9523809523809523,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.2375252000056207,
+          "latency_p95": 1.5504437299910934,
+          "ttft_p50": 0.7146854400634766,
+          "understanding_p50": 0.8455193042755127
+        }
+      }
+    }
+  },
+  "paired": {
+    "p8_en -> p8_zh": {
+      "pairs": 126,
+      "clusters": 63,
+      "b_wins": 10,
+      "a_wins": 8,
+      "ties": 108,
+      "delta_b_minus_a": 0.015873015873015872,
+      "ci95_cluster_bootstrap": [
+        -0.06349206349206349,
+        0.10317460317460317
+      ]
+    }
+  },
+  "language_policies": {
+    "unified_zh": {
+      "n": 126,
+      "errors": 0,
+      "task_pass": 0.8412698412698413,
+      "usable_pass": 0.8174603174603174,
+      "name_ok": 0.9682539682539683,
+      "language_ok": 0.9761904761904762,
+      "safety_violations": 0,
+      "schema_valid": 0.9603174603174603,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.2372308500052895,
+      "latency_p95": 1.5787605500372592,
+      "ttft_p50": 0.7072696685791016,
+      "understanding_p50": 0.8479678630828857
+    },
+    "unified_en": {
+      "n": 126,
+      "errors": 0,
+      "task_pass": 0.8015873015873016,
+      "usable_pass": 0.8015873015873016,
+      "name_ok": 0.9841269841269841,
+      "language_ok": 0.9920634920634921,
+      "safety_violations": 0,
+      "schema_valid": 0.9603174603174603,
+      "strict_json_valid": 0.9841269841269841,
+      "latency_p50": 1.2500665499828756,
+      "latency_p95": 1.6413043250213377,
+      "ttft_p50": 0.7260274887084961,
+      "understanding_p50": 0.8687441349029541
+    },
+    "matched_split": {
+      "n": 126,
+      "errors": 0,
+      "task_pass": 0.8095238095238095,
+      "usable_pass": 0.8095238095238095,
+      "name_ok": 0.9761904761904762,
+      "language_ok": 0.9920634920634921,
+      "safety_violations": 0,
+      "schema_valid": 0.9603174603174603,
+      "strict_json_valid": 0.9920634920634921,
+      "latency_p50": 1.2500665499828756,
+      "latency_p95": 1.5931092999962857,
+      "ttft_p50": 0.7061238288879395,
+      "understanding_p50": 0.8660314083099365
+    }
+  },
+  "language_pairs": {
+    "zh": {
+      "pairs": 63,
+      "clusters": 63,
+      "b_wins": 3,
+      "a_wins": 4,
+      "ties": 56,
+      "delta_b_minus_a": -0.015873015873015872,
+      "ci95_cluster_bootstrap": [
+        -0.09523809523809523,
+        0.06349206349206349
+      ]
+    },
+    "en": {
+      "pairs": 63,
+      "clusters": 63,
+      "b_wins": 5,
+      "a_wins": 6,
+      "ties": 52,
+      "delta_b_minus_a": -0.015873015873015872,
+      "ci95_cluster_bootstrap": [
+        -0.12698412698412698,
+        0.07936507936507936
+      ]
+    }
+  },
+  "failures": [
+    {
+      "variant": "p8_en",
+      "id": "I02",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾温度控制=[25, 28]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "I02",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾温度控制=[25, 28]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "H03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": false
+    },
+    {
+      "variant": "p8_en",
+      "id": "N10",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "G07",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['vague', 'action', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "I05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 vague 不在 ['clarify', 'none']; alt1 条件数量 0 != 期望 1; alt2 条件数量 0 != 期望 1",
+      "name_ok": true,
+      "language_ok": false
+    },
+    {
+      "variant": "p8_zh",
+      "id": "D10",
+      "lang": "en",
+      "rep": 0,
+      "reason": "契约 name: 'Seat comfort' is too long",
+      "name_ok": false,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "S02",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "条件值越界或非法: 日期区间=1201-0228; alt0 缺少条件 日期区间 == 自定义; alt1 条件数量 1 != 期望 2; alt2 缺少条件 天气 == 低温; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "K06",
+      "lang": "en",
+      "rep": 0,
+      "reason": "JSON 解析失败",
+      "name_ok": null,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "D05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 缺少必需动作 主驾座椅按摩模式=['波浪', '猫步', '蛇形', '肩部', '腰部']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "N10",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "I05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "",
+      "name_ok": true,
+      "language_ok": false
+    },
+    {
+      "variant": "p8_en",
+      "id": "B12",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 缺少必需动作 主驾温度控制=['32℃']; alt1 意图 action 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "B09",
+      "lang": "en",
+      "rep": 0,
+      "reason": "契约 name: 'Fragrance off' is too long; 唯一条件与动作为同一能力的相反状态: 香氛开关; alt0 意图 action 不在 ['clarify', 'none']; alt1 出现禁止动作 香氛开关=关闭",
+      "name_ok": false,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "I02",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾温度控制=[25, 28]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "B06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作缺少能力名警告",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "F04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "",
+      "name_ok": false,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "H01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "N05",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['action', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "B06",
+      "lang": "en",
+      "rep": 0,
+      "reason": "契约 name: 'StopMassage' is too long",
+      "name_ok": false,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "I02",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾温度控制=[25, 28]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "N04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 逻辑 AND != OR; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "B14",
+      "lang": "en",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "E03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": false,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "S02",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 缺少条件 日期区间 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "H05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "N05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['action', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "E03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "G07",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['vague', 'action', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "J01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 多余动作过多: [('主驾车窗', '关闭'), ('自动空气净化', '开启')]; alt1 缺少条件 行程事件 == 到达; alt2 条件数量 3 != 期望 2",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "G01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "B14",
+      "lang": "en",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "D05",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 缺少必需动作 主驾座椅按摩模式=['波浪', '猫步', '蛇形', '肩部', '腰部']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "S02",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 缺少条件 日期区间 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "N10",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "G07",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['vague', 'action', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "H05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "H01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "N04",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "E03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "",
+      "name_ok": true,
+      "language_ok": false
+    },
+    {
+      "variant": "p8_zh",
+      "id": "S02",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "条件值越界或非法: 日期区间=1201-0228; alt0 条件数量 2 != 期望 1; alt1 缺少条件 日期区间 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "H03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_zh",
+      "id": "N10",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p8_en",
+      "id": "B12",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 缺少必需动作 主驾温度控制=['32℃']; alt1 意图 action 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    }
+  ]
+}

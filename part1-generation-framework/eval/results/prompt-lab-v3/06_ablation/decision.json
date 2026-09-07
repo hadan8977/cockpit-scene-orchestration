@@ -1,0 +1,12 @@
+{
+  "decision": "retain full p10 for language confirmation; no component deletion selected",
+  "time_utc": "2026-09-07T10:42:03.901Z",
+  "reason": [
+    "Safety removal produced a raw safety violation.",
+    "Brevity/examples deletion point estimates declined, but item-cluster intervals include zero.",
+    "Memory deletion tied quality; insufficient evidence of redundancy because memory instructions also occur in other blocks.",
+    "Prompt-only p3 A/B shares locale envelope, JSON mode, items, seed and decoding config."
+  ],
+  "ablation_role": "Development diagnostic; one repeat, 32 deliberately stratified items, not generalization proof.",
+  "language_pending": true
+}

@@ -1,0 +1,23 @@
+{
+  "run_id": "05c_p11_language",
+  "purpose": "Matched p11 instruction-language crossover after static exemplar erratum; identical dictionary/examples, locale envelope and JSON mode. Three repetitions.",
+  "testset": "testset_core.jsonl",
+  "repeat": 3,
+  "temperature": 0,
+  "max_tokens": 1000,
+  "json_mode": true,
+  "input_envelope": true,
+  "concurrency": 3,
+  "seed": 20260914,
+  "campaign_max_attempts": 5000,
+  "variants": [
+    {
+      "name": "p11_zh",
+      "prompt": "prompts/p11_zh.md"
+    },
+    {
+      "name": "p11_en",
+      "prompt": "prompts/p11_en.md"
+    }
+  ]
+}

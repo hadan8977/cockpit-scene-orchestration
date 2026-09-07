@@ -1,0 +1,6 @@
+{
+  "raw_sha256": "b5a83960602016db6d0dbc89900c255de2ae2fdefdb6f9093418523763c47a04",
+  "gzip_sha256": "09d7c2593fe1cd123e2bc22409421e07789d3153a10323849e252f82860a8061",
+  "rows": 384,
+  "archive": "raw.jsonl.gz"
+}

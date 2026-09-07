@@ -1,0 +1,18 @@
+{
+  "attempts": 2350,
+  "initial_balance_cny": 13.23,
+  "latest_observed_balance_cny": 11.42,
+  "reserve_cny": 3,
+  "max_attempts": 5000,
+  "note": "Account balance change may include other sessions; unknown provider costs are not zero.",
+  "by_run": {
+    "01_screen": 378,
+    "02_p7": 252,
+    "03_p8": 252,
+    "04_protocol": 64,
+    "05_p9_language": 252,
+    "05b_p10_language": 756,
+    "05c_p11_language": 12,
+    "06_ablation": 384
+  }
+}

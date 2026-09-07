@@ -1,0 +1,43 @@
+{
+  "plan": {
+    "run_id": "05b_p10_language",
+    "purpose": "Matched instruction-language crossover on fixed p10; same examples, capabilities, explicit locale and JSON mode. Three repetitions; first repetition is development screen, later two are confirmation.",
+    "testset": "testset_core.jsonl",
+    "repeat": 3,
+    "temperature": 0,
+    "max_tokens": 1000,
+    "json_mode": true,
+    "input_envelope": true,
+    "concurrency": 3,
+    "seed": 20260913,
+    "campaign_max_attempts": 3500,
+    "variants": [
+      {
+        "name": "p10_zh",
+        "prompt": "prompts/p10_zh.md"
+      },
+      {
+        "name": "p10_en",
+        "prompt": "prompts/p10_en.md"
+      }
+    ]
+  },
+  "prompt_sha256": {
+    "p10_zh": "80e523b3079adb8175caf817a5feb5158f1f987d4120ea04cc4b3e1bf36e75b2",
+    "p10_en": "af2db5a76b9270d31f6d1d907c8524cc1e262f3b628233ba8a7bacbc8dc11e6c"
+  },
+  "items_sha256": "0baa9321fafd3f6a1285dae96830dc4f980951d699a8d88b65eea6386b69f8a4",
+  "files": {
+    "safe_eval.py": "dae829c3d52e4272671271aaa3f242c9a01743fa62bf4635433f075f562a770b",
+    "run_eval.py": "f81f8ddf80f394f1f73c9e5dcc59a39354d1720e0789c741066eb7f4126d3f45",
+    "output_contract.py": "dc2936eb3aa873f18cc28ad7d68ed3804aefadd20e3788ee4879ee386acdb026",
+    "validator.py": "208f9af81eb8d355abc61c0a2b9e41cca594c59733079c91faf7ebae1d52de61",
+    "vocab.json": "3673eb825f18fb7460174c29652a9cadccdcf10b04463176da992f6435ef81e9",
+    "capabilities.json": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d",
+    "schema.json": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c",
+    "requirements.txt": "8f67819aef0f6bc9b0ee131950b54c0f163307ecd96b1e0dad661c096b8f7960"
+  },
+  "expected": 756,
+  "provider": "DeepSeek official",
+  "style": "p3"
+}

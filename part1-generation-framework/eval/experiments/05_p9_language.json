@@ -1,0 +1,14 @@
+{
+  "run_id":"05_p9_language",
+  "purpose":"Matched prompt-language crossover: same capabilities, examples, locale envelope and decoding; initially one repetition, resume remaining two after development review",
+  "testset":"testset_core.jsonl",
+  "repeat":3,
+  "temperature":0,
+  "max_tokens":1000,
+  "json_mode":true,
+  "input_envelope":true,
+  "concurrency":3,
+  "seed":20260910,
+  "campaign_max_attempts":3000,
+  "variants":[{"name":"p9_zh","prompt":"prompts/p9_zh.md"},{"name":"p9_en","prompt":"prompts/p9_en.md"}]
+}

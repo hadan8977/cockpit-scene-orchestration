@@ -1,0 +1,43 @@
+{
+  "plan": {
+    "run_id": "05c_p11_language",
+    "purpose": "Matched p11 instruction-language crossover after static exemplar erratum; identical dictionary/examples, locale envelope and JSON mode. Three repetitions.",
+    "testset": "testset_core.jsonl",
+    "repeat": 3,
+    "temperature": 0,
+    "max_tokens": 1000,
+    "json_mode": true,
+    "input_envelope": true,
+    "concurrency": 3,
+    "seed": 20260914,
+    "campaign_max_attempts": 5000,
+    "variants": [
+      {
+        "name": "p11_zh",
+        "prompt": "prompts/p11_zh.md"
+      },
+      {
+        "name": "p11_en",
+        "prompt": "prompts/p11_en.md"
+      }
+    ]
+  },
+  "prompt_sha256": {
+    "p11_zh": "d4213a8e218f0b0cba136112d9889d3192f77bbe8b186407e0ff43a2ff6bbb37",
+    "p11_en": "d03f47ce137b96ef0959e077b541472cfc4b852a949b9111c0e8c5c181012c6c"
+  },
+  "items_sha256": "0baa9321fafd3f6a1285dae96830dc4f980951d699a8d88b65eea6386b69f8a4",
+  "files": {
+    "safe_eval.py": "dae829c3d52e4272671271aaa3f242c9a01743fa62bf4635433f075f562a770b",
+    "run_eval.py": "f81f8ddf80f394f1f73c9e5dcc59a39354d1720e0789c741066eb7f4126d3f45",
+    "output_contract.py": "dc2936eb3aa873f18cc28ad7d68ed3804aefadd20e3788ee4879ee386acdb026",
+    "validator.py": "208f9af81eb8d355abc61c0a2b9e41cca594c59733079c91faf7ebae1d52de61",
+    "vocab.json": "3673eb825f18fb7460174c29652a9cadccdcf10b04463176da992f6435ef81e9",
+    "capabilities.json": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d",
+    "schema.json": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c",
+    "requirements.txt": "8f67819aef0f6bc9b0ee131950b54c0f163307ecd96b1e0dad661c096b8f7960"
+  },
+  "expected": 756,
+  "provider": "DeepSeek official",
+  "style": "p3"
+}

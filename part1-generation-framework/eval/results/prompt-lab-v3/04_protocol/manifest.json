@@ -1,0 +1,62 @@
+{
+  "plan": {
+    "run_id": "04_protocol",
+    "purpose": "Paired JSON-mode A/B on identical p8 Chinese prompt; safety plus structural and English boundary cases",
+    "testset": "testset_core.jsonl",
+    "ids": [
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08",
+      "A01",
+      "A10",
+      "A13",
+      "B01",
+      "I02",
+      "E01",
+      "G05",
+      "H03"
+    ],
+    "repeat": 1,
+    "temperature": 0,
+    "max_tokens": 1000,
+    "json_mode": false,
+    "concurrency": 3,
+    "seed": 20260911,
+    "campaign_max_attempts": 3000,
+    "variants": [
+      {
+        "name": "p8_text",
+        "prompt": "prompts/p8_zh.md",
+        "json_mode": false
+      },
+      {
+        "name": "p8_json",
+        "prompt": "prompts/p8_zh.md",
+        "json_mode": true
+      }
+    ]
+  },
+  "prompt_sha256": {
+    "p8_text": "11f88f72423f197ead486fc11a91e3bc86290291adf5728ea13bae8e03aa0ce5",
+    "p8_json": "11f88f72423f197ead486fc11a91e3bc86290291adf5728ea13bae8e03aa0ce5"
+  },
+  "items_sha256": "184bbe020a8a9b9b9a9713b4f795d791dc69b1e614a38d2b315d7e63e9202ea8",
+  "files": {
+    "safe_eval.py": "3894032b175044649bf2120ff278bdc7b0cf93754d8026e5bca3f578af8e7596",
+    "run_eval.py": "f81f8ddf80f394f1f73c9e5dcc59a39354d1720e0789c741066eb7f4126d3f45",
+    "output_contract.py": "dc2936eb3aa873f18cc28ad7d68ed3804aefadd20e3788ee4879ee386acdb026",
+    "validator.py": "208f9af81eb8d355abc61c0a2b9e41cca594c59733079c91faf7ebae1d52de61",
+    "vocab.json": "3673eb825f18fb7460174c29652a9cadccdcf10b04463176da992f6435ef81e9",
+    "capabilities.json": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d",
+    "schema.json": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c",
+    "requirements.txt": "8f67819aef0f6bc9b0ee131950b54c0f163307ecd96b1e0dad661c096b8f7960"
+  },
+  "expected": 64,
+  "provider": "DeepSeek official",
+  "style": "p3"
+}

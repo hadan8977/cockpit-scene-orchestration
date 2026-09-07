@@ -1,0 +1,774 @@
+{
+  "run_id": "05b_p10_language",
+  "metric_note": "usable = original task pass AND required name AND reply language; identical checks for all arms; language check is lexical and needs qualitative review",
+  "variants": {
+    "p10_en": {
+      "n": 378,
+      "errors": 0,
+      "task_pass": 0.9206349206349206,
+      "usable_pass": 0.9206349206349206,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9788359788359788,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.2800560000177938,
+      "latency_p95": 1.7119033049966672,
+      "ttft_p50": 0.750159502029419,
+      "understanding_p50": 0.8983249664306641,
+      "by_lang": {
+        "zh": {
+          "n": 189,
+          "errors": 0,
+          "task_pass": 0.9206349206349206,
+          "usable_pass": 0.9206349206349206,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 0.9735449735449735,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.2807653000345454,
+          "latency_p95": 1.6703994399984368,
+          "ttft_p50": 0.744422197341919,
+          "understanding_p50": 0.8890936374664307
+        },
+        "en": {
+          "n": 189,
+          "errors": 0,
+          "task_pass": 0.9206349206349206,
+          "usable_pass": 0.9206349206349206,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 0.9841269841269841,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.2607414000085555,
+          "latency_p95": 1.719813419971615,
+          "ttft_p50": 0.7638435363769531,
+          "understanding_p50": 0.9036791324615479
+        }
+      }
+    },
+    "p10_zh": {
+      "n": 378,
+      "errors": 0,
+      "task_pass": 0.9074074074074074,
+      "usable_pass": 0.9074074074074074,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9814814814814815,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.2587846999813337,
+      "latency_p95": 1.7128909300081432,
+      "ttft_p50": 0.7522237300872803,
+      "understanding_p50": 0.8910330533981323,
+      "by_lang": {
+        "zh": {
+          "n": 189,
+          "errors": 0,
+          "task_pass": 0.8941798941798942,
+          "usable_pass": 0.8941798941798942,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 0.9788359788359788,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.2643039000104181,
+          "latency_p95": 1.777735339978244,
+          "ttft_p50": 0.7612950801849365,
+          "understanding_p50": 0.9087460041046143
+        },
+        "en": {
+          "n": 189,
+          "errors": 0,
+          "task_pass": 0.9206349206349206,
+          "usable_pass": 0.9206349206349206,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 0.9841269841269841,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.258639800013043,
+          "latency_p95": 1.6707515800022519,
+          "ttft_p50": 0.7504189014434814,
+          "understanding_p50": 0.8822627067565918
+        }
+      }
+    }
+  },
+  "paired": {
+    "p10_en -> p10_zh": {
+      "pairs": 378,
+      "clusters": 63,
+      "b_wins": 9,
+      "a_wins": 14,
+      "ties": 355,
+      "delta_b_minus_a": -0.013227513227513227,
+      "ci95_cluster_bootstrap": [
+        -0.0582010582010582,
+        0.026455026455026454
+      ]
+    }
+  },
+  "language_policies": {
+    "unified_zh": {
+      "n": 378,
+      "errors": 0,
+      "task_pass": 0.9074074074074074,
+      "usable_pass": 0.9074074074074074,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9814814814814815,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.2587846999813337,
+      "latency_p95": 1.7128909300081432,
+      "ttft_p50": 0.7522237300872803,
+      "understanding_p50": 0.8910330533981323
+    },
+    "unified_en": {
+      "n": 378,
+      "errors": 0,
+      "task_pass": 0.9206349206349206,
+      "usable_pass": 0.9206349206349206,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9788359788359788,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.2800560000177938,
+      "latency_p95": 1.7119033049966672,
+      "ttft_p50": 0.750159502029419,
+      "understanding_p50": 0.8983249664306641
+    },
+    "matched_split": {
+      "n": 378,
+      "errors": 0,
+      "task_pass": 0.9074074074074074,
+      "usable_pass": 0.9074074074074074,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9814814814814815,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.2635695500066504,
+      "latency_p95": 1.7755339850060408,
+      "ttft_p50": 0.7618130445480347,
+      "understanding_p50": 0.9053000211715698
+    }
+  },
+  "language_pairs": {
+    "zh": {
+      "pairs": 189,
+      "clusters": 63,
+      "b_wins": 10,
+      "a_wins": 5,
+      "ties": 174,
+      "delta_b_minus_a": 0.026455026455026454,
+      "ci95_cluster_bootstrap": [
+        -0.031746031746031744,
+        0.08994708994708994
+      ]
+    },
+    "en": {
+      "pairs": 189,
+      "clusters": 63,
+      "b_wins": 4,
+      "a_wins": 4,
+      "ties": 181,
+      "delta_b_minus_a": 0.0,
+      "ci95_cluster_bootstrap": [
+        -0.037037037037037035,
+        0.037037037037037035
+      ]
+    }
+  },
+  "failures": [
+    {
+      "variant": "p10_zh",
+      "id": "G07",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['vague', 'action', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "E03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "J07",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "动作值越界或非法: 声场=后排模式",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "E03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "G01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "N10",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "J05",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 缺少条件 行程事件 == 到达; alt1 条件数量 2 != 期望 1; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "N10",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "E05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 clarify 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "J01",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "动作不在能力表: 近光灯",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B14",
+      "lang": "en",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "H03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "G01",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "N10",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作缺少能力名警告",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "H03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "N10",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "B14",
+      "lang": "en",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "E05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 clarify 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "E03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "E03",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "E03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "B14",
+      "lang": "en",
+      "rep": 1,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "J07",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "动作值越界或非法: 声场=后排模式",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "N10",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "H03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "N10",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "H03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B14",
+      "lang": "en",
+      "rep": 1,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "G01",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "E05",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 clarify 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "N10",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "J01",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 条件数量 0 != 期望 3; alt1 条件数量 0 != 期望 3; alt2 条件数量 0 != 期望 2",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B12",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 缺少必需动作 主驾温度控制=['32℃']; alt1 意图 action 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "N10",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "J05",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 缺少条件 行程事件 == 到达; alt1 条件数量 2 != 期望 1; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "J01",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 多余动作过多: [('主驾车窗', '关闭'), ('自动空气净化', '开启')]; alt1 缺少条件 行程事件 == 到达; alt2 条件数量 3 != 期望 2",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "J05",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 缺少条件 行程事件 == 到达; alt1 条件数量 2 != 期望 1; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "E05",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 clarify 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "N10",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "H03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "N10",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "N10",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "E03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "G01",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "J01",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 条件数量 0 != 期望 3; alt1 条件数量 0 != 期望 3; alt2 条件数量 0 != 期望 2",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B14",
+      "lang": "en",
+      "rep": 2,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "H01",
+      "lang": "en",
+      "rep": 2,
+      "reason": "规划中或提议动作缺少能力名警告",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "B14",
+      "lang": "en",
+      "rep": 2,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "N10",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_en",
+      "id": "B06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "规划中或提议动作缺少能力名警告",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "E03",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "p10_zh",
+      "id": "H03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    }
+  ]
+}

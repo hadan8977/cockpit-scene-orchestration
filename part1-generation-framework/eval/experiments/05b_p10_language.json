@@ -1,0 +1,14 @@
+{
+  "run_id":"05b_p10_language",
+  "purpose":"Matched instruction-language crossover on fixed p10; same examples, capabilities, explicit locale and JSON mode. Three repetitions; first repetition is development screen, later two are confirmation.",
+  "testset":"testset_core.jsonl",
+  "repeat":3,
+  "temperature":0,
+  "max_tokens":1000,
+  "json_mode":true,
+  "input_envelope":true,
+  "concurrency":3,
+  "seed":20260913,
+  "campaign_max_attempts":3500,
+  "variants":[{"name":"p10_zh","prompt":"prompts/p10_zh.md"},{"name":"p10_en","prompt":"prompts/p10_en.md"}]
+}

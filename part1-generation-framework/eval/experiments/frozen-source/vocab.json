@@ -1,0 +1,1820 @@
+{
+ "_note": "座舱原子能力 v2，来自公司 2026-07 能力表（notes/inputs/座舱原子能力-最新.xlsx），由 import_capabilities.py 生成；旧表见 vocab_v1.json。",
+ "conditions": {
+  "主驾车窗": [
+   "开启",
+   "关闭"
+  ],
+  "副驾车窗": [
+   "开启",
+   "关闭"
+  ],
+  "左后排车窗": [
+   "开启",
+   "关闭"
+  ],
+  "右后排车窗": [
+   "开启",
+   "关闭"
+  ],
+  "任意车窗": [
+   "开启",
+   "关闭"
+  ],
+  "空调总开关": [
+   "开启",
+   "关闭"
+  ],
+  "MAX AC": [
+   "开启",
+   "关闭"
+  ],
+  "极速升温": [
+   "开启",
+   "关闭"
+  ],
+  "AUTO模式": [
+   "开启",
+   "关闭"
+  ],
+  "前风窗除雾": [
+   "开启",
+   "关闭"
+  ],
+  "内外循环设置": [
+   "内循环",
+   "外循环"
+  ],
+  "自动空气净化": [
+   "开启",
+   "关闭"
+  ],
+  "主驾座椅": [
+   "有人",
+   "无人"
+  ],
+  "副驾座椅": [
+   "有人",
+   "无人"
+  ],
+  "任意座椅": [
+   "有人",
+   "无人"
+  ],
+  "主驾座椅加热": [
+   "开启",
+   "关闭"
+  ],
+  "主驾座椅通风": [
+   "开启",
+   "关闭"
+  ],
+  "副驾座椅加热": [
+   "开启",
+   "关闭"
+  ],
+  "副驾座椅通风": [
+   "开启",
+   "关闭"
+  ],
+  "左后排座椅加热": [
+   "开启",
+   "关闭"
+  ],
+  "左后排座椅通风": [
+   "开启",
+   "关闭"
+  ],
+  "右后排座椅加热": [
+   "开启",
+   "关闭"
+  ],
+  "右后排座椅通风": [
+   "开启",
+   "关闭"
+  ],
+  "主驾座椅按摩": [
+   "开启",
+   "关闭"
+  ],
+  "副驾座椅按摩": [
+   "开启",
+   "关闭"
+  ],
+  "左前门": [
+   "开启",
+   "关闭"
+  ],
+  "右前门": [
+   "开启",
+   "关闭"
+  ],
+  "左后门": [
+   "开启",
+   "关闭"
+  ],
+  "右后门": [
+   "开启",
+   "关闭"
+  ],
+  "任意车门": [
+   "开启",
+   "关闭"
+  ],
+  "尾门": [
+   "开启",
+   "关闭"
+  ],
+  "前备箱": [
+   "开启",
+   "关闭"
+  ],
+  "车锁": [
+   "有门未锁",
+   "全部上锁"
+  ],
+  "香氛开关": [
+   "开启",
+   "关闭"
+  ],
+  "挡位": [
+   "挡位N",
+   "挡位D",
+   "挡位P",
+   "挡位R"
+  ],
+  "电量": {
+   "range": [
+    1,
+    100,
+    1,
+    "%"
+   ]
+  },
+  "车速": {
+   "range": [
+    0,
+    200,
+    10,
+    "KM/小时"
+   ]
+  },
+  "续航里程": {
+   "range": [
+    1,
+    100,
+    1,
+    "%"
+   ]
+  },
+  "主驾安全带": [
+   "系上",
+   "解开"
+  ],
+  "副驾安全带": [
+   "系上",
+   "解开"
+  ],
+  "左后排安全带": [
+   "系上",
+   "解开"
+  ],
+  "右后排安全带": [
+   "系上",
+   "解开"
+  ],
+  "后排中间安全带": [
+   "系上",
+   "解开"
+  ],
+  "任意安全带": [
+   "系上",
+   "解开"
+  ],
+  "车内温度": {
+   "range": [
+    -10,
+    50,
+    1,
+    "℃"
+   ]
+  },
+  "车外温度": {
+   "range": [
+    -10,
+    50,
+    1,
+    "℃"
+   ]
+  },
+  "车内PM2.5": {
+   "range": [
+    0,
+    250,
+    10,
+    "μg/m³"
+   ]
+  },
+  "近光灯": [
+   "开启",
+   "关闭"
+  ],
+  "远光灯": [
+   "开启",
+   "关闭"
+  ],
+  "后雾灯": [
+   "开启",
+   "关闭"
+  ],
+  "媒体音量": {
+   "range": [
+    0,
+    100,
+    10,
+    "%"
+   ]
+  },
+  "无线充电": [
+   "充电中",
+   "未充电"
+  ],
+  "位置": [
+   "家",
+   "公司",
+   "收藏地点",
+   "当前位置",
+   "地点搜索"
+  ],
+  "导航目的地": [
+   "家",
+   "公司",
+   "收藏地点",
+   "当前位置",
+   "地点搜索"
+  ],
+  "生效时间": {
+   "range": [
+    0,
+    2359,
+    1,
+    "时"
+   ]
+  },
+  "生效时间段": [
+   "全天",
+   "自定义"
+  ],
+  "重复周期": [
+   "每天",
+   "工作日",
+   "周末",
+   "自定义"
+  ],
+  "日期区间": [
+   "自定义"
+  ],
+  "指定日期": [
+   "自定义"
+  ],
+  "生效频次": [
+   "每次",
+   "每天一次",
+   "每周一次",
+   "仅一次"
+  ],
+  "时段": [
+   "清晨",
+   "上午",
+   "中午",
+   "下午",
+   "傍晚",
+   "夜晚",
+   "深夜"
+  ],
+  "星期类型": [
+   "工作日",
+   "休息日",
+   "节假日"
+  ],
+  "天气": [
+   "晴",
+   "雨",
+   "雪",
+   "暴晒",
+   "高温",
+   "低温"
+  ],
+  "行程事件": [
+   "出发",
+   "到达",
+   "停车等人",
+   "离车"
+  ]
+ },
+ "actions": {
+  "空调总开关": [
+   "开启",
+   "关闭"
+  ],
+  "MAX AC": [
+   "开启",
+   "关闭"
+  ],
+  "极速升温": [
+   "开启",
+   "关闭"
+  ],
+  "AUTO模式": [
+   "开启",
+   "关闭"
+  ],
+  "温区同步": [
+   "开启",
+   "关闭"
+  ],
+  "前风窗除雾": [
+   "开启",
+   "关闭"
+  ],
+  "AC开关": [
+   "开启",
+   "关闭"
+  ],
+  "ECO": [
+   "开启",
+   "关闭"
+  ],
+  "主驾模式": [
+   "开启",
+   "关闭"
+  ],
+  "自动空气净化": [
+   "开启",
+   "关闭"
+  ],
+  "后视镜加热": [
+   "开启",
+   "关闭"
+  ],
+  "空气自干燥": [
+   "开启",
+   "关闭"
+  ],
+  "内外循环设置": [
+   "内循环",
+   "外循环"
+  ],
+  "主驾温度控制": {
+   "range": [
+    18,
+    32,
+    1,
+    "℃"
+   ]
+  },
+  "副驾温度控制": {
+   "range": [
+    18,
+    32,
+    1,
+    "℃"
+   ]
+  },
+  "前排风量调节": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "4挡",
+   "5挡",
+   "6挡",
+   "7挡",
+   "8挡"
+  ],
+  "出风模式设置": [
+   "吹面",
+   "吹脚",
+   "吹面吹脚",
+   "吹脚除霜",
+   "除霜"
+  ],
+  "左前门": [
+   "开启",
+   "关闭"
+  ],
+  "右前门": [
+   "开启",
+   "关闭"
+  ],
+  "左后门": [
+   "开启",
+   "关闭"
+  ],
+  "右后门": [
+   "开启",
+   "关闭"
+  ],
+  "香氛开关": [
+   "开启",
+   "关闭"
+  ],
+  "香氛类型": [
+   "类型1",
+   "类型2",
+   "类型3"
+  ],
+  "香氛浓度": [
+   "淡雅",
+   "自然",
+   "馥郁"
+  ],
+  "主驾车窗": [
+   "关闭",
+   "10%",
+   "20%",
+   "30%",
+   "40%",
+   "50%",
+   "60%",
+   "70%",
+   "80%",
+   "90%",
+   "100%"
+  ],
+  "副驾车窗": [
+   "关闭",
+   "10%",
+   "20%",
+   "30%",
+   "40%",
+   "50%",
+   "60%",
+   "70%",
+   "80%",
+   "90%",
+   "100%"
+  ],
+  "左后排车窗": [
+   "关闭",
+   "10%",
+   "20%",
+   "30%",
+   "40%",
+   "50%",
+   "60%",
+   "70%",
+   "80%",
+   "90%",
+   "100%"
+  ],
+  "右后排车窗": [
+   "关闭",
+   "10%",
+   "20%",
+   "30%",
+   "40%",
+   "50%",
+   "60%",
+   "70%",
+   "80%",
+   "90%",
+   "100%"
+  ],
+  "低速行人警报音": [
+   "开启",
+   "关闭",
+   "微风",
+   "梦幻",
+   "无尽"
+  ],
+  "一键静音": [
+   "开启",
+   "关闭"
+  ],
+  "音量": {
+   "range": [
+    0,
+    100,
+    10,
+    "%"
+   ]
+  },
+  "导航音量": {
+   "range": [
+    0,
+    100,
+    10,
+    "%"
+   ]
+  },
+  "语音音量": {
+   "range": [
+    0,
+    100,
+    10,
+    "%"
+   ]
+  },
+  "音效": [
+   "立体声",
+   "音乐厅",
+   "VIP",
+   "影院",
+   "自定义"
+  ],
+  "声场": [
+   "全车模式",
+   "前排模式",
+   "主驾模式",
+   "自定义"
+  ],
+  "声浪": [
+   "静音",
+   "超跑",
+   "量子",
+   "无尽"
+  ],
+  "小塔播报": [
+   "播放天气",
+   "自定义内容"
+  ],
+  "氛围灯开关": [
+   "开启",
+   "关闭"
+  ],
+  "音乐律动": [
+   "模式1",
+   "模式2",
+   "模式3",
+   "关闭"
+  ],
+  "氛围灯亮度": [
+   "10%",
+   "20%",
+   "30%",
+   "40%",
+   "50%",
+   "60%",
+   "70%",
+   "80%",
+   "90%",
+   "100%"
+  ],
+  "主驾座椅加热": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "关闭"
+  ],
+  "主驾座椅通风": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "关闭"
+  ],
+  "副驾座椅加热": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "关闭"
+  ],
+  "副驾座椅通风": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "关闭"
+  ],
+  "左后排座椅加热": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "关闭"
+  ],
+  "左后排座椅通风": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "关闭"
+  ],
+  "右后排座椅加热": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "关闭"
+  ],
+  "右后排座椅通风": [
+   "1挡",
+   "2挡",
+   "3挡",
+   "关闭"
+  ],
+  "主驾座椅按摩强度": [
+   "1挡",
+   "2挡",
+   "3挡"
+  ],
+  "主驾座椅按摩模式": [
+   "关闭",
+   "波浪",
+   "猫步",
+   "蛇形",
+   "肩部",
+   "腰部"
+  ],
+  "副驾座椅按摩强度": [
+   "1挡",
+   "2挡",
+   "3挡"
+  ],
+  "副驾座椅按摩模式": [
+   "关闭",
+   "波浪",
+   "猫步",
+   "蛇形",
+   "肩部",
+   "腰部"
+  ],
+  "方向盘加热": [
+   "开启",
+   "关闭"
+  ],
+  "延时": {
+   "range": [
+    1,
+    600,
+    1,
+    "秒"
+   ]
+  },
+  "导航目的地": [
+   "家",
+   "公司",
+   "收藏地点",
+   "常用地点",
+   "当前位置",
+   "地点搜索"
+  ],
+  "多媒体": [
+   "播放",
+   "暂停",
+   "下一首",
+   "上一首"
+  ],
+  "音乐播放": [
+   "想念",
+   "放松",
+   "庆祝",
+   "专注",
+   "安静",
+   "浪漫",
+   "雨天",
+   "白噪音",
+   "停止"
+  ],
+  "彩蛋": [
+   "生日动效",
+   "生日动效2",
+   "情人节动效",
+   "自定义动效"
+  ],
+  "播放指定音乐": [
+   "歌曲名"
+  ],
+  "QQ音乐": [
+   "我喜欢列表",
+   "猜你喜欢",
+   "今日私享",
+   "新歌推荐",
+   "续播上次",
+   "指定歌曲"
+  ],
+  "网易云音乐": [
+   "猜你喜欢",
+   "今日私享",
+   "新歌推荐",
+   "续播上次",
+   "指定歌曲"
+  ],
+  "本地视频": [
+   "打开",
+   "退出"
+  ],
+  "腾讯视频": [
+   "打开",
+   "退出"
+  ],
+  "爱奇艺": [
+   "打开",
+   "退出"
+  ],
+  "唱吧": [
+   "打开",
+   "退出"
+  ],
+  "全民K歌": [
+   "打开",
+   "退出"
+  ],
+  "酷狗K歌": [
+   "打开",
+   "退出"
+  ],
+  "YouTube": [
+   "打开",
+   "退出"
+  ],
+  "壁纸": [
+   "选择壁纸"
+  ],
+  "主题": [
+   "选择主题"
+  ],
+  "进入情景模式": [
+   "休憩模式",
+   "露营模式",
+   "洗车模式",
+   "后排查看",
+   "离车不下电模式",
+   "多人同乘隐私模式"
+  ],
+  "退出情景模式": [
+   "休憩模式",
+   "露营模式",
+   "洗车模式",
+   "后排查看",
+   "离车不下电模式",
+   "多人同乘隐私模式"
+  ],
+  "屏幕模式": [
+   "白天模式",
+   "黑夜模式"
+  ],
+  "屏幕亮度": [
+   "10%",
+   "20%",
+   "30%",
+   "40%",
+   "50%",
+   "60%",
+   "70%",
+   "80%",
+   "90%",
+   "100%"
+  ],
+  "无线充电": [
+   "开启",
+   "关闭"
+  ],
+  "电动遮阳帘": [
+   "关闭",
+   "10%",
+   "20%",
+   "30%",
+   "40%",
+   "50%",
+   "60%",
+   "70%",
+   "80%",
+   "90%",
+   "100%"
+  ]
+ },
+ "meta": {
+  "conditions": {
+   "主驾车窗": {
+    "source": "门窗/主驾车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B"
+   },
+   "副驾车窗": {
+    "source": "门窗/副驾车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B"
+   },
+   "左后排车窗": {
+    "source": "门窗/左后排车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B"
+   },
+   "右后排车窗": {
+    "source": "门窗/右后排车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B"
+   },
+   "任意车窗": {
+    "source": "门窗/任意车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B",
+    "id": "window.any",
+    "en": "any window"
+   },
+   "空调总开关": {
+    "source": "空调/空调开关",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "MAX AC": {
+    "source": "空调/MAX AC 极速降温",
+    "maturity": "no_ux",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "极速升温": {
+    "source": "空调/极速升温",
+    "maturity": "no_ux",
+    "group": "空调与空气",
+    "class": "A",
+    "id": "hvac.max_heat",
+    "en": "max heat"
+   },
+   "AUTO模式": {
+    "source": "空调/AUTO模式",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "前风窗除雾": {
+    "source": "空调/前风窗除雾",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "内外循环设置": {
+    "source": "空调/内外循环状态",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "自动空气净化": {
+    "source": "空调/自动空气净化",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "主驾座椅": {
+    "source": "座椅/主驾座椅 入座离座",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "note": "后排没有占位信号，用后排安全带作代理"
+   },
+   "副驾座椅": {
+    "source": "座椅/副驾座椅 入座离座",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "note": "后排没有占位信号，用后排安全带作代理"
+   },
+   "任意座椅": {
+    "source": "座椅/任意位置 入座离座",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "note": "后排没有占位信号，用后排安全带作代理",
+    "id": "seat.any.occupied",
+    "en": "any seat occupancy"
+   },
+   "主驾座椅加热": {
+    "source": "舒适/主驾座椅加热",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "主驾座椅通风": {
+    "source": "舒适/主驾座椅通风",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "副驾座椅加热": {
+    "source": "舒适/副驾座椅加热",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "副驾座椅通风": {
+    "source": "舒适/副驾座椅通风",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "左后排座椅加热": {
+    "source": "舒适/左后排座椅加热",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "左后排座椅通风": {
+    "source": "舒适/左后排座椅通风",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "右后排座椅加热": {
+    "source": "舒适/右后排座椅加热",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "右后排座椅通风": {
+    "source": "舒适/右后排座椅通风",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "主驾座椅按摩": {
+    "source": "舒适/主驾座椅按摩",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "副驾座椅按摩": {
+    "source": "舒适/副驾座椅按摩",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "左前门": {
+    "source": "门窗/主驾车门",
+    "maturity": "released",
+    "group": "门",
+    "class": "B"
+   },
+   "右前门": {
+    "source": "门窗/副驾车门",
+    "maturity": "released",
+    "group": "门",
+    "class": "B"
+   },
+   "左后门": {
+    "source": "门窗/左后排车门",
+    "maturity": "released",
+    "group": "门",
+    "class": "B"
+   },
+   "右后门": {
+    "source": "门窗/右后排车门",
+    "maturity": "released",
+    "group": "门",
+    "class": "B"
+   },
+   "任意车门": {
+    "source": "门窗/任意车门",
+    "maturity": "released",
+    "group": "门",
+    "class": "B",
+    "id": "door.any",
+    "en": "any door"
+   },
+   "尾门": {
+    "source": "门窗/后备箱",
+    "maturity": "released",
+    "group": "门",
+    "class": "B"
+   },
+   "前备箱": {
+    "source": "门窗/前备箱",
+    "maturity": "released",
+    "group": "门",
+    "class": "B"
+   },
+   "车锁": {
+    "source": "门窗/车锁",
+    "maturity": "released",
+    "group": "门",
+    "class": "A",
+    "note": "离车事件的真实信号",
+    "id": "door.lock",
+    "en": "door lock state"
+   },
+   "香氛开关": {
+    "source": "舒适/香氛开关",
+    "maturity": "released",
+    "group": "氛围",
+    "class": "A"
+   },
+   "挡位": {
+    "source": "驾驶/挡位",
+    "maturity": "released",
+    "group": "车辆状态",
+    "class": "C"
+   },
+   "电量": {
+    "source": "驾驶/车辆电量 上升至/下降至",
+    "maturity": "released",
+    "group": "车辆状态",
+    "class": "A"
+   },
+   "车速": {
+    "source": "驾驶/车辆速度",
+    "maturity": "released",
+    "group": "车辆状态",
+    "class": "A"
+   },
+   "续航里程": {
+    "source": "驾驶/续航里程（百分比）",
+    "maturity": "released",
+    "group": "车辆状态",
+    "class": "A",
+    "note": "表里没有公里数与到目的地距离，只有百分比",
+    "id": "vehicle.range_pct",
+    "en": "remaining range %"
+   },
+   "主驾安全带": {
+    "source": "驾驶/主驾安全带",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "id": "belt.driver",
+    "en": "driver seat belt"
+   },
+   "副驾安全带": {
+    "source": "驾驶/副驾安全带",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "id": "belt.passenger",
+    "en": "passenger seat belt"
+   },
+   "左后排安全带": {
+    "source": "驾驶/左后排安全带",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "note": "后排有人的代理信号",
+    "id": "belt.rear_left",
+    "en": "rear left seat belt"
+   },
+   "右后排安全带": {
+    "source": "驾驶/右后排安全带",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "note": "后排有人的代理信号",
+    "id": "belt.rear_right",
+    "en": "rear right seat belt"
+   },
+   "后排中间安全带": {
+    "source": "驾驶/后排中间安全带",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "note": "后排有人的代理信号",
+    "id": "belt.rear_middle",
+    "en": "rear middle seat belt"
+   },
+   "任意安全带": {
+    "source": "驾驶/任意安全带",
+    "maturity": "released",
+    "group": "乘员",
+    "class": "A",
+    "id": "belt.any",
+    "en": "any seat belt"
+   },
+   "车内温度": {
+    "source": "环境/车内温度",
+    "maturity": "released",
+    "group": "环境",
+    "class": "A"
+   },
+   "车外温度": {
+    "source": "环境/车外温度",
+    "maturity": "released",
+    "group": "环境",
+    "class": "A"
+   },
+   "车内PM2.5": {
+    "source": "环境/车内PM2.5",
+    "maturity": "released",
+    "group": "环境",
+    "class": "A"
+   },
+   "近光灯": {
+    "source": "灯光/近光灯",
+    "maturity": "released",
+    "group": "灯光",
+    "class": "A",
+    "note": "近光灯开启可作天黑代理",
+    "id": "light.low_beam",
+    "en": "low beam"
+   },
+   "远光灯": {
+    "source": "灯光/远光灯",
+    "maturity": "released",
+    "group": "灯光",
+    "class": "A",
+    "id": "light.high_beam",
+    "en": "high beam"
+   },
+   "后雾灯": {
+    "source": "灯光/后雾灯",
+    "maturity": "released",
+    "group": "灯光",
+    "class": "A",
+    "id": "light.rear_fog",
+    "en": "rear fog light"
+   },
+   "媒体音量": {
+    "source": "声音/音量 媒体音量",
+    "maturity": "released",
+    "group": "声音",
+    "class": "A",
+    "id": "audio.media_volume.state",
+    "en": "media volume state"
+   },
+   "无线充电": {
+    "source": "设备/主驾充电面板",
+    "maturity": "released",
+    "group": "设备",
+    "class": "A",
+    "note": "手机放上去了的代理",
+    "id": "device.wireless_charger",
+    "en": "wireless charger"
+   },
+   "位置": {
+    "source": "位置/在某地 不在某地",
+    "maturity": "planned",
+    "group": "条件语义",
+    "class": "A",
+    "note": "op 用 == 与 !=；地点搜索的值是地点名",
+    "id": "ctx.place",
+    "en": "place"
+   },
+   "导航目的地": {
+    "source": "导航/导航至",
+    "maturity": "planned",
+    "group": "条件语义",
+    "class": "A",
+    "note": "导航状态、预计到达时间、剩余距离已从表里删除",
+    "id": "nav.destination",
+    "en": "navigation destination"
+   },
+   "生效时间": {
+    "source": "时间/生效时间 HH:MM:SS",
+    "maturity": "released",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "值写成 07:00 这样的时刻",
+    "note": "精确时刻触发，如每天七点",
+    "id": "scope.time_point",
+    "en": "effective time"
+   },
+   "生效时间段": {
+    "source": "生效范围/指定时间段 startTime endTime",
+    "maturity": "released",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "自定义时值写成 HH:MM-HH:MM",
+    "note": "场景级生效范围，不是触发条件",
+    "id": "scope.time_range",
+    "en": "effective time range"
+   },
+   "重复周期": {
+    "source": "生效范围/重复 weekDays",
+    "maturity": "released",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "工作日=[1..5]，周末=[6,7]，自定义列举星期",
+    "id": "scope.repeat",
+    "en": "repeat"
+   },
+   "日期区间": {
+    "source": "生效范围/某几天 startDate endDate",
+    "maturity": "sprint",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "值写成 20250101-20250501",
+    "note": "季节包、假期包靠它",
+    "id": "scope.date_range",
+    "en": "date range"
+   },
+   "指定日期": {
+    "source": "生效范围/指定日期 某一天",
+    "maturity": "released",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "值写成 20260214",
+    "note": "生日、纪念日靠它",
+    "id": "scope.date",
+    "en": "specific date"
+   },
+   "生效频次": {
+    "source": "生效范围/生效频次",
+    "maturity": "planned",
+    "group": "生效范围",
+    "class": "A",
+    "note": "车云配置，海外暂无；一次性场景靠仅一次",
+    "id": "scope.frequency",
+    "en": "frequency"
+   },
+   "时段": {
+    "source": "时间/生效时间 + 生效范围 startTime/endTime",
+    "maturity": "released",
+    "group": "条件语义",
+    "class": "A",
+    "exec": "映射到生效范围的时间段",
+    "note": "派生：时段名对应固定时间段"
+   },
+   "星期类型": {
+    "source": "生效范围/重复 weekDays",
+    "maturity": "released",
+    "group": "条件语义",
+    "class": "A",
+    "exec": "工作日=[1..5]，休息日=[6,7]",
+    "note": "节假日含调休需要节假日表，表里没有，proposed"
+   },
+   "天气": {
+    "source": "无信号；小塔能播天气说明有天气服务",
+    "maturity": "proposed",
+    "group": "条件语义",
+    "class": "A",
+    "note": "需接天气服务；暴晒可用车内温度加停车时长代理"
+   },
+   "行程事件": {
+    "source": "由挡位、入座、车锁、位置组合派生",
+    "maturity": "proposed",
+    "group": "条件语义",
+    "class": "A",
+    "exec": "出发=挡位D且主驾有人；到达=挡位P且位置命中；停车等人=挡位P且主驾有人且停留超过阈值；离车=主驾无人且全部上锁"
+   }
+  },
+  "actions": {
+   "空调总开关": {
+    "source": "空调/空调开关",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "MAX AC": {
+    "source": "空调/MAX AC 极速降温",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "极速升温": {
+    "source": "空调/极速升温",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A",
+    "id": "hvac.max_heat",
+    "en": "max heat"
+   },
+   "AUTO模式": {
+    "source": "空调/AUTO模式",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "温区同步": {
+    "source": "空调/温区同步",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "前风窗除雾": {
+    "source": "空调/前风窗除雾",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "AC开关": {
+    "source": "空调/AC开关",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "ECO": {
+    "source": "空调/ECO",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "主驾模式": {
+    "source": "空调/主驾模式",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "自动空气净化": {
+    "source": "空调/自动空气净化",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "后视镜加热": {
+    "source": "空调/后视镜加热",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A",
+    "id": "mirror.heat",
+    "en": "mirror heating"
+   },
+   "空气自干燥": {
+    "source": "空调/空调自干燥",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "内外循环设置": {
+    "source": "空调/内外循环",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "主驾温度控制": {
+    "source": "空调/温度控制 主驾温度",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A",
+    "note": "接口支持 0.5 步长，prompt 只用整数"
+   },
+   "副驾温度控制": {
+    "source": "空调/温度控制 副驾温度",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A",
+    "id": "hvac.temp.passenger",
+    "en": "passenger temperature"
+   },
+   "前排风量调节": {
+    "source": "空调/风量调节",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "出风模式设置": {
+    "source": "空调/出风模式",
+    "maturity": "released",
+    "group": "空调与空气",
+    "class": "A"
+   },
+   "左前门": {
+    "source": "舒适/左前门",
+    "maturity": "planned",
+    "group": "门",
+    "class": "B",
+    "note": "只在停车且确认后执行"
+   },
+   "右前门": {
+    "source": "舒适/右前门",
+    "maturity": "planned",
+    "group": "门",
+    "class": "B",
+    "note": "只在停车且确认后执行"
+   },
+   "左后门": {
+    "source": "舒适/左后门",
+    "maturity": "planned",
+    "group": "门",
+    "class": "B",
+    "note": "只在停车且确认后执行"
+   },
+   "右后门": {
+    "source": "舒适/右后门",
+    "maturity": "planned",
+    "group": "门",
+    "class": "B",
+    "note": "只在停车且确认后执行"
+   },
+   "香氛开关": {
+    "source": "香氛/香氛开关",
+    "maturity": "no_ux",
+    "group": "氛围",
+    "class": "A"
+   },
+   "香氛类型": {
+    "source": "香氛/香氛类型",
+    "maturity": "released",
+    "group": "氛围",
+    "class": "A",
+    "note": "前置：香氛开关开启"
+   },
+   "香氛浓度": {
+    "source": "香氛/香氛浓度",
+    "maturity": "released",
+    "group": "氛围",
+    "class": "A",
+    "note": "前置：香氛开关开启"
+   },
+   "主驾车窗": {
+    "source": "门窗/主驾车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B"
+   },
+   "副驾车窗": {
+    "source": "门窗/副驾车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B"
+   },
+   "左后排车窗": {
+    "source": "门窗/左后排车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B"
+   },
+   "右后排车窗": {
+    "source": "门窗/右后排车窗",
+    "maturity": "released",
+    "group": "车窗",
+    "class": "B"
+   },
+   "低速行人警报音": {
+    "source": "声音/低速行人警报音",
+    "maturity": "released",
+    "group": "声音",
+    "class": "C",
+    "note": "表里允许关闭；本方案禁止值=关闭（R138、FMVSS 141）；三种音色仅国内"
+   },
+   "一键静音": {
+    "source": "声音/一键静音",
+    "maturity": "no_ux",
+    "group": "声音",
+    "class": "A",
+    "id": "audio.mute",
+    "en": "mute"
+   },
+   "音量": {
+    "source": "声音/音量 媒体音量",
+    "maturity": "released",
+    "group": "声音",
+    "class": "A",
+    "exec": "媒体音量"
+   },
+   "导航音量": {
+    "source": "声音/音量 导航音量",
+    "maturity": "released",
+    "group": "声音",
+    "class": "A",
+    "id": "audio.nav_volume",
+    "en": "navigation volume"
+   },
+   "语音音量": {
+    "source": "声音/音量 语音音量",
+    "maturity": "released",
+    "group": "声音",
+    "class": "A",
+    "id": "audio.voice_volume",
+    "en": "voice volume"
+   },
+   "音效": {
+    "source": "声音/音效",
+    "maturity": "released",
+    "group": "声音",
+    "class": "A",
+    "id": "audio.effect",
+    "en": "sound effect"
+   },
+   "声场": {
+    "source": "声音/声场",
+    "maturity": "released",
+    "group": "声音",
+    "class": "A",
+    "note": "“别吵醒后排”的正解：声场切前排或主驾",
+    "id": "audio.soundstage",
+    "en": "sound stage"
+   },
+   "声浪": {
+    "source": "声音/声浪",
+    "maturity": "released",
+    "group": "声音",
+    "class": "A",
+    "id": "audio.engine_sound",
+    "en": "engine sound"
+   },
+   "小塔播报": {
+    "source": "小塔/小塔播报",
+    "maturity": "released",
+    "group": "话",
+    "class": "A",
+    "exec": "自定义内容=契约里的 say 文本",
+    "note": "六元素里的“话”有真实能力承接",
+    "id": "voice.announce",
+    "en": "assistant announce"
+   },
+   "氛围灯开关": {
+    "source": "灯光/氛围灯开关",
+    "maturity": "released",
+    "group": "氛围",
+    "class": "A"
+   },
+   "音乐律动": {
+    "source": "灯光/氛围灯音乐律动",
+    "maturity": "released",
+    "group": "氛围",
+    "class": "A"
+   },
+   "氛围灯亮度": {
+    "source": "灯光/氛围灯亮度 1至10",
+    "maturity": "released",
+    "group": "氛围",
+    "class": "A",
+    "exec": "10%→1 … 100%→10",
+    "note": "表里没有氛围灯颜色"
+   },
+   "主驾座椅加热": {
+    "source": "舒适/主驾座椅加热",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "主驾座椅通风": {
+    "source": "舒适/主驾座椅通风",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "副驾座椅加热": {
+    "source": "舒适/副驾座椅加热",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "副驾座椅通风": {
+    "source": "舒适/副驾座椅通风",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "左后排座椅加热": {
+    "source": "舒适/左后排座椅加热",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "左后排座椅通风": {
+    "source": "舒适/左后排座椅通风",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "右后排座椅加热": {
+    "source": "舒适/右后排座椅加热",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "右后排座椅通风": {
+    "source": "舒适/右后排座椅通风",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A"
+   },
+   "主驾座椅按摩强度": {
+    "source": "舒适/主驾座椅按摩 强度 Level1-3",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A",
+    "note": "前置：按摩开启"
+   },
+   "主驾座椅按摩模式": {
+    "source": "舒适/主驾座椅按摩 模式",
+    "maturity": "sprint",
+    "group": "座椅",
+    "class": "A",
+    "note": "五种模式排在 sprint1"
+   },
+   "副驾座椅按摩强度": {
+    "source": "舒适/副驾座椅按摩 强度 Level1-3",
+    "maturity": "released",
+    "group": "座椅",
+    "class": "A",
+    "note": "前置：按摩开启"
+   },
+   "副驾座椅按摩模式": {
+    "source": "舒适/副驾座椅按摩 模式",
+    "maturity": "sprint",
+    "group": "座椅",
+    "class": "A",
+    "note": "五种模式排在 sprint1"
+   },
+   "方向盘加热": {
+    "source": "舒适/方向盘加热",
+    "maturity": "released",
+    "group": "其他",
+    "class": "A"
+   },
+   "延时": {
+    "source": "时间/延时 0-59分0-59秒",
+    "maturity": "released",
+    "group": "编排",
+    "class": "A",
+    "note": "场景内顺序与时间线靠它",
+    "id": "flow.delay",
+    "en": "delay"
+   },
+   "导航目的地": {
+    "source": "导航/目的地",
+    "maturity": "sprint",
+    "group": "供",
+    "class": "B",
+    "note": "家、公司在 26409；其余待定；行驶中要确认",
+    "id": "nav.destination",
+    "en": "navigation destination"
+   },
+   "多媒体": {
+    "source": "娱乐/多媒体",
+    "maturity": "sprint",
+    "group": "声音",
+    "class": "A",
+    "id": "media.transport",
+    "en": "media transport"
+   },
+   "音乐播放": {
+    "source": "娱乐/QQ音乐 网易云 播放指定音乐（待定）",
+    "maturity": "proposed",
+    "group": "声音",
+    "class": "A",
+    "exec": "情绪类歌单→播放指定音乐或猜你喜欢；停止→多媒体暂停",
+    "note": "表里只有列表播放与指定歌曲，情绪歌单要与娱乐域共建"
+   },
+   "彩蛋": {
+    "source": "娱乐/彩蛋",
+    "maturity": "released",
+    "group": "惊喜",
+    "class": "A",
+    "note": "生日动效2 与自定义动效待定",
+    "id": "surprise.easter_egg",
+    "en": "easter egg"
+   },
+   "播放指定音乐": {
+    "source": "娱乐/多媒体 播放指定音乐",
+    "maturity": "planned",
+    "group": "声音",
+    "class": "A",
+    "exec": "值为歌曲名，国内中英文，海外全语种",
+    "note": "“你们的歌”靠它",
+    "id": "media.play_song",
+    "en": "play specific song"
+   },
+   "QQ音乐": {
+    "source": "娱乐/QQ音乐",
+    "maturity": "planned",
+    "group": "声音",
+    "class": "A",
+    "note": "情绪歌单可映射到猜你喜欢或指定歌曲",
+    "id": "media.qqmusic",
+    "en": "QQ Music"
+   },
+   "网易云音乐": {
+    "source": "娱乐/网易云音乐",
+    "maturity": "planned",
+    "group": "声音",
+    "class": "A",
+    "id": "media.netease",
+    "en": "NetEase Music"
+   },
+   "本地视频": {
+    "source": "娱乐/本地视频",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.local_video",
+    "en": "local video"
+   },
+   "腾讯视频": {
+    "source": "娱乐/腾讯视频",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.tencent_video",
+    "en": "Tencent Video"
+   },
+   "爱奇艺": {
+    "source": "娱乐/爱奇艺",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.iqiyi",
+    "en": "iQIYI"
+   },
+   "唱吧": {
+    "source": "娱乐/唱吧",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.changba",
+    "en": "Changba"
+   },
+   "全民K歌": {
+    "source": "娱乐/全民K歌",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.wesing",
+    "en": "WeSing"
+   },
+   "酷狗K歌": {
+    "source": "娱乐/酷狗K歌",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.kugou_ktv",
+    "en": "Kugou KTV"
+   },
+   "YouTube": {
+    "source": "娱乐/YouTube",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.youtube",
+    "en": "YouTube"
+   },
+   "壁纸": {
+    "source": "屏幕/壁纸",
+    "maturity": "planned",
+    "group": "屏幕",
+    "class": "A",
+    "note": "值为壁纸名",
+    "id": "screen.wallpaper",
+    "en": "wallpaper"
+   },
+   "主题": {
+    "source": "屏幕/主题",
+    "maturity": "planned",
+    "group": "屏幕",
+    "class": "A",
+    "note": "值为主题名",
+    "id": "screen.theme",
+    "en": "theme"
+   },
+   "进入情景模式": {
+    "source": "娱乐/情景模式 进入",
+    "maturity": "planned",
+    "group": "预设",
+    "class": "B",
+    "note": "官方预设；用户点名时优先调用而非重新组合",
+    "id": "preset.enter",
+    "en": "enter scenario mode"
+   },
+   "退出情景模式": {
+    "source": "娱乐/情景模式 退出",
+    "maturity": "planned",
+    "group": "预设",
+    "class": "A",
+    "id": "preset.exit",
+    "en": "exit scenario mode"
+   },
+   "屏幕模式": {
+    "source": "屏幕/模式",
+    "maturity": "released",
+    "group": "屏幕",
+    "class": "A",
+    "id": "screen.mode",
+    "en": "screen mode"
+   },
+   "屏幕亮度": {
+    "source": "屏幕/亮度",
+    "maturity": "released",
+    "group": "屏幕",
+    "class": "A",
+    "id": "screen.brightness",
+    "en": "screen brightness"
+   },
+   "无线充电": {
+    "source": "设备/主驾充电面板",
+    "maturity": "released",
+    "group": "设备",
+    "class": "A",
+    "id": "device.wireless_charger",
+    "en": "wireless charger"
+   },
+   "电动遮阳帘": {
+    "source": "设备/电动遮阳帘 开度",
+    "maturity": "released",
+    "group": "设备",
+    "class": "A",
+    "note": "关闭=0%",
+    "id": "device.sunshade",
+    "en": "sunshade"
+   }
+  }
+ },
+ "safety_must_not": [
+  {
+   "primary": "低速行人警报音",
+   "secondary_any": [
+    "关闭"
+   ],
+   "reason": "AVAS 不允许被场景自动关闭（欧盟 R138、美国 FMVSS 141）"
+  }
+ ],
+ "removed_from_sheet": [
+  "条件：多媒体 播放中（变更记录 2026.7.7 删除）",
+  "条件：时间区间、日期区间、温度控制、风量、出风模式、香氛类型与浓度、温区同步、导航状态、预计到达时间、预计到达距离、多媒体播放中、电动遮阳帘开度"
+ ]
+}
