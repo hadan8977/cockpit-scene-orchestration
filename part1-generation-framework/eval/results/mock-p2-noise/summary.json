@@ -1,0 +1,39 @@
+{
+  "tag": "mock-p2-noise",
+  "model": "mock",
+  "prompt": "p1_cleaned.md",
+  "style": "p2",
+  "thinking": null,
+  "n_items": 66,
+  "repeat": 1,
+  "n_calls": 66,
+  "pass_rate": 0.5303030303030303,
+  "json_valid": 1.0,
+  "schema_valid": 1.0,
+  "intent_ok": 1.0,
+  "name_ok": 1.0,
+  "safety_violations": 18,
+  "errors": 0,
+  "by_cat": {
+    "action": {
+      "n": 16,
+      "pass_rate": 0.5
+    },
+    "precise": {
+      "n": 18,
+      "pass_rate": 0.5
+    },
+    "vague": {
+      "n": 10,
+      "pass_rate": 0.3
+    },
+    "affect": {
+      "n": 10,
+      "pass_rate": 0.8
+    },
+    "robust": {
+      "n": 12,
+      "pass_rate": 0.5833333333333334
+    }
+  }
+}

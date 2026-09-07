@@ -1,0 +1,156 @@
+{
+ "tag": "smoke-kimi-k27-p3-zh",
+ "n": 6,
+ "skipped": 6,
+ "fit": 4.166666666666667,
+ "restraint": 4,
+ "wording": 2.1666666666666665,
+ "density": 4.333333333333333,
+ "overall": 3.6666666666666665,
+ "flags": {
+  "lecturing": 0,
+  "upselling": 0,
+  "probing": 1,
+  "assumed_relationship": 0,
+  "echoing_emotion": 0,
+  "functional_misuse": 0
+ },
+ "by_cat": {
+  "observe": {
+   "n": 6,
+   "fit": 4.166666666666667,
+   "restraint": 4,
+   "wording": 2.1666666666666665,
+   "density": 4.333333333333333
+  }
+ },
+ "low": [
+  {
+   "id": "H04",
+   "cat": "observe",
+   "lang": "zh",
+   "rep": 0,
+   "judge_latency": 4.095670938491821,
+   "error": null,
+   "fit": 3,
+   "restraint": 3,
+   "wording": 2,
+   "density": 4,
+   "flags": {
+    "lecturing": false,
+    "upselling": false,
+    "probing": true,
+    "assumed_relationship": false,
+    "echoing_emotion": false,
+    "functional_misuse": false
+   },
+   "one_line": "say 追问习惯原因且未关行人警报，布置不完整"
+  },
+  {
+   "id": "H01",
+   "cat": "observe",
+   "lang": "zh",
+   "rep": 0,
+   "judge_latency": 4.5908753871917725,
+   "error": null,
+   "fit": 4,
+   "restraint": 3,
+   "wording": 2,
+   "density": 4,
+   "flags": {
+    "lecturing": false,
+    "upselling": false,
+    "probing": false,
+    "assumed_relationship": false,
+    "echoing_emotion": false,
+    "functional_misuse": false
+   },
+   "one_line": "say 越界统计用户行为，无用户触发却主动执行"
+  },
+  {
+   "id": "H02",
+   "cat": "observe",
+   "lang": "zh",
+   "rep": 0,
+   "judge_latency": 4.119771957397461,
+   "error": null,
+   "fit": 4,
+   "restraint": 4,
+   "wording": 2,
+   "density": 4,
+   "flags": {
+    "lecturing": false,
+    "upselling": false,
+    "probing": false,
+    "assumed_relationship": false,
+    "echoing_emotion": false,
+    "functional_misuse": false
+   },
+   "one_line": "say过长且非用户原词引用，其余执行精准"
+  },
+  {
+   "id": "H06",
+   "cat": "observe",
+   "lang": "zh",
+   "rep": 0,
+   "judge_latency": 3.7987823486328125,
+   "error": null,
+   "fit": 4,
+   "restraint": 4,
+   "wording": 2,
+   "density": 4,
+   "flags": {
+    "lecturing": false,
+    "upselling": false,
+    "probing": false,
+    "assumed_relationship": false,
+    "echoing_emotion": false,
+    "functional_misuse": false
+   },
+   "one_line": "say暴露数据监控感，像汇报而非陪伴"
+  },
+  {
+   "id": "H03",
+   "cat": "observe",
+   "lang": "zh",
+   "rep": 0,
+   "judge_latency": 6.295838356018066,
+   "error": null,
+   "fit": 5,
+   "restraint": 5,
+   "wording": 2,
+   "density": 5,
+   "flags": {
+    "lecturing": false,
+    "upselling": false,
+    "probing": false,
+    "assumed_relationship": false,
+    "echoing_emotion": false,
+    "functional_misuse": false
+   },
+   "one_line": "say暴露计数像监控，破坏默契感"
+  },
+  {
+   "id": "H05",
+   "cat": "observe",
+   "lang": "zh",
+   "rep": 0,
+   "judge_latency": 7.673782587051392,
+   "error": null,
+   "fit": 5,
+   "restraint": 5,
+   "wording": 3,
+   "density": 5,
+   "flags": {
+    "lecturing": false,
+    "upselling": false,
+    "probing": false,
+    "assumed_relationship": false,
+    "echoing_emotion": false,
+    "functional_misuse": false
+   },
+   "one_line": "say 复述观察无增量，可删；其余精准复现习惯。"
+  }
+ ],
+ "model": "kimi-k2.7"
+}

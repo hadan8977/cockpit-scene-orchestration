@@ -1,0 +1,77 @@
+{
+  "tag": "smoke-kimi-k27-p3-zh",
+  "model": "kimi-k2.7",
+  "model_key": "kimi-k2.7",
+  "tier": "大",
+  "prompt": "p3_grammar.generated.md",
+  "style": "p3",
+  "thinking": "off",
+  "json_mode": false,
+  "response_format": null,
+  "langs": [
+    "zh"
+  ],
+  "n_items": 32,
+  "repeat": 1,
+  "n_calls": 32,
+  "pass_rate": 0.8125,
+  "json_valid": 0.96875,
+  "schema_valid": 0.96875,
+  "intent_ok": 0.96875,
+  "name_ok": 0.5625,
+  "safety_violations": 0,
+  "errors": 0,
+  "by_cat": {
+    "weak": {
+      "n": 12,
+      "pass_rate": 0.75
+    },
+    "memory": {
+      "n": 8,
+      "pass_rate": 0.625
+    },
+    "observe": {
+      "n": 6,
+      "pass_rate": 1.0
+    },
+    "clarify": {
+      "n": 6,
+      "pass_rate": 1.0
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 32,
+      "pass_rate": 0.8125
+    }
+  },
+  "collapse": {
+    "n": 12,
+    "exact": 0.08333333333333333,
+    "loose": 0.4166666666666667
+  },
+  "relevance_ok": {
+    "n": 20,
+    "rate": 0.95
+  },
+  "latency": {
+    "p50": 6.116217136383057,
+    "p95": 10.227076840400695,
+    "max": 11.429754257202148,
+    "mean": 6.486365988850594
+  },
+  "ttft": {
+    "p50": 1.9829957485198975,
+    "p95": 4.704110443592071
+  },
+  "t_understanding": {
+    "p50": 6.116215705871582,
+    "p95": 10.227074837684631,
+    "n": 32
+  },
+  "tokens": {
+    "prompt_mean": 3278.625,
+    "completion_mean": 127.09375
+  },
+  "reasoning_chars_mean": 0
+}

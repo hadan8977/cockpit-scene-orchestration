@@ -1,0 +1,18 @@
+{
+ "tags": [
+  "smoke-kimi-k27-p3-zh"
+ ],
+ "key": {
+  "F11-zh/A": "smoke-kimi-k27-p3-zh",
+  "G07-zh/A": "smoke-kimi-k27-p3-zh"
+ },
+ "sample": [
+  "F11",
+  "E10",
+  "G07",
+  "E04"
+ ],
+ "langs": [
+  "zh"
+ ]
+}

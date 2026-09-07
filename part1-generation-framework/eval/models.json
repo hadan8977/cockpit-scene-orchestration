@@ -1,0 +1,198 @@
+{
+ "_说明": "候选模型清单。每条：provider（决定 base_url 与 key 的环境变量）、model（接口里的模型 id，以 run_matrix.py --check 对 /models 的核对为准）、tier（小/中/大）、thinking（思考开关的写法：deepseek=thinking:{type}, openrouter=reasoning:{enabled}, qwen=enable_thinking, none=不带参数）、role（主候选/对照/端侧参考）。id 标 [待核对] 的是凭记忆写的，拿到 key 后先跑 --check。",
+ "providers": {
+  "deepseek": {
+   "base_url_env": "DEEPSEEK_BASE_URL",
+   "base_url_default": "https://api.deepseek.com",
+   "api_key_env": "DEEPSEEK_API_KEY"
+  },
+  "openrouter": {
+   "base_url_env": "OPENROUTER_BASE_URL",
+   "base_url_default": "https://openrouter.ai/api/v1",
+   "api_key_env": "OPENROUTER_API_KEY"
+  },
+  "kimi": {
+   "base_url_env": "KIMI_BASE_URL",
+   "base_url_default": "https://api.kimi.com/coding/v1",
+   "api_key_env": "KIMI_API_KEY"
+  },
+  "hy": {
+   "base_url_env": "HY_BASE_URL",
+   "base_url_default": "",
+   "api_key_env": "HY_API_KEY"
+  },
+  "volc": {
+   "base_url_env": "VOLC_BASE_URL",
+   "base_url_default": "https://ark.cn-beijing.volces.com/api/v3",
+   "api_key_env": "VOLC_API_KEY"
+  },
+  "local": {
+   "base_url_env": "LOCAL_BASE_URL",
+   "base_url_default": "http://127.0.0.1:8080/v1",
+   "api_key_env": "LOCAL_API_KEY"
+  }
+ },
+ "models": [
+  {
+   "key": "ds-v4-flash",
+   "provider": "deepseek",
+   "model": "deepseek-v4-flash",
+   "tier": "大",
+   "params": "MoE，官方未公布激活参数",
+   "thinking": "deepseek",
+   "role": "主候选",
+   "note": "PRD 2.4 主候选；默认开思考，评测两种都跑"
+  },
+  {
+   "key": "kimi-k2.7",
+   "provider": "kimi",
+   "model": "kimi-k2.7",
+   "tier": "大",
+   "params": "1T MoE / 32B 激活",
+   "thinking": "deepseek",
+   "role": "对照",
+   "note": "2026-09-07 已测通，先用它跑通全流程；该端点只接受 temperature=0.6",
+   "temperature": 0.6
+  },
+  {
+   "key": "glm-5.3-flash",
+   "provider": "openrouter",
+   "model": "z-ai/glm-5.3-flash",
+   "tier": "大",
+   "params": "[待核对]",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "id [待核对]，用户点名"
+  },
+  {
+   "key": "minimax-m3",
+   "provider": "openrouter",
+   "model": "minimax/minimax-m3",
+   "tier": "大",
+   "params": "[待核对]",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "id [待核对]，用户点名"
+  },
+  {
+   "key": "qwen3.5-flash",
+   "provider": "openrouter",
+   "model": "qwen/qwen3.5-flash",
+   "tier": "大",
+   "params": "[待核对]",
+   "thinking": "openrouter",
+   "role": "对照",
+   "note": "PRD 里的 Qwen3 Flash；id [待核对]"
+  },
+  {
+   "key": "doubao-seed-flash",
+   "provider": "volc",
+   "model": "doubao-seed-2.0-flash",
+   "tier": "大",
+   "params": "[待核对]",
+   "thinking": "deepseek",
+   "role": "对照",
+   "note": "需火山引擎 key，无则跳过"
+  },
+  {
+   "key": "hy4",
+   "provider": "hy",
+   "model": "hy4",
+   "tier": "大",
+   "params": "公司内模型",
+   "thinking": "none",
+   "role": "对照",
+   "note": "公司内端点，用户补 base_url 与 key"
+  },
+  {
+   "key": "qwen3-32b",
+   "provider": "openrouter",
+   "model": "qwen/qwen3-32b",
+   "tier": "中",
+   "params": "32B dense",
+   "thinking": "openrouter",
+   "role": "对照",
+   "note": "中体量上限参考"
+  },
+  {
+   "key": "qwen3-30b-a3b",
+   "provider": "openrouter",
+   "model": "qwen/qwen3-30b-a3b",
+   "tier": "中",
+   "params": "30B MoE / 3B 激活",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "速度与质量折中的重点对象"
+  },
+  {
+   "key": "qwen3-14b",
+   "provider": "openrouter",
+   "model": "qwen/qwen3-14b",
+   "tier": "中",
+   "params": "14B dense",
+   "thinking": "openrouter",
+   "role": "对照",
+   "note": ""
+  },
+  {
+   "key": "mistral-small-3.2",
+   "provider": "openrouter",
+   "model": "mistralai/mistral-small-3.2-24b-instruct",
+   "tier": "中",
+   "params": "24B dense",
+   "thinking": "none",
+   "role": "对照",
+   "note": "英文侧对照，看中文是否掉队"
+  },
+  {
+   "key": "qwen3-8b",
+   "provider": "openrouter",
+   "model": "qwen/qwen3-8b",
+   "tier": "小",
+   "params": "8B dense",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "端侧路线的云端替身"
+  },
+  {
+   "key": "qwen3-4b",
+   "provider": "openrouter",
+   "model": "qwen/qwen3-4b",
+   "tier": "小",
+   "params": "4B dense",
+   "thinking": "openrouter",
+   "role": "主候选",
+   "note": "端侧路线下限参考"
+  },
+  {
+   "key": "gemma-3-4b",
+   "provider": "openrouter",
+   "model": "google/gemma-3-4b-it",
+   "tier": "小",
+   "params": "4B dense",
+   "thinking": "none",
+   "role": "对照",
+   "note": "非 Qwen 系小模型对照"
+  },
+  {
+   "key": "phi-4-mini",
+   "provider": "openrouter",
+   "model": "microsoft/phi-4-mini-instruct",
+   "tier": "小",
+   "params": "3.8B dense",
+   "thinking": "none",
+   "role": "对照",
+   "note": "id [待核对]；中文预期偏弱，看差多少"
+  },
+  {
+   "key": "local-qwen3-1.7b",
+   "provider": "local",
+   "model": "qwen3-1.7b",
+   "tier": "小",
+   "params": "1.7B dense",
+   "thinking": "qwen",
+   "role": "端侧参考",
+   "note": "本机 llama.cpp 或 vLLM 起服务时用，展望用"
+  }
+ ]
+}

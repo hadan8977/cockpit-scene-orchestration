@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>场景 · 一句话生成（原型 v0.1）</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#0d0f13;--panel:#151922;--panel2:#1c2230;--line:#2a3243;--fg:#e8ebf1;--muted:#8a93a6;--dim:#5b6373;--accent:#c9a46a;--scene:#c9a46a;--ok:#7bb98a;--warn:#d69a5a;--r:14px}
+*{box-sizing:border-box}
+body{margin:0;background:#06070a;color:var(--fg);font:15px/1.5 -apple-system,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;display:flex;justify-content:center;padding:24px}
+.screen{width:1280px;max-width:100%;background:var(--bg);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.top{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--line)}
+.top h1{font-size:17px;font-weight:600;margin:0;letter-spacing:.5px}
+.top .sub{color:var(--muted);font-size:13px;margin-left:10px}
+.chipbtn{background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:4px 12px;font-size:12px;cursor:pointer}
+.chipbtn.on{color:var(--fg);border-color:var(--accent)}
+.body{display:grid;grid-template-columns:1fr 380px;min-height:640px}
+.main{padding:26px 28px}
+.side{border-left:1px solid var(--line);background:var(--panel);padding:20px}
+.side.hidden{display:none}
+.body.nosidebar{grid-template-columns:1fr}
+.inputrow{display:flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.inputrow input{flex:1;background:transparent;border:0;outline:0;color:var(--fg);font-size:17px}
+.inputrow .mic{width:34px;height:34px;border-radius:50%;background:var(--panel2);display:grid;place-items:center;color:var(--muted)}
+.inputrow button{background:var(--accent);color:#1a1408;border:0;border-radius:10px;padding:8px 16px;font-weight:600;cursor:pointer}
+.sugg{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 22px}
+.sugg span{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;color:var(--muted);cursor:pointer}
+.sugg span:hover{color:var(--fg)}
+.card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--scene);border-radius:var(--r);padding:20px 22px;opacity:0;transform:translateY(6px);transition:all .3s}
+.card.show{opacity:1;transform:none}
+.card .heard{color:var(--muted);font-size:13px}
+.card .heard b{color:var(--fg);font-weight:500}
+.card .name{font-size:20px;font-weight:600;margin:6px 0 2px;min-height:28px}
+.card .und{color:#cfd5e1;min-height:24px;margin-bottom:14px}
+.card .und .cursor{display:inline-block;width:7px;height:16px;background:var(--accent);vertical-align:-2px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+.groups{display:flex;flex-direction:column;gap:10px}
+.group{display:flex;align-items:flex-start;gap:10px}
+.group .lab{width:34px;flex:none;color:var(--dim);font-size:12px;padding-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:5px 11px;font-size:13px;opacity:0;transform:scale(.96);transition:all .25s}
+.chip.in{opacity:1;transform:none}
+.chip .v{color:var(--accent);margin-left:4px}
+.chip.gray{color:var(--dim);border-style:dashed;text-decoration:line-through}
+.chip.gray .why{color:var(--warn);text-decoration:none;margin-left:6px;font-size:12px}
+.chip.mem{border-color:#3b4a6b;color:#aab6d0}
+.chip.mem .x{margin-left:6px;color:var(--dim);cursor:pointer}
+.chip.changed{border-color:var(--ok);box-shadow:0 0 0 2px rgba(123,185,138,.25)}
+.say{margin-top:14px;color:var(--fg);font-size:15px}
+.say small{color:var(--dim);margin-right:8px}
+.btns{display:flex;gap:10px;margin-top:18px;align-items:center}
+.btns button{border-radius:10px;padding:9px 18px;border:1px solid var(--line);background:var(--panel2);color:var(--fg);cursor:pointer;font-size:14px}
+.btns .primary{background:var(--accent);color:#1a1408;border-color:transparent;font-weight:600}
+.btns .ghost{color:var(--muted)}
+.btns button[disabled]{opacity:.45;cursor:not-allowed}
+.btns .why{margin-left:auto;color:var(--dim);font-size:12px;cursor:pointer}
+.edit{display:flex;gap:10px;margin-top:14px}
+.edit input{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--fg);outline:0}
+.edit button{border-radius:10px;padding:8px 14px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#222a3a;color:var(--fg);padding:10px 16px;border-radius:10px;border:1px solid var(--line);opacity:0;transition:.3s}
+.toast.show{opacity:1}
+.side h3{margin:0 0 10px;font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.5px}
+.side select{width:100%;background:var(--panel2);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:7px}
+.lat{margin:14px 0 20px}
+.bar{position:relative;height:8px;background:var(--panel2);border-radius:4px;margin:24px 0 6px}
+.bar .mark{position:absolute;top:-18px;font-size:11px;color:var(--dim);transform:translateX(-50%)}
+.bar .mark:after{content:"";position:absolute;left:50%;top:16px;width:1px;height:12px;background:var(--dim)}
+.bar .fill{position:absolute;left:0;top:0;height:8px;background:linear-gradient(90deg,var(--ok),var(--accent));border-radius:4px;width:0;transition:width .2s linear}
+.bar .dot{position:absolute;top:-3px;width:14px;height:14px;border-radius:50%;background:var(--fg);transform:translateX(-50%);opacity:0}
+.bar .dot.on{opacity:1}
+.legend{font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.kv{font-size:12px;color:var(--muted);display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin-top:8px}
+.kv b{color:var(--fg);font-weight:500}
+.route{font-size:12px;color:var(--muted);margin-top:16px;line-height:1.7}
+.route .step{display:flex;gap:8px;align-items:center}
+.route .step i{width:8px;height:8px;border-radius:50%;background:var(--dim);flex:none}
+.route .step.on i{background:var(--ok)}
+.route .step.off i{background:var(--warn)}
+.saved{margin-top:20px}
+.saved .item{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13px;margin-bottom:6px;display:flex;justify-content:space-between}
+.saved .item span{color:var(--dim)}
+.tip{font-size:12px;color:var(--dim);margin-top:26px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="screen">
+  <div class="top">
+    <div style="display:flex;align-items:center"><h1>场景</h1><span class="sub">一句话生成 · 原型 v0.1 · 回放真实模型输出</span></div>
+    <div style="display:flex;gap:8px">
+      <span class="chipbtn" id="langBtn">中文</span>
+      <span class="chipbtn on" id="internalBtn">内部版</span>
+    </div>
+  </div>
+  <div class="body" id="body">
+    <div class="main">
+      <div class="inputrow">
+        <div class="mic">●</div>
+        <input id="inp" placeholder="说一句，比如：做一个雨夜回家的场景" list="cases">
+        <datalist id="cases"></datalist>
+        <button id="go">生成</button>
+      </div>
+      <div class="sugg" id="sugg"></div>
+      <div class="card" id="card">
+        <div class="heard">听到的：<b id="heard"></b> <span id="ctx" style="margin-left:10px"></span></div>
+        <div class="name" id="name"></div>
+        <div class="und" id="und"></div>
+        <div class="groups" id="groups"></div>
+        <div class="say" id="say"></div>
+        <div class="btns">
+          <button id="tryBtn" disabled title="试演三秒：只动灯与声预演。第二部分接场景引擎后启用">试一下</button>
+          <button class="primary" id="okBtn">就这样</button>
+          <button class="ghost" id="noBtn">不用</button>
+          <span class="why" id="whyBtn">为什么</span>
+        </div>
+        <div class="edit"><input id="editInp" placeholder="再说一句，只改一处。比如：灯再暗点"><button id="editBtn">改</button></div>
+      </div>
+      <div class="tip">规则：理解句 0.6 秒内先出并引用原话；chips 按六元素分组流式出现；被验证器裁掉的 chip 灰显带理由；三个键；再说一句只改一处。这一页只回放 eval 结果目录里的真实输出（export_cases.py），不调模型。</div>
+    </div>
+    <div class="side" id="side">
+      <h3>模型与 prompt</h3>
+      <select id="modelSel"></select>
+      <div class="lat">
+        <h3 style="margin-top:18px">时延（真实测量）</h3>
+        <div class="bar" id="bar">
+          <span class="mark" style="left:20%">0.6s 理解句</span>
+          <span class="mark" style="left:83%">2.5s 卡片</span>
+          <div class="fill" id="fill"></div>
+          <div class="dot" id="dotUnd" title="理解句出齐"></div>
+          <div class="dot" id="dotEnd" title="输出结束" style="background:var(--accent)"></div>
+        </div>
+        <div class="legend"><span>0</span><span>3.0s</span></div>
+        <div class="kv" id="kv"></div>
+      </div>
+      <h3>路由与裁决</h3>
+      <div class="route" id="route"></div>
+      <div class="saved"><h3>场景中心</h3><div id="savedList"><span style="color:var(--dim);font-size:12px">还没有保存的场景</span></div></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const ORDER=["条件","光","声","气","温","话","供"];
+let CASES=[], lang="zh", cur=null, timers=[];
+const $=id=>document.getElementById(id);
+const FALLBACK=[{"id":"J01","cat":"explicit","lang":"zh","model":"示例（手工）","prompt":"p3","input":"给我生成一个雨夜回家的场景","context":"","driving":false,"latency":1.9,"ttft":0.35,"t_und":0.55,"understanding":"“雨夜回家”：下雨的晚上往家开，要的是安稳和一点暖意","name":"雨夜回家","intent":"precise","relevance":0.95,"conditions":[{"primary":"天气","op":"==","value":"雨"},{"primary":"时段","op":"==","value":"夜晚"},{"primary":"地点","op":"==","value":"家"}],"actions":[{"element":"光","primary":"氛围灯亮度","value":"30%","dropped":false,"reason":""},{"element":"声","primary":"音乐播放","value":"雨天","dropped":false,"reason":""},{"element":"温","primary":"主驾温度控制","value":"24℃","dropped":false,"reason":""},{"element":"温","primary":"前风窗除雾","value":"开启","dropped":false,"reason":""},{"element":"其他","primary":"低速行人警报音","value":"关闭","dropped":true,"reason":"法规不允许关"}],"say":"雨夜，慢点开","offer":{"type":"none"},"memory":[],"unsupported":["到家前 1 公里音乐渐弱"],"warnings":[],"clarify":null,"validator_ok":true,"pass":true}];
+fetch("cases.json").then(r=>r.json()).then(c=>{CASES=c.concat(FALLBACK);init();}).catch(()=>{CASES=FALLBACK;init();});
+function init(){
+  const models=[...new Set(CASES.map(c=>c.model+" · "+c.prompt))];
+  $("modelSel").innerHTML=models.map(m=>`<option>${m}</option>`).join("");
+  $("modelSel").onchange=renderSugg; renderSugg();
+  $("go").onclick=()=>{const c=pick($("inp").value.trim()); if(c) play(c); else toast("原型只回放已跑过的句子，从下面挑一句");};
+  $("inp").onkeydown=e=>{if(e.key==="Enter")$("go").click();};
+  $("langBtn").onclick=()=>{lang=lang==="zh"?"en":"zh";$("langBtn").textContent=lang==="zh"?"中文":"English";renderSugg();};
+  $("internalBtn").onclick=()=>{$("internalBtn").classList.toggle("on");$("side").classList.toggle("hidden");$("body").classList.toggle("nosidebar");};
+  $("okBtn").onclick=()=>{if(!cur)return;const l=$("savedList");if(l.querySelector("span"))l.innerHTML="";l.insertAdjacentHTML("afterbegin",`<div class="item">${cur.name||"未命名"}<span>${cur.conditions.length?"有触发条件":"手动"}</span></div>`);toast("已保存到场景中心，触发条件由场景引擎持有");};
+  $("noBtn").onclick=()=>{$("card").classList.remove("show");toast("好，不记这条");};
+  $("whyBtn").onclick=()=>{if(cur)toast("因为你说了“"+quoteWord(cur)+"”，相关度 "+cur.relevance);};
+  $("editBtn").onclick=edit; $("editInp").onkeydown=e=>{if(e.key==="Enter")edit();};
+}
+function currentSet(){const m=$("modelSel").value;return CASES.filter(c=>c.model+" · "+c.prompt===m&&c.lang===lang);}
+function renderSugg(){const set=currentSet();$("sugg").innerHTML=set.map(c=>`<span data-id="${c.id}">${c.input.startsWith("（无")||c.input.startsWith("(none")?"观察："+c.context.replace(/^【观察候选】|^\[Observation candidate\] /,"").slice(0,26)+"…":c.input.split("\n").pop()}</span>`).join("")||`<span>该模型没有 ${lang} 结果</span>`;
+  $("cases").innerHTML=set.map(c=>`<option value="${c.input}">`).join("");
+  $("sugg").querySelectorAll("span[data-id]").forEach(s=>s.onclick=()=>{$("inp").value=s.textContent;play(set.find(c=>c.id===s.dataset.id));});}
+function pick(text){return currentSet().find(c=>c.input===text||c.input.endsWith(text));}
+function quoteWord(c){const m=(c.understanding||"").match(/[“"]([^”"]{1,12})[”"]/);return m?m[1]:c.input.slice(0,6);}
+function clearTimers(){timers.forEach(clearTimeout);timers=[];}
+function at(ms,fn){timers.push(setTimeout(fn,ms));}
+function play(c){
+  clearTimers(); cur=c; const card=$("card"); card.classList.remove("show"); $("groups").innerHTML=""; $("say").innerHTML=""; $("name").textContent=""; $("und").innerHTML='<span class="cursor"></span>';
+  $("heard").textContent=c.input.split("\n").pop(); $("ctx").textContent=c.context?("· "+c.context.replace(/\n/g," ")):"";
+  const scale=Math.max(c.latency,3.0); const W=v=>Math.min(100,v/3.0*100);
+  $("fill").style.width="0%"; $("dotUnd").classList.remove("on"); $("dotEnd").classList.remove("on");
+  $("kv").innerHTML=`<span>首字</span><b>${c.ttft}s</b><span>理解句出齐</span><b>${c.t_und}s</b><span>输出结束</span><b>${c.latency}s</b><span>意图 / 相关度</span><b>${c.intent} / ${c.relevance}</b><span>验证器</span><b>${c.validator_ok?"通过":"有裁剪"}</b>`;
+  const steps=[["语音入口 · scene 域直达 / 场景 app 输入框","on"],["门控：显式请求不经门控","on"],["场景大脑一次调用（"+c.model+"）","on"],["验证器："+(c.actions.filter(a=>a.dropped).length?c.actions.filter(a=>a.dropped).length+" 项被裁":"无裁剪"),c.actions.some(a=>a.dropped)?"off":"on"],["呈现调度：停车中 → 卡片展开态"+(c.driving?"（行驶中：只出摘要态）":""),"on"]];
+  $("route").innerHTML=steps.map(s=>`<div class="step ${s[1]}"><i></i>${s[0]}</div>`).join("");
+  requestAnimationFrame(()=>card.classList.add("show"));
+  // pace: real timings compressed so that total playback = min(latency, 3.5s) for demo comfort
+  const k=Math.min(1,3.5/Math.max(c.latency,0.1));
+  const tUnd=c.t_und*1000*k, tEnd=c.latency*1000*k;
+  let t0=performance.now(); const tick=()=>{const e=(performance.now()-t0)/k/1000; $("fill").style.width=W(e)+"%"; if(e<c.latency) timers.push(setTimeout(tick,40)); else $("fill").style.width=W(c.latency)+"%";}; tick();
+  // understanding: stream characters, finishing at tUnd
+  const und=c.understanding||"（无理解句）"; const start=Math.max(c.ttft*1000*k,80); const per=Math.max((tUnd-start)/Math.max(und.length,1),8);
+  for(let i=1;i<=und.length;i++) at(start+per*i,()=>{$("und").innerHTML=und.slice(0,i)+(i<und.length?'<span class="cursor"></span>':"");});
+  at(tUnd,()=>{$("dotUnd").style.left=W(c.t_und)+"%";$("dotUnd").classList.add("on");$("name").textContent=c.name||(c.intent==="none"?"（不需要布景）":c.intent==="clarify"?"（需要问一句）":"")});
+  // chips
+  const groups={}; c.conditions.forEach(x=>(groups["条件"]=groups["条件"]||[]).push({label:x.primary,v:(x.op&&x.op!=="==")?x.op+" "+x.value:x.value}));
+  c.actions.forEach(a=>(groups[a.element]=groups[a.element]||[]).push({label:a.primary,v:a.value,gray:a.dropped,why:a.reason}));
+  (c.unsupported||[]).forEach(u=>(groups["其他"]=groups["其他"]||[]).push({label:u,v:"",gray:true,why:"做不了"}));
+  if(c.offer&&c.offer.type&&c.offer.type!=="none") (groups["供"]=groups["供"]||[]).push({label:{call:"打电话",navigate:"导航",message:"发消息"}[c.offer.type]||c.offer.type,v:c.offer.target||""});
+  (c.memory||[]).forEach(m=>(groups["记忆"]=groups["记忆"]||[]).push({label:"建议记住："+m.content,v:"",mem:true}));
+  const order=ORDER.concat(["其他","记忆"]); const flat=[]; order.forEach(g=>{if(groups[g]){const el=document.createElement("div");el.className="group";el.innerHTML=`<div class="lab">${g}</div><div class="chips"></div>`;$("groups").appendChild(el);groups[g].forEach(ch=>flat.push([el.querySelector(".chips"),ch]));}});
+  const span=Math.max(tEnd-tUnd,400); flat.forEach(([box,ch],i)=>at(tUnd+120+span*(i/Math.max(flat.length,1)),()=>{const d=document.createElement("div");d.className="chip"+(ch.gray?" gray":"")+(ch.mem?" mem":"");d.dataset.label=ch.label;d.innerHTML=`${ch.label}${ch.v?`<span class="v">${ch.v}</span>`:""}${ch.gray?`<span class="why">${ch.why}</span>`:""}${ch.mem?'<span class="x" title="长按删除">×</span>':""}`;box.appendChild(d);requestAnimationFrame(()=>d.classList.add("in"));}));
+  at(tEnd,()=>{$("dotEnd").style.left=W(c.latency)+"%";$("dotEnd").classList.add("on"); if(c.clarify) $("say").innerHTML=`<small>问</small>${c.clarify}`; else if(c.say) $("say").innerHTML=`<small>说</small>“${c.say}”`; else $("say").innerHTML=`<small>说</small><span style="color:var(--dim)">不说话</span>`;});
+}
+function edit(){
+  const t=$("editInp").value.trim(); if(!cur||!t) return;
+  const rules=[[/暗|dim|darker/,"氛围灯亮度",v=>Math.max(10,(parseInt(v)||30)-15)+"%"],[/亮|bright/,"氛围灯亮度",v=>Math.min(100,(parseInt(v)||30)+20)+"%"],[/小声|轻|quiet|lower/,"音量",v=>Math.max(10,(parseInt(v)||40)-20)+"%"],[/暖|warm/,"主驾温度控制",v=>Math.min(32,(parseInt(v)||24)+2)+"℃"],[/凉|冷|cool/,"主驾温度控制",v=>Math.max(18,(parseInt(v)||24)-2)+"℃"],[/别放|停|stop/,"音乐播放",v=>"停止"],[/播客|podcast/,"音乐播放",v=>"播客"]];
+  const r=rules.find(x=>x[0].test(t)); if(!r){toast("原型只认几种改法：暗一点、亮一点、小声、暖一点、别放歌、放播客");return;}
+  const chip=[...document.querySelectorAll(".chip")].find(ch=>ch.dataset.label===r[1]);
+  if(!chip){toast("这个场景里没有"+r[1]+"，改一处不新增元素");return;}
+  const vEl=chip.querySelector(".v"); const nv=r[2](vEl?vEl.textContent:""); if(vEl) vEl.textContent=nv; chip.classList.add("changed"); setTimeout(()=>chip.classList.remove("changed"),1500);
+  $("editInp").value=""; toast("只改了 "+r[1]+" → "+nv+"；记忆待定：“"+t+"”");
+}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200);}
+</script>
+</body>
+</html>

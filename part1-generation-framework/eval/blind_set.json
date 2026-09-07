@@ -1,0 +1,257 @@
+{
+ "_说明": "体验门盲评句集：36 句，全部来自 testset.jsonl，中英各一版。机器路（judge.py）与人工路（blind_pack.py）用同一批句子，便于对照。",
+ "items": [
+  {
+   "id": "E01",
+   "cat": "affect",
+   "input": "我想你了",
+   "input_en": "I miss you",
+   "tests": "有关系记忆时：以歌代言、暖光、供打电话，不追问想谁"
+  },
+  {
+   "id": "E02",
+   "cat": "affect",
+   "input": "我想你了",
+   "input_en": "I miss you",
+   "tests": "没有记忆时：保守默认，给出口，不追问"
+  },
+  {
+   "id": "E03",
+   "cat": "affect",
+   "input": "今天累死了",
+   "input_en": "I'm dead tired today",
+   "tests": "疲惫：暗灯、放松的歌、轻按摩、一句话"
+  },
+  {
+   "id": "E04",
+   "cat": "affect",
+   "input": "我升职了！",
+   "input_en": "I got promoted!",
+   "tests": "庆祝：亮一点、热闹的歌"
+  },
+  {
+   "id": "E05",
+   "cat": "affect",
+   "input": "要有氛围感",
+   "input_en": "Give me some atmosphere",
+   "tests": "同事 demo 的原始例子"
+  },
+  {
+   "id": "E06",
+   "cat": "affect",
+   "input": "无聊死了",
+   "input_en": "I'm so bored",
+   "tests": "无聊：放点东西，行驶中不做视觉刺激"
+  },
+  {
+   "id": "E07",
+   "cat": "affect",
+   "input": "我想家了",
+   "input_en": "I'm homesick",
+   "tests": "思乡：想念的歌、暖光、供打电话"
+  },
+  {
+   "id": "E08",
+   "cat": "affect",
+   "input": "别跟我说话",
+   "input_en": "Don't talk to me",
+   "tests": "要安静：几乎不动，话最多四个字"
+  },
+  {
+   "id": "E09",
+   "cat": "affect",
+   "input": "我有点紧张，等下要面试",
+   "input_en": "I'm a bit nervous, I have an interview soon",
+   "tests": "紧张：安静、凉一点、轻风、不供任何动作"
+  },
+  {
+   "id": "E10",
+   "cat": "affect",
+   "input": "帮我营造一个求婚的氛围",
+   "input_en": "Set up a proposal atmosphere for me",
+   "tests": "浪漫目标：允许多几个动作"
+  },
+  {
+   "id": "C01",
+   "cat": "vague",
+   "input": "我想要有氛围一点",
+   "input_en": "I want a bit more atmosphere",
+   "tests": "氛围类模糊意图"
+  },
+  {
+   "id": "C03",
+   "cat": "vague",
+   "input": "提提神",
+   "input_en": "Perk me up",
+   "tests": "提神类模糊意图"
+  },
+  {
+   "id": "C08",
+   "cat": "vague",
+   "input": "想放松一下",
+   "input_en": "I want to relax for a bit",
+   "tests": "放松类"
+  },
+  {
+   "id": "C10",
+   "cat": "vague",
+   "input": "准备在车里睡一会儿",
+   "input_en": "I'm going to take a nap in the car",
+   "tests": "休息类，座椅放倒不在表内"
+  },
+  {
+   "id": "F01",
+   "cat": "weak",
+   "input": "今天开会被老板骂了一顿",
+   "input_en": "My boss chewed me out in the meeting today",
+   "tests": "陈述式负面情绪：可以陪一下，但克制；不庆祝、不功能性"
+  },
+  {
+   "id": "F03",
+   "cat": "weak",
+   "input": "她说还要二十分钟",
+   "input_en": "She says another twenty minutes",
+   "tests": "地库等人：弱意图里最该接的一句，等待类布景"
+  },
+  {
+   "id": "F04",
+   "cat": "weak",
+   "input": "又堵了，烦死了",
+   "input_en": "Stuck in traffic again, this is so annoying",
+   "tests": "行驶中的烟火气抱怨：最多一两个动作或什么都不做，不能推销"
+  },
+  {
+   "id": "F06",
+   "cat": "weak",
+   "input": "后排孩子睡着了",
+   "input_en": "The kid in the back fell asleep",
+   "tests": "陈述句但组合度高：降音量、灭后排灯、小风量，不说话或只说一句"
+  },
+  {
+   "id": "F07",
+   "cat": "weak",
+   "input": "刚吵了一架，别管我",
+   "input_en": "Just had a fight, leave me alone",
+   "tests": "明确要独处：安静即布景，say 极短或为空，不 offer"
+  },
+  {
+   "id": "F09",
+   "cat": "weak",
+   "input": "这周末带爸妈去郊区玩",
+   "input_en": "Taking my parents to the countryside this weekend",
+   "tests": "分享计划：不是布景请求，最多顺手一件事"
+  },
+  {
+   "id": "F11",
+   "cat": "weak",
+   "input": "空调是不是坏了，一点都不凉",
+   "input_en": "Is the AC broken? It's not cold at all",
+   "tests": "抱怨里藏着舒适目标：制冷"
+  },
+  {
+   "id": "F12",
+   "cat": "weak",
+   "input": "放点什么吧，还要开很久",
+   "input_en": "Play something, it's a long drive ahead",
+   "tests": "长途要声音：声元素必选，不能停止"
+  },
+  {
+   "id": "G01",
+   "cat": "memory",
+   "input": "累死了",
+   "input_en": "I'm exhausted",
+   "tests": "负面记忆：香氛被撤销过两次，绝不能再开；喜欢的灯光要用上"
+  },
+  {
+   "id": "G02",
+   "cat": "memory",
+   "input": "来点氛围",
+   "input_en": "Set the mood a bit",
+   "tests": "关系记忆在场时可用；负面记忆“总是关掉律动”要避开"
+  },
+  {
+   "id": "G06",
+   "cat": "memory",
+   "input": "累死了",
+   "input_en": "I'm exhausted",
+   "tests": "同类场景被拒绝过两次：宁可什么都不做或只做一件"
+  },
+  {
+   "id": "G07",
+   "cat": "memory",
+   "input": "老样子",
+   "input_en": "The usual",
+   "tests": "指代记忆里的偏好：三项都要落"
+  },
+  {
+   "id": "J01",
+   "cat": "explicit",
+   "input": "给我生成一个雨夜回家的场景",
+   "input_en": "Create a rainy night drive home scene for me",
+   "tests": "002 句式：条件由名字推出（雨、夜、家），动作六元素自由组合"
+  },
+  {
+   "id": "J02",
+   "cat": "explicit",
+   "input": "做一个午休模式",
+   "input_en": "Make a nap mode",
+   "tests": "001 句式，无条件：午休是舒适目标，暗灯、安静、按摩或座椅，不开律动"
+  },
+  {
+   "id": "J04",
+   "cat": "explicit",
+   "input": "累了以后的场景该怎么设置",
+   "input_en": "How should a scene for when I'm tired be set up?",
+   "tests": "002 的“该怎么设置”句式：给方案而不是反问；无条件或追问都算"
+  },
+  {
+   "id": "J06",
+   "cat": "explicit",
+   "input": "当我说“开工”的时候就进入专注模式",
+   "input_en": "When I say 'let's work', switch to focus mode",
+   "tests": "口令触发：口令不是条件表里的信号，条件为空并把口令放 unsupported 或 clarify；动作给专注类"
+  },
+  {
+   "id": "J07",
+   "cat": "explicit",
+   "input": "生成一个哄睡场景，后排有宝宝",
+   "input_en": "Create a lull-to-sleep scene, there's a baby in the back",
+   "tests": "002 加乘员：白噪音或安静、暗灯、小风量、音量低；不说话或只说一句"
+  },
+  {
+   "id": "J08",
+   "cat": "explicit",
+   "input": "帮我做一个夜里跑高速的场景",
+   "input_en": "Set up a scene for long highway drives at night",
+   "tests": "英文原生句式：夜晚加长途，条件用时段，动作提神与专注但不刺眼"
+  },
+  {
+   "id": "I05",
+   "cat": "clarify",
+   "input": "到家以后帮我准备一下",
+   "input_en": "Get things ready when I get home",
+   "tests": "目标模糊但条件清楚：追问准备什么，或给一个保守的到家布景"
+  },
+  {
+   "id": "I06",
+   "cat": "clarify",
+   "input": "座椅调一下",
+   "input_en": "Adjust the seat",
+   "tests": "调什么不明：追问，或按摩、加热、通风任一"
+  },
+  {
+   "id": "D05",
+   "cat": "robust",
+   "input": "我今天真的太累了，早上六点就起来送孩子，然后去公司开了一天会，现在终于下班了，路上还堵车，你能不能让我舒服一点，比如把按摩打开，温度稍微暖和一点，灯光暗一点",
+   "input_en": "I'm really exhausted today, got up at six to drop the kids off, then meetings all day, finally off work and now stuck in traffic. Can you make me a bit more comfortable, like turn on the massage, make it a bit warmer, and dim the lights",
+   "tests": "长文本中抽取三个动作"
+  },
+  {
+   "id": "D06",
+   "cat": "robust",
+   "input": "回家模式",
+   "input_en": "Home mode",
+   "tests": "只有名字没有内容"
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+  "tag": "smoke-tund",
+  "model": "kimi-k2.7",
+  "model_key": "kimi-k2.7",
+  "tier": "大",
+  "prompt": "p3_grammar.generated.md",
+  "style": "p3",
+  "thinking": "off",
+  "json_mode": false,
+  "response_format": null,
+  "langs": [
+    "zh"
+  ],
+  "n_items": 1,
+  "repeat": 1,
+  "n_calls": 1,
+  "pass_rate": 1.0,
+  "json_valid": 1.0,
+  "schema_valid": 1.0,
+  "intent_ok": 1.0,
+  "name_ok": 1.0,
+  "safety_violations": 0,
+  "errors": 0,
+  "by_cat": {
+    "observe": {
+      "n": 1,
+      "pass_rate": 1.0
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 1,
+      "pass_rate": 1.0
+    }
+  },
+  "relevance_ok": {
+    "n": 1,
+    "rate": 1.0
+  },
+  "latency": {
+    "p50": 8.506877660751343,
+    "p95": 8.506877660751343,
+    "max": 8.506877660751343,
+    "mean": 8.506877660751343
+  },
+  "ttft": {
+    "p50": 4.456738710403442,
+    "p95": 4.456738710403442
+  },
+  "t_understanding": {
+    "p50": 8.216896772384644,
+    "p95": 8.216896772384644,
+    "n": 1
+  },
+  "tokens": {
+    "prompt_mean": 3300,
+    "completion_mean": 138
+  },
+  "reasoning_chars_mean": 0
+}

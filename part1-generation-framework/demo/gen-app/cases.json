@@ -1,0 +1,1498 @@
+[
+ {
+  "id": "F01",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "今天开会被老板骂了一顿",
+  "context": "",
+  "driving": false,
+  "latency": 6.47,
+  "ttft": 1.73,
+  "t_und": 6.47,
+  "understanding": "“被老板骂了一顿”是下班路上的委屈，需要不被打扰的空间自己消化",
+  "name": "下班委屈",
+  "intent": "affect",
+  "relevance": 0.6,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "30%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "放松",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩模式",
+    "value": "波浪",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩强度",
+    "value": "1挡",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": false,
+  "fail_reason": "动作过多: 4 > 3"
+ },
+ {
+  "id": "F02",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "明天几点开会啊",
+  "context": "",
+  "driving": false,
+  "latency": 4.77,
+  "ttft": 2.74,
+  "t_und": 4.77,
+  "understanding": "用户在询问明天的会议时间，属于信息查询类对话，与座舱环境布置无关",
+  "name": "",
+  "intent": "none",
+  "relevance": 0.0,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "F03",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "她说还要二十分钟",
+  "context": "",
+  "driving": false,
+  "latency": 6.1,
+  "ttft": 2.39,
+  "t_und": 6.1,
+  "understanding": "用户在商场地库停车等人，\"她说还要二十分钟\"说明需要等待，需要舒适的等待环境",
+  "name": "等人",
+  "intent": "affect",
+  "relevance": 0.7,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "40%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "放松",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩模式",
+    "value": "波浪",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩强度",
+    "value": "1挡",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "慢慢等，不着急",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "F04",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "又堵了，烦死了",
+  "context": "",
+  "driving": false,
+  "latency": 7.72,
+  "ttft": 2.44,
+  "t_und": 7.72,
+  "understanding": "“又堵了，烦死了”，堵车引发的烦躁，需要降低刺激、舒缓情绪",
+  "name": "堵车缓一缓",
+  "intent": "affect",
+  "relevance": 0.6,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "放松",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "30%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩模式",
+    "value": "波浪",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩强度",
+    "value": "1挡",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "慢慢来，我陪你等",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": false,
+  "fail_reason": "动作过多: 4 > 2; alt0 多余动作过多: [('主驾座椅按摩模式', '波浪'), ('主驾座椅按摩强度', '1挡')]"
+ },
+ {
+  "id": "F05",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "帮我查一下附近的充电桩",
+  "context": "",
+  "driving": false,
+  "latency": 4.59,
+  "ttft": 1.54,
+  "t_und": 4.59,
+  "understanding": "用户要求查附近充电桩，属于信息查询和导航需求，不涉及座舱环境布置",
+  "name": "",
+  "intent": "none",
+  "relevance": 0.0,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "navigate",
+   "target": "附近充电桩"
+  },
+  "memory": [],
+  "unsupported": [
+   "附近充电桩查询"
+  ],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "F06",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "后排孩子睡着了",
+  "context": "",
+  "driving": false,
+  "latency": 7.8,
+  "ttft": 2.67,
+  "t_und": 7.8,
+  "understanding": "后排孩子睡着，行驶中需要保持安静平稳",
+  "name": "孩子睡了",
+  "intent": "vague",
+  "relevance": 0.85,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "安静",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "声",
+    "primary": "音量",
+    "value": "20",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "30%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩模式",
+    "value": "波浪",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩强度",
+    "value": "1挡",
+    "dropped": true,
+    "reason": "超过 4 个动作，截断"
+   }
+  ],
+  "say": "小声了，你安心开",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": false,
+  "fail_reason": "动作过多: 5 > 4; 话太长: 8 字 > 6; alt0 多余动作过多: [('主驾座椅按摩模式', '波浪'), ('主驾座椅按摩强度', '1挡')]"
+ },
+ {
+  "id": "F07",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "刚吵了一架，别管我",
+  "context": "",
+  "driving": false,
+  "latency": 5.92,
+  "ttft": 2.06,
+  "t_und": 5.92,
+  "understanding": "“刚吵了一架”需要独处空间，“别管我”要的是不被打扰",
+  "name": "别管我",
+  "intent": "affect",
+  "relevance": 0.6,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "停止",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "20%",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "F08",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "给你讲个笑话吧",
+  "context": "",
+  "driving": false,
+  "latency": 3.98,
+  "ttft": 1.57,
+  "t_und": 3.98,
+  "understanding": "用户在行驶中主动想讲笑话，是闲聊互动，不需要座舱环境布置",
+  "name": "",
+  "intent": "none",
+  "relevance": 0.1,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [
+   "行驶中请注意安全，避免分心驾驶"
+  ],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "F09",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "这周末带爸妈去郊区玩",
+  "context": "",
+  "driving": false,
+  "latency": 5.83,
+  "ttft": 2.7,
+  "t_und": 5.83,
+  "understanding": "用户提到\"这周末带爸妈去郊区玩\"，这是未来计划陈述，当前在商场地库停车，未涉及任何座舱环境调整需求",
+  "name": "",
+  "intent": "none",
+  "relevance": 0.1,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [
+   "周末郊区游计划（导航规划、行程管理）"
+  ],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "F10",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "真安静啊",
+  "context": "",
+  "driving": false,
+  "latency": 5.02,
+  "ttft": 1.84,
+  "t_und": 5.02,
+  "understanding": "“真安静啊”是在感受此刻的安静，没有要求改变，反而像是在享受或确认这份独处时的宁静",
+  "name": "安静",
+  "intent": "affect",
+  "relevance": 0.4,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "停止",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "F11",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "空调是不是坏了，一点都不凉",
+  "context": "",
+  "driving": false,
+  "latency": 5.44,
+  "ttft": 1.89,
+  "t_und": 5.44,
+  "understanding": "用户说“一点都不凉”，觉得空调制冷不够，需要降温",
+  "name": "降温",
+  "intent": "vague",
+  "relevance": 0.85,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "温",
+    "primary": "主驾温度控制",
+    "value": "20℃",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "前排风量调节",
+    "value": "5挡",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "出风模式设置",
+    "value": "吹面",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "风量加大，马上凉",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "F12",
+  "cat": "weak",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "放点什么吧，还要开很久",
+  "context": "",
+  "driving": false,
+  "latency": 6.36,
+  "ttft": 1.92,
+  "t_und": 6.36,
+  "understanding": "“放点什么”想听歌，但没说具体；“还要开很久”说明是长途驾驶，需要保持专注不疲劳",
+  "name": "长途专注",
+  "intent": "vague",
+  "relevance": 0.7,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "专注",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "声",
+    "primary": "音量",
+    "value": "40%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "30%",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "陪你慢慢开",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [
+   "行驶中氛围灯亮度不超50%，未开音乐律动"
+  ],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "G01",
+  "cat": "memory",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "累死了",
+  "context": "",
+  "driving": false,
+  "latency": 6.87,
+  "ttft": 2.28,
+  "t_und": 6.87,
+  "understanding": "“累死了”是下班后的疲惫表达，20分钟到家路上需要放松但不打扰",
+  "name": "下班路",
+  "intent": "affect",
+  "relevance": 0.7,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "20%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩模式",
+    "value": "波浪",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩强度",
+    "value": "1挡",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "还有二十分钟到家",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "G02",
+  "cat": "memory",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "来点氛围",
+  "context": "",
+  "driving": false,
+  "latency": 9.8,
+  "ttft": 5.53,
+  "t_und": 9.8,
+  "understanding": "停车中和小雨在一起，要“氛围”，档案里有“你们的歌”且音乐律动被关掉过",
+  "name": "二人氛围",
+  "intent": "vague",
+  "relevance": 0.85,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "浪漫",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "40%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "气",
+    "primary": "香氛开关",
+    "value": "开启",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "G03",
+  "cat": "memory",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "我不喜欢开窗，风太大",
+  "context": "",
+  "driving": false,
+  "latency": 7.14,
+  "ttft": 2.99,
+  "t_und": 7.14,
+  "understanding": "用户明确表达“不喜欢开窗”，原因是“风太大”，属于对车窗通风方式的负面偏好",
+  "name": "",
+  "intent": "none",
+  "relevance": 0.3,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [
+   {
+    "type": "dislike",
+    "content": "不喜欢开窗，觉得风太大",
+    "confidence": 0.95
+   }
+  ],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "G04",
+  "cat": "memory",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "以后别放这首",
+  "context": "",
+  "driving": false,
+  "latency": 4.5,
+  "ttft": 1.48,
+  "t_und": 4.5,
+  "understanding": "用户明确拒绝当前播放的这首歌，要求以后不再播放",
+  "name": "",
+  "intent": "none",
+  "relevance": 0.3,
+  "conditions": [],
+  "actions": [],
+  "say": "记住了",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [
+   {
+    "type": "dislike",
+    "content": "用户不喜欢当前播放的这首歌",
+    "confidence": 0.95
+   }
+  ],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "G05",
+  "cat": "memory",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "我家在滨江那边",
+  "context": "",
+  "driving": false,
+  "latency": 6.13,
+  "ttft": 3.29,
+  "t_und": 6.13,
+  "understanding": "用户在陈述一个地点事实\"我家在滨江那边\"，未要求任何环境布置",
+  "name": "",
+  "intent": "none",
+  "relevance": 0.1,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [
+   {
+    "type": "place",
+    "content": "用户家住在滨江",
+    "confidence": 0.85
+   }
+  ],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "G06",
+  "cat": "memory",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "累死了",
+  "context": "",
+  "driving": false,
+  "latency": 7.45,
+  "ttft": 2.26,
+  "t_und": 7.45,
+  "understanding": "“累死了”是疲惫情绪表达，但记忆显示上周 2 次拒绝过到家前放松场景，同类场景应少做或不做",
+  "name": "到家前",
+  "intent": "affect",
+  "relevance": 0.7,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "20%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩模式",
+    "value": "波浪",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩强度",
+    "value": "1挡",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "快到了，不说话",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": false,
+  "fail_reason": "动作过多: 3 > 1; relevance 0.7 不在 [0, 0.6]; alt0 意图 affect 不在 ['none']; alt1 出现禁止动作 主驾座椅按摩模式=波浪"
+ },
+ {
+  "id": "G07",
+  "cat": "memory",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "老样子",
+  "context": "",
+  "driving": false,
+  "latency": 5.96,
+  "ttft": 1.72,
+  "t_und": 5.96,
+  "understanding": "用户说\"老样子\"，结合记忆里的偏好：上车后暖光30%、香氛类型1、24℃，需要一键还原这个习惯",
+  "name": "老样子",
+  "intent": "vague",
+  "relevance": 0.9,
+  "conditions": [],
+  "actions": [
+   {
+    "element": "光",
+    "primary": "氛围灯开关",
+    "value": "开启",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "30%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "气",
+    "primary": "香氛开关",
+    "value": "开启",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "气",
+    "primary": "香氛类型",
+    "value": "类型1",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾温度控制",
+    "value": "24℃",
+    "dropped": true,
+    "reason": "超过 4 个动作，截断"
+   }
+  ],
+  "say": "都按你喜欢的调好了",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": false,
+  "fail_reason": "动作过多: 5 > 4"
+ },
+ {
+  "id": "H01",
+  "cat": "observe",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "（无，来自观察入口）",
+  "context": "",
+  "driving": false,
+  "latency": 5.46,
+  "ttft": 1.4,
+  "t_und": 5.46,
+  "understanding": "工作日晚上到家后总是把灯调到 30% 放轻音乐，是一个固定的到家习惯",
+  "name": "到家",
+  "intent": "observation",
+  "relevance": 0.9,
+  "conditions": [
+   {
+    "primary": "星期类型",
+    "op": "==",
+    "value": "工作日"
+   },
+   {
+    "primary": "时段",
+    "op": "==",
+    "value": "夜晚"
+   },
+   {
+    "primary": "地点",
+    "op": "==",
+    "value": "家"
+   }
+  ],
+  "actions": [
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "30%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "放松",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "过去一周有 5 天你都这样",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "H02",
+  "cat": "observe",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "（无，来自观察入口）",
+  "context": "",
+  "driving": false,
+  "latency": 6.98,
+  "ttft": 1.52,
+  "t_und": 6.98,
+  "understanding": "工作日清晨低温出发时总是打开主驾座椅加热2挡、方向盘加热并播放专注音乐，是一个固定的通勤启动习惯",
+  "name": "冷晨通勤",
+  "intent": "observation",
+  "relevance": 0.9,
+  "conditions": [
+   {
+    "primary": "星期类型",
+    "op": "==",
+    "value": "工作日"
+   },
+   {
+    "primary": "时段",
+    "op": "==",
+    "value": "清晨"
+   },
+   {
+    "primary": "天气",
+    "op": "==",
+    "value": "低温"
+   },
+   {
+    "primary": "行程事件",
+    "op": "==",
+    "value": "出发"
+   }
+  ],
+  "actions": [
+   {
+    "element": "温",
+    "primary": "主驾座椅加热",
+    "value": "2挡",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "方向盘加热",
+    "value": "开启",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "专注",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "过去一周有 4 天你都这样",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "H03",
+  "cat": "observe",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "（无，来自观察入口）",
+  "context": "",
+  "driving": false,
+  "latency": 6.03,
+  "ttft": 1.56,
+  "t_und": 6.03,
+  "understanding": "下午在学校停车等人时，总是把氛围灯调到20%、放轻音乐、开波浪按摩，是一个固定的等人习惯",
+  "name": "校门口等人",
+  "intent": "observation",
+  "relevance": 0.9,
+  "conditions": [
+   {
+    "primary": "行程事件",
+    "op": "==",
+    "value": "停车等人"
+   },
+   {
+    "primary": "地点",
+    "op": "==",
+    "value": "学校"
+   },
+   {
+    "primary": "时段",
+    "op": "==",
+    "value": "下午"
+   }
+  ],
+  "actions": [
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "20%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "放松",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾座椅按摩模式",
+    "value": "波浪",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "过去两周有6天你都这样",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "H04",
+  "cat": "observe",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "（无，来自观察入口）",
+  "context": "",
+  "driving": false,
+  "latency": 7.05,
+  "ttft": 2.64,
+  "t_und": 7.05,
+  "understanding": "深夜到家后总是把音量降到 20% 并关掉低速行人警报音，是一个固定的深夜归家静音习惯",
+  "name": "深夜归家",
+  "intent": "observation",
+  "relevance": 0.9,
+  "conditions": [
+   {
+    "primary": "地点",
+    "op": "==",
+    "value": "家"
+   },
+   {
+    "primary": "时段",
+    "op": "==",
+    "value": "深夜"
+   }
+  ],
+  "actions": [
+   {
+    "element": "声",
+    "primary": "音量",
+    "value": "20%",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "过去一周有 5 天你都这样",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [
+   "低速行人警报音=关闭"
+  ],
+  "warnings": [
+   "低速行人警报音不允许关闭"
+  ],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "H05",
+  "cat": "observe",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "（无，来自观察入口）",
+  "context": "",
+  "driving": false,
+  "latency": 8.13,
+  "ttft": 3.73,
+  "t_und": 8.13,
+  "understanding": "休息日上午出发前总是打开主驾车窗到 30% 并切外循环，是一个固定的出发习惯，过去一个月 4 个周末都如此",
+  "name": "周末出发",
+  "intent": "observation",
+  "relevance": 0.9,
+  "conditions": [
+   {
+    "primary": "星期类型",
+    "op": "==",
+    "value": "休息日"
+   },
+   {
+    "primary": "时段",
+    "op": "==",
+    "value": "上午"
+   },
+   {
+    "primary": "行程事件",
+    "op": "==",
+    "value": "出发"
+   }
+  ],
+  "actions": [
+   {
+    "element": "气",
+    "primary": "主驾车窗",
+    "value": "30%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "气",
+    "primary": "内外循环设置",
+    "value": "外循环",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "过去一个月 4 个周末你都这样",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "H06",
+  "cat": "observe",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "（无，来自观察入口）",
+  "context": "",
+  "driving": false,
+  "latency": 11.43,
+  "ttft": 6.66,
+  "t_und": 11.43,
+  "understanding": "雨夜到家时总是把氛围灯调到40%、播放雨天主题音乐、温度设为24℃，是一个固定的雨夜归家习惯",
+  "name": "雨夜归家",
+  "intent": "observation",
+  "relevance": 0.9,
+  "conditions": [
+   {
+    "primary": "天气",
+    "op": "==",
+    "value": "雨"
+   },
+   {
+    "primary": "时段",
+    "op": "==",
+    "value": "夜晚"
+   },
+   {
+    "primary": "行程事件",
+    "op": "==",
+    "value": "到达"
+   },
+   {
+    "primary": "地点",
+    "op": "==",
+    "value": "家"
+   }
+  ],
+  "actions": [
+   {
+    "element": "光",
+    "primary": "氛围灯亮度",
+    "value": "40%",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "声",
+    "primary": "音乐播放",
+    "value": "雨天",
+    "dropped": false,
+    "reason": ""
+   },
+   {
+    "element": "温",
+    "primary": "主驾温度控制",
+    "value": "24℃",
+    "dropped": false,
+    "reason": ""
+   }
+  ],
+  "say": "过去一个月有3次雨夜你都这样",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": null,
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "I01",
+  "cat": "clarify",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "把那个打开",
+  "context": "",
+  "driving": false,
+  "latency": 10.75,
+  "ttft": 2.04,
+  "t_und": 10.75,
+  "understanding": "用户说\"把那个打开\"，未指明具体要打开什么",
+  "name": "",
+  "intent": "clarify",
+  "relevance": 0.3,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": "您想打开哪个？灯、空调还是车窗？",
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "I02",
+  "cat": "clarify",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "温度调高",
+  "context": "",
+  "driving": false,
+  "latency": 4.39,
+  "ttft": 1.52,
+  "t_und": 4.39,
+  "understanding": "“调高”温度，未说幅度，当前无车内温度状态，无法确定调多少",
+  "name": "",
+  "intent": "clarify",
+  "relevance": 0.85,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": "调到多少度？",
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "I03",
+  "cat": "clarify",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "后排开一下",
+  "context": "",
+  "driving": false,
+  "latency": 4.82,
+  "ttft": 1.78,
+  "t_und": 4.82,
+  "understanding": "“后排开一下”没说明是车窗、空调还是座椅功能，关键信息缺失",
+  "name": "",
+  "intent": "clarify",
+  "relevance": 0.6,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": "后排的什么？车窗、空调还是座椅？",
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "I04",
+  "cat": "clarify",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "有人的时候开加热",
+  "context": "",
+  "driving": false,
+  "latency": 6.82,
+  "ttft": 1.53,
+  "t_und": 6.82,
+  "understanding": "“有人的时候”触发座椅加热，但“人”指谁、哪个座位不明确",
+  "name": "",
+  "intent": "clarify",
+  "relevance": 0.85,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": "哪个座位有人时开加热？",
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "I05",
+  "cat": "clarify",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "到家以后帮我准备一下",
+  "context": "",
+  "driving": false,
+  "latency": 7.39,
+  "ttft": 4.03,
+  "t_und": 7.39,
+  "understanding": "用户说\"到家以后帮我准备一下\"，但\"准备一下\"具体指什么不明确，缺少舒适目标或动作",
+  "name": "",
+  "intent": "clarify",
+  "relevance": 0.4,
+  "conditions": [
+   {
+    "primary": "地点",
+    "op": "==",
+    "value": "家"
+   }
+  ],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [],
+  "warnings": [],
+  "clarify": "到家后想准备什么，休息、吃饭还是有客人来？",
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ },
+ {
+  "id": "I06",
+  "cat": "clarify",
+  "lang": "zh",
+  "model": "kimi-k2.7",
+  "prompt": "p3_grammar.generated.md",
+  "input": "座椅调一下",
+  "context": "",
+  "driving": false,
+  "latency": 5.47,
+  "ttft": 1.49,
+  "t_und": 5.47,
+  "understanding": "用户说“座椅调一下”，但没说调哪个座椅、调什么功能（加热/通风/按摩/位置），信息缺失",
+  "name": "",
+  "intent": "clarify",
+  "relevance": 0.8,
+  "conditions": [],
+  "actions": [],
+  "say": "",
+  "offer": {
+   "type": "none",
+   "target": ""
+  },
+  "memory": [],
+  "unsupported": [
+   "座椅位置调节"
+  ],
+  "warnings": [],
+  "clarify": "调哪个座椅，加热、通风还是按摩？",
+  "validator_ok": true,
+  "pass": true,
+  "fail_reason": ""
+ }
+]

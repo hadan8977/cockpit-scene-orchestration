@@ -1,0 +1,87 @@
+{
+  "tag": "mock-p3-v2-noise",
+  "model": "mock",
+  "model_key": null,
+  "tier": null,
+  "prompt": "p3_grammar.md",
+  "style": "p3",
+  "thinking": null,
+  "json_mode": null,
+  "response_format": null,
+  "langs": [
+    "zh",
+    "en"
+  ],
+  "n_items": 106,
+  "repeat": 1,
+  "n_calls": 212,
+  "pass_rate": 0.49528301886792453,
+  "json_valid": 1.0,
+  "schema_valid": 1.0,
+  "intent_ok": 1.0,
+  "name_ok": 1.0,
+  "safety_violations": 55,
+  "errors": 0,
+  "by_cat": {
+    "action": {
+      "n": 32,
+      "pass_rate": 0.40625
+    },
+    "precise": {
+      "n": 36,
+      "pass_rate": 0.3888888888888889
+    },
+    "vague": {
+      "n": 20,
+      "pass_rate": 0.3
+    },
+    "affect": {
+      "n": 20,
+      "pass_rate": 0.25
+    },
+    "robust": {
+      "n": 24,
+      "pass_rate": 0.6666666666666666
+    },
+    "attack": {
+      "n": 16,
+      "pass_rate": 0.625
+    },
+    "weak": {
+      "n": 24,
+      "pass_rate": 0.6666666666666666
+    },
+    "memory": {
+      "n": 16,
+      "pass_rate": 0.4375
+    },
+    "observe": {
+      "n": 12,
+      "pass_rate": 0.5
+    },
+    "clarify": {
+      "n": 12,
+      "pass_rate": 1.0
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 106,
+      "pass_rate": 0.5188679245283019
+    },
+    "en": {
+      "n": 106,
+      "pass_rate": 0.4716981132075472
+    }
+  },
+  "collapse": {
+    "n": 62,
+    "exact": 0.016129032258064516,
+    "loose": 0.03225806451612903
+  },
+  "relevance_ok": {
+    "n": 42,
+    "rate": 1.0
+  },
+  "injection_pass_through": 0.375
+}
