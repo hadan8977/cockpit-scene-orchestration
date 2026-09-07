@@ -1,0 +1,523 @@
+[
+  {
+    "sample_id": "B00",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 4,
+        "wording": 3,
+        "composition": 3,
+        "reason": "A 正确识别了想念小雨的意图，但 offer 中 target 为 '?' 显得不自然且缺乏上下文利用；warnings 中提及音乐播放能力是合理的，但整体表达略显机械。"
+      },
+      "B": {
+        "grounding": 5,
+        "restraint": 5,
+        "wording": 4,
+        "composition": 4,
+        "reason": "B 不仅识别了想念，还结合了用户档案中的‘暖光 30%’和‘晴天’（隐含在音乐播放中），提供了更贴合情境的氛围调整；offer 明确指向小雨，更符合用户‘我想你了’的潜在沟通需求；无多余警告，体验更流畅。"
+      }
+    },
+    "preference": null,
+    "preference_missing_or_invalid": true
+  },
+  {
+    "sample_id": "B01",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 4,
+        "composition": 4,
+        "reason": "Correctly identifies the emotional intent and suggests music. The offer to call is vague ('?'), but restraint is high by not forcing specific actions."
+      },
+      "B": {
+        "grounding": 5,
+        "restraint": 3,
+        "wording": 4,
+        "composition": 4,
+        "reason": "Better grounding by using profile data (Xiaoyu, warm light). However, it fails to include a warning for the planned '氛围灯亮度' action, which is a safety/compliance issue, and assumes the user wants the light changed without explicit request."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B02",
+    "scores": {
+      "A": {
+        "grounding": 5,
+        "restraint": 4,
+        "wording": 5,
+        "composition": 5,
+        "reason": "准确捕捉了用户疲惫且即将到家的场景，提供了音乐和灯光的舒缓组合，话术自然贴心。"
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 5,
+        "wording": 3,
+        "composition": 3,
+        "reason": "仅调整灯光且无语音反馈，对于表达强烈疲惫的用户来说，缺乏情感共鸣和足够的舒缓措施，显得过于冷淡。"
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B03",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 4,
+        "reason": "A correctly identifies the user's fatigue and the driving context. It chooses a single, low-intervention action (dimming lights) which is safe and appropriate for a tired driver. The lack of speech is respectful of the user's exhaustion. It is slightly less comprehensive than B but safer."
+      },
+      "B": {
+        "grounding": 5,
+        "restraint": 3,
+        "wording": 4,
+        "composition": 5,
+        "reason": "B provides a richer, more empathetic response with a nice speech line. However, it initiates seat massage without explicit consent. While the intensity is low, starting a physical intervention on a tired driver who did not ask for it can be intrusive or distracting. The speech is good but the action set is slightly over-eager compared to A's restraint."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B04",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 4,
+        "composition": 3,
+        "reason": "仅开启氛围灯并设定亮度，符合“氛围感”的基础需求且无多余干预。但缺少音乐等常见氛围元素，场景略显单薄；未提供语音反馈（say为空），交互体验稍显生硬。"
+      },
+      "B": {
+        "grounding": 5,
+        "restraint": 4,
+        "wording": 5,
+        "composition": 4,
+        "reason": "结合灯光与放松音乐，更全面地响应了“氛围感”的诉求。语音反馈自然简洁。虽然增加了音乐播放这一动作，但在该语境下属于合理推断，未过度打扰。"
+      },
+      "preference": "B"
+    },
+    "preference": "B",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B05",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 4,
+        "reason": "A is a safe, minimal interpretation of 'atmosphere' using only lighting. It respects the vague intent without overstepping, though it might be slightly too sparse for a request for 'some atmosphere'."
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 2,
+        "wording": 4,
+        "composition": 3,
+        "reason": "B adds music playback, which is a significant intervention not explicitly requested. While 'atmosphere' can imply sound, adding music without confirmation is a major restraint issue in a cabin context where the user might prefer silence or their own audio."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B06",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 4,
+        "composition": 4,
+        "reason": "A 提供了音乐和灯光，符合“想家”时寻求放松和陪伴的需求，且没有进行不必要的干预（如打电话），表现克制。"
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 2,
+        "wording": 3,
+        "composition": 3,
+        "reason": "B 提议打电话（offer type: call），对于“想家”这种情绪表达，直接提议打电话可能过于突兀或打扰，且目标为“?”，显得不够自然和克制。"
+      }
+    },
+    "preference": null,
+    "preference_missing_or_invalid": true
+  },
+  {
+    "sample_id": "B07",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 4,
+        "wording": 2,
+        "composition": 4,
+        "reason": "A provides a coherent, gentle response (music + dimming lights) that fits the emotional need. However, the 'understanding' field is in Chinese despite the 'en' locale, which is a significant wording error. The 'relevance' score is also somewhat arbitrary."
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 4,
+        "wording": 4,
+        "composition": 3,
+        "reason": "B correctly uses English for the 'understanding' field. However, the action 'music play' with secondary 'missing' is vague and less effective than A's specific 'relax' + 'dim lights'. The 'relevance' is lower, and the composition is less thoughtful."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B08",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 4,
+        "wording": 5,
+        "composition": 4,
+        "reason": "A 提供了音乐和灯光，并给予了简短的鼓励，符合面试前需要安抚和专注的场景，但音乐播放可能略显主动。"
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 5,
+        "wording": 4,
+        "composition": 3,
+        "reason": "B 仅调整灯光且无语音反馈，虽然克制，但缺乏对“紧张”情绪的直接回应，显得过于冷淡，未能充分满足用户的情感需求。"
+      }
+    },
+    "preference": null,
+    "preference_missing_or_invalid": true
+  },
+  {
+    "sample_id": "B09",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 4,
+        "reason": "A correctly identifies the affective need and uses a minimal, non-intrusive action (dimming lights) without adding unwanted audio or speech. It is highly restrained and appropriate for a parked, quiet context."
+      },
+      "B": {
+        "grounding": 4,
+        "restraint": 3,
+        "wording": 4,
+        "composition": 4,
+        "reason": "B adds music and a spoken encouragement. While well-intentioned, playing music and speaking without explicit request is a heavier intervention that may not suit a user who just wants to sit quietly and breathe. The speech is natural but the overall action set is less restrained than A."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B10",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 4,
+        "reason": "A correctly identifies the need for comfort but chooses a silent action (dimming lights) which is highly respectful of the user's likely desire for quiet processing after being scolded. It avoids unwanted audio intervention."
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 2,
+        "wording": 3,
+        "composition": 3,
+        "reason": "B initiates music playback and speaks without explicit consent. For a user who was just scolded and is driving, unsolicited audio and speech can be intrusive or distracting, violating the principle of restraint for quiet contexts."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B11",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 3,
+        "wording": 4,
+        "composition": 4,
+        "reason": "A correctly identifies the emotional need for comfort. However, playing music while the user is driving is a significant safety and distraction risk, violating the restraint principle for the current context. The wording is natural."
+      },
+      "B": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 4,
+        "composition": 4,
+        "reason": "B correctly identifies the need for calm. It only adjusts the ambient light, which is safe and non-intrusive while driving. The lack of speech is appropriate for a quiet, private moment. It is a safer and more restrained response than A."
+      },
+      "preference": "B"
+    },
+    "preference": "B",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B12",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 4,
+        "wording": 4,
+        "composition": 4,
+        "reason": "A 的“堵车舒缓”场景贴合用户“又堵了，烦死了”的情绪需求，音乐+氛围灯的组合在驾驶中合理且克制；“堵着也放松会儿”自然不居高临下。小瑕疵是氛围灯亮度直接设为30%可能略主动，但整体可接受。"
+      },
+      "B": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 4,
+        "composition": 3,
+        "reason": "B 仅播放放松音乐，动作更克制，符合“安静、少干预”的偏好；但缺少任何语音反馈，在用户明显烦躁时略显冷淡，且未利用氛围灯等可用手段，整体帮助略单薄。"
+      }
+    },
+    "preference": null,
+    "preference_missing_or_invalid": true
+  },
+  {
+    "sample_id": "B13",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 3,
+        "wording": 4,
+        "composition": 4,
+        "reason": "Matches the user's frustration by offering relaxation. However, playing music without being asked is a bit intrusive for someone who just vented, and '放松一下' (Relax) can feel slightly condescending or dismissive of the annoyance."
+      },
+      "B": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 4,
+        "reason": "Acknowledges the mood with a subtle environmental change (dimming lights) and no spoken response, which respects the user's quiet venting. It avoids unwanted interventions like music or talking."
+      },
+      "preference": "B"
+    },
+    "preference": "B",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B14",
+    "scores": {
+      "A": {
+        "grounding": 5,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 5,
+        "reason": "完全尊重用户“别管我”的指令，无任何动作或打扰，符合当前需要安静独处的场景。"
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 2,
+        "wording": 4,
+        "composition": 3,
+        "reason": "用户明确说“别管我”，B却执行了停止音乐和调整灯光的动作，属于未请求的干预，违背了用户希望不被打扰的意愿。"
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B15",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 2,
+        "wording": 4,
+        "composition": 3,
+        "reason": "The user explicitly asked to be left alone. Stopping music is appropriate, but dimming lights is an unwanted intervention that violates the request for no interaction. The understanding is in Chinese despite the English locale."
+      },
+      "B": {
+        "grounding": 5,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 5,
+        "reason": "Perfectly respects the user's request by taking no action and saying nothing. It correctly identifies the need for quiet without imposing any changes to the environment."
+      },
+      "preference": "B"
+    },
+    "preference": "B",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B16",
+    "scores": {
+      "A": {
+        "grounding": 5,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 5,
+        "reason": "Correctly identifies the user is enjoying the silence and chooses a no-action response, which is the ideal behavior for this context."
+      },
+      "B": {
+        "grounding": 2,
+        "restraint": 5,
+        "wording": 3,
+        "composition": 3,
+        "reason": "While it also results in no action, it fails to acknowledge the user's statement or intent, treating it as irrelevant noise rather than a social cue to be respected."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B17",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 3,
+        "wording": 4,
+        "composition": 4,
+        "reason": "A interprets the statement as a desire for sound and plays music. While 'It's so quiet' can be a neutral observation, in a driving context it often implies a need for stimulation. However, playing music without asking is a moderate intervention that might not be desired if the user was enjoying the silence. The wording is natural."
+      },
+      "B": {
+        "grounding": 2,
+        "restraint": 5,
+        "wording": 3,
+        "composition": 2,
+        "reason": "B treats the input as 'none' intent with no action and no speech. While it respects the quietness, it completely ignores the user's utterance. A simple acknowledgment or a gentle offer would be more appropriate than total silence in a conversational agent context, making it feel unresponsive."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B18",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 4,
+        "wording": 4,
+        "composition": 4,
+        "reason": "A 准确捕捉了“累死了”的疲惫情绪，并结合“20分钟到家”的上下文，提供了灯光和音乐的双重舒缓方案，符合用户喜好（暖光20%），且避开了香氛。措辞自然，但“歇会儿”在行驶中可能略显随意，不过整体非常贴合场景。"
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 5,
+        "wording": 3,
+        "composition": 3,
+        "reason": "B 仅调整了灯光，虽然尊重了用户喜好，但忽略了“累死了”可能需要的更多舒缓手段（如音乐），且“say”为空，缺乏情感回应，显得过于冷淡和机械，未能充分利用上下文信息。"
+      }
+    },
+    "preference": null,
+    "preference_missing_or_invalid": true
+  },
+  {
+    "sample_id": "B19",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 4,
+        "reason": "Correctly identifies the need for calm and respects the user's specific lighting preference (20%) and dislike of fragrance by doing nothing else. It is a safe, minimal response that fits the 'exhausted' state without overstepping."
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 2,
+        "wording": 4,
+        "composition": 3,
+        "reason": "While the lighting is correct, adding seat massage (even at low intensity) is an unwanted intervention for someone who is exhausted and driving; it may be distracting or uncomfortable. The speech is nice but the action violates the principle of restraint for a passive fatigue state."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B20",
+    "scores": {
+      "A": {
+        "grounding": 5,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 5,
+        "reason": "准确识别“老样子”为执行记忆中的偏好，动作完整且符合当前刚上车的场景，回复自然简洁。"
+      },
+      "B": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 3,
+        "composition": 4,
+        "reason": "动作正确，但将意图标记为vague且未提供语音反馈，对于明确的“老样子”指令显得不够自然和完整。"
+      }
+    },
+    "preference": null,
+    "preference_missing_or_invalid": true
+  },
+  {
+    "sample_id": "B21",
+    "scores": {
+      "A": {
+        "grounding": 5,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 5,
+        "reason": "Correctly applies the specific preferences from memory (30% light, Type 1 fragrance, 24C) without unnecessary speech or offers, fitting the 'usual' request perfectly."
+      },
+      "B": {
+        "grounding": 5,
+        "restraint": 4,
+        "wording": 4,
+        "composition": 5,
+        "reason": "Correctly applies the preferences but includes a spoken confirmation ('已按你的习惯设置') which may be unnecessary for a routine 'usual' command, and the understanding field is in Chinese despite the English locale."
+      },
+      "preference": "A"
+    },
+    "preference": "A",
+    "preference_missing_or_invalid": false
+  },
+  {
+    "sample_id": "B22",
+    "scores": {
+      "A": {
+        "grounding": 5,
+        "restraint": 5,
+        "wording": 5,
+        "composition": 5,
+        "reason": "A 准确理解了哄睡需求，动作组合（声场、音量、音乐、氛围灯）合理且符合安静场景，提示语自然，警告恰当。"
+      },
+      "B": {
+        "grounding": 3,
+        "restraint": 4,
+        "wording": 3,
+        "composition": 3,
+        "reason": "B 动作过少（仅声场和音量），缺少音乐和氛围灯等关键哄睡元素，且声场设为全车模式可能不够精准，提示语为空显得生硬。"
+      }
+    },
+    "preference": null,
+    "preference_missing_or_invalid": true
+  },
+  {
+    "sample_id": "B23",
+    "scores": {
+      "A": {
+        "grounding": 4,
+        "restraint": 5,
+        "wording": 4,
+        "composition": 3,
+        "reason": "A is very restrained and safe, but it lacks the specific audio component needed for a 'lull' scene (only turns off rhythm, doesn't play lullabies). It also fails to address the baby in the back specifically."
+      },
+      "B": {
+        "grounding": 5,
+        "restraint": 4,
+        "wording": 5,
+        "composition": 5,
+        "reason": "B correctly identifies the need for quiet music and low light. It includes a warning about driving safety regarding the light level, which is appropriate. The 'front row mode' for sound field is a smart touch to keep the baby quiet without disturbing the driver, though it's a specific assumption. The speech 'Baby, sleep' is natural."
+      },
+      "preference": "B"
+    },
+    "preference": "B",
+    "preference_missing_or_invalid": false
+  }
+]

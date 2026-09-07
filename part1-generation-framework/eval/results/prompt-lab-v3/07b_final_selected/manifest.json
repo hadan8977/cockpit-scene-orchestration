@@ -1,0 +1,17 @@
+{
+  "kind": "derived_selection",
+  "new_api_calls": 0,
+  "independent_post_selection_regression": false,
+  "source_run": "05e_p13_language",
+  "source_raw_sha256": "2b54b8cdfb49daf9605af4cf558e3fd6165e55420fe9a0e1d1439beef8e6d6b8",
+  "source_manifest_sha256": "72a1c11dc939527d37467955cfb3e7da3fffd92c376a8ed67e4c571916c4cc19",
+  "strategy": "unified_zh",
+  "expected": 804,
+  "repeat": 3,
+  "source_prompt_sha256": {
+    "p13_zh": "57488940054541ba99365f4e9521391783b42902d468ef68699ae171804d8c12",
+    "p13_en": "1168368507b98f20ac442f668e53c788124dac2dbf9e28ba94980904775fb2b2"
+  },
+  "source_selected_rows_sha256": "a83fdd718a425495665952e9aa3bd8e789c62a6a9b4b3ea262323e41c9027fca",
+  "note": "Only metadata is added; input, raw_text, timings, usage and scores are copied verbatim. Do not count these rows as additional calls."
+}

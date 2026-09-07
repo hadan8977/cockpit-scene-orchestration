@@ -1,0 +1,61 @@
+{
+  "status": "verified",
+  "archives": [
+    {
+      "run": "01_screen",
+      "rows": 378,
+      "sha256": "0975f6c9321a19e918974f744533fa1dab75075aaa664ba37fc0ae1768a293cf"
+    },
+    {
+      "run": "02_p7",
+      "rows": 252,
+      "sha256": "45155419acc7e730e722448378bf296ed102fda92ba0fdf206b3152d8e6069c5"
+    },
+    {
+      "run": "03_p8",
+      "rows": 252,
+      "sha256": "5fdec7f3c165e8ffc2861a3219f2cce5aa18994c12f07e64495132e5d2a69c9b"
+    },
+    {
+      "run": "04_protocol",
+      "rows": 64,
+      "sha256": "48f7aab33776dd525c17e066d817ded488b94a3306b4e4dbe2a8eb575cf168b0"
+    },
+    {
+      "run": "05_p9_language",
+      "rows": 252,
+      "sha256": "601ad784495de100769998b062e22dad0c6d8ad46623117fdd119c20fcd5338d"
+    },
+    {
+      "run": "05b_p10_language",
+      "rows": 756,
+      "sha256": "f2b6bf393d5c1790efa6b29ab7715929f9364675549b1bdc1b647741278d2ab8"
+    },
+    {
+      "run": "05c_p11_language",
+      "rows": 756,
+      "sha256": "96a3389302f5b8b7040ad7c826228f94bc7701847f2409766f549907902db840"
+    },
+    {
+      "run": "05d_p12_language",
+      "rows": 536,
+      "sha256": "da1c2edfdd89c14debb2ba3913f9435178af3d88e047b29001a8d4c2769326df"
+    },
+    {
+      "run": "06_ablation",
+      "rows": 384,
+      "sha256": "b5a83960602016db6d0dbc89900c255de2ae2fdefdb6f9093418523763c47a04"
+    },
+    {
+      "run": "06b_ablation",
+      "rows": 384,
+      "sha256": "bae8028f5bc2899795ecc76c7328cd677876400605d3486735a44bfd25fe384f"
+    },
+    {
+      "run": "07_final",
+      "rows": 804,
+      "sha256": "a679a28585eee35538b9b6395a82c77ee3560d26e1153602814b80b42bcbd91d"
+    }
+  ],
+  "note": "Checks gzip/raw hashes, JSON parse, row counts and exact derived response provenance. No model requests."
+}

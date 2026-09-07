@@ -1,0 +1,32 @@
+{
+  "model": "qwen/qwen3.8-27b",
+  "human_review": false,
+  "position_randomized": true,
+  "pairs_completed": 24,
+  "requests": 24,
+  "preference": {
+    "p3": 6,
+    "final": 11,
+    "tie": 0,
+    "missing": 7
+  },
+  "preference_available_pairs": 17,
+  "arms": {
+    "p3": {
+      "grounding": 4.25,
+      "restraint": 3.5416666666666665,
+      "wording": 4.166666666666667,
+      "composition": 4.083333333333333
+    },
+    "final": {
+      "grounding": 3.7083333333333335,
+      "restraint": 4.75,
+      "wording": 4.041666666666667,
+      "composition": 3.5833333333333335
+    }
+  },
+  "known_cost_usd": 0.013446896,
+  "unknown_cost_calls": 0,
+  "invalid_dimensions": [],
+  "note": "Post-response parser amendment: valid original 1..5 integer dimension ratings retained even when preference is absent. Missing preferences are missing, never ties or inferred from scores. No model reruns or rubric changes."
+}

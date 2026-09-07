@@ -1,9 +1,9 @@
 {
-  "attempts": 4294,
+  "attempts": 6442,
   "initial_balance_cny": 13.23,
-  "latest_observed_balance_cny": 9.79,
+  "latest_observed_balance_cny": 17.72,
   "reserve_cny": 3,
-  "max_attempts": 7000,
+  "max_attempts": 7600,
   "note": "Account balance change may include other sessions; unknown provider costs are not zero.",
   "by_run": {
     "01_screen": 378,
@@ -13,9 +13,11 @@
     "05_p9_language": 252,
     "05b_p10_language": 756,
     "05c_p11_language": 756,
-    "05d_p12_language": 12,
+    "05d_p12_language": 537,
+    "05e_p13_language": 1608,
     "06_ablation": 384,
     "06b_ablation": 384,
+    "06c_ablation": 15,
     "07_final": 804
   }
 }

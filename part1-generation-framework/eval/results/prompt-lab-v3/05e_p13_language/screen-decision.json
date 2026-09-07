@@ -1,0 +1,6 @@
+{
+  "time_utc": "2026-09-07T11:55:16.733Z",
+  "completed": 536,
+  "decision": "continue_remaining_1072_unchanged",
+  "reason": "ZH usable 91.79%, schema 99.25%, safety 0, p95 1.882s; EN usable 91.04%, schema 98.88%, safety 0, p95 1.760s. Continue exact frozen study for 3-repetition stability and paired language choice. No further prompt tuning; untouched holdout follows selection."
+}

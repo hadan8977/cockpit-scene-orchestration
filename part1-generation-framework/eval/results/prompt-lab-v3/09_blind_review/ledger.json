@@ -1,0 +1,170 @@
+[
+  {
+    "sample_id": "B00",
+    "reserved_usd": 0.00534954,
+    "cost_usd": null,
+    "status": "completed",
+    "error": ""
+  },
+  {
+    "sample_id": "B01",
+    "reserved_usd": 0.00535794,
+    "cost_usd": 0.0006051,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B02",
+    "reserved_usd": 0.005316359999999999,
+    "cost_usd": 0.000431,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B03",
+    "reserved_usd": 0.00535668,
+    "cost_usd": 0.0007461,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B04",
+    "reserved_usd": 0.00529956,
+    "cost_usd": 0.0008589,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B05",
+    "reserved_usd": 0.005337359999999999,
+    "cost_usd": 0.00056404,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B06",
+    "reserved_usd": 0.00527772,
+    "cost_usd": null,
+    "status": "completed",
+    "error": ""
+  },
+  {
+    "sample_id": "B07",
+    "reserved_usd": 0.005276879999999999,
+    "cost_usd": 0.0007414,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B08",
+    "reserved_usd": 0.00530586,
+    "cost_usd": null,
+    "status": "completed",
+    "error": ""
+  },
+  {
+    "sample_id": "B09",
+    "reserved_usd": 0.00530628,
+    "cost_usd": 0.000599,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B10",
+    "reserved_usd": 0.0053041799999999995,
+    "cost_usd": 0.00049595,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B11",
+    "reserved_usd": 0.0053075399999999995,
+    "cost_usd": 0.00047125,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B12",
+    "reserved_usd": 0.00532728,
+    "cost_usd": null,
+    "status": "completed",
+    "error": ""
+  },
+  {
+    "sample_id": "B13",
+    "reserved_usd": 0.0053243399999999995,
+    "cost_usd": 0.00085356,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B14",
+    "reserved_usd": 0.0052647,
+    "cost_usd": 0.00041355,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B15",
+    "reserved_usd": 0.0052638599999999995,
+    "cost_usd": 0.00064752,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B16",
+    "reserved_usd": 0.005199179999999999,
+    "cost_usd": 0.0004296,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B17",
+    "reserved_usd": 0.00527184,
+    "cost_usd": 0.0005923,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B18",
+    "reserved_usd": 0.0053424,
+    "cost_usd": null,
+    "status": "completed",
+    "error": ""
+  },
+  {
+    "sample_id": "B19",
+    "reserved_usd": 0.00537936,
+    "cost_usd": 0.0005092,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B20",
+    "reserved_usd": 0.0054020399999999994,
+    "cost_usd": null,
+    "status": "completed",
+    "error": ""
+  },
+  {
+    "sample_id": "B21",
+    "reserved_usd": 0.00541758,
+    "cost_usd": 0.00049335,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "sample_id": "B22",
+    "reserved_usd": 0.0054201,
+    "cost_usd": null,
+    "status": "completed",
+    "error": ""
+  },
+  {
+    "sample_id": "B23",
+    "reserved_usd": 0.0054192599999999995,
+    "cost_usd": 0.0005667,
+    "status": "completed",
+    "error": null
+  }
+]

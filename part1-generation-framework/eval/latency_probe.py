@@ -29,7 +29,7 @@ def run(env,prompt):
     cfg={"base_url":"https://api.deepseek.com","api_key":key,"model":"deepseek-v4-flash","temperature":0,"max_tokens":1000,"timeout":60,"thinking":"off","thinking_style":"deepseek","json_mode":True,"_budget_guarded":True}
     original_post=requests.post
     with campaign_lock(ROOT/"campaign.lock"),requests.Session() as session:
-        budget=Budget(ROOT/"campaign.json",key,max_attempts=7000)
+        budget=Budget(ROOT/"campaign.json",key,max_attempts=7600)
         pooled_calls=0
         for item,lang,rep,arm in jobs:
             if (item["id"],lang,rep,arm) in done: continue

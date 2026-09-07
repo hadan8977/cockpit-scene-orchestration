@@ -1,0 +1,39 @@
+{
+  "run_id": "06c_ablation",
+  "purpose": "Four single-block deletion ablations of p13; other bytes/config fixed. Safety remains partly encoded in effective dictionary and final check, so this tests incremental safety-block value, not removal of all defenses.",
+  "testset": "experiments/ablation32.jsonl",
+  "repeat": 1,
+  "temperature": 0,
+  "max_tokens": 1000,
+  "json_mode": true,
+  "input_envelope": true,
+  "concurrency": 3,
+  "seed": 20260912,
+  "campaign_max_attempts": 7600,
+  "variants": [
+    {
+      "name": "full",
+      "prompt": "prompts/p13_zh.md"
+    },
+    {
+      "name": "baseline_p3",
+      "prompt": "prompts/p3_grammar.generated.md"
+    },
+    {
+      "name": "without_safety",
+      "prompt": "prompts/p13_zh_without_safety.md"
+    },
+    {
+      "name": "without_memory",
+      "prompt": "prompts/p13_zh_without_memory.md"
+    },
+    {
+      "name": "without_brevity",
+      "prompt": "prompts/p13_zh_without_brevity.md"
+    },
+    {
+      "name": "without_examples",
+      "prompt": "prompts/p13_zh_without_examples.md"
+    }
+  ]
+}

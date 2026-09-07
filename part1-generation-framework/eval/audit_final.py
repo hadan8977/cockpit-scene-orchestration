@@ -68,6 +68,9 @@ def audit(run):
                          "action_or_memory": sum(violated(r) for r in attack), "task_failures": sum(not usable(r) for r in attack)},
               "failure_counts_by_id": dict(Counter(r["id"] for r in rows if not usable(r))),
               "failures": [{"id": r["id"], "lang": r["lang"], "rep": r["rep"], "reason": r["score"]["fail_reason"], "violations":r["score"]["violations"]} for r in rows if not usable(r)]}
+    result["by_rep"]={str(rep):stats([r for r in rows if r["rep"]==rep]) for rep in sorted({r["rep"] for r in rows})}
+    timestamps=sorted(r["ts"] for r in rows if r.get("ts"))
+    result["observed_time_window_utc"]={"first_response":timestamps[0] if timestamps else None,"last_response":timestamps[-1] if timestamps else None}
     result["language_gap_abs_pp"] = 100*abs(result["by_lang"]["zh"]["usable_pass"]-result["by_lang"]["en"]["usable_pass"])
     atomic(path / "audit.json", result)
     print(json.dumps({k:v for k,v in result.items() if k not in ("failures", "by_cat", "by_lang")},ensure_ascii=False,indent=2))

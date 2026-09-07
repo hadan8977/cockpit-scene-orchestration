@@ -32,11 +32,6 @@ def prepare(final_run):
     (OUT/"rubric.txt").write_text(RUBRIC,encoding="utf-8")
 
 def run(env):
-    if (OUT/"audited-ratings.json").exists():
-        audited=json.loads((OUT/"audited-ratings.json").read_text(encoding="utf-8"))
-        if len(audited)==24:
-            print("All 24 dimension reviews already audited; no API calls")
-            return
     vals={}
     for line in Path(env).read_text(encoding="utf-8-sig").splitlines():
         k,sep,v=line.partition("=")
@@ -72,12 +67,12 @@ def run(env):
             cost=(data.get("usage") or {}).get("cost")
             if isinstance(cost,(int,float)): event["cost_usd"]=cost
         except Exception as e:
-            result["error"]=(type(e).__name__+": "+str(e)).replace(key,"[REDACTED]")
+            result["error"]=str(e).replace(key,"[REDACTED]")
         result["latency"]=time.time()-t
         append(OUT/"judge.jsonl",result)
         event["status"]="completed";event["error"]=result["error"];atomic(ledgerp,ledger)
         print(sample["sample_id"],"OK" if result["scores"] else result["error"],flush=True)
-        if not result["scores"]:
+        if result["error"]:
             # Preserve the first failure and inspect it before spending more calls.
             break
     mapping={x["sample_id"]:x for x in json.loads((OUT/"mapping.json").read_text(encoding="utf-8"))}

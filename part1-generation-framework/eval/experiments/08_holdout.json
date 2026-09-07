@@ -9,11 +9,11 @@
   "json_mode": true,
   "input_envelope": true,
   "concurrency": 3,
-  "campaign_max_attempts": 5000,
+  "campaign_max_attempts": 7600,
   "variants": [
     {
       "name": "final",
-      "prompt": "prompts/p11_zh.md"
+      "prompt": "prompts/final_dsv4flash_p13_zh.md"
     }
   ]
 }

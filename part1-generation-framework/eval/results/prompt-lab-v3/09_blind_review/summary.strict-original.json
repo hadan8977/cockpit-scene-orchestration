@@ -1,0 +1,27 @@
+{
+  "model": "qwen/qwen3.8-27b",
+  "human_review": false,
+  "position_randomized": true,
+  "pairs_completed": 17,
+  "preference": {
+    "p3": 6,
+    "final": 11,
+    "tie": 0
+  },
+  "arms": {
+    "p3": {
+      "grounding": 4.176470588235294,
+      "restraint": 3.1176470588235294,
+      "wording": 4.0588235294117645,
+      "composition": 4.0
+    },
+    "final": {
+      "grounding": 3.823529411764706,
+      "restraint": 4.9411764705882355,
+      "wording": 4.352941176470588,
+      "composition": 3.764705882352941
+    }
+  },
+  "known_cost_usd": 0.01001852,
+  "unknown_cost_calls": 7
+}

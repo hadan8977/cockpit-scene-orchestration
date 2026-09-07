@@ -21,8 +21,12 @@ def main():
     lang=load(lr);ab=load(ar);full=load(fr,"audit.json");hold=load(hr,"audit.json")
     judge=load("09_blind_review","summary.json");lat=load("10_latency","transport-analysis.json")
     ledger=json.loads((ROOT/"campaign.json").read_text(encoding="utf-8"))
+    balances=[ledger["initial_balance_cny"]]+[a["balance_before_cny"] for a in ledger["attempts"]]+[ledger["last_balance_cny"]]
+    balance_ups=sum(max(0,b-a) for a,b in zip(balances,balances[1:]))
+    balance_downs=sum(max(0,a-b) for a,b in zip(balances,balances[1:]))
     for run in (lr,ar,fr,hr,"10_latency"):
         assert load(run,"summary.json")["status"]=="complete",run
+    assert judge["pairs_completed"]==24, "Blind review must have all 24 pairs"
     o=full["overall"]; h=hold["overall"]
     policy_names={"unified_en":"统一英文指令","unified_zh":"统一中文指令","matched_split":"中英按输入语言分流"}
     selected=policy_names[choice["strategy"]]
@@ -33,14 +37,14 @@ def main():
            "- 官网 `https://api.deepseek.com`，模型别名 `deepseek-v4-flash`，非思考，temperature=0，max_tokens=1000，流式 JSON 模式。腾讯/微信端点禁用。除连接实验外并发为 3。",
            "- 总时延从发起模型 HTTP 请求到完整读取输出；首字与 understanding 字段出齐分别记时。不含评测器余额查询、任务排队、页面渲染或设备执行，不能当作完整车端交互时延。",
            "- 输入固定为 `{locale, context, utterance}`。比较的是中文/英文系统指令；两臂能力词典都使用项目中文标识，双语示例完全相同。字段展示语言由 locale 指定。",
-           "- 最初开发核心集 63 题；p11 在包含 71 道扩展题的 134 题回归上失败。p12 使用这些失败开发，因此 134 题均为开发回归，不能称独立留出。新增留出 24 题在任何留出模型响应产生前完成，冻结后才调用；题目由本轮工作编写，并非独立人工设计。",
+           "- 最初开发核心集 63 题；p11 在包含 71 道扩展题的 134 题回归上失败。p12/p13 使用这些失败开发，因此 134 题均为开发回归，不能称独立留出。新增留出 24 题在任何留出模型响应产生前完成，冻结后才调用；题目由本轮工作编写，并非独立人工设计。",
            "- 最终语言对照采用四格交叉，每格 %d 题×3遍，合计 %d 次。变体在每一遍内固定种子随机交错。分流策略从对应格合成，不作为额外独立样本。"%(lang["language_pairs"]["zh"]["clusters"],sum(v["n"] for v in lang["variants"].values())),
-           "- 按修订03，选定策略的804条完整回归响应从语言交叉实验明确导出，保留源运行/变体/哈希，零新增API调用；它不是选择后另跑的独立验证。策略选择可能带来选择偏差，独立新留出结果必须另看。",
+           "- 按修订03/04，选定策略的804条完整回归响应从语言交叉实验明确导出，保留源运行/变体/哈希，零新增API调用；它不是选择后另跑的独立验证。策略选择可能带来选择偏差，独立新留出结果必须另看。",
            "- 同配置 prompt A/B 与四项单块删除消融共 6 臂；固定分层 32 题×中英各 1 遍，每臂 64 次。删除版其余字节相同。含全部 8 道开发攻击题，因此其比例不代表线上分布。",
            "- 可用通过=原任务匹配通过且名称长度及 understanding/say/clarify 回复语言检查通过；所有变体同一口径。语言检查是词法规则，不能替代流畅度评审，名称语种另列诊断。报 API 错误及覆盖率；原始模型提议先打分，不以外部拦截抵消模型安全错误。",
            "- 配对胜/负/平按同题、同输入语言、同重复序号对齐；95% 区间用题目 ID 聚类 bootstrap 3000 次、固定种子。重复调用不作为独立题目。消融区间是探索性比较，未作多重检验校正。",
            "- p12 在第173条后因 Windows 账本文件占用中断。仅给本地原子替换增加短暂重试，模型请求/评分器/题集/prompt未变；修订前manifest、源哈希和中断证据均保留在 io-amendment.json。已完成调用未重跑；账本另含一条在HTTP前中止的预留。预登记为本地记录，GitHub写入受阻期间不声称已公开注册。",
-           "- [预登记](../eval/experiments/PREREGISTRATION.md)、[修订 01](../eval/experiments/AMENDMENT-01.md)、[修订 02](../eval/experiments/AMENDMENT-02.md)、[修订 03](../eval/experiments/AMENDMENT-03.md)、[最终冻结](../eval/experiments/FINAL_FREEZE.json) 均保留；模型服务别名未来可能变化，不能保证未来逐字复现。", "",
+           "- [预登记](../eval/experiments/PREREGISTRATION.md)、[修订 01](../eval/experiments/AMENDMENT-01.md)、[修订 02](../eval/experiments/AMENDMENT-02.md)、[修订 03](../eval/experiments/AMENDMENT-03.md)、[修订 04](../eval/experiments/AMENDMENT-04.md)、[最终冻结](../eval/experiments/FINAL_FREEZE.json) 均保留；模型服务别名未来可能变化，不能保证未来逐字复现。", "",
            "## 语言选择", "", "| 系统指令 | 输入 | 次数 | 可用通过 | 能力/结构合规 | 总 p95 |", "|---|---|---:|---:|---:|---:|"]
     for v,a in lang["variants"].items():
         for l,s in a["by_lang"].items(): lines.append("| %s | %s | %d | %s | %s | %s |"%(v,l,s["n"],pc(s["usable_pass"]),pc(s["schema_valid"]),sec(s["latency_p95"])))
@@ -59,7 +63,7 @@ def main():
     for k,p in ab["paired"].items():
         if k.startswith("full -> "): lines.append("| %s | %d／%d／%d | %+.1f pp | %s |"%(k.split(" -> ")[1],p["b_wins"],p["a_wins"],p["ties"],100*p["delta_b_minus_a"],ci(p)))
     lines += ["", "安全规则也出现在有效值词典与最后核对中，删 safety 块只测该块的增量作用；记忆规则也有分散表述。小样本未发现损害不等于证明该块无用。弱化安全的版本不交付。组件取舍见 [消融决策](../eval/results/prompt-lab-v3/06b_ablation/decision.json)。", "",
-              "## 冻结后的回归和留出", "", "| 集合 | 次数 | 可用通过 | 严格 JSON | 能力/结构合规 | 安全违规 | 总 p95 |", "|---|---:|---:|---:|---:|---:|---:|"]
+              "## 所选开发回归与冻结后的独立留出", "", "| 集合 | 次数 | 可用通过 | 严格 JSON | 能力/结构合规 | 安全违规 | 总 p95 |", "|---|---:|---:|---:|---:|---:|---:|"]
     for name,s in (("134 题全量回归",o),("24 题新留出",h)):
         lines.append("| %s | %d | %s | %s | %s | %d | %s |"%(name,s["n"],pc(s["usable_pass"]),pc(s["strict_json_valid"]),pc(s["schema_valid"]),s["safety_violations"],sec(s["latency_p95"])))
     lines += ["", "| 回归类别 | 次数 | 可用通过 |", "|---|---:|---:|"]
@@ -77,12 +81,14 @@ def main():
     for arm in ("cold","pooled"):
         s=lat[arm];lines.append("| %s | %d | %s | %s | %s |"%(arm,s["n"],sec(s["latency_p50"]),sec(s["latency_p95"]),sec(s["understanding_p50"])))
     lines += ["", "这里的 cold 指 HTTP 连接，不是关闭模型前缀缓存。全量回归输入缓存命中 token 占 %s；连接实验 cold/pooled 分别为 %s/%s。实测速率不能直接外推为首次未命中缓存的速度。"%(pc(full["usage"]["input_cache_hit_fraction"]),pc(lat["usage"]["cold"]["input_cache_hit_fraction"]),pc(lat["usage"]["pooled"]["input_cache_hit_fraction"]))]
+    lines += ["", "所选开发回归的响应时间窗口（UTC）："+esc(full.get("observed_time_window_utc",{}))+"。全部时段保留，不排除较慢请求。", "", "| 回归重复序号 | 次数 | 可用通过 | 总 p50 | 总 p95 |", "|---|---:|---:|---:|---:|"]
+    for rep,s in full.get("by_rep",{}).items():lines.append("| %s | %d | %s | %s | %s |"%(rep,s["n"],pc(s["usable_pass"]),sec(s["latency_p50"]),sec(s["latency_p95"])))
     lines += ["", "两臂请求体相同、均读完 SSE；仅 pooled 复用 Session，包含首次冷请求。串行 144 次，不能直接替换并发全量测试的时延。全量非空理解句 p50=%s（n=%d），避免把空拒绝字段当作完整理解句的速度证据。"%(sec(full["nonempty_understanding"]["p50"]),full["nonempty_understanding"]["n"]), ""]
     for label,key in (("总时延","total_mean_paired"),("理解句","understanding_mean_paired")):
         p=lat[key];lo,hi=p["ci95_cluster_bootstrap"];lines.append("连接复用的%s配对**均值差**（pooled−cold）：%+.3f s，95%% 按题聚类区间 [%+.3f, %+.3f] s。该差异属于传输配置，不能归因为 prompt 压缩。"%(label,p["delta_b_minus_a"],lo,hi))
     lines += ["", "独立模型匿名评审：`%s`，%d 对，A/B 位置随机；**人工尚未评分**。选择的是预登记的 12 道体验题×中英，比较 p3 开发基线与最终端到端输出，故该体验对比含输入协议变化，不称纯 prompt 因果效果。"%(judge["model"],judge["pairs_completed"]), "", "| 版本 | 贴切 | 分寸 | 话术 | 组合 |", "|---|---:|---:|---:|---:|"]
     for arm,s in judge["arms"].items(): lines.append("| %s | %.2f | %.2f | %.2f | %.2f |"%(arm,s["grounding"],s["restraint"],s["wording"],s["composition"]))
-    lines += ["", "偏好计数："+esc(judge["preference"])+"。这是一位模型评审的意见；[人工匿名表](../eval/results/prompt-lab-v3/09_blind_review/human-review.md) 留空，不能据此宣称真人偏好已验证。", "",
+    lines += ["", "偏好计数（missing为缺失，非平局）："+esc(judge["preference"])+"。部分原响应缺少总偏好字段，但四维整数评分有效；仅恢复原评分，偏好计缺失，不补造、不重跑。处理及评审理由错误见[解析修订](../eval/experiments/JUDGE-PARSER-AMENDMENT.md)。这是一位模型评审的意见；[人工匿名表](../eval/results/prompt-lab-v3/09_blind_review/human-review.md) 留空，不能据此宣称真人偏好已验证。", "",
               "## 门槛核对", "", "| 指标 | 原参考门槛 | 最终回归实测 | 状态 |", "|---|---|---|---|"]
     gates=[("严格 JSON",">=99%",pc(o["strict_json_valid"]),o["strict_json_valid"]>=.99),
            ("能力/结构合规",">=99%",pc(o["schema_valid"]),o["schema_valid"]>=.99),
@@ -96,20 +102,21 @@ def main():
            ("总时延 p95","<=2 s",sec(o["latency_p95"]),o["latency_p95"]<=2)]
     for label,target,value,ok in gates: lines.append("| %s | %s | %s | %s |"%(label,target,value,"达到" if ok else "未达到"))
     lines += ["", "门槛表沿用预登记，未因结果而降低；连接复用结果单列。独立模型体验分不等同于人工门槛。", "", "## 剩余失败与限制", "",
-              "B14 要求 PM2.5 精确阈值 75，但能力步长为 10；H03 要求忠实保留两个未发布动作，但全局最多允许一个。原题和主分母均保留；规范优先的追问也可能不匹配既有 gold。它们不是可以凭 prompt 同时满足的要求。", "", "| 全量失败题 ID | 失败次数 | 首条原因 |", "|---|---:|---|"]
+              "B14 要求 PM2.5 精确阈值 75，但能力步长为 10；H03 要求忠实保留两个未发布动作，但全局最多允许一个。原题和主分母均保留；规范优先的追问也可能不匹配既有 gold。它们不是可以凭 prompt 同时满足的要求。更多证据与 N09/J06 的待澄清边界见 [金标问题记录](../eval/experiments/GOLD_ISSUES.md)。", "", "| 全量失败题 ID | 失败次数 | 首条原因 |", "|---|---:|---|"]
     for id,n in full["failure_counts_by_id"].items():
         reason=next(x["reason"] for x in full["failures"] if x["id"]==id)
         lines.append("| %s | %d | %s |"%(id,n,esc(reason)))
     lines += ["", "留出失败计数："+esc(hold["failure_counts_by_id"])+"。留出出现失败后没有反向修改本次冻结 prompt。逐次输出、拒绝和原因见对应 raw.jsonl.gz 与 audit.json。", "",
               "主要限制：样本有限且包含开发重用；词法语言检查不评自然度；单一评审模型可能有偏好；接口网络和缓存会影响速度；温度 0 仍可能产生不同输出。Prompt 只提出方案，部署仍需独立能力/安全校验与用户确认，不能据零样本违规承诺现实行车安全。", "",
               "## 成本、复现和交付", "",
-              "本轮累计 DeepSeek 尝试 %d 次；开始余额 %.2f 元，最近观察 %.2f 元，变化 %.2f 元（可能含其他 session，非精确逐请求账单）。上限 %d 次，保留 %.2f 元。独立评审已知费用 $%.6f，费用未知请求 %d。"%(len(ledger["attempts"]),ledger["initial_balance_cny"],ledger["last_balance_cny"],ledger["initial_balance_cny"]-ledger["last_balance_cny"],ledger["max_attempts"],ledger["reserve_cny"],judge["known_cost_usd"],judge["unknown_cost_calls"]), "",
+              "本轮累计 DeepSeek 账本尝试 %d 次（含1次HTTP前中止）；开始余额 %.2f 元，最近观察 %.2f 元，首末净减少 %.2f 元。期间观察到余额上调10元，来源未核实，因此净差不能当作调用成本；详见 BALANCE-ADJUSTMENT.json。上限 %d 次，保留 %.2f 元。独立评审已知费用 $%.6f，费用未知请求 %d。"%(len(ledger["attempts"]),ledger["initial_balance_cny"],ledger["last_balance_cny"],ledger["initial_balance_cny"]-ledger["last_balance_cny"],ledger["max_attempts"],ledger["reserve_cny"],judge["known_cost_usd"],judge["unknown_cost_calls"]), "",
+              "按完整余额观测序列，累计上调 %.2f 元、累计下降 %.2f 元；下降也可能含其他session，不作为本实验精确账单。"%(balance_ups,balance_downs), "",
               "官方峰值价目仅用于保守预算上界：[DeepSeek 价目](https://api-docs.deepseek.com/zh-cn/quick_start/pricing/)。不沿用旧脚本的过时单价；API usage、缓存字段、请求次数和余额账本一并保存。", "",
               "- 最终 prompt SHA-256（UTF-8，LF）：`"+choice["prompt_sha256"]+"`。部署必须搭配固定 locale 信封和测试过的 JSON/非思考配置。",
               "- [最终冻结清单](../eval/experiments/FINAL_FREEZE.json)、[完整实验目录](../eval/results/prompt-lab-v3/)、[评分源快照](../eval/experiments/frozen-source/README.md)。每次生成保留文本、usage、时延与评分；gzip 归档附 SHA-256。",
-              "- p6 因安全/语言回退淘汰；p7 仍有禁止动作；p8/p9/p10 的开发结果均保留。p9 只完成第一遍，不能当三遍结果。p10 示例勘误产生 p11，未覆盖历史文件。",
+              "- p6 因安全/语言回退淘汰；p7 仍有禁止动作；p8/p9/p10 的开发结果均保留。p9/p12 都只完成第一遍，不能当三遍结果。p13是最后一轮开发修订，之后只验收不在留出结果上优化。p10 示例勘误产生 p11，未覆盖历史文件。",
               "- GitHub 状态由最新看板与本地提交记录说明；没有远端回执时不得称已同步。API key 与未脱敏日志不进入仓库。", "",
-              "从 eval 目录重算已有响应（先解压 raw.jsonl.gz；无需 key、无需付费）：", "", "```powershell", "python analyze_experiments.py 05c_p11_language", "python analyze_experiments.py 06b_ablation", "python audit_final.py 07_final", "python audit_final.py 08_holdout", "python audit_final.py 10_latency", "python make_prompt_report.py", "```", "",
+              "从 eval 目录重算已有响应（先解压 raw.jsonl.gz；无需 key、无需付费）：", "", "```powershell", "python restore_raw.py", "python verify_archives.py", "python analyze_experiments.py 05c_p11_language", "python analyze_experiments.py 06b_ablation", "python audit_final.py 07_final", "python audit_final.py 08_holdout", "python audit_final.py 10_latency", "python make_prompt_report.py", "```", "",
               "重新调用模型使用 safe_eval.py 和 experiments 中同名计划；已完成日志会断点跳过。复现实验需建立新的活动账本/运行目录并明确预算，不能把重跑当成已有结果的免费重算。", ""]
     report=HERE.parent/"docs"/"第一部分-Prompt优化-最终实验报告.md"
     body="\n".join(lines)

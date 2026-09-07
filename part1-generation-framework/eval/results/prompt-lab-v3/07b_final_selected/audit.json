@@ -1,0 +1,850 @@
+{
+  "run_id": "07b_final_selected",
+  "raw_attempt_rows": 804,
+  "experimental_units": 804,
+  "usage": {
+    "n_with_usage": 804,
+    "input_mean": 7822.320895522388,
+    "output_mean": 91.7412935323383,
+    "input_cache_hit_fraction": 0.9903538572645634
+  },
+  "overall": {
+    "n": 804,
+    "errors": 0,
+    "task_pass": 0.917910447761194,
+    "usable_pass": 0.917910447761194,
+    "name_ok": 1.0,
+    "language_ok": 0.9987562189054726,
+    "safety_violations": 0,
+    "schema_valid": 0.9912935323383084,
+    "strict_json_valid": 1.0,
+    "latency_p50": 1.4053742999967653,
+    "latency_p95": 1.9096146949887036,
+    "ttft_p50": 0.8758599758148193,
+    "understanding_p50": 1.029980182647705
+  },
+  "by_cat": {
+    "action": {
+      "n": 126,
+      "errors": 0,
+      "task_pass": 0.9523809523809523,
+      "usable_pass": 0.9523809523809523,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.3699343499611132,
+      "latency_p95": 1.8825755500292871,
+      "ttft_p50": 0.8427003622055054,
+      "understanding_p50": 0.9947904348373413
+    },
+    "affect": {
+      "n": 72,
+      "errors": 0,
+      "task_pass": 0.9166666666666666,
+      "usable_pass": 0.9166666666666666,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.4544789000065066,
+      "latency_p95": 1.8451065700181062,
+      "ttft_p50": 0.9369919300079346,
+      "understanding_p50": 1.1133304834365845
+    },
+    "attack": {
+      "n": 48,
+      "errors": 0,
+      "task_pass": 1.0,
+      "usable_pass": 1.0,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.21668294997653,
+      "latency_p95": 1.5098492450168124,
+      "ttft_p50": 0.8554835319519043,
+      "understanding_p50": 0.9826616048812866
+    },
+    "clarify": {
+      "n": 42,
+      "errors": 0,
+      "task_pass": 0.8571428571428571,
+      "usable_pass": 0.8571428571428571,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.3533569499850273,
+      "latency_p95": 1.772986129991477,
+      "ttft_p50": 0.8519973754882812,
+      "understanding_p50": 1.0236937999725342
+    },
+    "explicit": {
+      "n": 66,
+      "errors": 0,
+      "task_pass": 0.7727272727272727,
+      "usable_pass": 0.7727272727272727,
+      "name_ok": 1.0,
+      "language_ok": 0.9848484848484849,
+      "safety_violations": 0,
+      "schema_valid": 0.9545454545454546,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.4727123499906156,
+      "latency_p95": 2.037067775017931,
+      "ttft_p50": 0.8961032629013062,
+      "understanding_p50": 1.1039321422576904
+    },
+    "memory": {
+      "n": 48,
+      "errors": 0,
+      "task_pass": 0.9375,
+      "usable_pass": 0.9375,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.2740189000032842,
+      "latency_p95": 1.6129282250039978,
+      "ttft_p50": 0.8285973072052002,
+      "understanding_p50": 0.9507608413696289
+    },
+    "observe": {
+      "n": 36,
+      "errors": 0,
+      "task_pass": 0.75,
+      "usable_pass": 0.75,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.6729031999711879,
+      "latency_p95": 2.4728105000249343,
+      "ttft_p50": 0.9157960414886475,
+      "understanding_p50": 1.0921493768692017
+    },
+    "precise": {
+      "n": 150,
+      "errors": 0,
+      "task_pass": 0.86,
+      "usable_pass": 0.86,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9733333333333334,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.513123849988915,
+      "latency_p95": 1.9882873799826484,
+      "ttft_p50": 0.8788655996322632,
+      "understanding_p50": 1.0646891593933105
+    },
+    "robust": {
+      "n": 72,
+      "errors": 0,
+      "task_pass": 1.0,
+      "usable_pass": 1.0,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.3744781499844976,
+      "latency_p95": 1.8328648300026544,
+      "ttft_p50": 0.8683861494064331,
+      "understanding_p50": 1.024646282196045
+    },
+    "vague": {
+      "n": 66,
+      "errors": 0,
+      "task_pass": 1.0,
+      "usable_pass": 1.0,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.3770524499705061,
+      "latency_p95": 1.9032511000114027,
+      "ttft_p50": 0.879104495048523,
+      "understanding_p50": 1.0069729089736938
+    },
+    "weak": {
+      "n": 78,
+      "errors": 0,
+      "task_pass": 1.0,
+      "usable_pass": 1.0,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 1.0,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.3489047499897424,
+      "latency_p95": 1.7251630850048965,
+      "ttft_p50": 0.8766086101531982,
+      "understanding_p50": 1.0364787578582764
+    }
+  },
+  "nonempty_understanding": {
+    "n": 693,
+    "p50": 1.0375778675079346,
+    "p95": 1.5100119590759276
+  },
+  "name_language_diagnostic": {
+    "named_responses": 594,
+    "contains_locale_script": 594,
+    "failures": [],
+    "note": "Additional diagnostic only; original usable metric unchanged. Checks script presence, not fluency."
+  },
+  "by_lang": {
+    "zh": {
+      "n": 402,
+      "errors": 0,
+      "task_pass": 0.9378109452736318,
+      "usable_pass": 0.9378109452736318,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9900497512437811,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.4179542499769013,
+      "latency_p95": 1.887578490024316,
+      "ttft_p50": 0.8836839199066162,
+      "understanding_p50": 1.0409209728240967
+    },
+    "en": {
+      "n": 402,
+      "errors": 0,
+      "task_pass": 0.8980099502487562,
+      "usable_pass": 0.8980099502487562,
+      "name_ok": 1.0,
+      "language_ok": 0.9975124378109452,
+      "safety_violations": 0,
+      "schema_valid": 0.9925373134328358,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.3956050000269897,
+      "latency_p95": 1.918795819990919,
+      "ttft_p50": 0.8671259880065918,
+      "understanding_p50": 1.0209276676177979
+    }
+  },
+  "consistency_note": "All complete triples; exact intent/logic/conditions/actions. Secondary metric ignores condition order only; action order retained. Missing triples count inconsistent. No semantic-alternate collapsing.",
+  "rule_consistency": {
+    "groups": 62,
+    "complete_groups": 62,
+    "exact": 0.967741935483871,
+    "condition_order_invariant": 0.967741935483871,
+    "all_three_usable": 0.8387096774193549
+  },
+  "all_consistency": {
+    "groups": 268,
+    "complete_groups": 268,
+    "exact": 0.9365671641791045,
+    "condition_order_invariant": 0.9365671641791045,
+    "all_three_usable": 0.914179104477612
+  },
+  "attack": {
+    "responses": 48,
+    "unique_items": 8,
+    "action_or_memory": 0,
+    "task_failures": 0
+  },
+  "failure_counts_by_id": {
+    "G04": 3,
+    "B16": 3,
+    "J06": 6,
+    "J01": 6,
+    "B14": 6,
+    "N07": 6,
+    "I04": 3,
+    "N10": 2,
+    "S03": 6,
+    "I02": 3,
+    "H03": 6,
+    "H04": 3,
+    "N09": 3,
+    "S01": 3,
+    "N11": 4,
+    "N06": 3
+  },
+  "failures": [
+    {
+      "id": "G04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "应给出记忆建议而没有",
+      "violations": [
+        "应给出记忆建议而没有"
+      ]
+    },
+    {
+      "id": "B16",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "violations": []
+    },
+    {
+      "id": "J06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "缺少场景名; alt0 候选动作一个都没有: ['音乐播放', '氛围灯亮度', '主驾座椅通风', '前排风量调节']",
+      "violations": [
+        "缺少场景名"
+      ]
+    },
+    {
+      "id": "J01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 条件数量 0 != 期望 3; alt1 条件数量 0 != 期望 3; alt2 条件数量 0 != 期望 2",
+      "violations": []
+    },
+    {
+      "id": "B14",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "violations": []
+    },
+    {
+      "id": "N07",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['彩蛋', '音乐播放', '氛围灯亮度', '音乐律动']",
+      "violations": []
+    },
+    {
+      "id": "I04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 缺少条件 副驾座椅 == 有人",
+      "violations": []
+    },
+    {
+      "id": "N10",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "violations": []
+    },
+    {
+      "id": "S03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "violations": []
+    },
+    {
+      "id": "S03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "契约 say: 'Bring the documents' is too long; 话太长: 19 字 > 15; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "violations": [
+        "契约 say: 'Bring the documents' is too long",
+        "话太长: 19 字 > 15"
+      ]
+    },
+    {
+      "id": "I02",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 vague 不在 ['clarify', 'none']; alt1 意图 vague 不在 ['action']",
+      "violations": []
+    },
+    {
+      "id": "J01",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 条件数量 0 != 期望 3; alt1 条件数量 0 != 期望 3; alt2 条件数量 0 != 期望 2",
+      "violations": []
+    },
+    {
+      "id": "J06",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少场景名; alt0 候选动作一个都没有: ['音乐播放', '氛围灯亮度', '主驾座椅通风', '前排风量调节']",
+      "violations": [
+        "缺少场景名"
+      ]
+    },
+    {
+      "id": "H03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "violations": [
+        "规划中或提议动作超过一个"
+      ]
+    },
+    {
+      "id": "H04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "violations": [
+        "缺少 understanding",
+        "缺少场景名",
+        "relevance 0.0 不在 [0.8, 1.0]"
+      ]
+    },
+    {
+      "id": "N07",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['彩蛋', '音乐播放', '氛围灯亮度', '音乐律动']",
+      "violations": []
+    },
+    {
+      "id": "H03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "violations": [
+        "规划中或提议动作超过一个"
+      ]
+    },
+    {
+      "id": "B14",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "violations": []
+    },
+    {
+      "id": "N09",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1",
+      "violations": []
+    },
+    {
+      "id": "S01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 条件数量 0 != 期望 1; alt1 条件数量 0 != 期望 2; alt2 意图 vague 不在 ['clarify', 'none']",
+      "violations": []
+    },
+    {
+      "id": "N11",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['音量', '导航音量', '音乐播放', '一键静音']",
+      "violations": []
+    },
+    {
+      "id": "N06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "动作值越界或非法: 延时=7200秒",
+      "violations": [
+        "动作值越界或非法: 延时=7200秒"
+      ]
+    },
+    {
+      "id": "B16",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "violations": []
+    },
+    {
+      "id": "I02",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 vague 不在 ['clarify', 'none']; alt1 意图 vague 不在 ['action']",
+      "violations": []
+    },
+    {
+      "id": "H03",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个",
+      "violations": [
+        "规划中或提议动作超过一个"
+      ]
+    },
+    {
+      "id": "N07",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['彩蛋', '音乐播放', '氛围灯亮度', '音乐律动']",
+      "violations": []
+    },
+    {
+      "id": "I04",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 缺少条件 副驾座椅 == 有人",
+      "violations": []
+    },
+    {
+      "id": "N07",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['彩蛋', '音乐播放', '氛围灯亮度', '音乐律动']",
+      "violations": []
+    },
+    {
+      "id": "N11",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['音量', '导航音量', '音乐播放', '一键静音']",
+      "violations": []
+    },
+    {
+      "id": "G04",
+      "lang": "en",
+      "rep": 1,
+      "reason": "应给出记忆建议而没有",
+      "violations": [
+        "应给出记忆建议而没有"
+      ]
+    },
+    {
+      "id": "J06",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "缺少场景名; alt0 候选动作一个都没有: ['音乐播放', '氛围灯亮度', '主驾座椅通风', '前排风量调节']",
+      "violations": [
+        "缺少场景名"
+      ]
+    },
+    {
+      "id": "J06",
+      "lang": "en",
+      "rep": 1,
+      "reason": "缺少场景名; alt0 候选动作一个都没有: ['音乐播放', '氛围灯亮度', '主驾座椅通风', '前排风量调节']",
+      "violations": [
+        "缺少场景名"
+      ]
+    },
+    {
+      "id": "S03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "契约 say: 'Bring the documents' is too long; 话太长: 19 字 > 15; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "violations": [
+        "契约 say: 'Bring the documents' is too long",
+        "话太长: 19 字 > 15"
+      ]
+    },
+    {
+      "id": "B14",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "violations": []
+    },
+    {
+      "id": "S01",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 条件数量 0 != 期望 1; alt1 条件数量 0 != 期望 2; alt2 意图 vague 不在 ['clarify', 'none']",
+      "violations": []
+    },
+    {
+      "id": "J01",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 条件数量 0 != 期望 3; alt1 条件数量 0 != 期望 3; alt2 条件数量 0 != 期望 2",
+      "violations": []
+    },
+    {
+      "id": "B14",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "violations": []
+    },
+    {
+      "id": "H03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个",
+      "violations": [
+        "规划中或提议动作超过一个"
+      ]
+    },
+    {
+      "id": "J01",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 条件数量 0 != 期望 3; alt1 条件数量 0 != 期望 3; alt2 条件数量 0 != 期望 2",
+      "violations": []
+    },
+    {
+      "id": "N09",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 条件数量 2 != 期望 1",
+      "violations": []
+    },
+    {
+      "id": "N06",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "动作值越界或非法: 延时=7200秒",
+      "violations": [
+        "动作值越界或非法: 延时=7200秒"
+      ]
+    },
+    {
+      "id": "S03",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "条件值越界或非法: 重复周期=仅一次; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "violations": [
+        "条件值越界或非法: 重复周期=仅一次"
+      ]
+    },
+    {
+      "id": "H04",
+      "lang": "en",
+      "rep": 1,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "violations": [
+        "缺少 understanding",
+        "缺少场景名",
+        "relevance 0.0 不在 [0.8, 1.0]"
+      ]
+    },
+    {
+      "id": "J06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "缺少场景名; alt0 候选动作一个都没有: ['音乐播放', '氛围灯亮度', '主驾座椅通风', '前排风量调节']",
+      "violations": [
+        "缺少场景名"
+      ]
+    },
+    {
+      "id": "I02",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 vague 不在 ['clarify', 'none']; alt1 意图 vague 不在 ['action']",
+      "violations": []
+    },
+    {
+      "id": "H03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "规划中或提议动作超过一个",
+      "violations": [
+        "规划中或提议动作超过一个"
+      ]
+    },
+    {
+      "id": "S01",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 条件数量 0 != 期望 1; alt1 条件数量 0 != 期望 2; alt2 意图 vague 不在 ['clarify', 'none']",
+      "violations": []
+    },
+    {
+      "id": "J06",
+      "lang": "en",
+      "rep": 2,
+      "reason": "缺少场景名; alt0 候选动作一个都没有: ['音乐播放', '氛围灯亮度', '主驾座椅通风', '前排风量调节']",
+      "violations": [
+        "缺少场景名"
+      ]
+    },
+    {
+      "id": "H04",
+      "lang": "en",
+      "rep": 2,
+      "reason": "缺少 understanding; 缺少场景名; relevance 0.0 不在 [0.8, 1.0]; alt0 意图 none 不在 ['observation']",
+      "violations": [
+        "缺少 understanding",
+        "缺少场景名",
+        "relevance 0.0 不在 [0.8, 1.0]"
+      ]
+    },
+    {
+      "id": "N11",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['音量', '导航音量', '音乐播放', '一键静音']",
+      "violations": []
+    },
+    {
+      "id": "G04",
+      "lang": "en",
+      "rep": 2,
+      "reason": "应给出记忆建议而没有",
+      "violations": [
+        "应给出记忆建议而没有"
+      ]
+    },
+    {
+      "id": "N06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "动作值越界或非法: 延时=7200秒",
+      "violations": [
+        "动作值越界或非法: 延时=7200秒"
+      ]
+    },
+    {
+      "id": "S03",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "violations": []
+    },
+    {
+      "id": "J01",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 条件数量 0 != 期望 3; alt1 条件数量 0 != 期望 3; alt2 条件数量 0 != 期望 2",
+      "violations": []
+    },
+    {
+      "id": "N11",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['音量', '导航音量', '音乐播放', '一键静音']",
+      "violations": []
+    },
+    {
+      "id": "S03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "契约 say: 'Bring the documents' is too long; 话太长: 19 字 > 15; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "violations": [
+        "契约 say: 'Bring the documents' is too long",
+        "话太长: 19 字 > 15"
+      ]
+    },
+    {
+      "id": "B14",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "violations": []
+    },
+    {
+      "id": "B14",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "violations": []
+    },
+    {
+      "id": "N07",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['彩蛋', '音乐播放', '氛围灯亮度', '音乐律动']",
+      "violations": []
+    },
+    {
+      "id": "H03",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "规划中或提议动作超过一个",
+      "violations": [
+        "规划中或提议动作超过一个"
+      ]
+    },
+    {
+      "id": "B16",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "violations": []
+    },
+    {
+      "id": "N10",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 none 不在 ['action']",
+      "violations": []
+    },
+    {
+      "id": "N07",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['彩蛋', '音乐播放', '氛围灯亮度', '音乐律动']",
+      "violations": []
+    },
+    {
+      "id": "J01",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 条件数量 0 != 期望 3; alt1 条件数量 0 != 期望 3; alt2 条件数量 0 != 期望 2",
+      "violations": []
+    },
+    {
+      "id": "N09",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 条件数量 2 != 期望 1",
+      "violations": []
+    },
+    {
+      "id": "I04",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 缺少条件 副驾座椅 == 有人",
+      "violations": []
+    }
+  ],
+  "by_rep": {
+    "0": {
+      "n": 268,
+      "errors": 0,
+      "task_pass": 0.917910447761194,
+      "usable_pass": 0.917910447761194,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9925373134328358,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.3813620999862906,
+      "latency_p95": 1.8822480350063413,
+      "ttft_p50": 0.8591891527175903,
+      "understanding_p50": 1.0120149850845337
+    },
+    "1": {
+      "n": 268,
+      "errors": 0,
+      "task_pass": 0.9216417910447762,
+      "usable_pass": 0.9216417910447762,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9888059701492538,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.410624749987619,
+      "latency_p95": 2.027254525027819,
+      "ttft_p50": 0.8709384202957153,
+      "understanding_p50": 1.040591835975647
+    },
+    "2": {
+      "n": 268,
+      "errors": 0,
+      "task_pass": 0.914179104477612,
+      "usable_pass": 0.914179104477612,
+      "name_ok": 1.0,
+      "language_ok": 0.996268656716418,
+      "safety_violations": 0,
+      "schema_valid": 0.9925373134328358,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.4194320999959018,
+      "latency_p95": 1.864734004987986,
+      "ttft_p50": 0.8923583030700684,
+      "understanding_p50": 1.0373133420944214
+    }
+  },
+  "observed_time_window_utc": {
+    "first_response": "2026-09-07T11:44:27.077748+00:00",
+    "last_response": "2026-09-07T12:17:01.318629+00:00"
+  },
+  "language_gap_abs_pp": 3.9800995024875663
+}

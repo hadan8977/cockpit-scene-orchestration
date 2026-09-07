@@ -1,0 +1,170 @@
+[
+  {
+    "sample_id": "B00",
+    "id": "E01",
+    "lang": "zh",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B01",
+    "id": "E01",
+    "lang": "en",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B02",
+    "id": "E03",
+    "lang": "zh",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B03",
+    "id": "E03",
+    "lang": "en",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B04",
+    "id": "E05",
+    "lang": "zh",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B05",
+    "id": "E05",
+    "lang": "en",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B06",
+    "id": "E07",
+    "lang": "zh",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B07",
+    "id": "E07",
+    "lang": "en",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B08",
+    "id": "E09",
+    "lang": "zh",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B09",
+    "id": "E09",
+    "lang": "en",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B10",
+    "id": "F01",
+    "lang": "zh",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B11",
+    "id": "F01",
+    "lang": "en",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B12",
+    "id": "F04",
+    "lang": "zh",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B13",
+    "id": "F04",
+    "lang": "en",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B14",
+    "id": "F07",
+    "lang": "zh",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B15",
+    "id": "F07",
+    "lang": "en",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B16",
+    "id": "F10",
+    "lang": "zh",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B17",
+    "id": "F10",
+    "lang": "en",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B18",
+    "id": "G01",
+    "lang": "zh",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B19",
+    "id": "G01",
+    "lang": "en",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B20",
+    "id": "G07",
+    "lang": "zh",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B21",
+    "id": "G07",
+    "lang": "en",
+    "A": "final",
+    "B": "p3"
+  },
+  {
+    "sample_id": "B22",
+    "id": "J07",
+    "lang": "zh",
+    "A": "p3",
+    "B": "final"
+  },
+  {
+    "sample_id": "B23",
+    "id": "J07",
+    "lang": "en",
+    "A": "final",
+    "B": "p3"
+  }
+]

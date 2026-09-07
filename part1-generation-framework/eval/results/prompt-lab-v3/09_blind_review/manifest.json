@@ -1,0 +1,11 @@
+{
+  "judge_model": "qwen/qwen3.8-27b",
+  "source_final_run": "07b_final_selected",
+  "samples_sha256": "cf6d68914bf9a6c157ed7ce2d0bf09baed58d9e39df9d88c43c07a907b150a37",
+  "rubric_sha256": "37aebadd52fdba6e079b795c0121578c2306afcea179f8529062dbda9c659cd1",
+  "n_pairs": 24,
+  "selection": "12 preregistered experience cases, both languages; rep0; random A/B order",
+  "max_calls": 30,
+  "max_usd": 1.5,
+  "human_review": false
+}

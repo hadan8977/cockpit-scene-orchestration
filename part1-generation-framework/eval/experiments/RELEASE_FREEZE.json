@@ -1,0 +1,99 @@
+{
+  "time_utc": "2026-09-07T12:17:27.589Z",
+  "version": "p13",
+  "strategy": "unified_zh",
+  "prompt_path": "prompts/final_dsv4flash_p13_zh.md",
+  "tested_source_prompt": "prompts/p13_zh.md",
+  "prompt_sha256": "57488940054541ba99365f4e9521391783b42902d468ef68699ae171804d8c12",
+  "hash_encoding": "UTF-8 LF",
+  "reason": "统一中文可用91.79%，统一英文91.54%，分流92.16%；分流仅比统一中文高0.37个百分点，英文输入的配对95%区间包含0，未证明分流优势。统一中文能力/结构合规99.13%，高于统一英文98.88%与分流98.76%；安全均0，总p95均低于2秒。按预登记安全与合规优先，选择统一中文作为综合折中；locale决定展示语言。不声称中文在每类输入都统计最优或两策略等价。",
+  "policy_point_estimates": {
+    "unified_zh": {
+      "n": 804,
+      "errors": 0,
+      "task_pass": 0.917910447761194,
+      "usable_pass": 0.917910447761194,
+      "name_ok": 1,
+      "language_ok": 0.9987562189054726,
+      "safety_violations": 0,
+      "schema_valid": 0.9912935323383084,
+      "strict_json_valid": 1,
+      "latency_p50": 1.4053742999967653,
+      "latency_p95": 1.9096146949887036,
+      "ttft_p50": 0.8758599758148193,
+      "understanding_p50": 1.029980182647705
+    },
+    "unified_en": {
+      "n": 804,
+      "errors": 0,
+      "task_pass": 0.9154228855721394,
+      "usable_pass": 0.9154228855721394,
+      "name_ok": 1,
+      "language_ok": 1,
+      "safety_violations": 0,
+      "schema_valid": 0.9888059701492538,
+      "strict_json_valid": 1,
+      "latency_p50": 1.3945712500135414,
+      "latency_p95": 1.8510924100119148,
+      "ttft_p50": 0.8551695346832275,
+      "understanding_p50": 1.0150959491729736
+    },
+    "matched_split": {
+      "n": 804,
+      "errors": 0,
+      "task_pass": 0.9216417910447762,
+      "usable_pass": 0.9216417910447762,
+      "name_ok": 1,
+      "language_ok": 1,
+      "safety_violations": 0,
+      "schema_valid": 0.9875621890547264,
+      "strict_json_valid": 1,
+      "latency_p50": 1.3971042500052135,
+      "latency_p95": 1.8566399550327333,
+      "ttft_p50": 0.866279125213623,
+      "understanding_p50": 1.0214993953704834
+    }
+  },
+  "paired_language_effects": {
+    "zh": {
+      "pairs": 402,
+      "clusters": 134,
+      "b_wins": 2,
+      "a_wins": 7,
+      "ties": 393,
+      "delta_b_minus_a": -0.012437810945273632,
+      "ci95_cluster_bootstrap": [
+        -0.03482587064676617,
+        0.004975124378109453
+      ]
+    },
+    "en": {
+      "pairs": 402,
+      "clusters": 134,
+      "b_wins": 16,
+      "a_wins": 13,
+      "ties": 373,
+      "delta_b_minus_a": 0.007462686567164179,
+      "ci95_cluster_bootstrap": [
+        -0.03731343283582089,
+        0.04975124378109453
+      ]
+    }
+  },
+  "selected_before_holdout": true,
+  "component_decision": "Retain full p13; four deletion ablations are diagnostic, no further tuning on holdout.",
+  "model": "deepseek-v4-flash",
+  "base_url": "https://api.deepseek.com",
+  "temperature": 0,
+  "max_tokens": 1000,
+  "thinking": "disabled",
+  "json_mode": true,
+  "input_envelope": true,
+  "language_confirmation_run": "05e_p13_language",
+  "ablation_run": "06c_ablation",
+  "final_run": "07b_final_selected",
+  "holdout_run": "08_holdout",
+  "source_commit": "b203637",
+  "validation_status_at_freeze": "Language confirmation complete; ablation, untouched holdout, independent model review and transport test pending.",
+  "rule": "Immutable prompt after this freeze; selected 804 responses are derived from language study, not new independent calls. Retain failures."
+}

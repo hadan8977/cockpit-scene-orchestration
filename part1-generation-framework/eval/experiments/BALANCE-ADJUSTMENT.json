@@ -1,0 +1,13 @@
+{
+  "observed_balance_increases": [
+    {
+      "attempt": 5907,
+      "at": "2026-09-07T12:06:13.269450+00:00",
+      "increase": 10,
+      "before": 8.23,
+      "after": 18.23
+    }
+  ],
+  "source": "Unverified external account change; do not label as generation refund or infer who topped up.",
+  "account_balance_change_is_not_cost": true
+}
