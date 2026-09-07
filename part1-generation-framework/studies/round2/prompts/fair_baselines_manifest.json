@@ -1,0 +1,33 @@
+{
+  "registered_in": "AMENDMENT-11.md",
+  "frozen_before_first_call": true,
+  "arms": [
+    {
+      "source": "prompts/v3_latest_compatible.md",
+      "target": "prompts/v3_contract.md",
+      "source_sha256": "a59b744f857835dba60a501ab52f69750ae7c853535873e38fd73baa86b0177d",
+      "target_sha256": "9b972ceaae6c2f6fb0d64c6e049a08b93479beae105b140309cdb792226b3b83",
+      "changes": [
+        "appended [输出契约的硬性长度与警告要求]",
+        "shortened one few-shot understanding from 89 to 70 characters"
+      ],
+      "remaining_over_80_examples": 0,
+      "task_logic_touched": false,
+      "capabilities_touched": false,
+      "examples_added_or_removed": 0
+    },
+    {
+      "source": "prompts/v0_latest_protocol_compatible.md",
+      "target": "prompts/v0_contract.md",
+      "source_sha256": "d72eba4e5791207c6503d87cdaf39f03aa553e110e0214bad46821086f6b4847",
+      "target_sha256": "ca577bc6994c00b202b3b816d0287f5df2362254b86b656df63cd41b8e9d69cd",
+      "changes": [
+        "appended [输出契约的硬性长度与警告要求]"
+      ],
+      "remaining_over_80_examples": 0,
+      "task_logic_touched": false,
+      "capabilities_touched": false,
+      "examples_added_or_removed": 0
+    }
+  ]
+}

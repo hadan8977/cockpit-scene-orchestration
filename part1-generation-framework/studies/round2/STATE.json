@@ -1,13 +1,12 @@
 {
-  "as_of_utc": "2026-09-07T16:13:23.506786+00:00",
-  "status": "handoff; no paid evaluation jobs running",
+  "as_of_utc": "2026-09-07T17:24:57.077535+00:00",
+  "status": "round two continuation in progress; regression, holdout and blind reviews running",
   "final_prompt_accepted": false,
   "working_candidates": [
-    "p24_zh",
-    "p24_without_wording"
+    "p26"
   ],
-  "screening_control": "p24_zh; not P-final",
-  "baseline": "v3_protocol primary, v0_protocol supplementary; both current 114-capability adapters",
+  "screening_control": "p26 frozen as candidate per AMENDMENT-14; not yet accepted",
+  "baseline": "v3_inline primary fair baseline, v0_contract as the colleague original; both given the enforced output contract",
   "registry_version": "2026-09-07.0807",
   "runs": {
     "01_screen": {
@@ -63,6 +62,34 @@
       "archived_rows": 512,
       "complete": true,
       "summary": "results/09_language/summary.json"
+    },
+    "10_wording_followup": {
+      "expected": 384,
+      "summary": "results/10_wording_followup/summary.json"
+    },
+    "11_p26_screen": {
+      "expected": 384,
+      "summary": "results/11_p26_screen/summary.json"
+    },
+    "12_fair_baseline": {
+      "expected": 384,
+      "summary": "results/12_fair_baseline/summary.json"
+    },
+    "13_p27_screen": {
+      "expected": 256,
+      "summary": "results/13_p27_screen/summary.json"
+    },
+    "14_v3_inline": {
+      "expected": 128,
+      "summary": "results/14_v3_inline/summary.json"
+    },
+    "15_full_regression": {
+      "expected": 804,
+      "summary": "results/15_full_regression/summary.json"
+    },
+    "16_holdout": {
+      "expected": 480,
+      "summary": "results/16_holdout/summary.json"
     }
   },
   "reviews": {
@@ -89,6 +116,10 @@
     "development-p24": {
       "calls": 128,
       "valid": 125,
+      "summary_exists": true
+    },
+    "ablation-all": {
+      "calls": 256,
       "summary_exists": true
     }
   },
@@ -131,5 +162,11 @@
     "public_runtime_enabled": false,
     "local_demo_url": "http://127.0.0.1:3101",
     "browser_visual_walkthrough": "blocked: no browser available; not claimed completed"
-  }
+  },
+  "reporting_convention": "AMENDMENT-13: format-only failures and substantive failures reported separately; both figures always given",
+  "known_unresolved": [
+    "J05 gold standard conflicts with judge preference on 行程事件 versus 挡位",
+    "judges penalise empty say; product boundary keeps restraint",
+    "understanding p50 about 1.0s, 0.6s target not met"
+  ]
 }

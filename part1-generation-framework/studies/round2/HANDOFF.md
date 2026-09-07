@@ -64,6 +64,20 @@ python -u part1-generation-framework/studies/round2/ablation_review.py run --env
 
 现有runner支持`--max-new N`限制本次新增次数，恢复时按(id,lang,rep,variant)跳过已完成任务；失败请求也算已完成，不自动重试。manifest不匹配必须新run_id，不能修改已跑Prompt/题集/评分器后强行续跑。generation原始响应只在本地raw.jsonl，完成后自动归档raw.jsonl.gz与哈希；提交压缩归档即可，不丢失败。
 
+## 第二轮续跑（10 到 16 批）接手要点
+
+更新：2026-09-07 UTC。用户重申的目标是一份在报告上全面优于原版提示词的最终提示词，加依据 PRD 的第一部分整套架构；Demo 暂缓。
+
+- **候选已冻结为 p26**，见 [修订 14](AMENDMENT-14.md) 与 [冻结记录](final-candidate-freeze.json)。p27 按修订 12 预先写死的规则淘汰，不做第三次改写。
+- **基线口径已改**。原版 v3 与 v0 都没写 understanding 的字符上限，v3 自己有一条 89 字符的示例违反当前契约。补齐两次（末尾追加、写进字段说明行）后基线只从 45% 动到 47%，见 [修订 11](AMENDMENT-11.md) 与 [修订 13](AMENDMENT-13.md)。后续对照用 `v3_inline` 与 `v0_contract`，原始文件与原始结果全部保留。
+- **报告口径分两列**。「仅格式失败」的定义在首次使用前固定：全部失败原因都属于 `契约 name`、`契约 understanding`、`契约 say`、`规划中或提议动作缺少能力名警告` 四类之一。用 `split_analysis.py <run> --pair 候选 基线` 复算，定义不得事后修改。
+- **剩余步骤由 `orchestrate.sh` 串行执行**：15 完整回归 → 16 留出加两轮开发盲评 → 留出体验盲评。每个 provider 同时只有一个写账本的进程。中断后重跑该脚本会按已完成任务续跑，不重复计费。
+- **留出集 `holdout-v2.1.jsonl` 在 16 批首次调用后不得再用于调 p26**。未通过就记未通过，要另开新留出。
+- 逐轮记录见 [续跑记录](CHANGELOG-round2b.md)，交付文档见 [架构](../../delivery/07-第一部分架构-产品与技术.md) 与 [报告](../../delivery/08-Prompt优化报告-第二轮定稿.md)。
+- 私有凭据在本机 `/root/.config/scene-round2.env`（600 权限，不在仓库内）。runner 的 `keys()` 只识别不带 `export` 前缀的 `KEY=value` 行。
+
+三处不删的问题：J05 的金标准与评审偏好冲突；评审在空 say 上扣分而本方案守静默克制；未落地能力的告知警告被评审认为削弱表达而本方案保留。
+
 ## 已完成证据索引
 
 | 阶段 | 生成数 | 状态 |

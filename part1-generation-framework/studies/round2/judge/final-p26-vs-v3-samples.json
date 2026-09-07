@@ -1,0 +1,4108 @@
+[
+  {
+    "sample_id": "E08-zh-AB",
+    "id": "E08",
+    "locale": "zh",
+    "cat": "affect",
+    "input": "别跟我说话",
+    "context": "",
+    "A": {
+      "understanding": "需要安静，不再打扰",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "静音",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "要的是“别说话”，安静本身就是布景",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "安静",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "停止"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "E08-zh-BA",
+    "id": "E08",
+    "locale": "zh",
+    "cat": "affect",
+    "input": "别跟我说话",
+    "context": "",
+    "A": {
+      "understanding": "要的是“别说话”，安静本身就是布景",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "安静",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "停止"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "需要安静，不再打扰",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "静音",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "E08-en-AB",
+    "id": "E08",
+    "locale": "en",
+    "cat": "affect",
+    "input": "Don't talk to me",
+    "context": "",
+    "A": {
+      "understanding": "",
+      "relevance": 0,
+      "intent": "none",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Wants silence, quiet itself is the setting",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Quiet",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "停止"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "E08-en-BA",
+    "id": "E08",
+    "locale": "en",
+    "cat": "affect",
+    "input": "Don't talk to me",
+    "context": "",
+    "A": {
+      "understanding": "Wants silence, quiet itself is the setting",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Quiet",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "停止"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "",
+      "relevance": 0,
+      "intent": "none",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "E10-zh-AB",
+    "id": "E10",
+    "locale": "zh",
+    "cat": "affect",
+    "input": "帮我营造一个求婚的氛围",
+    "context": "【当前状态】停车中",
+    "A": {
+      "understanding": "营造浪漫求婚氛围，用柔和灯光和音乐烘托",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "求婚",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "浪漫"
+        }
+      ],
+      "say": "浪漫时刻",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "音乐播放：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "用户想在车内营造求婚氛围，需要浪漫的灯光、音乐和香氛",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "求婚氛围",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "40%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "浪漫"
+        },
+        {
+          "primary": "香氛开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "香氛类型",
+          "secondary": "类型2"
+        }
+      ],
+      "say": "准备好了，祝你成功",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "E10-zh-BA",
+    "id": "E10",
+    "locale": "zh",
+    "cat": "affect",
+    "input": "帮我营造一个求婚的氛围",
+    "context": "【当前状态】停车中",
+    "A": {
+      "understanding": "用户想在车内营造求婚氛围，需要浪漫的灯光、音乐和香氛",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "求婚氛围",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "40%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "浪漫"
+        },
+        {
+          "primary": "香氛开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "香氛类型",
+          "secondary": "类型2"
+        }
+      ],
+      "say": "准备好了，祝你成功",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "营造浪漫求婚氛围，用柔和灯光和音乐烘托",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "求婚",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "浪漫"
+        }
+      ],
+      "say": "浪漫时刻",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "音乐播放：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "E10-en-AB",
+    "id": "E10",
+    "locale": "en",
+    "cat": "affect",
+    "input": "Set up a proposal atmosphere for me",
+    "context": "[State] parked",
+    "A": {
+      "understanding": "Set a romantic mood with soft light and music",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Glow",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "浪漫"
+        }
+      ],
+      "say": "Soft light on",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "音乐播放：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "User wants a proposal atmosphere while parked",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "Proposal",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "浪漫"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "50%"
+        },
+        {
+          "primary": "香氛开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "香氛类型",
+          "secondary": "类型2"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "E10-en-BA",
+    "id": "E10",
+    "locale": "en",
+    "cat": "affect",
+    "input": "Set up a proposal atmosphere for me",
+    "context": "[State] parked",
+    "A": {
+      "understanding": "User wants a proposal atmosphere while parked",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "Proposal",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "浪漫"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "50%"
+        },
+        {
+          "primary": "香氛开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "香氛类型",
+          "secondary": "类型2"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Set a romantic mood with soft light and music",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Glow",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "浪漫"
+        }
+      ],
+      "say": "Soft light on",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "音乐播放：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "E01-zh-AB",
+    "id": "E01",
+    "locale": "zh",
+    "cat": "affect",
+    "input": "我想你了",
+    "context": "【用户档案】伴侣：小雨；你们的歌：晴天；喜欢的灯光：暖光 30%；香氛：类型2\n【当前状态】19:05，行驶中，车上只有我",
+    "A": {
+      "understanding": "想小雨了，用你们的歌和暖光陪着你",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "想念",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "播放指定音乐",
+          "secondary": "晴天"
+        },
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        }
+      ],
+      "say": "晴天陪你",
+      "offer": {
+        "type": "call",
+        "target": "小雨"
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "播放指定音乐：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "想念小雨，此刻在路上，用你们的歌陪着比说话合适",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "想她",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "想念"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "call",
+        "target": "小雨"
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "E01-zh-BA",
+    "id": "E01",
+    "locale": "zh",
+    "cat": "affect",
+    "input": "我想你了",
+    "context": "【用户档案】伴侣：小雨；你们的歌：晴天；喜欢的灯光：暖光 30%；香氛：类型2\n【当前状态】19:05，行驶中，车上只有我",
+    "A": {
+      "understanding": "想念小雨，此刻在路上，用你们的歌陪着比说话合适",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "想她",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "想念"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "call",
+        "target": "小雨"
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "想小雨了，用你们的歌和暖光陪着你",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "想念",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "播放指定音乐",
+          "secondary": "晴天"
+        },
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        }
+      ],
+      "say": "晴天陪你",
+      "offer": {
+        "type": "call",
+        "target": "小雨"
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "播放指定音乐：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "E01-en-AB",
+    "id": "E01",
+    "locale": "en",
+    "cat": "affect",
+    "input": "I miss you",
+    "context": "[Profile] Partner: Xiaoyu; your song: Sunny Day; preferred lighting: warm 30%; fragrance: type 2\n[State] 19:05, driving, only me in the car",
+    "A": {
+      "understanding": "Missing Xiaoyu; your song and warm light can help",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "Near",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        },
+        {
+          "primary": "播放指定音乐",
+          "secondary": "Sunny Day"
+        }
+      ],
+      "say": "I'm here",
+      "offer": {
+        "type": "call",
+        "target": "Xiaoyu"
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "播放指定音乐：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Missing Xiaoyu while driving alone, our song can accompany me",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "Miss her",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "想念"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "call",
+        "target": "Xiaoyu"
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "E01-en-BA",
+    "id": "E01",
+    "locale": "en",
+    "cat": "affect",
+    "input": "I miss you",
+    "context": "[Profile] Partner: Xiaoyu; your song: Sunny Day; preferred lighting: warm 30%; fragrance: type 2\n[State] 19:05, driving, only me in the car",
+    "A": {
+      "understanding": "Missing Xiaoyu while driving alone, our song can accompany me",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "Miss her",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "想念"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "call",
+        "target": "Xiaoyu"
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Missing Xiaoyu; your song and warm light can help",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "Near",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        },
+        {
+          "primary": "播放指定音乐",
+          "secondary": "Sunny Day"
+        }
+      ],
+      "say": "I'm here",
+      "offer": {
+        "type": "call",
+        "target": "Xiaoyu"
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "播放指定音乐：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "E04-zh-AB",
+    "id": "E04",
+    "locale": "zh",
+    "cat": "affect",
+    "input": "我升职了！",
+    "context": "【当前状态】停车中",
+    "A": {
+      "understanding": "恭喜升职，用柔和灯光庆祝一下",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "庆祝",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "50%"
+        }
+      ],
+      "say": "恭喜升职",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "升职了，值得庆祝，用氛围和音乐烘托一下",
+      "relevance": 0.8,
+      "intent": "affect",
+      "name": "庆祝升职",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "庆祝"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "60%"
+        }
+      ],
+      "say": "恭喜！",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "E04-zh-BA",
+    "id": "E04",
+    "locale": "zh",
+    "cat": "affect",
+    "input": "我升职了！",
+    "context": "【当前状态】停车中",
+    "A": {
+      "understanding": "升职了，值得庆祝，用氛围和音乐烘托一下",
+      "relevance": 0.8,
+      "intent": "affect",
+      "name": "庆祝升职",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "庆祝"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "60%"
+        }
+      ],
+      "say": "恭喜！",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "恭喜升职，用柔和灯光庆祝一下",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "庆祝",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "50%"
+        }
+      ],
+      "say": "恭喜升职",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "E04-en-AB",
+    "id": "E04",
+    "locale": "en",
+    "cat": "affect",
+    "input": "I got promoted!",
+    "context": "[State] parked",
+    "A": {
+      "understanding": "Celebrating your promotion with a gentle glow",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Glow",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "50%"
+        }
+      ],
+      "say": "Congrats!",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "“I got promoted!”—a celebration worth marking in the cabin",
+      "relevance": 0.8,
+      "intent": "affect",
+      "name": "Celebrate",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "庆祝"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "60%"
+        }
+      ],
+      "say": "Congrats!",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "E04-en-BA",
+    "id": "E04",
+    "locale": "en",
+    "cat": "affect",
+    "input": "I got promoted!",
+    "context": "[State] parked",
+    "A": {
+      "understanding": "“I got promoted!”—a celebration worth marking in the cabin",
+      "relevance": 0.8,
+      "intent": "affect",
+      "name": "Celebrate",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "庆祝"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "60%"
+        }
+      ],
+      "say": "Congrats!",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Celebrating your promotion with a gentle glow",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Glow",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "50%"
+        }
+      ],
+      "say": "Congrats!",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "C03-zh-AB",
+    "id": "C03",
+    "locale": "zh",
+    "cat": "vague",
+    "input": "提提神",
+    "context": "",
+    "A": {
+      "understanding": "需要提神，用通风和风量帮助清醒",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "提神",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅通风",
+          "secondary": "1挡"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "通风开了",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "用户想提神，需要布置一个清醒的环境",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "提神",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        },
+        {
+          "primary": "主驾座椅通风",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "C03-zh-BA",
+    "id": "C03",
+    "locale": "zh",
+    "cat": "vague",
+    "input": "提提神",
+    "context": "",
+    "A": {
+      "understanding": "用户想提神，需要布置一个清醒的环境",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "提神",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        },
+        {
+          "primary": "主驾座椅通风",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "需要提神，用通风和风量帮助清醒",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "提神",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅通风",
+          "secondary": "1挡"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "通风开了",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "C03-en-AB",
+    "id": "C03",
+    "locale": "en",
+    "cat": "vague",
+    "input": "Perk me up",
+    "context": "",
+    "A": {
+      "understanding": "Fresh air and gentle airflow to wake you up",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Fresh",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅通风",
+          "secondary": "1挡"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "Fresh air on",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "User wants to be energized, needs a stimulating environment.",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Energize",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "60%"
+        }
+      ],
+      "say": "Let's go!",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "C03-en-BA",
+    "id": "C03",
+    "locale": "en",
+    "cat": "vague",
+    "input": "Perk me up",
+    "context": "",
+    "A": {
+      "understanding": "User wants to be energized, needs a stimulating environment.",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Energize",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "60%"
+        }
+      ],
+      "say": "Let's go!",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Fresh air and gentle airflow to wake you up",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Fresh",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅通风",
+          "secondary": "1挡"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "Fresh air on",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "C07-zh-AB",
+    "id": "C07",
+    "locale": "zh",
+    "cat": "vague",
+    "input": "车里味道有点大",
+    "context": "",
+    "A": {
+      "understanding": "需要改善车内空气",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "清新",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "自动空气净化",
+          "secondary": "开启"
+        },
+        {
+          "primary": "内外循环设置",
+          "secondary": "内循环"
+        }
+      ],
+      "say": "净化已开启",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "用户觉得车里味道大，需要改善空气质量",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "清新空气",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "自动空气净化",
+          "secondary": "开启"
+        },
+        {
+          "primary": "内外循环设置",
+          "secondary": "外循环"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "C07-zh-BA",
+    "id": "C07",
+    "locale": "zh",
+    "cat": "vague",
+    "input": "车里味道有点大",
+    "context": "",
+    "A": {
+      "understanding": "用户觉得车里味道大，需要改善空气质量",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "清新空气",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "自动空气净化",
+          "secondary": "开启"
+        },
+        {
+          "primary": "内外循环设置",
+          "secondary": "外循环"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "需要改善车内空气",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "清新",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "自动空气净化",
+          "secondary": "开启"
+        },
+        {
+          "primary": "内外循环设置",
+          "secondary": "内循环"
+        }
+      ],
+      "say": "净化已开启",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "C07-en-AB",
+    "id": "C07",
+    "locale": "en",
+    "cat": "vague",
+    "input": "It smells a bit in here",
+    "context": "",
+    "A": {
+      "understanding": "Freshen the cabin air for you",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Fresh",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "自动空气净化",
+          "secondary": "开启"
+        },
+        {
+          "primary": "内外循环设置",
+          "secondary": "内循环"
+        }
+      ],
+      "say": "Freshen up",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "“smells a bit” in the cabin, wants fresher air",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Fresh air",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "内外循环设置",
+          "secondary": "外循环"
+        },
+        {
+          "primary": "自动空气净化",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "C07-en-BA",
+    "id": "C07",
+    "locale": "en",
+    "cat": "vague",
+    "input": "It smells a bit in here",
+    "context": "",
+    "A": {
+      "understanding": "“smells a bit” in the cabin, wants fresher air",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Fresh air",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "内外循环设置",
+          "secondary": "外循环"
+        },
+        {
+          "primary": "自动空气净化",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Freshen the cabin air for you",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Fresh",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "自动空气净化",
+          "secondary": "开启"
+        },
+        {
+          "primary": "内外循环设置",
+          "secondary": "内循环"
+        }
+      ],
+      "say": "Freshen up",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "C06-zh-AB",
+    "id": "C06",
+    "locale": "zh",
+    "cat": "vague",
+    "input": "冷",
+    "context": "",
+    "A": {
+      "understanding": "需要温和座椅加热",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "暖座",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "1挡"
+        }
+      ],
+      "say": "座椅热1挡了",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "用户说冷，需要升温保暖",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "保暖",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "极速升温",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "C06-zh-BA",
+    "id": "C06",
+    "locale": "zh",
+    "cat": "vague",
+    "input": "冷",
+    "context": "",
+    "A": {
+      "understanding": "用户说冷，需要升温保暖",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "保暖",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "极速升温",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "需要温和座椅加热",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "暖座",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "1挡"
+        }
+      ],
+      "say": "座椅热1挡了",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "C06-en-AB",
+    "id": "C06",
+    "locale": "en",
+    "cat": "vague",
+    "input": "Cold",
+    "context": "",
+    "A": {
+      "understanding": "Warm the cabin gently",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Warm",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "26℃"
+        }
+      ],
+      "say": "Warm air on",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Feels cold, wants warmth in the cabin",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Warm up",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "26℃"
+        },
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "Warming up",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "C06-en-BA",
+    "id": "C06",
+    "locale": "en",
+    "cat": "vague",
+    "input": "Cold",
+    "context": "",
+    "A": {
+      "understanding": "Feels cold, wants warmth in the cabin",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Warm up",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "26℃"
+        },
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "Warming up",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Warm the cabin gently",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Warm",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "26℃"
+        }
+      ],
+      "say": "Warm air on",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "C04-zh-AB",
+    "id": "C04",
+    "locale": "zh",
+    "cat": "vague",
+    "input": "安静点",
+    "context": "",
+    "A": {
+      "understanding": "需要降低车内声音",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "静音",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "一键静音",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "要的是安静，把声音收起来",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "安静",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "停止"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "C04-zh-BA",
+    "id": "C04",
+    "locale": "zh",
+    "cat": "vague",
+    "input": "安静点",
+    "context": "",
+    "A": {
+      "understanding": "要的是安静，把声音收起来",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "安静",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "停止"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "需要降低车内声音",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "静音",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "一键静音",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "C04-en-AB",
+    "id": "C04",
+    "locale": "en",
+    "cat": "vague",
+    "input": "Quieter, please",
+    "context": "",
+    "A": {
+      "understanding": "Lowering the volume for quiet",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Quiet",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        }
+      ],
+      "say": "Volume down",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "User wants a quieter cabin environment",
+      "relevance": 0.7,
+      "intent": "action",
+      "name": "Quiet",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音量",
+          "secondary": "30%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "C04-en-BA",
+    "id": "C04",
+    "locale": "en",
+    "cat": "vague",
+    "input": "Quieter, please",
+    "context": "",
+    "A": {
+      "understanding": "User wants a quieter cabin environment",
+      "relevance": 0.7,
+      "intent": "action",
+      "name": "Quiet",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音量",
+          "secondary": "30%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Lowering the volume for quiet",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Quiet",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        }
+      ],
+      "say": "Volume down",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "J08-zh-AB",
+    "id": "J08",
+    "locale": "zh",
+    "cat": "explicit",
+    "input": "帮我做一个夜里跑高速的场景",
+    "context": "",
+    "A": {
+      "understanding": "夜里跑高速需要专注与舒适兼顾",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "夜驰",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "主驾座椅按摩模式",
+          "secondary": "波浪"
+        },
+        {
+          "primary": "主驾座椅按摩强度",
+          "secondary": "1挡"
+        }
+      ],
+      "say": "夜路慢行",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "主驾座椅按摩模式：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "夜里跑高速需要专注和舒适，布置一个适合夜间长途驾驶的环境",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "夜跑高速",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "屏幕模式",
+          "secondary": "黑夜模式"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        }
+      ],
+      "say": "已布置，注意安全",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "J08-zh-BA",
+    "id": "J08",
+    "locale": "zh",
+    "cat": "explicit",
+    "input": "帮我做一个夜里跑高速的场景",
+    "context": "",
+    "A": {
+      "understanding": "夜里跑高速需要专注和舒适，布置一个适合夜间长途驾驶的环境",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "夜跑高速",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "屏幕模式",
+          "secondary": "黑夜模式"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        }
+      ],
+      "say": "已布置，注意安全",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "夜里跑高速需要专注与舒适兼顾",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "夜驰",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "主驾座椅按摩模式",
+          "secondary": "波浪"
+        },
+        {
+          "primary": "主驾座椅按摩强度",
+          "secondary": "1挡"
+        }
+      ],
+      "say": "夜路慢行",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "主驾座椅按摩模式：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "J08-en-AB",
+    "id": "J08",
+    "locale": "en",
+    "cat": "explicit",
+    "input": "Set up a scene for long highway drives at night",
+    "context": "",
+    "A": {
+      "understanding": "Night highway scene with calm comfort",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "NightDrive",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "时段",
+          "op": "==",
+          "secondary": "夜晚"
+        },
+        {
+          "primary": "位置",
+          "op": "==",
+          "secondary": "当前位置"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "24℃"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        }
+      ],
+      "say": "Night drive set",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "音乐播放：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "User wants a scene for long highway drives at night, likely for comfort and alertness.",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "Night Drive",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "时段",
+          "op": "==",
+          "secondary": "夜晚"
+        },
+        {
+          "primary": "车速",
+          "op": ">",
+          "secondary": "80KM/小时"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        },
+        {
+          "primary": "主驾座椅按摩模式",
+          "secondary": "腰部"
+        },
+        {
+          "primary": "主驾座椅按摩强度",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "Night drive scene set.",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "J08-en-BA",
+    "id": "J08",
+    "locale": "en",
+    "cat": "explicit",
+    "input": "Set up a scene for long highway drives at night",
+    "context": "",
+    "A": {
+      "understanding": "User wants a scene for long highway drives at night, likely for comfort and alertness.",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "Night Drive",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "时段",
+          "op": "==",
+          "secondary": "夜晚"
+        },
+        {
+          "primary": "车速",
+          "op": ">",
+          "secondary": "80KM/小时"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        },
+        {
+          "primary": "主驾座椅按摩模式",
+          "secondary": "腰部"
+        },
+        {
+          "primary": "主驾座椅按摩强度",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "Night drive scene set.",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Night highway scene with calm comfort",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "NightDrive",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "时段",
+          "op": "==",
+          "secondary": "夜晚"
+        },
+        {
+          "primary": "位置",
+          "op": "==",
+          "secondary": "当前位置"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "24℃"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        }
+      ],
+      "say": "Night drive set",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "音乐播放：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "J06-zh-AB",
+    "id": "J06",
+    "locale": "zh",
+    "cat": "explicit",
+    "input": "当我说“开工”的时候就进入专注模式",
+    "context": "",
+    "A": {
+      "understanding": "需要语音关键词触发，当前不支持",
+      "relevance": 0.8,
+      "intent": "clarify",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [
+        "语音关键词触发条件不可用"
+      ],
+      "warnings": [],
+      "clarify": "暂不支持语音关键词触发，是否改为固定时间或手动开启？"
+    },
+    "B": {
+      "understanding": "用户想用“开工”口令触发专注模式，需要布景配合",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "开工专注",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "生效时间",
+          "op": "==",
+          "secondary": "00:00"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "J06-zh-BA",
+    "id": "J06",
+    "locale": "zh",
+    "cat": "explicit",
+    "input": "当我说“开工”的时候就进入专注模式",
+    "context": "",
+    "A": {
+      "understanding": "用户想用“开工”口令触发专注模式，需要布景配合",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "开工专注",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "生效时间",
+          "op": "==",
+          "secondary": "00:00"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "需要语音关键词触发，当前不支持",
+      "relevance": 0.8,
+      "intent": "clarify",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [
+        "语音关键词触发条件不可用"
+      ],
+      "warnings": [],
+      "clarify": "暂不支持语音关键词触发，是否改为固定时间或手动开启？"
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "J06-en-AB",
+    "id": "J06",
+    "locale": "en",
+    "cat": "explicit",
+    "input": "When I say 'let's work', switch to focus mode",
+    "context": "",
+    "A": {
+      "understanding": "Need a voice trigger for focus mode",
+      "relevance": 0.8,
+      "intent": "clarify",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [
+        "语音关键词触发器不在支持范围内"
+      ],
+      "warnings": [],
+      "clarify": "语音触发暂不支持，是否改为手动开启专注模式？"
+    },
+    "B": {
+      "understanding": "User wants a voice-triggered focus mode when saying 'let's work'",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "Focus",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "生效时间段",
+          "op": "==",
+          "secondary": "自定义"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "J06-en-BA",
+    "id": "J06",
+    "locale": "en",
+    "cat": "explicit",
+    "input": "When I say 'let's work', switch to focus mode",
+    "context": "",
+    "A": {
+      "understanding": "User wants a voice-triggered focus mode when saying 'let's work'",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "Focus",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "生效时间段",
+          "op": "==",
+          "secondary": "自定义"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "专注"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Need a voice trigger for focus mode",
+      "relevance": 0.8,
+      "intent": "clarify",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [
+        "语音关键词触发器不在支持范围内"
+      ],
+      "warnings": [],
+      "clarify": "语音触发暂不支持，是否改为手动开启专注模式？"
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "J07-zh-AB",
+    "id": "J07",
+    "locale": "zh",
+    "cat": "explicit",
+    "input": "生成一个哄睡场景，后排有宝宝",
+    "context": "【当前状态】20:10，行驶中，车上有我和后排一个婴儿",
+    "A": {
+      "understanding": "为后排宝宝生成哄睡场景，前排声场加低音量",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "哄睡",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "声场",
+          "secondary": "前排模式"
+        },
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "10%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "用户想为后排宝宝生成哄睡场景，需要安静、柔和的环境",
+      "relevance": 0.9,
+      "intent": "action",
+      "name": "哄睡宝宝",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "声场",
+          "secondary": "前排模式"
+        },
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "安静"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        }
+      ],
+      "say": "已调暗灯光，轻音乐伴宝宝入睡",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "J07-zh-BA",
+    "id": "J07",
+    "locale": "zh",
+    "cat": "explicit",
+    "input": "生成一个哄睡场景，后排有宝宝",
+    "context": "【当前状态】20:10，行驶中，车上有我和后排一个婴儿",
+    "A": {
+      "understanding": "用户想为后排宝宝生成哄睡场景，需要安静、柔和的环境",
+      "relevance": 0.9,
+      "intent": "action",
+      "name": "哄睡宝宝",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "声场",
+          "secondary": "前排模式"
+        },
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "安静"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        }
+      ],
+      "say": "已调暗灯光，轻音乐伴宝宝入睡",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "为后排宝宝生成哄睡场景，前排声场加低音量",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "哄睡",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "声场",
+          "secondary": "前排模式"
+        },
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "10%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "J07-en-AB",
+    "id": "J07",
+    "locale": "en",
+    "cat": "explicit",
+    "input": "Create a lull-to-sleep scene, there's a baby in the back",
+    "context": "[State] 20:10, driving, me and a baby in the back",
+    "A": {
+      "understanding": "Soft light and quiet sound to help the baby sleep",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "Lullaby",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "10%"
+        },
+        {
+          "primary": "声场",
+          "secondary": "前排模式"
+        },
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "User wants a lullaby scene for a baby in the back while driving",
+      "relevance": 0.9,
+      "intent": "action",
+      "name": "Baby Sleep",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "安静"
+        },
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        },
+        {
+          "primary": "声场",
+          "secondary": "前排模式"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "J07-en-BA",
+    "id": "J07",
+    "locale": "en",
+    "cat": "explicit",
+    "input": "Create a lull-to-sleep scene, there's a baby in the back",
+    "context": "[State] 20:10, driving, me and a baby in the back",
+    "A": {
+      "understanding": "User wants a lullaby scene for a baby in the back while driving",
+      "relevance": 0.9,
+      "intent": "action",
+      "name": "Baby Sleep",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "安静"
+        },
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        },
+        {
+          "primary": "声场",
+          "secondary": "前排模式"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Soft light and quiet sound to help the baby sleep",
+      "relevance": 0.9,
+      "intent": "vague",
+      "name": "Lullaby",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "10%"
+        },
+        {
+          "primary": "声场",
+          "secondary": "前排模式"
+        },
+        {
+          "primary": "音量",
+          "secondary": "20%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "F10-zh-AB",
+    "id": "F10",
+    "locale": "zh",
+    "cat": "weak",
+    "input": "真安静啊",
+    "context": "【当前状态】18:10，行驶中，车上只有我",
+    "A": {
+      "understanding": "享受此刻的安静",
+      "relevance": 0.1,
+      "intent": "none",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "“真安静”是享受此刻的安静，不需要打破",
+      "relevance": 0.4,
+      "intent": "affect",
+      "name": "静享",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "F10-zh-BA",
+    "id": "F10",
+    "locale": "zh",
+    "cat": "weak",
+    "input": "真安静啊",
+    "context": "【当前状态】18:10，行驶中，车上只有我",
+    "A": {
+      "understanding": "“真安静”是享受此刻的安静，不需要打破",
+      "relevance": 0.4,
+      "intent": "affect",
+      "name": "静享",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "享受此刻的安静",
+      "relevance": 0.1,
+      "intent": "none",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "F10-en-AB",
+    "id": "F10",
+    "locale": "en",
+    "cat": "weak",
+    "input": "It's so quiet",
+    "context": "[State] 18:10, driving, only me in the car",
+    "A": {
+      "understanding": "Enjoying the quiet drive",
+      "relevance": 0.1,
+      "intent": "none",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Feels the quiet, wants a bit of company in the cabin",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Cozy drive",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "放松"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "F10-en-BA",
+    "id": "F10",
+    "locale": "en",
+    "cat": "weak",
+    "input": "It's so quiet",
+    "context": "[State] 18:10, driving, only me in the car",
+    "A": {
+      "understanding": "Feels the quiet, wants a bit of company in the cabin",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Cozy drive",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "放松"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Enjoying the quiet drive",
+      "relevance": 0.1,
+      "intent": "none",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "F04-zh-AB",
+    "id": "F04",
+    "locale": "zh",
+    "cat": "weak",
+    "input": "又堵了，烦死了",
+    "context": "【当前状态】18:10，行驶中，车上只有我",
+    "A": {
+      "understanding": "堵车让人烦躁，用柔和灯光和音乐舒缓一下",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "舒缓",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "放松"
+        }
+      ],
+      "say": "放松一下",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "音乐播放：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "堵车烦躁，需要舒缓情绪的环境",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "舒缓",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "放松"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "F04-zh-BA",
+    "id": "F04",
+    "locale": "zh",
+    "cat": "weak",
+    "input": "又堵了，烦死了",
+    "context": "【当前状态】18:10，行驶中，车上只有我",
+    "A": {
+      "understanding": "堵车烦躁，需要舒缓情绪的环境",
+      "relevance": 0.6,
+      "intent": "affect",
+      "name": "舒缓",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "放松"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "堵车让人烦躁，用柔和灯光和音乐舒缓一下",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "舒缓",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        },
+        {
+          "primary": "音乐播放",
+          "secondary": "放松"
+        }
+      ],
+      "say": "放松一下",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [
+        "音乐播放：尚未上线，仅供提议"
+      ],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "F04-en-AB",
+    "id": "F04",
+    "locale": "en",
+    "cat": "weak",
+    "input": "Stuck in traffic again, this is so annoying",
+    "context": "[State] 18:10, driving, only me in the car",
+    "A": {
+      "understanding": "Traffic is frustrating; a calm cabin can ease the wait",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Calm",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        }
+      ],
+      "say": "Breathe easy",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Annoyed by traffic, wants to feel less stuck",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Traffic calm",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "放松"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "F04-en-BA",
+    "id": "F04",
+    "locale": "en",
+    "cat": "weak",
+    "input": "Stuck in traffic again, this is so annoying",
+    "context": "[State] 18:10, driving, only me in the car",
+    "A": {
+      "understanding": "Annoyed by traffic, wants to feel less stuck",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Traffic calm",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "音乐播放",
+          "secondary": "放松"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "30%"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Traffic is frustrating; a calm cabin can ease the wait",
+      "relevance": 0.5,
+      "intent": "affect",
+      "name": "Calm",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "20%"
+        }
+      ],
+      "say": "Breathe easy",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "A06-zh-AB",
+    "id": "A06",
+    "locale": "zh",
+    "cat": "action",
+    "input": "热死了",
+    "context": "",
+    "A": {
+      "understanding": "需要降温，开启空调并调低温度",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "清凉",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "AC开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "主驾温度控制",
+          "secondary": "22℃"
+        }
+      ],
+      "say": "空调已开，22℃",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "“热死了”是明确的舒适目标，需要降温",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "降温",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "22℃"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "4挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "A06-zh-BA",
+    "id": "A06",
+    "locale": "zh",
+    "cat": "action",
+    "input": "热死了",
+    "context": "",
+    "A": {
+      "understanding": "“热死了”是明确的舒适目标，需要降温",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "降温",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "22℃"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "4挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "需要降温，开启空调并调低温度",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "清凉",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "AC开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "主驾温度控制",
+          "secondary": "22℃"
+        }
+      ],
+      "say": "空调已开，22℃",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "A06-en-AB",
+    "id": "A06",
+    "locale": "en",
+    "cat": "action",
+    "input": "It's boiling hot",
+    "context": "",
+    "A": {
+      "understanding": "Cooling the cabin down",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Cool",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "AC开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "主驾温度控制",
+          "secondary": "22℃"
+        }
+      ],
+      "say": "Cooling now",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Feels boiling hot, needs quick cooling in cabin",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Cool down",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "空调总开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "主驾温度控制",
+          "secondary": "18℃"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "7挡"
+        }
+      ],
+      "say": "Cooling now",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "A06-en-BA",
+    "id": "A06",
+    "locale": "en",
+    "cat": "action",
+    "input": "It's boiling hot",
+    "context": "",
+    "A": {
+      "understanding": "Feels boiling hot, needs quick cooling in cabin",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Cool down",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "空调总开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "主驾温度控制",
+          "secondary": "18℃"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "7挡"
+        }
+      ],
+      "say": "Cooling now",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Cooling the cabin down",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Cool",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "AC开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "主驾温度控制",
+          "secondary": "22℃"
+        }
+      ],
+      "say": "Cooling now",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "A08-zh-AB",
+    "id": "A08",
+    "locale": "zh",
+    "cat": "action",
+    "input": "哎呀今天好冷啊，把座椅加热和方向盘加热都打开吧",
+    "context": "",
+    "A": {
+      "understanding": "天冷，打开座椅和方向盘加热",
+      "relevance": 0.1,
+      "intent": "action",
+      "name": "暖意",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        },
+        {
+          "primary": "方向盘加热",
+          "secondary": "开启"
+        }
+      ],
+      "say": "座椅和方向盘都热了",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "今天好冷，要座椅和方向盘都热起来",
+      "relevance": 0.9,
+      "intent": "action",
+      "name": "暖手暖背",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        },
+        {
+          "primary": "方向盘加热",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "A08-zh-BA",
+    "id": "A08",
+    "locale": "zh",
+    "cat": "action",
+    "input": "哎呀今天好冷啊，把座椅加热和方向盘加热都打开吧",
+    "context": "",
+    "A": {
+      "understanding": "今天好冷，要座椅和方向盘都热起来",
+      "relevance": 0.9,
+      "intent": "action",
+      "name": "暖手暖背",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        },
+        {
+          "primary": "方向盘加热",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "天冷，打开座椅和方向盘加热",
+      "relevance": 0.1,
+      "intent": "action",
+      "name": "暖意",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        },
+        {
+          "primary": "方向盘加热",
+          "secondary": "开启"
+        }
+      ],
+      "say": "座椅和方向盘都热了",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "A08-en-AB",
+    "id": "A08",
+    "locale": "en",
+    "cat": "action",
+    "input": "Ugh, it's so cold today, turn on the seat heating and the steering wheel heating",
+    "context": "",
+    "A": {
+      "understanding": "Warm the seat and wheel on a cold day",
+      "relevance": 0.1,
+      "intent": "action",
+      "name": "Warmth",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        },
+        {
+          "primary": "方向盘加热",
+          "secondary": "开启"
+        }
+      ],
+      "say": "Seat and wheel warm",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "User feels cold and wants seat and steering wheel heating on.",
+      "relevance": 0.9,
+      "intent": "action",
+      "name": "Warm up",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        },
+        {
+          "primary": "方向盘加热",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "A08-en-BA",
+    "id": "A08",
+    "locale": "en",
+    "cat": "action",
+    "input": "Ugh, it's so cold today, turn on the seat heating and the steering wheel heating",
+    "context": "",
+    "A": {
+      "understanding": "User feels cold and wants seat and steering wheel heating on.",
+      "relevance": 0.9,
+      "intent": "action",
+      "name": "Warm up",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        },
+        {
+          "primary": "方向盘加热",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Warm the seat and wheel on a cold day",
+      "relevance": 0.1,
+      "intent": "action",
+      "name": "Warmth",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "2挡"
+        },
+        {
+          "primary": "方向盘加热",
+          "secondary": "开启"
+        }
+      ],
+      "say": "Seat and wheel warm",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "B03-zh-AB",
+    "id": "B03",
+    "locale": "zh",
+    "cat": "precise",
+    "input": "副驾有人坐的时候打开副驾座椅加热2挡",
+    "context": "",
+    "A": {
+      "understanding": "副驾有人时自动加热",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "暖座",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "副驾座椅",
+          "op": "==",
+          "secondary": "有人"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "副驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "副驾有人坐时自动开加热2挡，是条件触发布景",
+      "relevance": 0.95,
+      "intent": "precise",
+      "name": "副驾加热",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "副驾座椅",
+          "op": "==",
+          "secondary": "有人"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "副驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "B03-zh-BA",
+    "id": "B03",
+    "locale": "zh",
+    "cat": "precise",
+    "input": "副驾有人坐的时候打开副驾座椅加热2挡",
+    "context": "",
+    "A": {
+      "understanding": "副驾有人坐时自动开加热2挡，是条件触发布景",
+      "relevance": 0.95,
+      "intent": "precise",
+      "name": "副驾加热",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "副驾座椅",
+          "op": "==",
+          "secondary": "有人"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "副驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "副驾有人时自动加热",
+      "relevance": 0.9,
+      "intent": "precise",
+      "name": "暖座",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "副驾座椅",
+          "op": "==",
+          "secondary": "有人"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "副驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  },
+  {
+    "sample_id": "B03-en-AB",
+    "id": "B03",
+    "locale": "en",
+    "cat": "precise",
+    "input": "When someone sits in the passenger seat, turn on passenger seat heating at level 2",
+    "context": "",
+    "A": {
+      "understanding": "Heat the passenger seat when occupied",
+      "relevance": 0.95,
+      "intent": "precise",
+      "name": "Warmth",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "副驾座椅",
+          "op": "==",
+          "secondary": "有人"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "副驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "When passenger seat is occupied, warm the seat to level 2 automatically",
+      "relevance": 0.95,
+      "intent": "precise",
+      "name": "Passenger heat",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "副驾座椅",
+          "op": "==",
+          "secondary": "有人"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "副驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "A"
+  },
+  {
+    "sample_id": "B03-en-BA",
+    "id": "B03",
+    "locale": "en",
+    "cat": "precise",
+    "input": "When someone sits in the passenger seat, turn on passenger seat heating at level 2",
+    "context": "",
+    "A": {
+      "understanding": "When passenger seat is occupied, warm the seat to level 2 automatically",
+      "relevance": 0.95,
+      "intent": "precise",
+      "name": "Passenger heat",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "副驾座椅",
+          "op": "==",
+          "secondary": "有人"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "副驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "Heat the passenger seat when occupied",
+      "relevance": 0.95,
+      "intent": "precise",
+      "name": "Warmth",
+      "logic": "AND",
+      "conditions": [
+        {
+          "primary": "副驾座椅",
+          "op": "==",
+          "secondary": "有人"
+        }
+      ],
+      "actions": [
+        {
+          "primary": "副驾座椅加热",
+          "secondary": "2挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "candidate_position": "B"
+  }
+]

@@ -1,0 +1,13 @@
+{"run": "10_wording_followup", "completed": 32, "expected": 384}
+{"run": "10_wording_followup", "completed": 64, "expected": 384}
+{"run": "10_wording_followup", "completed": 96, "expected": 384}
+{"run": "10_wording_followup", "completed": 128, "expected": 384}
+{"run": "10_wording_followup", "completed": 160, "expected": 384}
+{"run": "10_wording_followup", "completed": 192, "expected": 384}
+{"run": "10_wording_followup", "completed": 224, "expected": 384}
+{"run": "10_wording_followup", "completed": 256, "expected": 384}
+{"run": "10_wording_followup", "completed": 288, "expected": 384}
+{"run": "10_wording_followup", "completed": 320, "expected": 384}
+{"run": "10_wording_followup", "completed": 352, "expected": 384}
+{"run": "10_wording_followup", "completed": 384, "expected": 384}
+{"p24": {"n": 128, "errors": 0, "usable": 0.9453125, "task_pass": 0.9453125, "schema": 0.9921875, "intent": 0.984375, "name": 1.0, "language": 1.0, "safety": 0, "p50": 1.4749821564764716, "p95": 1.8829325370956211, "understanding_p50": 1.065826804493554, "by_cat": {"action": 1.0, "affect": 0.8333333333333334, "attack": 1.0, "clarify": 1.0, "explicit": 1.0, "memory": 0.875, "observe": 0.6666666666666666, "precise": 1.0, "robust": 0.9, "vague": 0.9, "weak": 1.0}}, "p24_without_wording": {"n": 128, "errors": 0, "usable": 0.953125, "task_pass": 0.953125, "schema": 0.984375, "intent": 0.9765625, "name": 1.0, "language": 1.0, "safety": 0, "p50": 1.4961064409581013, "p95": 1.8822068957611917, "understanding_p50": 1.0703885254915804, "by_cat": {"action": 1.0, "affect": 0.8333333333333334, "attack": 1.0, "clarify": 1.0, "explicit": 0.875, "memory": 1.0, "observe": 0.6666666666666666, "precise": 1.0, "robust": 1.0, "vague": 0.9, "weak": 1.0}}, "v3_protocol": {"n": 128, "errors": 0, "usable": 0.4609375, "task_pass": 0.4765625, "schema": 0.75, "intent": 0.9609375, "name": 0.8203125, "language": 0.96875, "safety": 4, "p50": 1.4653162584872916, "p95": 1.9589760319329799, "understanding_p50": 1.0001520874793641, "by_cat": {"action": 0.5, "affect": 0.0, "attack": 0.8125, "clarify": 0.5, "explicit": 0.0, "memory": 0.625, "observe": 0.16666666666666666, "precise": 0.5416666666666666, "robust": 0.5, "vague": 0.3, "weak": 0.75}}}

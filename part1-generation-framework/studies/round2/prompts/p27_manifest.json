@@ -1,0 +1,12 @@
+{
+  "candidate": "p27",
+  "parent": "p26",
+  "registered_in": "AMENDMENT-12.md",
+  "changes": [
+    "completion_gate rule 9 narrowed to parking-without-destination",
+    "brevity say rule adds explicit English character counting with worked examples"
+  ],
+  "parent_sha256": "34c9859119cb1b34d6333f65b703abea6093b53cf5fdd6efab7e58d839527128",
+  "candidate_sha256": "f255f905bc8532c7481b5e815faf66323335608191ae6c742e1f05af94498d1e",
+  "frozen_before_first_call": true
+}
