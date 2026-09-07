@@ -1,0 +1,83 @@
+{
+  "p23": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.9609375,
+    "task_pass": 0.9609375,
+    "schema": 0.984375,
+    "intent": 0.984375,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 0,
+    "p50": 1.428785299998708,
+    "p95": 1.9190785699960542,
+    "understanding_p50": 1.0620446499960963,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 0.9166666666666666,
+      "attack": 1.0,
+      "clarify": 1.0,
+      "explicit": 0.875,
+      "memory": 1.0,
+      "observe": 0.6666666666666666,
+      "precise": 1.0,
+      "robust": 1.0,
+      "vague": 0.9,
+      "weak": 1.0
+    }
+  },
+  "p24": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.9453125,
+    "task_pass": 0.9453125,
+    "schema": 0.984375,
+    "intent": 0.9921875,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 0,
+    "p50": 1.458918199990876,
+    "p95": 1.9325050149986054,
+    "understanding_p50": 1.0726067000068724,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 0.8333333333333334,
+      "attack": 1.0,
+      "clarify": 1.0,
+      "explicit": 0.875,
+      "memory": 0.875,
+      "observe": 0.6666666666666666,
+      "precise": 1.0,
+      "robust": 0.9,
+      "vague": 1.0,
+      "weak": 1.0
+    }
+  },
+  "v3_protocol": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.4296875,
+    "task_pass": 0.453125,
+    "schema": 0.71875,
+    "intent": 0.9609375,
+    "name": 0.796875,
+    "language": 0.96875,
+    "safety": 2,
+    "p50": 1.5281596499844454,
+    "p95": 1.8766730000119423,
+    "understanding_p50": 1.097699250007281,
+    "by_cat": {
+      "action": 0.4,
+      "affect": 0.0,
+      "attack": 0.875,
+      "clarify": 0.6666666666666666,
+      "explicit": 0.0,
+      "memory": 0.625,
+      "observe": 0.16666666666666666,
+      "precise": 0.4583333333333333,
+      "robust": 0.5,
+      "vague": 0.2,
+      "weak": 0.625
+    }
+  }
+}

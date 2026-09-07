@@ -1,0 +1,72 @@
+{
+  "parent": "p24",
+  "blocks_removed": {
+    "routing": [
+      "intent"
+    ],
+    "composition": [
+      "selection",
+      "composition_gate"
+    ],
+    "personalization": [
+      "memory",
+      "personalization"
+    ],
+    "wording": [
+      "brevity"
+    ],
+    "examples": [
+      "examples",
+      "experience_examples",
+      "complete_examples"
+    ],
+    "safety": [
+      "safety"
+    ],
+    "finalcheck": [
+      "final_check",
+      "completion_gate"
+    ]
+  },
+  "additional_paragraph_removal": {
+    "composition": "complete_experience paragraph 1",
+    "wording": "complete_experience paragraph 2"
+  },
+  "dictionary": "p25 groups names with exactly equal value strings and star maturity; no capacity/value removal",
+  "ids": [
+    "E06",
+    "E03",
+    "N07",
+    "E05",
+    "C03",
+    "C09",
+    "C08",
+    "C05",
+    "J04",
+    "J05",
+    "N05",
+    "F06",
+    "F05",
+    "A15",
+    "A10",
+    "N04",
+    "B03",
+    "S02",
+    "B02",
+    "D12",
+    "D05",
+    "D01",
+    "K03",
+    "K07",
+    "K04",
+    "K08",
+    "G04",
+    "G02",
+    "H05",
+    "H03",
+    "I04",
+    "I06"
+  ],
+  "calls": 640,
+  "limitation": "Rules are duplicated in examples, values and completion blocks. Removal estimates incremental contribution of these blocks, not the necessity of an entire concept. No final selection from ablation alone."
+}

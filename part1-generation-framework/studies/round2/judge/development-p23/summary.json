@@ -1,0 +1,140 @@
+{
+  "plan": {
+    "name": "development-p23",
+    "source_run": "06_transfer",
+    "candidate": "p23",
+    "baseline": "v3_protocol",
+    "ids": [
+      "E06",
+      "E03",
+      "N07",
+      "E05",
+      "C03",
+      "C09",
+      "C08",
+      "C05",
+      "J04",
+      "J05",
+      "N05",
+      "F06",
+      "F05",
+      "A15",
+      "A10",
+      "N04"
+    ],
+    "models": [
+      "luna",
+      "qwen"
+    ],
+    "samples": 64,
+    "calls": 128,
+    "sample_sha256": "2ebde26af37ac426b9e2e4e3cb1a70830f752f0150036bcafbc5f8cf71b6dd2e",
+    "selection": "Fixed category quotas; seed 2026090716; rep 0; both locales and both positions. No score-based filtering.",
+    "report_rule": "Report all dimensions separately by judge, position and locale. Missing ratings are not imputed; incomplete coverage prevents confirmed superiority. Cluster by original case id."
+  },
+  "judges": {
+    "luna": {
+      "expected": 64,
+      "completed": 64,
+      "valid": 64,
+      "invalid_sample_ids": [],
+      "dimensions": {
+        "grounding": {
+          "candidate": 3.875,
+          "baseline": 4.140625,
+          "delta": -0.265625,
+          "cluster_ci95": [
+            -0.71875,
+            0.203125
+          ],
+          "positive_cluster_ci": false
+        },
+        "restraint": {
+          "candidate": 4.703125,
+          "baseline": 3.921875,
+          "delta": 0.78125,
+          "cluster_ci95": [
+            0.46875,
+            1.09375
+          ],
+          "positive_cluster_ci": true
+        },
+        "wording": {
+          "candidate": 4,
+          "baseline": 4.109375,
+          "delta": -0.109375,
+          "cluster_ci95": [
+            -0.53125,
+            0.359375
+          ],
+          "positive_cluster_ci": false
+        },
+        "composition": {
+          "candidate": 4.046875,
+          "baseline": 4.03125,
+          "delta": 0.015625,
+          "cluster_ci95": [
+            -0.328125,
+            0.375
+          ],
+          "positive_cluster_ci": false
+        }
+      },
+      "all_dimensions_higher_descriptively": false,
+      "confirmation_eligible": true
+    },
+    "qwen": {
+      "expected": 64,
+      "completed": 64,
+      "valid": 62,
+      "invalid_sample_ids": [
+        "A10-zh-AB",
+        "N04-zh-AB"
+      ],
+      "dimensions": {
+        "grounding": {
+          "candidate": 3.6774193548387095,
+          "baseline": 4.016129032258065,
+          "delta": -0.3387096774193548,
+          "cluster_ci95": [
+            -0.9739583333333334,
+            0.234375
+          ],
+          "positive_cluster_ci": false
+        },
+        "restraint": {
+          "candidate": 4.661290322580645,
+          "baseline": 4.290322580645161,
+          "delta": 0.3709677419354839,
+          "cluster_ci95": [
+            0.14583333333333334,
+            0.59375
+          ],
+          "positive_cluster_ci": true
+        },
+        "wording": {
+          "candidate": 3.7580645161290325,
+          "baseline": 3.9516129032258065,
+          "delta": -0.1935483870967742,
+          "cluster_ci95": [
+            -0.671875,
+            0.28125
+          ],
+          "positive_cluster_ci": false
+        },
+        "composition": {
+          "candidate": 3.7096774193548385,
+          "baseline": 4.016129032258065,
+          "delta": -0.3064516129032258,
+          "cluster_ci95": [
+            -0.9583333333333333,
+            0.15625
+          ],
+          "positive_cluster_ci": false
+        }
+      },
+      "all_dimensions_higher_descriptively": false,
+      "confirmation_eligible": false
+    }
+  }
+}
