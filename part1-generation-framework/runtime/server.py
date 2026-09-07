@@ -138,7 +138,7 @@ def main():
     provider=Fixture(parse_json(Path(args.fixture).read_text(encoding="utf-8"))) if args.fixture else DeepSeek(credentials.get("DEEPSEEK_OFFICIAL_API_KEY") or credentials["DEEPSEEK_API_KEY"],args.mode)
     service=Service(engine,provider,args.template)
     server=ThreadingHTTPServer(("127.0.0.1",args.port),handler_for(service,token))
-    print(json.dumps({"listening":"127.0.0.1:"+str(args.port),"simulation":True,"provider":provider.mode}),flush=True)
+    print(json.dumps({"listening":"127.0.0.1:"+str(server.server_port),"simulation":True,"provider":provider.mode}),flush=True)
     try:server.serve_forever()
     finally:server.server_close()
 

@@ -1,0 +1,33 @@
+{
+  "name": "development-p23",
+  "source_run": "06_transfer",
+  "candidate": "p23",
+  "baseline": "v3_protocol",
+  "ids": [
+    "E06",
+    "E03",
+    "N07",
+    "E05",
+    "C03",
+    "C09",
+    "C08",
+    "C05",
+    "J04",
+    "J05",
+    "N05",
+    "F06",
+    "F05",
+    "A15",
+    "A10",
+    "N04"
+  ],
+  "models": [
+    "luna",
+    "qwen"
+  ],
+  "samples": 64,
+  "calls": 128,
+  "sample_sha256": "2ebde26af37ac426b9e2e4e3cb1a70830f752f0150036bcafbc5f8cf71b6dd2e",
+  "selection": "Fixed category quotas; seed 2026090716; rep 0; both locales and both positions. No score-based filtering.",
+  "report_rule": "Report all dimensions separately by judge, position and locale. Missing ratings are not imputed; incomplete coverage prevents confirmed superiority. Cluster by original case id."
+}

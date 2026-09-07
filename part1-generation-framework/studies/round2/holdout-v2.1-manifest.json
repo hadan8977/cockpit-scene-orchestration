@@ -1,0 +1,24 @@
+{
+  "parent_sha256": "d9b8bcd0828e2fdbfd3a1ab47d244ae010bf7c63a767aead0601d90462f0dd21",
+  "sha256": "4f04987414903afc07665fc9864a278df84e0daaf154326d85718cca91eb2373",
+  "cases": 80,
+  "changes": [
+    {
+      "id": "R2H019",
+      "field": "condition.value",
+      "before": "60",
+      "after": 60,
+      "reason": "Numeric gold matches parsed quantity; output still must carry μg/m³ and satisfy step"
+    },
+    {
+      "id": "R2H021",
+      "field": "condition.primary",
+      "before": "主驾车门",
+      "after": "左前门",
+      "reason": "Author used a non-registry display alias; current registry's driver door is 左前门"
+    }
+  ],
+  "model_calls_before_correction": 0,
+  "reason": "Offline registry gold audit; original v2 kept. Both versions unqueried. This is one confirmation set, not two independent holdouts.",
+  "errors": []
+}
