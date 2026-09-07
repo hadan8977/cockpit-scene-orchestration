@@ -1,5 +1,7 @@
 # 场景编排主动层 PRD v17
 
+> 本文为产品需求与设计目标。第一部分最新实验交付、实际 Demo 状态和未达项见[当前交付](../part1-generation-framework/delivery/README.md)；下文写作时的状态表不代表最新验收。
+
 修订记录
 
 | 版本 | 说明 |

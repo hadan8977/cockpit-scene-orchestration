@@ -1,0 +1,20 @@
+{
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "authentication": "Load DEEPSEEK_API_KEY in the server environment; never send the key to the browser",
+  "system_prompt_file": "../prompt/system-zh.md",
+  "request_parameters": {
+    "model": "deepseek-v4-flash",
+    "temperature": 0,
+    "max_tokens": 1000,
+    "thinking": {"type": "disabled"},
+    "response_format": {"type": "json_object"},
+    "stream": true,
+    "stream_options": {"include_usage": true}
+  },
+  "message_assembly": "system content = full UTF-8 LF prompt; user content = JSON serialization of one envelope below",
+  "user_envelope_examples": [
+    {"locale": "zh", "context": "[State] parked, gear P", "utterance": "把主驾温度设为24度"},
+    {"locale": "en", "context": "[State] parked, gear P", "utterance": "Set the driver temperature to 24 degrees"}
+  ],
+  "scope": "Examples demonstrate the tested generation envelope. Product-level direct-control routing and currentScene editing need separate integration tests."
+}

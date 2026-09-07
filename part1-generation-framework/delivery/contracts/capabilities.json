@@ -1,0 +1,2352 @@
+{
+ "version": "2026-09-07.0807",
+ "capabilities": [
+  {
+   "id": "window.driver",
+   "zh": "主驾车窗",
+   "en": "driver window",
+   "group": "车窗",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/主驾车窗",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "关闭",
+    "10%",
+    "20%",
+    "30%",
+    "40%",
+    "50%",
+    "60%",
+    "70%",
+    "80%",
+    "90%",
+    "100%"
+   ],
+   "deny_act_values": [],
+   "notes": "disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25"
+  },
+  {
+   "id": "window.passenger",
+   "zh": "副驾车窗",
+   "en": "passenger window",
+   "group": "车窗",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/副驾车窗",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "关闭",
+    "10%",
+    "20%",
+    "30%",
+    "40%",
+    "50%",
+    "60%",
+    "70%",
+    "80%",
+    "90%",
+    "100%"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "window.rear_left",
+   "zh": "左后排车窗",
+   "en": "rear left window",
+   "group": "车窗",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/左后排车窗",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "关闭",
+    "10%",
+    "20%",
+    "30%",
+    "40%",
+    "50%",
+    "60%",
+    "70%",
+    "80%",
+    "90%",
+    "100%"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "window.rear_right",
+   "zh": "右后排车窗",
+   "en": "rear right window",
+   "group": "车窗",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/右后排车窗",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "关闭",
+    "10%",
+    "20%",
+    "30%",
+    "40%",
+    "50%",
+    "60%",
+    "70%",
+    "80%",
+    "90%",
+    "100%"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "window.any",
+   "zh": "任意车窗",
+   "en": "any window",
+   "group": "车窗",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/任意车窗",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.power",
+   "zh": "空调总开关",
+   "en": "climate power",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/空调开关",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.max_ac",
+   "zh": "MAX AC",
+   "en": "MAX AC",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "no_ux",
+   "source": "空调/MAX AC 极速降温",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.max_heat",
+   "zh": "极速升温",
+   "en": "max heat",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "no_ux",
+   "source": "空调/极速升温",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.auto",
+   "zh": "AUTO模式",
+   "en": "climate auto",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/AUTO模式",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.defog_front",
+   "zh": "前风窗除雾",
+   "en": "front defog",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/前风窗除雾",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.recirculation",
+   "zh": "内外循环设置",
+   "en": "recirculation",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/内外循环状态",
+   "exec": "",
+   "cond_values": [
+    "内循环",
+    "外循环"
+   ],
+   "act_values": [
+    "内循环",
+    "外循环"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "air.purify_auto",
+   "zh": "自动空气净化",
+   "en": "auto air purifier",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/自动空气净化",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.driver.occupied",
+   "zh": "主驾座椅",
+   "en": "driver seat occupancy",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "座椅/主驾座椅 入座离座",
+   "exec": "",
+   "cond_values": [
+    "有人",
+    "无人"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "后排没有占位信号，用后排安全带作代理"
+  },
+  {
+   "id": "seat.passenger.occupied",
+   "zh": "副驾座椅",
+   "en": "passenger seat occupancy",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "座椅/副驾座椅 入座离座",
+   "exec": "",
+   "cond_values": [
+    "有人",
+    "无人"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "后排没有占位信号，用后排安全带作代理"
+  },
+  {
+   "id": "seat.any.occupied",
+   "zh": "任意座椅",
+   "en": "any seat occupancy",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "座椅/任意位置 入座离座",
+   "exec": "",
+   "cond_values": [
+    "有人",
+    "无人"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "后排没有占位信号，用后排安全带作代理"
+  },
+  {
+   "id": "seat.driver.heat",
+   "zh": "主驾座椅加热",
+   "en": "driver seat heating",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/主驾座椅加热",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.driver.vent",
+   "zh": "主驾座椅通风",
+   "en": "driver seat ventilation",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/主驾座椅通风",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.passenger.heat",
+   "zh": "副驾座椅加热",
+   "en": "passenger seat heating",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/副驾座椅加热",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.passenger.vent",
+   "zh": "副驾座椅通风",
+   "en": "passenger seat ventilation",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/副驾座椅通风",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.ca0c1",
+   "zh": "左后排座椅加热",
+   "en": "左后排座椅加热",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/左后排座椅加热",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.c061d",
+   "zh": "左后排座椅通风",
+   "en": "左后排座椅通风",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/左后排座椅通风",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.c96ce",
+   "zh": "右后排座椅加热",
+   "en": "右后排座椅加热",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/右后排座椅加热",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.cfc29",
+   "zh": "右后排座椅通风",
+   "en": "右后排座椅通风",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/右后排座椅通风",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.driver.massage",
+   "zh": "主驾座椅按摩",
+   "en": "driver seat massage state",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/主驾座椅按摩",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "seat.passenger.massage",
+   "zh": "副驾座椅按摩",
+   "en": "passenger seat massage state",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/副驾座椅按摩",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "door.front_left",
+   "zh": "左前门",
+   "en": "front left door",
+   "group": "门",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "门窗/主驾车门",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "door.front_right",
+   "zh": "右前门",
+   "en": "front right door",
+   "group": "门",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "门窗/副驾车门",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "door.rear_left",
+   "zh": "左后门",
+   "en": "rear left door",
+   "group": "门",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "门窗/左后排车门",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "door.rear_right",
+   "zh": "右后门",
+   "en": "rear right door",
+   "group": "门",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "门窗/右后排车门",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "door.any",
+   "zh": "任意车门",
+   "en": "any door",
+   "group": "门",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/任意车门",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "door.tailgate",
+   "zh": "尾门",
+   "en": "tailgate",
+   "group": "门",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/后备箱",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "door.frunk",
+   "zh": "前备箱",
+   "en": "frunk",
+   "group": "门",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/前备箱",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "door.lock",
+   "zh": "车锁",
+   "en": "door lock state",
+   "group": "门",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "门窗/车锁",
+   "exec": "",
+   "cond_values": [
+    "有门未锁",
+    "全部上锁"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "离车事件的真实信号"
+  },
+  {
+   "id": "fragrance.power",
+   "zh": "香氛开关",
+   "en": "fragrance",
+   "group": "氛围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "no_ux",
+   "source": "舒适/香氛开关",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "drive.gear",
+   "zh": "挡位",
+   "en": "gear",
+   "group": "车辆状态",
+   "class": "C",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/挡位",
+   "exec": "",
+   "cond_values": [
+    "挡位N",
+    "挡位D",
+    "挡位P",
+    "挡位R"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "battery.soc",
+   "zh": "电量",
+   "en": "battery level",
+   "group": "车辆状态",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/车辆电量 上升至/下降至",
+   "exec": "",
+   "cond_values": {
+    "range": [
+     1,
+     100,
+     1,
+     "%"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "vehicle.speed",
+   "zh": "车速",
+   "en": "speed",
+   "group": "车辆状态",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/车辆速度",
+   "exec": "",
+   "cond_values": {
+    "range": [
+     0,
+     200,
+     10,
+     "KM/小时"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "vehicle.range_pct",
+   "zh": "续航里程",
+   "en": "remaining range %",
+   "group": "车辆状态",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/续航里程（百分比）",
+   "exec": "",
+   "cond_values": {
+    "range": [
+     1,
+     100,
+     1,
+     "%"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "表里没有公里数与到目的地距离，只有百分比"
+  },
+  {
+   "id": "belt.driver",
+   "zh": "主驾安全带",
+   "en": "driver seat belt",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/主驾安全带",
+   "exec": "",
+   "cond_values": [
+    "系上",
+    "解开"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "belt.passenger",
+   "zh": "副驾安全带",
+   "en": "passenger seat belt",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/副驾安全带",
+   "exec": "",
+   "cond_values": [
+    "系上",
+    "解开"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "belt.rear_left",
+   "zh": "左后排安全带",
+   "en": "rear left seat belt",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/左后排安全带",
+   "exec": "",
+   "cond_values": [
+    "系上",
+    "解开"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "后排有人的代理信号"
+  },
+  {
+   "id": "belt.rear_right",
+   "zh": "右后排安全带",
+   "en": "rear right seat belt",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/右后排安全带",
+   "exec": "",
+   "cond_values": [
+    "系上",
+    "解开"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "后排有人的代理信号"
+  },
+  {
+   "id": "belt.rear_middle",
+   "zh": "后排中间安全带",
+   "en": "rear middle seat belt",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/后排中间安全带",
+   "exec": "",
+   "cond_values": [
+    "系上",
+    "解开"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "后排有人的代理信号"
+  },
+  {
+   "id": "belt.any",
+   "zh": "任意安全带",
+   "en": "any seat belt",
+   "group": "乘员",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "驾驶/任意安全带",
+   "exec": "",
+   "cond_values": [
+    "系上",
+    "解开"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "cabin.temp",
+   "zh": "车内温度",
+   "en": "cabin temperature",
+   "group": "环境",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "环境/车内温度",
+   "exec": "",
+   "cond_values": {
+    "range": [
+     -10,
+     50,
+     1,
+     "℃"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "outside.temp",
+   "zh": "车外温度",
+   "en": "outside temperature",
+   "group": "环境",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "环境/车外温度",
+   "exec": "",
+   "cond_values": {
+    "range": [
+     -10,
+     50,
+     1,
+     "℃"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "cabin.pm25",
+   "zh": "车内PM2.5",
+   "en": "cabin PM2.5",
+   "group": "环境",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "环境/车内PM2.5",
+   "exec": "",
+   "cond_values": {
+    "range": [
+     0,
+     250,
+     10,
+     "μg/m³"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "light.low_beam",
+   "zh": "近光灯",
+   "en": "low beam",
+   "group": "灯光",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "灯光/近光灯",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "近光灯开启可作天黑代理"
+  },
+  {
+   "id": "light.high_beam",
+   "zh": "远光灯",
+   "en": "high beam",
+   "group": "灯光",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "灯光/远光灯",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "light.rear_fog",
+   "zh": "后雾灯",
+   "en": "rear fog light",
+   "group": "灯光",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "灯光/后雾灯",
+   "exec": "",
+   "cond_values": [
+    "开启",
+    "关闭"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "audio.media_volume.state",
+   "zh": "媒体音量",
+   "en": "media volume state",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "声音/音量 媒体音量",
+   "exec": "",
+   "cond_values": {
+    "range": [
+     0,
+     100,
+     10,
+     "%"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "device.wireless_charger",
+   "zh": "无线充电",
+   "en": "wireless charger",
+   "group": "设备",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "设备/主驾充电面板",
+   "exec": "",
+   "cond_values": [
+    "充电中",
+    "未充电"
+   ],
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": "手机放上去了的代理"
+  },
+  {
+   "id": "ctx.place",
+   "zh": "位置",
+   "en": "place",
+   "group": "条件语义",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "位置/在某地 不在某地",
+   "exec": "",
+   "cond_values": [
+    "家",
+    "公司",
+    "收藏地点",
+    "当前位置",
+    "地点搜索"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "op 用 == 与 !=；地点搜索的值是地点名"
+  },
+  {
+   "id": "nav.destination",
+   "zh": "导航目的地",
+   "en": "navigation destination",
+   "group": "条件语义",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "导航/导航至",
+   "exec": "",
+   "cond_values": [
+    "家",
+    "公司",
+    "收藏地点",
+    "当前位置",
+    "地点搜索"
+   ],
+   "act_values": [
+    "家",
+    "公司",
+    "收藏地点",
+    "常用地点",
+    "当前位置",
+    "地点搜索"
+   ],
+   "deny_act_values": [],
+   "notes": "导航状态、预计到达时间、剩余距离已从表里删除"
+  },
+  {
+   "id": "scope.time_point",
+   "zh": "生效时间",
+   "en": "effective time",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "时间/生效时间 HH:MM:SS",
+   "exec": "值写成 07:00 这样的时刻",
+   "cond_values": {
+    "range": [
+     0,
+     2359,
+     1,
+     "时"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "精确时刻触发，如每天七点"
+  },
+  {
+   "id": "scope.time_range",
+   "zh": "生效时间段",
+   "en": "effective time range",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "生效范围/指定时间段 startTime endTime",
+   "exec": "自定义时值写成 HH:MM-HH:MM",
+   "cond_values": [
+    "全天",
+    "自定义"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "场景级生效范围，不是触发条件"
+  },
+  {
+   "id": "scope.repeat",
+   "zh": "重复周期",
+   "en": "repeat",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "生效范围/重复 weekDays",
+   "exec": "工作日=[1..5]，周末=[6,7]，自定义列举星期",
+   "cond_values": [
+    "每天",
+    "工作日",
+    "周末",
+    "自定义"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "scope.date_range",
+   "zh": "日期区间",
+   "en": "date range",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "sprint",
+   "source": "生效范围/某几天 startDate endDate",
+   "exec": "值写成 20250101-20250501",
+   "cond_values": [
+    "自定义"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "季节包、假期包靠它"
+  },
+  {
+   "id": "scope.date",
+   "zh": "指定日期",
+   "en": "specific date",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "生效范围/指定日期 某一天",
+   "exec": "值写成 20260214",
+   "cond_values": [
+    "自定义"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "生日、纪念日靠它"
+  },
+  {
+   "id": "scope.frequency",
+   "zh": "生效频次",
+   "en": "frequency",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "生效范围/生效频次",
+   "exec": "",
+   "cond_values": [
+    "每次",
+    "每天一次",
+    "每周一次",
+    "仅一次"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "车云配置，海外暂无；一次性场景靠仅一次"
+  },
+  {
+   "id": "ctx.time_of_day",
+   "zh": "时段",
+   "en": "time of day",
+   "group": "条件语义",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "时间/生效时间 + 生效范围 startTime/endTime",
+   "exec": "映射到生效范围的时间段",
+   "cond_values": [
+    "清晨",
+    "上午",
+    "中午",
+    "下午",
+    "傍晚",
+    "夜晚",
+    "深夜"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "派生：时段名对应固定时间段"
+  },
+  {
+   "id": "ctx.day_type",
+   "zh": "星期类型",
+   "en": "day type",
+   "group": "条件语义",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "生效范围/重复 weekDays",
+   "exec": "工作日=[1..5]，休息日=[6,7]",
+   "cond_values": [
+    "工作日",
+    "休息日",
+    "节假日"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "节假日含调休需要节假日表，表里没有，proposed"
+  },
+  {
+   "id": "ctx.weather",
+   "zh": "天气",
+   "en": "weather",
+   "group": "条件语义",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "proposed",
+   "source": "无信号；小塔能播天气说明有天气服务",
+   "exec": "",
+   "cond_values": [
+    "晴",
+    "雨",
+    "雪",
+    "暴晒",
+    "高温",
+    "低温"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "需接天气服务；暴晒可用车内温度加停车时长代理"
+  },
+  {
+   "id": "ctx.trip_event",
+   "zh": "行程事件",
+   "en": "trip event",
+   "group": "条件语义",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "proposed",
+   "source": "由挡位、入座、车锁、位置组合派生",
+   "exec": "出发=挡位D且主驾有人；到达=挡位P且位置命中；停车等人=挡位P且主驾有人且停留超过阈值；离车=主驾无人且全部上锁",
+   "cond_values": [
+    "出发",
+    "到达",
+    "停车等人",
+    "离车"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.sync",
+   "zh": "温区同步",
+   "en": "zone sync",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/温区同步",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.ac",
+   "zh": "AC开关",
+   "en": "AC compressor",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/AC开关",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.eco",
+   "zh": "ECO",
+   "en": "ECO",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/ECO",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.driver_only",
+   "zh": "主驾模式",
+   "en": "driver-only mode",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/主驾模式",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "mirror.heat",
+   "zh": "后视镜加热",
+   "en": "mirror heating",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/后视镜加热",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "air.self_dry",
+   "zh": "空气自干燥",
+   "en": "air self-dry",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/空调自干燥",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.temp.driver",
+   "zh": "主驾温度控制",
+   "en": "driver temperature",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/温度控制 主驾温度",
+   "exec": "",
+   "cond_values": null,
+   "act_values": {
+    "range": [
+     18,
+     32,
+     1,
+     "℃"
+    ]
+   },
+   "deny_act_values": [],
+   "notes": "接口支持 0.5 步长，prompt 只用整数"
+  },
+  {
+   "id": "hvac.temp.passenger",
+   "zh": "副驾温度控制",
+   "en": "passenger temperature",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/温度控制 副驾温度",
+   "exec": "",
+   "cond_values": null,
+   "act_values": {
+    "range": [
+     18,
+     32,
+     1,
+     "℃"
+    ]
+   },
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.fan.front",
+   "zh": "前排风量调节",
+   "en": "front fan level",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/风量调节",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡",
+    "4挡",
+    "5挡",
+    "6挡",
+    "7挡",
+    "8挡"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "hvac.mode",
+   "zh": "出风模式设置",
+   "en": "air flow mode",
+   "group": "空调与空气",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "空调/出风模式",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "吹面",
+    "吹脚",
+    "吹面吹脚",
+    "吹脚除霜",
+    "除霜"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "fragrance.type",
+   "zh": "香氛类型",
+   "en": "fragrance type",
+   "group": "氛围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "香氛/香氛类型",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "类型1",
+    "类型2",
+    "类型3"
+   ],
+   "deny_act_values": [],
+   "notes": "前置：香氛开关开启"
+  },
+  {
+   "id": "fragrance.intensity",
+   "zh": "香氛浓度",
+   "en": "fragrance intensity",
+   "group": "氛围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "香氛/香氛浓度",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "淡雅",
+    "自然",
+    "馥郁"
+   ],
+   "deny_act_values": [],
+   "notes": "前置：香氛开关开启"
+  },
+  {
+   "id": "safety.avas",
+   "zh": "低速行人警报音",
+   "en": "pedestrian warning sound",
+   "group": "声音",
+   "class": "C",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "声音/低速行人警报音",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭",
+    "微风",
+    "梦幻",
+    "无尽"
+   ],
+   "deny_act_values": [
+    "关闭"
+   ],
+   "notes": "表里允许关闭；本方案禁止值=关闭（R138、FMVSS 141）；三种音色仅国内"
+  },
+  {
+   "id": "audio.mute",
+   "zh": "一键静音",
+   "en": "mute",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "no_ux",
+   "source": "声音/一键静音",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "media.volume",
+   "zh": "音量",
+   "en": "volume",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "声音/音量 媒体音量",
+   "exec": "媒体音量",
+   "cond_values": null,
+   "act_values": {
+    "range": [
+     0,
+     100,
+     10,
+     "%"
+    ]
+   },
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "audio.nav_volume",
+   "zh": "导航音量",
+   "en": "navigation volume",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "声音/音量 导航音量",
+   "exec": "",
+   "cond_values": null,
+   "act_values": {
+    "range": [
+     0,
+     100,
+     10,
+     "%"
+    ]
+   },
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "audio.voice_volume",
+   "zh": "语音音量",
+   "en": "voice volume",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "声音/音量 语音音量",
+   "exec": "",
+   "cond_values": null,
+   "act_values": {
+    "range": [
+     0,
+     100,
+     10,
+     "%"
+    ]
+   },
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "audio.effect",
+   "zh": "音效",
+   "en": "sound effect",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "声音/音效",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "立体声",
+    "音乐厅",
+    "VIP",
+    "影院",
+    "自定义"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "audio.soundstage",
+   "zh": "声场",
+   "en": "sound stage",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "声音/声场",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "全车模式",
+    "前排模式",
+    "主驾模式",
+    "自定义"
+   ],
+   "deny_act_values": [],
+   "notes": "“别吵醒后排”的正解：声场切前排或主驾"
+  },
+  {
+   "id": "audio.engine_sound",
+   "zh": "声浪",
+   "en": "engine sound",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "声音/声浪",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "静音",
+    "超跑",
+    "量子",
+    "无尽"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "voice.announce",
+   "zh": "小塔播报",
+   "en": "assistant announce",
+   "group": "话",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "小塔/小塔播报",
+   "exec": "自定义内容=契约里的 say 文本",
+   "cond_values": null,
+   "act_values": [
+    "播放天气",
+    "自定义内容"
+   ],
+   "deny_act_values": [],
+   "notes": "六元素里的“话”有真实能力承接"
+  },
+  {
+   "id": "light.ambient.power",
+   "zh": "氛围灯开关",
+   "en": "ambient light",
+   "group": "氛围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "灯光/氛围灯开关",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "light.ambient.music_sync",
+   "zh": "音乐律动",
+   "en": "music sync lighting",
+   "group": "氛围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "灯光/氛围灯音乐律动",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "模式1",
+    "模式2",
+    "模式3",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "light.ambient.brightness",
+   "zh": "氛围灯亮度",
+   "en": "ambient brightness",
+   "group": "氛围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "灯光/氛围灯亮度 1至10",
+   "exec": "10%→1 … 100%→10",
+   "cond_values": null,
+   "act_values": [
+    "10%",
+    "20%",
+    "30%",
+    "40%",
+    "50%",
+    "60%",
+    "70%",
+    "80%",
+    "90%",
+    "100%"
+   ],
+   "deny_act_values": [],
+   "notes": "表里没有氛围灯颜色"
+  },
+  {
+   "id": "seat.driver.massage.level",
+   "zh": "主驾座椅按摩强度",
+   "en": "driver massage intensity",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/主驾座椅按摩 强度 Level1-3",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡"
+   ],
+   "deny_act_values": [],
+   "notes": "前置：按摩开启"
+  },
+  {
+   "id": "seat.driver.massage.mode",
+   "zh": "主驾座椅按摩模式",
+   "en": "driver massage mode",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "sprint",
+   "source": "舒适/主驾座椅按摩 模式",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "关闭",
+    "波浪",
+    "猫步",
+    "蛇形",
+    "肩部",
+    "腰部"
+   ],
+   "deny_act_values": [],
+   "notes": "五种模式排在 sprint1"
+  },
+  {
+   "id": "seat.passenger.massage.level",
+   "zh": "副驾座椅按摩强度",
+   "en": "passenger massage intensity",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/副驾座椅按摩 强度 Level1-3",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "1挡",
+    "2挡",
+    "3挡"
+   ],
+   "deny_act_values": [],
+   "notes": "前置：按摩开启"
+  },
+  {
+   "id": "seat.passenger.massage.mode",
+   "zh": "副驾座椅按摩模式",
+   "en": "passenger massage mode",
+   "group": "座椅",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "sprint",
+   "source": "舒适/副驾座椅按摩 模式",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "关闭",
+    "波浪",
+    "猫步",
+    "蛇形",
+    "肩部",
+    "腰部"
+   ],
+   "deny_act_values": [],
+   "notes": "五种模式排在 sprint1"
+  },
+  {
+   "id": "steering.heat",
+   "zh": "方向盘加热",
+   "en": "steering wheel heating",
+   "group": "其他",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "舒适/方向盘加热",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "开启",
+    "关闭"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "flow.delay",
+   "zh": "延时",
+   "en": "delay",
+   "group": "编排",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "时间/延时 0-59分0-59秒",
+   "exec": "",
+   "cond_values": null,
+   "act_values": {
+    "range": [
+     1,
+     600,
+     1,
+     "秒"
+    ]
+   },
+   "deny_act_values": [],
+   "notes": "场景内顺序与时间线靠它"
+  },
+  {
+   "id": "media.transport",
+   "zh": "多媒体",
+   "en": "media transport",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "sprint",
+   "source": "娱乐/多媒体",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "播放",
+    "暂停",
+    "下一首",
+    "上一首"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "media.play_mood",
+   "zh": "音乐播放",
+   "en": "play music by mood",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "proposed",
+   "source": "娱乐/QQ音乐 网易云 播放指定音乐（待定）",
+   "exec": "情绪类歌单→播放指定音乐或猜你喜欢；停止→多媒体暂停",
+   "cond_values": null,
+   "act_values": [
+    "想念",
+    "放松",
+    "庆祝",
+    "专注",
+    "安静",
+    "浪漫",
+    "雨天",
+    "白噪音",
+    "停止"
+   ],
+   "deny_act_values": [],
+   "notes": "表里只有列表播放与指定歌曲，情绪歌单要与娱乐域共建"
+  },
+  {
+   "id": "surprise.easter_egg",
+   "zh": "彩蛋",
+   "en": "easter egg",
+   "group": "惊喜",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "娱乐/彩蛋",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "生日动效",
+    "生日动效2",
+    "情人节动效",
+    "自定义动效"
+   ],
+   "deny_act_values": [],
+   "notes": "生日动效2 与自定义动效待定"
+  },
+  {
+   "id": "media.play_song",
+   "zh": "播放指定音乐",
+   "en": "play specific song",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/多媒体 播放指定音乐",
+   "exec": "值为歌曲名，国内中英文，海外全语种",
+   "cond_values": null,
+   "act_values": [
+    "歌曲名"
+   ],
+   "deny_act_values": [],
+   "notes": "“你们的歌”靠它"
+  },
+  {
+   "id": "media.qqmusic",
+   "zh": "QQ音乐",
+   "en": "QQ Music",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/QQ音乐",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "我喜欢列表",
+    "猜你喜欢",
+    "今日私享",
+    "新歌推荐",
+    "续播上次",
+    "指定歌曲"
+   ],
+   "deny_act_values": [],
+   "notes": "情绪歌单可映射到猜你喜欢或指定歌曲"
+  },
+  {
+   "id": "media.netease",
+   "zh": "网易云音乐",
+   "en": "NetEase Music",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/网易云音乐",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "猜你喜欢",
+    "今日私享",
+    "新歌推荐",
+    "续播上次",
+    "指定歌曲"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "app.local_video",
+   "zh": "本地视频",
+   "en": "local video",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/本地视频",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.tencent_video",
+   "zh": "腾讯视频",
+   "en": "Tencent Video",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/腾讯视频",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.iqiyi",
+   "zh": "爱奇艺",
+   "en": "iQIYI",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/爱奇艺",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.changba",
+   "zh": "唱吧",
+   "en": "Changba",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/唱吧",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.wesing",
+   "zh": "全民K歌",
+   "en": "WeSing",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/全民K歌",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.kugou_ktv",
+   "zh": "酷狗K歌",
+   "en": "Kugou KTV",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/酷狗K歌",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.youtube",
+   "zh": "YouTube",
+   "en": "YouTube",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/YouTube",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "screen.wallpaper",
+   "zh": "壁纸",
+   "en": "wallpaper",
+   "group": "屏幕",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "屏幕/壁纸",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "选择壁纸"
+   ],
+   "deny_act_values": [],
+   "notes": "值为壁纸名"
+  },
+  {
+   "id": "screen.theme",
+   "zh": "主题",
+   "en": "theme",
+   "group": "屏幕",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "屏幕/主题",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "选择主题"
+   ],
+   "deny_act_values": [],
+   "notes": "值为主题名"
+  },
+  {
+   "id": "preset.enter",
+   "zh": "进入情景模式",
+   "en": "enter scenario mode",
+   "group": "预设",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/情景模式 进入",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "休憩模式",
+    "露营模式",
+    "洗车模式",
+    "后排查看",
+    "离车不下电模式",
+    "多人同乘隐私模式"
+   ],
+   "deny_act_values": [],
+   "notes": "官方预设；用户点名时优先调用而非重新组合"
+  },
+  {
+   "id": "preset.exit",
+   "zh": "退出情景模式",
+   "en": "exit scenario mode",
+   "group": "预设",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/情景模式 退出",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "休憩模式",
+    "露营模式",
+    "洗车模式",
+    "后排查看",
+    "离车不下电模式",
+    "多人同乘隐私模式"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "screen.mode",
+   "zh": "屏幕模式",
+   "en": "screen mode",
+   "group": "屏幕",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "屏幕/模式",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "白天模式",
+    "黑夜模式"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "screen.brightness",
+   "zh": "屏幕亮度",
+   "en": "screen brightness",
+   "group": "屏幕",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "屏幕/亮度",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "10%",
+    "20%",
+    "30%",
+    "40%",
+    "50%",
+    "60%",
+    "70%",
+    "80%",
+    "90%",
+    "100%"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "device.sunshade",
+   "zh": "电动遮阳帘",
+   "en": "sunshade",
+   "group": "设备",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "设备/电动遮阳帘 开度",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "关闭",
+    "10%",
+    "20%",
+    "30%",
+    "40%",
+    "50%",
+    "60%",
+    "70%",
+    "80%",
+    "90%",
+    "100%"
+   ],
+   "deny_act_values": [],
+   "notes": "关闭=0%"
+  }
+ ]
+}

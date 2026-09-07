@@ -1,51 +1,41 @@
-# 本轮 Prompt 专项：当前入口
+# 第一部分实验框架与证据
 
-最终策略以 `experiments/RELEASE_FREEZE.json` 和 `../docs/第一部分-Prompt优化-最终实验报告.md` 为准；文件尚未生成时表示仍在验证，不能把历史 `final_dsv4flash.md` 当成验收通过。主开发回归现为134题，独立留出24题；以下74/114/126题段落是历史状态。
+面向汇报和接入请先读 [delivery](../delivery/README.md)。本目录供复核与后续实验使用，保留原结构以维持冻结路径、哈希和配对证据。
 
-离线重算不需要API key，也不会调用模型：
+## 当前结论
 
-```powershell
-python restore_raw.py
-python verify_archives.py
-```
+DS V4 Flash + p13 统一中文指令；134 题开发集与 24 题独立留出已完成。所有参考目标并未全部达标，详情见[最终报告](../delivery/03-Prompt实验报告.md)。实验完成不等于交互 Demo 完工，见[完成状态](../delivery/01-结论与Demo状态.md)。
 
-实际生成入口是 `safe_eval.py`；旧 `run_eval.py` / 矩阵命令不再允许绕过预算直接付费调用。腾讯/微信端点禁用。计划、prompt、题集或评分器改变须新建运行，不能把新结果追加进旧冻结实验。复测还须建立明确的活动预算；旧计划的历史上限不应直接套到新账本。具体重算命令见最终报告。
+| 位置 | 用途 |
+|---|---|
+| [prompts/final_dsv4flash_p13_zh.md](prompts/final_dsv4flash_p13_zh.md) | 推荐 p13 原件；交付目录为核对过哈希的副本 |
+| [experiments/RELEASE_FREEZE.json](experiments/RELEASE_FREEZE.json) | 实测策略与冻结配置 |
+| [experiments/RELEASE_VALIDATION.json](experiments/RELEASE_VALIDATION.json) | 完成项、结果及未达目标 |
+| [证据索引](../delivery/evidence/README.md) | 当前 A/B、消融、语言交叉、留出、连接与体验评审 |
+| [results/prompt-lab-v3](results/prompt-lab-v3/) | 本轮完整开发及验收；失败和中止记录保留 |
+| [experiments/frozen-source](experiments/frozen-source/README.md) | 实验运行时的评分与调用源代码快照 |
+| [prompts](prompts/README.md) | 全部历史与消融变体；不要以文件名 final 猜版本 |
+| [capabilities.json](capabilities.json)、[schema.json](schema.json)、[output_contract.py](output_contract.py)、[validator.py](validator.py) | 能力与校验组件 |
 
----
+## 离线复核
 
-# eval
-
-场景编排模型评测套件。方法、指标、题集设计与运行命令见 `../docs/06-模型评测-速度准确率质量-方案与现状.md`。
-
-- `build_testset.py`：题集唯一来源，改题后重跑生成 `testset.jsonl`（74 题，每题中英两版：动作 16、精准 18、模糊 10、情感 10、鲁棒 12、注入 8）。
-- `vocab.json`：从同事 demo 原样抽取的能力表（35 条件、38 动作）、安全禁止项、P2 扩展能力（音乐播放、音量）。
-- `prompts/p0_original.md`：同事原版；`p1_cleaned.md`：修正 schema；`p2_affect.md`：五类意图，含情绪场景、用户档案上下文、say 与 offer 字段。
-- `run_eval.py`：OpenAI 兼容接口调用、流式时延、打分、汇总。`--mock` 离线自检。
-- `registry.py` 与 `capabilities.json`：能力注册表，热更新的唯一来源；`registry.py render` 生成 `prompts/p3_grammar.generated.md`，`registry.py schema` 生成约束解码用的 `schema.json`，`disable/enable` 下线或恢复能力。
-- `validator.py`：外部验证器，模型提议脚本裁决；读注册表状态，已下线能力直接丢弃。
-- `presets.json`：十二个情绪预设，只用于离线兜底与坍缩率计算。
-- `results/`：每次运行一个目录，含 `raw.jsonl`、`summary.md`、`summary.json`。
-
-状态（2026-09-07 晚）：注册表改为从公司 2026-07 原子能力表导入（`import_capabilities.py` → `vocab.json` v2 → `capabilities.json`，96 条带成熟度；旧表 `vocab_v1.json` 给 p0 到 p2 用）；题集 126 题 12 类（新增 N 类 12 题）；验证器加成熟度档位。
-
-状态（2026-09-07 午）：题集扩到 114 题 11 类（新增弱意图 F、记忆 G、观察 H、追问 I、显式创建 J）；注册表加条件语义层 5 条；harness 支持 `--model-key`（models.json 多供应商）、`--response-format json_schema`、理解句出齐时延、relevance 区间、记忆期望；新增 `run_matrix.py` 批跑与对比、`judge.py` 机器评审、`blind_pack.py` 盲评打包、`export_cases.py` 原型回放数据。Kimi K2.7 冒烟 32 句通过 81%。计划见 `../docs/第一部分-测试计划-生成框架与选型-v1.md`。
-
-旧状态（2026-09-02）：离线自检 P2 全部 66 题通过；P0 与 P1 风格下情感题里离不开音乐的几题按预期失败（原能力表没有音乐）。尚未对真实模型运行，等 dsv4flash 的 key。
-
-真跑：
-```bash
-export EVAL_BASE_URL=https://api.deepseek.com EVAL_API_KEY=sk-xxx EVAL_MODEL=deepseek-v4-flash
-python3 run_eval.py --prompt prompts/p2_affect.md --thinking off --repeat 3 --tag v4flash-p2-nothink
-python3 run_eval.py --prompt prompts/p0_original.md --thinking off --repeat 3 --tag v4flash-p0-nothink
-```
-# 当前 prompt 专项实验
-
-2026-09-07 接手后，付费生成入口为 `safe_eval.py`，仅 DeepSeek 官网 V4 Flash；腾讯／微信端点禁用。按[预登记](experiments/PREREGISTRATION.md)执行，原始历史结果保留。`run_eval.py` 的旧矩阵/评审直调入口暂不用于付费运行。
+在本目录执行（不调用模型）：
 
 ```powershell
 python -m pip install -r requirements.txt
-python -m unittest test_repairs -v
-python safe_eval.py --env-file /private/path/.env --plan experiments/01_screen.json
+python restore_raw.py
+python verify_archives.py
+python make_prompt_report.py
 ```
 
-同一 plan 重跑会跳过成功响应；prompt、题集、评分器或配置哈希变化时拒绝混跑。`--max-new N` 可限本次新增请求。结果位于 `results/prompt-lab-v3/<run_id>`，每个响应追加并落盘。归档使用 `raw.jsonl.gz`；不要提交 `.env` 或凭据日志。
+报告生成到 delivery/03-Prompt实验报告.md。打包在仓库暂存清单更新后执行：
+
+```powershell
+python package_release.py --out /your/output/prompt-study.zip
+```
+
+## 后续新增调用
+
+实际生成入口为 safe_eval.py，旧 run_eval.py 与矩阵命令不能绕过预算直接续跑。腾讯/微信端点本轮禁用。任何 Prompt、题集、参数、评分或输入契约修改须新建运行与明确预算，不能追加进旧冻结实验；旧活动上限不直接复用。
+
+旧 README 中 74/114/126 题、Kimi 冒烟与历史真跑命令保存在 [archive](../archive/eval-README-before-reorganization.md)，仅供追溯。

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release": "dsv4flash-p13-unified-zh-2026-09-07",
+  "evidence_commit": "15f72439552410ed716d7dbcb627a84bf0f839ad",
+  "experiment_complete": true,
+  "all_reference_gates_passed": false,
+  "demo_end_to_end_accepted": false,
+  "hash_normalization": "UTF-8 text with LF newlines",
+  "assets": [
+    {
+      "file": "prompt/system-zh.md",
+      "source": "../eval/prompts/final_dsv4flash_p13_zh.md",
+      "sha256": "57488940054541ba99365f4e9521391783b42902d468ef68699ae171804d8c12"
+    },
+    {
+      "file": "contracts/capabilities.json",
+      "source": "../eval/capabilities.json",
+      "sha256": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d"
+    },
+    {
+      "file": "contracts/vocab.json",
+      "source": "../eval/vocab.json",
+      "sha256": "3673eb825f18fb7460174c29652a9cadccdcf10b04463176da992f6435ef81e9"
+    },
+    {
+      "file": "contracts/schema.json",
+      "source": "../eval/schema.json",
+      "sha256": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c"
+    }
+  ]
+}

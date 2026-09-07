@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """把一次评测运行导出成原型页能回放的 cases.json：真实的模型输出、真实的时延、验证器裁掉了什么。
-  python3 export_cases.py --tag smoke-kimi-k27-p3-zh --out ../demo/gen-app/cases.json
-  python3 export_cases.py --tag a,b --ids F03,G07,J01 --out ../demo/gen-app/cases.json
+  python3 export_cases.py --tag smoke-kimi-k27-p3-zh --out results/exported-cases.json
+  python3 export_cases.py --tag a,b --ids F03,G07,J01 --out results/exported-cases.json
 """
 import argparse, json, os
 import run_eval as R
@@ -18,7 +18,7 @@ def element(p): return ELEMENT.get(p, "温")
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--tag", required=True); ap.add_argument("--ids", default=""); ap.add_argument("--lang", default="both")
-    ap.add_argument("--out", default=os.path.join(HERE, "..", "demo", "gen-app", "cases.json")); a = ap.parse_args()
+    ap.add_argument("--out", default=os.path.join(HERE, "results", "exported-cases.json")); a = ap.parse_args()
     R.apply_style("p3"); want = set(a.ids.split(",")) if a.ids else None; cases = []
     for tag in a.tag.split(","):
         S = json.load(open(os.path.join(HERE, "results", tag, "summary.json"), encoding="utf-8"))

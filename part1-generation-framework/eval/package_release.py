@@ -11,13 +11,14 @@ REPO=HERE.parent.parent
 
 def main(out_path):
     freeze=json.loads((HERE/'experiments'/'RELEASE_FREEZE.json').read_text(encoding='utf-8'))
-    report=HERE.parent/'docs'/'第一部分-Prompt优化-最终实验报告.md'
+    report=HERE.parent/'delivery'/'03-Prompt实验报告.md'
     assert report.exists(),'Final report is required'
     verification=json.loads((HERE/'results'/'prompt-lab-v3'/'evidence-verification.json').read_text(encoding='utf-8'))
     assert verification['status']=='verified'
     tracked=subprocess.check_output(['git','ls-files','-z'],cwd=REPO).decode('utf-8').split('\0')
-    docs={str(p.relative_to(REPO)).replace('\\','/') for p in (report,HERE.parent/'docs'/'第一部分-Prompt接入说明.md',HERE.parent/'docs'/'第一部分-进度看板.md')}
-    names=[p for p in tracked if p.startswith('part1-generation-framework/eval/') or p in docs]
+    # Include tracked repository context so delivery links, source material and
+    # archive references remain usable in a standalone extraction.
+    names=[p for p in tracked if p]
     out=Path(out_path).resolve();out.parent.mkdir(parents=True,exist_ok=True)
     hashes={}
     with zipfile.ZipFile(out,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
@@ -29,12 +30,13 @@ def main(out_path):
             hashes[name]=hashlib.sha256(data).hexdigest()
             archive.writestr(name,data)
         readme=('DeepSeek V4 Flash prompt study\n\n'
-                'Start with part1-generation-framework/docs/第一部分-Prompt优化-最终实验报告.md\n'
-                'Prompt: part1-generation-framework/eval/'+freeze['prompt_path']+'\n'
+                'Start with part1-generation-framework/delivery/README.md\n'
+                'Prompt: part1-generation-framework/delivery/prompt/system-zh.md\n'
                 'Parameters and language policy: eval/experiments/RELEASE_FREEZE.json\n'
                 'Evidence: compressed raw responses, manifests, summaries and analysis source.\n'
                 'Historical rejected/partial runs are retained and labeled.\n'
                 'Recomputing archived results is offline; new model calls require your own credentials and budget.\n'
+                'Prompt experiments are complete; the p13 end-to-end Demo is not yet accepted.\n'
                 'No API credentials are included. Remote upload status is in the progress board.\n')
         archive.writestr('START-HERE.txt',readme.encode('utf-8'))
         archive.writestr('SHA256SUMS.json',json.dumps(hashes,ensure_ascii=False,indent=2).encode('utf-8'))

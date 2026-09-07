@@ -122,13 +122,15 @@ def main():
               "- GitHub 状态由最新看板与本地提交记录说明；没有远端回执时不得称已同步。API key 与未脱敏日志不进入仓库。", "",
               "从 eval 目录重算已有响应（先解压 raw.jsonl.gz；无需 key、无需付费）：", "", "```powershell", "python restore_raw.py", "python verify_archives.py", "python analyze_experiments.py 05c_p11_language", "python analyze_experiments.py 06b_ablation", "python audit_final.py 07_final", "python audit_final.py 08_holdout", "python audit_final.py 10_latency", "python audit_blind_review.py", "python make_prompt_report.py", "```", "",
               "重新调用模型使用 safe_eval.py 和 experiments 中同名计划；已完成日志会断点跳过。复现实验需建立新的活动账本/运行目录并明确预算，不能把重跑当成已有结果的免费重算。", ""]
-    report=HERE.parent/"docs"/"第一部分-Prompt优化-最终实验报告.md"
+    report=HERE.parent/"delivery"/"03-Prompt实验报告.md"
+    report.parent.mkdir(parents=True,exist_ok=True)
     body="\n".join(lines)
     for old,new in (("05c_p11_language",lr),("06b_ablation",ar),("07_final",fr),("08_holdout",hr),("FINAL_FREEZE.json",freeze_file)):
         body=body.replace(old,new)
     if fr!="07_final":
         failed=load("07_final","audit.json")["overall"]
         body += "\n\n## 必须保留的失败验证\n\np11 在小核心集语言实验中约92%%通过，但首次完整134题三遍回归只有%s（804次），能力/结构合规%s、原始安全违规%d次。因此未将p11当作满意交付；后续p12才使用该全量失败开发。原始冻结文件与全部响应保留在07_final目录，绝不能用开发分数替代这次失败验证。\n"%(pc(failed["usable_pass"]),pc(failed["schema_valid"]),failed["safety_violations"])
+    body=body.replace("[\x60"+Path(choice["prompt_path"]).name+"\x60](../eval/"+choice["prompt_path"]+")", "[p13 交付 Prompt](prompt/system-zh.md)")
     report.write_text(body,encoding="utf-8")
     print("Wrote final prompt experiment report")
 

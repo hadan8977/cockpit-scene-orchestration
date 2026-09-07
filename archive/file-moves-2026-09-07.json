@@ -1,0 +1,761 @@
+{
+  "base_commit": "856817d817891b328861dc712b2013320537ec29",
+  "note": "Git retains the original history. Only relative Markdown links may have been adapted after moves; frozen experiment files remain at their original paths.",
+  "moves": [
+    {
+      "from": "docs/00-导读.md",
+      "to": "archive/project-history/docs/00-导读.md",
+      "original_sha256": "8a8b6d8f4a3849f0b344301723bd03b7e86354b6cfe34709491f26f2de0037d4"
+    },
+    {
+      "from": "docs/01-决策备忘-要不要做-做什么-怎么做.md",
+      "to": "archive/project-history/docs/01-决策备忘-要不要做-做什么-怎么做.md",
+      "original_sha256": "94cf1f6036dddf9ef9b716aef5e1caae600ccffd19603030ec998798a3870024"
+    },
+    {
+      "from": "docs/02-原子能力-从开关到语义.md",
+      "to": "archive/project-history/docs/02-原子能力-从开关到语义.md",
+      "original_sha256": "d41f1d2fd3ed1c760b884dc703de0e9d4f13f6c5dc2708c10dc50ea7a2c478f3"
+    },
+    {
+      "from": "docs/03-参考对象-车厂-智能家居-游戏影视-社区.md",
+      "to": "archive/project-history/docs/03-参考对象-车厂-智能家居-游戏影视-社区.md",
+      "original_sha256": "ef82ea8dc1ee7320f50fcdc5346a3c0e0c1acfe69ac96abd7c8b5ce56b9b34fd"
+    },
+    {
+      "from": "docs/04-主动化与个性化-记忆-低输入成本-可实现度.md",
+      "to": "archive/project-history/docs/04-主动化与个性化-记忆-低输入成本-可实现度.md",
+      "original_sha256": "73405be15f06144f04e5704b67538492de0a3a1ebe4d19ec3608906272cb663a"
+    },
+    {
+      "from": "docs/05-storyboard-从demo到实车demo.md",
+      "to": "archive/project-history/docs/05-storyboard-从demo到实车demo.md",
+      "original_sha256": "80569b3e66903bfc98ab359a4d1ca08628a8b9b75faec6437fd8ec1457b6cb88"
+    },
+    {
+      "from": "docs/06-模型评测-速度准确率质量-方案与现状.md",
+      "to": "archive/project-history/docs/06-模型评测-速度准确率质量-方案与现状.md",
+      "original_sha256": "d79c7d1cc80ed8023bf6d94d6e7c189bcf80c8887713f2cc1481a8079fcfe9d7"
+    },
+    {
+      "from": "docs/media/fig1.png",
+      "to": "archive/project-history/docs/media/fig1.png",
+      "original_sha256": "4548ee023e48a10142de30af3cf0bda5ff85a4eec302e5b5d60099b0892a8532"
+    },
+    {
+      "from": "docs/media/fig2.png",
+      "to": "archive/project-history/docs/media/fig2.png",
+      "original_sha256": "f7854a1ae0a3c57c40ccf834f84935c3838f35a3136b816926e00cbf870c7a0c"
+    },
+    {
+      "from": "docs/media/fig3.png",
+      "to": "archive/project-history/docs/media/fig3.png",
+      "original_sha256": "0386cb0d52aef4a865f198fd2b323040d749c98d3350ad16096efed1ab8d7491"
+    },
+    {
+      "from": "docs/media/fig4.png",
+      "to": "archive/project-history/docs/media/fig4.png",
+      "original_sha256": "a94e5baded09be97046c894a05f9438df913da7aec398c1179ea6a0065578ed3"
+    },
+    {
+      "from": "docs/media/fig5.png",
+      "to": "archive/project-history/docs/media/fig5.png",
+      "original_sha256": "30b9b207c0f6b97a5fd520736743b474f1d9c2be54290e8757300e94ca0accf6"
+    },
+    {
+      "from": "docs/media/fig6.png",
+      "to": "archive/project-history/docs/media/fig6.png",
+      "original_sha256": "2d320ef22502637b6c1d38513068fa37c443560370e75eea1a056af1e2d391e4"
+    },
+    {
+      "from": "docs/场景大脑落地方案-v5-接入架构-两种触发-热更新-最新路线.md",
+      "to": "archive/project-history/docs/场景大脑落地方案-v5-接入架构-两种触发-热更新-最新路线.md",
+      "original_sha256": "6773ed080b0627eb1ea8900d0c325489c0bb9b7cbb9f395840835461c8e08c70"
+    },
+    {
+      "from": "docs/场景编排-demo计划与方案-v4-技术路线-架构-实验.md",
+      "to": "archive/project-history/docs/场景编排-demo计划与方案-v4-技术路线-架构-实验.md",
+      "original_sha256": "8728acaf4f9438f785338876aee800a129e80b454fc6883b80060746e03af429"
+    },
+    {
+      "from": "docs/场景编排-产品决策报告-整合版-v1.md",
+      "to": "archive/project-history/docs/场景编排-产品决策报告-整合版-v1.md",
+      "original_sha256": "6c72e6df02dd60b9b1b6a6e9f87973b8be492ce4b665cd3fbae69d913b40ad5f"
+    },
+    {
+      "from": "docs/场景编排-产品报告-v2-体验-个性化-demo.md",
+      "to": "archive/project-history/docs/场景编排-产品报告-v2-体验-个性化-demo.md",
+      "original_sha256": "e3114c8a1c89dea6a77a0791d5f12786feeaf71fe7899addbb19045a904ce7c6"
+    },
+    {
+      "from": "docs/场景编排-产品报告-v3-边界-主动性-创新-demo方向.md",
+      "to": "archive/project-history/docs/场景编排-产品报告-v3-边界-主动性-创新-demo方向.md",
+      "original_sha256": "2e0c2d7a63728acc1337c6b16639e3b5ab02e28930562bfe47bf0b775c493e54"
+    },
+    {
+      "from": "docs/场景编排主动层-PRD-v16-精简版.docx",
+      "to": "archive/project-history/docs/场景编排主动层-PRD-v16-精简版.docx",
+      "original_sha256": "c7df2d75fff4b39e700cfb47b507ae43f15c7acd072d7b9945a86b3b115b6767"
+    },
+    {
+      "from": "docs/场景编排主动层-PRD-v16-精简版.md",
+      "to": "archive/project-history/docs/场景编排主动层-PRD-v16-精简版.md",
+      "original_sha256": "2035c5143e49c034a3c0352d509cae9ce8951976ebacc7e56704641bacdd0bc9"
+    },
+    {
+      "from": "docs/场景编排主动层-PRD-v16.docx",
+      "to": "archive/project-history/docs/场景编排主动层-PRD-v16.docx",
+      "original_sha256": "9bf442daee7c4db1cbc3bc9283f2768fd7928e4876b2179937f3c5f53f24e2e9"
+    },
+    {
+      "from": "docs/场景编排主动层-PRD-v16.md",
+      "to": "archive/project-history/docs/场景编排主动层-PRD-v16.md",
+      "original_sha256": "6fd27255438333aefe57280da6531e680f63ae3451831416347cbcb6b444fec9"
+    },
+    {
+      "from": "docs/场景编排主动层-最终方案-v14-PRD.docx",
+      "to": "archive/project-history/docs/场景编排主动层-最终方案-v14-PRD.docx",
+      "original_sha256": "f34e4c0cde586e331a6ebb38cd25f40863fe2fdd83c9400926511acd704159b2"
+    },
+    {
+      "from": "docs/场景编排主动层-最终方案-v14-PRD.md",
+      "to": "archive/project-history/docs/场景编排主动层-最终方案-v14-PRD.md",
+      "original_sha256": "e37d0d4a7dfefcef14b5dd80afaf7e7bbde4916b054a424c5f5ae66412b81352"
+    },
+    {
+      "from": "docs/场景编排主动层-最终方案-v15-PRD.docx",
+      "to": "archive/project-history/docs/场景编排主动层-最终方案-v15-PRD.docx",
+      "original_sha256": "8cdd1fff7c58a699609906a97bc69335a5bf228061f7dbe9801b04b0130ef3f5"
+    },
+    {
+      "from": "docs/场景编排主动层-最终方案-v15-PRD.md",
+      "to": "archive/project-history/docs/场景编排主动层-最终方案-v15-PRD.md",
+      "original_sha256": "64477660dc876883d1eac33f45f52c14ebc97c7c7b9f7d52414c251c70875b96"
+    },
+    {
+      "from": "docs/座舱主动智能-调研-框架-方案-v9.md",
+      "to": "archive/project-history/docs/座舱主动智能-调研-框架-方案-v9.md",
+      "original_sha256": "94851e169a4af861f9a44a970de2eb75a69ae1f8c076eb621df28e023ba68f0f"
+    },
+    {
+      "from": "docs/最终结论与整体计划-v6-边界-前沿做法-三部分计划.md",
+      "to": "archive/project-history/docs/最终结论与整体计划-v6-边界-前沿做法-三部分计划.md",
+      "original_sha256": "b1529e324916d64228dbfce014f6b4622cd66aeee6afbf25e4cb010491a39123"
+    },
+    {
+      "from": "docs/最终结论与整体计划-v7-边界-判断机制-硬约束-体验与storyboard.md",
+      "to": "archive/project-history/docs/最终结论与整体计划-v7-边界-判断机制-硬约束-体验与storyboard.md",
+      "original_sha256": "752a1d0990a89eb353b1c794222d48a283b10c83585f5bdc23fa2a1f8e287686"
+    },
+    {
+      "from": "eval/README.md",
+      "to": "archive/project-history/eval/README.md",
+      "original_sha256": "70c602a218959bc9ed9f2eabe903522ec4bffcfeffc4cb8d23b79a4408e073be"
+    },
+    {
+      "from": "eval/build_testset.py",
+      "to": "archive/project-history/eval/build_testset.py",
+      "original_sha256": "03c899af444be1c4bf2b808dce7370b294c8bc0a35d6706e907191366fe090dc"
+    },
+    {
+      "from": "eval/capabilities.json",
+      "to": "archive/project-history/eval/capabilities.json",
+      "original_sha256": "06c837a400b9b547cea2adc20d1e9706a177f41f547cf65abf0a26d47a613c88"
+    },
+    {
+      "from": "eval/presets.json",
+      "to": "archive/project-history/eval/presets.json",
+      "original_sha256": "b15bb36d83f71f7ade73d53735ec3d0a64e1e1ad3a8578aa13165e48d0cfb080"
+    },
+    {
+      "from": "eval/prompts/p0_original.md",
+      "to": "archive/project-history/eval/prompts/p0_original.md",
+      "original_sha256": "39fe5298bff6874dc8944fd1491c58587a06471b716f5fd1696bd9507eb6d843"
+    },
+    {
+      "from": "eval/prompts/p0b_bugfix.md",
+      "to": "archive/project-history/eval/prompts/p0b_bugfix.md",
+      "original_sha256": "7ed1f153406409d2fafcb388be62bfcf0717fa63dfc0c496ba4a86f7f29d219a"
+    },
+    {
+      "from": "eval/prompts/p0c_nopersona.md",
+      "to": "archive/project-history/eval/prompts/p0c_nopersona.md",
+      "original_sha256": "3c20b67b0b1ff43230524772f0020d0189cb17aaaa2933b419fbe7763f959bc6"
+    },
+    {
+      "from": "eval/prompts/p1_cleaned.md",
+      "to": "archive/project-history/eval/prompts/p1_cleaned.md",
+      "original_sha256": "742222d36aabad6839ace305bea15fc7a32384236b23cfef995f7809376d8148"
+    },
+    {
+      "from": "eval/prompts/p2_affect.md",
+      "to": "archive/project-history/eval/prompts/p2_affect.md",
+      "original_sha256": "ddf40cd317bace86c776359dccb9d255ad207e01d9929c680413f473d95938db"
+    },
+    {
+      "from": "eval/prompts/p3_grammar.generated.md",
+      "to": "archive/project-history/eval/prompts/p3_grammar.generated.md",
+      "original_sha256": "20880d73c483d6565bd2a34d35f9bd508cfad92928c978dfcd1ed1a33ba442c4"
+    },
+    {
+      "from": "eval/prompts/p3_grammar.md",
+      "to": "archive/project-history/eval/prompts/p3_grammar.md",
+      "original_sha256": "cb9a33a094a74b0e2fbf479e6fd48375be397f147ca0283182cd2ad203110980"
+    },
+    {
+      "from": "eval/prompts/p3_template.md",
+      "to": "archive/project-history/eval/prompts/p3_template.md",
+      "original_sha256": "6886bf7c3aa79d4df19719489ec9de563017e29fb09b2d6e0247a43fe798b0cd"
+    },
+    {
+      "from": "eval/registry.py",
+      "to": "archive/project-history/eval/registry.py",
+      "original_sha256": "d3e4a97e3c2bfdb1aa6ebaf4ddbcdc271f67e354c93aaceef1dae0594411d647"
+    },
+    {
+      "from": "eval/results/mock-p0/raw.jsonl",
+      "to": "archive/project-history/eval/results/mock-p0/raw.jsonl",
+      "original_sha256": "ef6083a70c67426d4909e07cc1c8ea5e0e3bc5537c73847da1ddfba72a968fb0"
+    },
+    {
+      "from": "eval/results/mock-p0/summary.json",
+      "to": "archive/project-history/eval/results/mock-p0/summary.json",
+      "original_sha256": "6575f2e434de40fbd19d9098434e35860afb7d1f5a57aa01ac7af3860ab37884"
+    },
+    {
+      "from": "eval/results/mock-p0/summary.md",
+      "to": "archive/project-history/eval/results/mock-p0/summary.md",
+      "original_sha256": "7138277bd81eb986335f62ff552257592aba427b7d94ccb08c468d7fb2230538"
+    },
+    {
+      "from": "eval/results/mock-p1-noise/raw.jsonl",
+      "to": "archive/project-history/eval/results/mock-p1-noise/raw.jsonl",
+      "original_sha256": "2fb0a0f3e704ddf5279be4354301e2b086eee8e4bf1c9b71e67d7b6032c5be05"
+    },
+    {
+      "from": "eval/results/mock-p1-noise/summary.json",
+      "to": "archive/project-history/eval/results/mock-p1-noise/summary.json",
+      "original_sha256": "c00f8900b20941cb6b0fbfeae33890a43876919f34cfe2dc43177a0620228c7b"
+    },
+    {
+      "from": "eval/results/mock-p1-noise/summary.md",
+      "to": "archive/project-history/eval/results/mock-p1-noise/summary.md",
+      "original_sha256": "23f478b500c198babd1600e048b603d0fdf481733fb45e93a22976cd3e4c2911"
+    },
+    {
+      "from": "eval/results/mock-p1/raw.jsonl",
+      "to": "archive/project-history/eval/results/mock-p1/raw.jsonl",
+      "original_sha256": "3f9519625d7a366f354cfa4547d00e918899497fc62bb0f874083b3db8d7add3"
+    },
+    {
+      "from": "eval/results/mock-p1/summary.json",
+      "to": "archive/project-history/eval/results/mock-p1/summary.json",
+      "original_sha256": "fe2e2a38e71b8916f6fd9998c6a5ccb49724e9ced57cebb7af168b6a5b86d5d7"
+    },
+    {
+      "from": "eval/results/mock-p1/summary.md",
+      "to": "archive/project-history/eval/results/mock-p1/summary.md",
+      "original_sha256": "4774e223c276c6b088065d1e05a7401fbc63c9559f0affd648d10b56fa8d3545"
+    },
+    {
+      "from": "eval/results/mock-p2-noise/raw.jsonl",
+      "to": "archive/project-history/eval/results/mock-p2-noise/raw.jsonl",
+      "original_sha256": "4703e1d977d9c77db188b59fddd90192b68d1e7ff274abe3af6bc6bd13497399"
+    },
+    {
+      "from": "eval/results/mock-p2-noise/summary.json",
+      "to": "archive/project-history/eval/results/mock-p2-noise/summary.json",
+      "original_sha256": "1f102b0e0864de2aca191a563414574a3732aab3ba5414bd6a6d47bf172aac7d"
+    },
+    {
+      "from": "eval/results/mock-p2-noise/summary.md",
+      "to": "archive/project-history/eval/results/mock-p2-noise/summary.md",
+      "original_sha256": "b9677d46c1f7aa200d7d61675566650ad055fd94154288cd0ef63c76aba87c68"
+    },
+    {
+      "from": "eval/results/mock-p2/raw.jsonl",
+      "to": "archive/project-history/eval/results/mock-p2/raw.jsonl",
+      "original_sha256": "109323c623929cbc8a5e39f24a69456b874f43d50012ee949527d33b63cb29d0"
+    },
+    {
+      "from": "eval/results/mock-p2/summary.json",
+      "to": "archive/project-history/eval/results/mock-p2/summary.json",
+      "original_sha256": "cd88402caaa162b39a4dbfb5dadf1a58bbda8cdf7cac20d1beaeb53607e9f7f0"
+    },
+    {
+      "from": "eval/results/mock-p2/summary.md",
+      "to": "archive/project-history/eval/results/mock-p2/summary.md",
+      "original_sha256": "23cbc46caed82b2233b16cd18d26c9808d93fb48502929705b89957e5dfe78f4"
+    },
+    {
+      "from": "eval/results/mock-p3-noise/raw.jsonl",
+      "to": "archive/project-history/eval/results/mock-p3-noise/raw.jsonl",
+      "original_sha256": "5a3b6b9f205ad76fff07fbae7a2f816abb3abeedbee59735ee56688f7f87f3c2"
+    },
+    {
+      "from": "eval/results/mock-p3-noise/summary.json",
+      "to": "archive/project-history/eval/results/mock-p3-noise/summary.json",
+      "original_sha256": "7b792a13e907aeaf623bf4510abfa2dc6891115a01a36f9061941322e8a3fbf5"
+    },
+    {
+      "from": "eval/results/mock-p3-noise/summary.md",
+      "to": "archive/project-history/eval/results/mock-p3-noise/summary.md",
+      "original_sha256": "92b1e4f9ca5fc3073eb2292a80c083d770973c9b6b0f7bb25e50667578731e89"
+    },
+    {
+      "from": "eval/results/mock-p3/raw.jsonl",
+      "to": "archive/project-history/eval/results/mock-p3/raw.jsonl",
+      "original_sha256": "2e33cefbcf8b984d4290bca034d4139c88facdcbfdadc3ce5343c1f59238d65d"
+    },
+    {
+      "from": "eval/results/mock-p3/summary.json",
+      "to": "archive/project-history/eval/results/mock-p3/summary.json",
+      "original_sha256": "bf91f83040c653afaf9091780d44dd25e51e80f82d4afe9c08fdf48ee421f96c"
+    },
+    {
+      "from": "eval/results/mock-p3/summary.md",
+      "to": "archive/project-history/eval/results/mock-p3/summary.md",
+      "original_sha256": "2b2f72a7a97a09b4ec20fb5a373df2fc489fae958c4d30a4bbb10b4f1796688a"
+    },
+    {
+      "from": "eval/run_eval.py",
+      "to": "archive/project-history/eval/run_eval.py",
+      "original_sha256": "2ad695f31672c4622f4a284930c97aa3db6c1ee1fd55a3fe6d18648e55859b46"
+    },
+    {
+      "from": "eval/schema.json",
+      "to": "archive/project-history/eval/schema.json",
+      "original_sha256": "e7dd473bbf43abf46b5124db7be3b66f279fea0d2e4cae7a5de722846704db25"
+    },
+    {
+      "from": "eval/testset.jsonl",
+      "to": "archive/project-history/eval/testset.jsonl",
+      "original_sha256": "b08d692b95d4a485dd2fd8a17509df7cc6e5847ae4c700d5c693c18325eddb47"
+    },
+    {
+      "from": "eval/validator.py",
+      "to": "archive/project-history/eval/validator.py",
+      "original_sha256": "a3f69b9f0e90be40bcff5db08677190469a5ce054d50e32214ac6ac3e01ebf3b"
+    },
+    {
+      "from": "eval/vocab.json",
+      "to": "archive/project-history/eval/vocab.json",
+      "original_sha256": "a993d5088ce2b01172f8354b6c3609d2f003e9784658b249db7f48e8b1377cae"
+    },
+    {
+      "from": "notes/company-agent-prd-v13-readable.md",
+      "to": "archive/project-history/notes/company-agent-prd-v13-readable.md",
+      "original_sha256": "4ad019925d18e12384bca47529f188acbad332b429a47a4437dc8dcace7f26d6"
+    },
+    {
+      "from": "notes/company-agent-report-v13-prd-kimi.md",
+      "to": "archive/project-history/notes/company-agent-report-v13-prd-kimi.md",
+      "original_sha256": "0900f655d80701b909d6ba9cff19f5c6dd0516bef50aad756eaddde980312ebe"
+    },
+    {
+      "from": "notes/company-agent-report-v7.md",
+      "to": "archive/project-history/notes/company-agent-report-v7.md",
+      "original_sha256": "03b496786be773c2ef891c68eaa8286b33f17f0a9ec01f69353829ab52f32351"
+    },
+    {
+      "from": "notes/company-agent-report-v8-kimi.md",
+      "to": "archive/project-history/notes/company-agent-report-v8-kimi.md",
+      "original_sha256": "5de983754feb13ccc9013d656adf2fa24cce58c17b552b840d6e15be34807eb5"
+    },
+    {
+      "from": "notes/company-agent-report.md",
+      "to": "archive/project-history/notes/company-agent-report.md",
+      "original_sha256": "a038b370ebcbeca5d80edfa9b2fed0957dc6a087ab58c2c1942c9fd6fb5a17e6"
+    },
+    {
+      "from": "notes/inputs/prd-v15-upload/公司agent优化版-PRD-v15.docx",
+      "to": "archive/project-history/notes/inputs/prd-v15-upload/公司agent优化版-PRD-v15.docx",
+      "original_sha256": "2112c4c41e0a1a793127c59a1cd59dd14f531b3367c3fe3dc9bb82a8c35c1425"
+    },
+    {
+      "from": "notes/inputs/prd-v15-upload/公司agent优化版-PRD-v15.md",
+      "to": "archive/project-history/notes/inputs/prd-v15-upload/公司agent优化版-PRD-v15.md",
+      "original_sha256": "60efbf963f17449ecd89914d7f5f22459cfa63efc2b5819819f795ffffe9452a"
+    },
+    {
+      "from": "notes/test-ds.md",
+      "to": "archive/project-history/notes/test-ds.md",
+      "original_sha256": "39fe5298bff6874dc8944fd1491c58587a06471b716f5fd1696bd9507eb6d843"
+    },
+    {
+      "from": "notes/v13-media/image1.jpeg",
+      "to": "archive/project-history/notes/v13-media/image1.jpeg",
+      "original_sha256": "a4b12ee839e0e51bcad329a5c6dff3d0e650e50b4e3de9a9f0db4122aa3b04d2"
+    },
+    {
+      "from": "notes/v13-media/image2.jpeg",
+      "to": "archive/project-history/notes/v13-media/image2.jpeg",
+      "original_sha256": "5cc0360ebd832f2c9cde6c68e6d8836ee6e1508fc965ab5f7722ee135a36a704"
+    },
+    {
+      "from": "notes/v13-media/image3.jpeg",
+      "to": "archive/project-history/notes/v13-media/image3.jpeg",
+      "original_sha256": "73c9aa8f296b6a8e1ce92571300cab2cd40cb051520c488bb0d8021f575a007a"
+    },
+    {
+      "from": "notes/v13-media/image4.jpeg",
+      "to": "archive/project-history/notes/v13-media/image4.jpeg",
+      "original_sha256": "81c1a5d747d91491838ac55f9ef60aad7073bdeebe4208e0722d37b7aa2cecd8"
+    },
+    {
+      "from": "notes/v13-media/image5.jpeg",
+      "to": "archive/project-history/notes/v13-media/image5.jpeg",
+      "original_sha256": "51e2cf52827b5505651cf4aea888f40becd38e83df014de142d5cf8d5368de36"
+    },
+    {
+      "from": "notes/v13-media/image6.jpeg",
+      "to": "archive/project-history/notes/v13-media/image6.jpeg",
+      "original_sha256": "7249fbac0456a602ecdcc886fbd0a936ab88df18f180e6d8115708f73e79757d"
+    },
+    {
+      "from": "notes/v13-media/image7.jpeg",
+      "to": "archive/project-history/notes/v13-media/image7.jpeg",
+      "original_sha256": "708ce6e61c1ffaffa13d408b718eeef4980624733afdfb46d9b7706caec7f455"
+    },
+    {
+      "from": "notes/v13-media/image8.jpeg",
+      "to": "archive/project-history/notes/v13-media/image8.jpeg",
+      "original_sha256": "960420e2be678f388df037c8e0a872130205bb304c303217bf2ee9c069a81f65"
+    },
+    {
+      "from": "notes/v13-media/image9.png",
+      "to": "archive/project-history/notes/v13-media/image9.png",
+      "original_sha256": "c2c3d7b1c50838cc00042c46e1e4bbe3e05c60586b6b2908d90eb087627c5c13"
+    },
+    {
+      "from": "part1-generation-framework/demo/cockpit/cases.json",
+      "to": "part1-generation-framework/archive/demo/cockpit/cases.json",
+      "original_sha256": "ffe00fcdff3f328e7f5f07273a52ddb2b7b9b296e8a3cb87dc590a14214adaf2"
+    },
+    {
+      "from": "part1-generation-framework/demo/cockpit/index.html",
+      "to": "part1-generation-framework/archive/demo/cockpit/index.html",
+      "original_sha256": "6743e8e6ec22b31ca8608e57c535097ed1d9c6c01dd47e7b4597f78e3699c7a6"
+    },
+    {
+      "from": "part1-generation-framework/demo/gen-app/cases.json",
+      "to": "part1-generation-framework/archive/demo/gen-app/cases.json",
+      "original_sha256": "ffe00fcdff3f328e7f5f07273a52ddb2b7b9b296e8a3cb87dc590a14214adaf2"
+    },
+    {
+      "from": "part1-generation-framework/demo/gen-app/index.html",
+      "to": "part1-generation-framework/archive/demo/gen-app/index.html",
+      "original_sha256": "bcf2bb877df0fa2c9a98b81263c9593bc4fd271c258d96796c1f4b55933dfdad"
+    },
+    {
+      "from": "part1-generation-framework/docs/00-导读.md",
+      "to": "part1-generation-framework/archive/docs/00-导读.md",
+      "original_sha256": "8a8b6d8f4a3849f0b344301723bd03b7e86354b6cfe34709491f26f2de0037d4"
+    },
+    {
+      "from": "part1-generation-framework/docs/01-决策备忘-要不要做-做什么-怎么做.md",
+      "to": "part1-generation-framework/archive/docs/01-决策备忘-要不要做-做什么-怎么做.md",
+      "original_sha256": "94cf1f6036dddf9ef9b716aef5e1caae600ccffd19603030ec998798a3870024"
+    },
+    {
+      "from": "part1-generation-framework/docs/02-原子能力-从开关到语义.md",
+      "to": "part1-generation-framework/archive/docs/02-原子能力-从开关到语义.md",
+      "original_sha256": "d41f1d2fd3ed1c760b884dc703de0e9d4f13f6c5dc2708c10dc50ea7a2c478f3"
+    },
+    {
+      "from": "part1-generation-framework/docs/03-参考对象-车厂-智能家居-游戏影视-社区.md",
+      "to": "part1-generation-framework/archive/docs/03-参考对象-车厂-智能家居-游戏影视-社区.md",
+      "original_sha256": "ef82ea8dc1ee7320f50fcdc5346a3c0e0c1acfe69ac96abd7c8b5ce56b9b34fd"
+    },
+    {
+      "from": "part1-generation-framework/docs/04-主动化与个性化-记忆-低输入成本-可实现度.md",
+      "to": "part1-generation-framework/archive/docs/04-主动化与个性化-记忆-低输入成本-可实现度.md",
+      "original_sha256": "73405be15f06144f04e5704b67538492de0a3a1ebe4d19ec3608906272cb663a"
+    },
+    {
+      "from": "part1-generation-framework/docs/05-storyboard-从demo到实车demo.md",
+      "to": "part1-generation-framework/archive/docs/05-storyboard-从demo到实车demo.md",
+      "original_sha256": "80569b3e66903bfc98ab359a4d1ca08628a8b9b75faec6437fd8ec1457b6cb88"
+    },
+    {
+      "from": "part1-generation-framework/docs/06-模型评测-速度准确率质量-方案与现状.md",
+      "to": "part1-generation-framework/archive/docs/06-模型评测-速度准确率质量-方案与现状.md",
+      "original_sha256": "d79c7d1cc80ed8023bf6d94d6e7c189bcf80c8887713f2cc1481a8079fcfe9d7"
+    },
+    {
+      "from": "part1-generation-framework/docs/FigmaMake提示词-概念舱场景原型-v2.md",
+      "to": "part1-generation-framework/archive/docs/FigmaMake提示词-概念舱场景原型-v2.md",
+      "original_sha256": "9faa3df73af5d01b08faee806db142ae67f24b983198869b4cc206d9d5165bce"
+    },
+    {
+      "from": "part1-generation-framework/docs/media/fig1.png",
+      "to": "part1-generation-framework/archive/docs/media/fig1.png",
+      "original_sha256": "4548ee023e48a10142de30af3cf0bda5ff85a4eec302e5b5d60099b0892a8532"
+    },
+    {
+      "from": "part1-generation-framework/docs/media/fig2.png",
+      "to": "part1-generation-framework/archive/docs/media/fig2.png",
+      "original_sha256": "f7854a1ae0a3c57c40ccf834f84935c3838f35a3136b816926e00cbf870c7a0c"
+    },
+    {
+      "from": "part1-generation-framework/docs/media/fig3.png",
+      "to": "part1-generation-framework/archive/docs/media/fig3.png",
+      "original_sha256": "0386cb0d52aef4a865f198fd2b323040d749c98d3350ad16096efed1ab8d7491"
+    },
+    {
+      "from": "part1-generation-framework/docs/media/fig4.png",
+      "to": "part1-generation-framework/archive/docs/media/fig4.png",
+      "original_sha256": "a94e5baded09be97046c894a05f9438df913da7aec398c1179ea6a0065578ed3"
+    },
+    {
+      "from": "part1-generation-framework/docs/media/fig5.png",
+      "to": "part1-generation-framework/archive/docs/media/fig5.png",
+      "original_sha256": "30b9b207c0f6b97a5fd520736743b474f1d9c2be54290e8757300e94ca0accf6"
+    },
+    {
+      "from": "part1-generation-framework/docs/media/fig6.png",
+      "to": "part1-generation-framework/archive/docs/media/fig6.png",
+      "original_sha256": "2d320ef22502637b6c1d38513068fa37c443560370e75eea1a056af1e2d391e4"
+    },
+    {
+      "from": "part1-generation-framework/docs/prompt优化报告-v1.md",
+      "to": "part1-generation-framework/archive/docs/prompt优化报告-v1.md",
+      "original_sha256": "f12a2ffb46a83eb2c9a06240e9355424d910dc7db459cc416db6c9d93bf778f1"
+    },
+    {
+      "from": "part1-generation-framework/docs/原型设计prompt-场景app一句话生成.md",
+      "to": "part1-generation-framework/archive/docs/原型设计prompt-场景app一句话生成.md",
+      "original_sha256": "2b6aa924449a748f1efd20c935a19793a047c77b8c74563376dcae6e6fc61f38"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景大脑落地方案-v5-接入架构-两种触发-热更新-最新路线.md",
+      "to": "part1-generation-framework/archive/docs/场景大脑落地方案-v5-接入架构-两种触发-热更新-最新路线.md",
+      "original_sha256": "6773ed080b0627eb1ea8900d0c325489c0bb9b7cbb9f395840835461c8e08c70"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排-demo计划与方案-v4-技术路线-架构-实验.md",
+      "to": "part1-generation-framework/archive/docs/场景编排-demo计划与方案-v4-技术路线-架构-实验.md",
+      "original_sha256": "8728acaf4f9438f785338876aee800a129e80b454fc6883b80060746e03af429"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排-产品决策报告-整合版-v1.md",
+      "to": "part1-generation-framework/archive/docs/场景编排-产品决策报告-整合版-v1.md",
+      "original_sha256": "6c72e6df02dd60b9b1b6a6e9f87973b8be492ce4b665cd3fbae69d913b40ad5f"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排-产品报告-v2-体验-个性化-demo.md",
+      "to": "part1-generation-framework/archive/docs/场景编排-产品报告-v2-体验-个性化-demo.md",
+      "original_sha256": "e3114c8a1c89dea6a77a0791d5f12786feeaf71fe7899addbb19045a904ce7c6"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排-产品报告-v3-边界-主动性-创新-demo方向.md",
+      "to": "part1-generation-framework/archive/docs/场景编排-产品报告-v3-边界-主动性-创新-demo方向.md",
+      "original_sha256": "2e0c2d7a63728acc1337c6b16639e3b5ab02e28930562bfe47bf0b775c493e54"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排主动层-PRD-v16-精简版.docx",
+      "to": "part1-generation-framework/archive/docs/场景编排主动层-PRD-v16-精简版.docx",
+      "original_sha256": "c7df2d75fff4b39e700cfb47b507ae43f15c7acd072d7b9945a86b3b115b6767"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排主动层-PRD-v16-精简版.md",
+      "to": "part1-generation-framework/archive/docs/场景编排主动层-PRD-v16-精简版.md",
+      "original_sha256": "2035c5143e49c034a3c0352d509cae9ce8951976ebacc7e56704641bacdd0bc9"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排主动层-PRD-v16.docx",
+      "to": "part1-generation-framework/archive/docs/场景编排主动层-PRD-v16.docx",
+      "original_sha256": "9bf442daee7c4db1cbc3bc9283f2768fd7928e4876b2179937f3c5f53f24e2e9"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排主动层-PRD-v16.md",
+      "to": "part1-generation-framework/archive/docs/场景编排主动层-PRD-v16.md",
+      "original_sha256": "6fd27255438333aefe57280da6531e680f63ae3451831416347cbcb6b444fec9"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排主动层-最终方案-v14-PRD.docx",
+      "to": "part1-generation-framework/archive/docs/场景编排主动层-最终方案-v14-PRD.docx",
+      "original_sha256": "f34e4c0cde586e331a6ebb38cd25f40863fe2fdd83c9400926511acd704159b2"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排主动层-最终方案-v14-PRD.md",
+      "to": "part1-generation-framework/archive/docs/场景编排主动层-最终方案-v14-PRD.md",
+      "original_sha256": "e37d0d4a7dfefcef14b5dd80afaf7e7bbde4916b054a424c5f5ae66412b81352"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排主动层-最终方案-v15-PRD.docx",
+      "to": "part1-generation-framework/archive/docs/场景编排主动层-最终方案-v15-PRD.docx",
+      "original_sha256": "8cdd1fff7c58a699609906a97bc69335a5bf228061f7dbe9801b04b0130ef3f5"
+    },
+    {
+      "from": "part1-generation-framework/docs/场景编排主动层-最终方案-v15-PRD.md",
+      "to": "part1-generation-framework/archive/docs/场景编排主动层-最终方案-v15-PRD.md",
+      "original_sha256": "64477660dc876883d1eac33f45f52c14ebc97c7c7b9f7d52414c251c70875b96"
+    },
+    {
+      "from": "part1-generation-framework/docs/座舱主动智能-调研-框架-方案-v9.md",
+      "to": "part1-generation-framework/archive/docs/座舱主动智能-调研-框架-方案-v9.md",
+      "original_sha256": "94851e169a4af861f9a44a970de2eb75a69ae1f8c076eb621df28e023ba68f0f"
+    },
+    {
+      "from": "part1-generation-framework/docs/最终结论与整体计划-v6-边界-前沿做法-三部分计划.md",
+      "to": "part1-generation-framework/archive/docs/最终结论与整体计划-v6-边界-前沿做法-三部分计划.md",
+      "original_sha256": "b1529e324916d64228dbfce014f6b4622cd66aeee6afbf25e4cb010491a39123"
+    },
+    {
+      "from": "part1-generation-framework/docs/最终结论与整体计划-v7-边界-判断机制-硬约束-体验与storyboard.md",
+      "to": "part1-generation-framework/archive/docs/最终结论与整体计划-v7-边界-判断机制-硬约束-体验与storyboard.md",
+      "original_sha256": "752a1d0990a89eb353b1c794222d48a283b10c83585f5bdc23fa2a1f8e287686"
+    },
+    {
+      "from": "part1-generation-framework/docs/第一部分-Prompt优化-最终实验报告.md",
+      "to": "part1-generation-framework/delivery/03-Prompt实验报告.md",
+      "original_sha256": "4e9c926501a5fcaab3a1def982fa17cf06cc6af2f82109fac3b2310c24a23b02"
+    },
+    {
+      "from": "part1-generation-framework/docs/第一部分-Prompt接入说明.md",
+      "to": "part1-generation-framework/delivery/04-接入说明.md",
+      "original_sha256": "c2b03ff7e075091020cc4979c5f399eb620941e003771640ad1df8c0960f4b5d"
+    },
+    {
+      "from": "part1-generation-framework/docs/第一部分-测试计划-v2-prompt优化与模型选型.md",
+      "to": "part1-generation-framework/archive/docs/第一部分-测试计划-v2-prompt优化与模型选型.md",
+      "original_sha256": "8d57a16ed0f35cf3926387a26651712216c224ac588a55b99459566ea3745a48"
+    },
+    {
+      "from": "part1-generation-framework/docs/第一部分-测试计划-v3-评测修复与续跑.md",
+      "to": "part1-generation-framework/archive/docs/第一部分-测试计划-v3-评测修复与续跑.md",
+      "original_sha256": "0b25ee80a0297fa196277a93fb75dd05a13a55044b26502389a9fe570e80cff9"
+    },
+    {
+      "from": "part1-generation-framework/docs/第一部分-测试计划-生成框架与选型-v1.md",
+      "to": "part1-generation-framework/archive/docs/第一部分-测试计划-生成框架与选型-v1.md",
+      "original_sha256": "449ff14427f687334c0d47b9b10dadb8daa31794eaf05389ffc38198bb7d22bc"
+    },
+    {
+      "from": "part1-generation-framework/docs/第一部分-进度看板.md",
+      "to": "part1-generation-framework/delivery/05-进度与后续计划.md",
+      "original_sha256": "1630234b95ee29c6c1f57cbf2a589f89b214a4becbb9717b2ec6691468884d30"
+    },
+    {
+      "from": "part1-generation-framework/docs/能力表对照-2026-07版-结论与改动.md",
+      "to": "part1-generation-framework/archive/docs/能力表对照-2026-07版-结论与改动.md",
+      "original_sha256": "7317aa5ee239451136e7fa635576f722b67f12e897ac1a846c7d636b7efb7b4b"
+    },
+    {
+      "from": "part1-generation-framework/notes/company-agent-prd-v13-readable.docx",
+      "to": "part1-generation-framework/archive/notes/company-agent-prd-v13-readable.docx",
+      "original_sha256": "0cd937dcb1e574f9ae650b4748a534ff8985e6c92c57c0bde4bdafdf17772c44"
+    },
+    {
+      "from": "part1-generation-framework/notes/company-agent-prd-v13-readable.md",
+      "to": "part1-generation-framework/archive/notes/company-agent-prd-v13-readable.md",
+      "original_sha256": "4ad019925d18e12384bca47529f188acbad332b429a47a4437dc8dcace7f26d6"
+    },
+    {
+      "from": "part1-generation-framework/notes/company-agent-report-v13-prd-kimi.md",
+      "to": "part1-generation-framework/archive/notes/company-agent-report-v13-prd-kimi.md",
+      "original_sha256": "0900f655d80701b909d6ba9cff19f5c6dd0516bef50aad756eaddde980312ebe"
+    },
+    {
+      "from": "part1-generation-framework/notes/company-agent-report-v7.md",
+      "to": "part1-generation-framework/archive/notes/company-agent-report-v7.md",
+      "original_sha256": "03b496786be773c2ef891c68eaa8286b33f17f0a9ec01f69353829ab52f32351"
+    },
+    {
+      "from": "part1-generation-framework/notes/company-agent-report-v8-kimi.md",
+      "to": "part1-generation-framework/archive/notes/company-agent-report-v8-kimi.md",
+      "original_sha256": "5de983754feb13ccc9013d656adf2fa24cce58c17b552b840d6e15be34807eb5"
+    },
+    {
+      "from": "part1-generation-framework/notes/company-agent-report.md",
+      "to": "part1-generation-framework/archive/notes/company-agent-report.md",
+      "original_sha256": "a038b370ebcbeca5d80edfa9b2fed0957dc6a087ab58c2c1942c9fd6fb5a17e6"
+    },
+    {
+      "from": "part1-generation-framework/notes/test-ds.md",
+      "to": "part1-generation-framework/archive/notes/test-ds.md",
+      "original_sha256": "39fe5298bff6874dc8944fd1491c58587a06471b716f5fd1696bd9507eb6d843"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image1.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13-media/image1.jpeg",
+      "original_sha256": "a4b12ee839e0e51bcad329a5c6dff3d0e650e50b4e3de9a9f0db4122aa3b04d2"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image2.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13-media/image2.jpeg",
+      "original_sha256": "5cc0360ebd832f2c9cde6c68e6d8836ee6e1508fc965ab5f7722ee135a36a704"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image3.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13-media/image3.jpeg",
+      "original_sha256": "73c9aa8f296b6a8e1ce92571300cab2cd40cb051520c488bb0d8021f575a007a"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image4.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13-media/image4.jpeg",
+      "original_sha256": "81c1a5d747d91491838ac55f9ef60aad7073bdeebe4208e0722d37b7aa2cecd8"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image5.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13-media/image5.jpeg",
+      "original_sha256": "51e2cf52827b5505651cf4aea888f40becd38e83df014de142d5cf8d5368de36"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image6.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13-media/image6.jpeg",
+      "original_sha256": "7249fbac0456a602ecdcc886fbd0a936ab88df18f180e6d8115708f73e79757d"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image7.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13-media/image7.jpeg",
+      "original_sha256": "708ce6e61c1ffaffa13d408b718eeef4980624733afdfb46d9b7706caec7f455"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image8.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13-media/image8.jpeg",
+      "original_sha256": "960420e2be678f388df037c8e0a872130205bb304c303217bf2ee9c069a81f65"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13-media/image9.png",
+      "to": "part1-generation-framework/archive/notes/v13-media/image9.png",
+      "original_sha256": "c2c3d7b1c50838cc00042c46e1e4bbe3e05c60586b6b2908d90eb087627c5c13"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13r-media/fig1.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13r-media/fig1.jpeg",
+      "original_sha256": "a4b12ee839e0e51bcad329a5c6dff3d0e650e50b4e3de9a9f0db4122aa3b04d2"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13r-media/fig2.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13r-media/fig2.jpeg",
+      "original_sha256": "7249fbac0456a602ecdcc886fbd0a936ab88df18f180e6d8115708f73e79757d"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13r-media/fig3.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13r-media/fig3.jpeg",
+      "original_sha256": "708ce6e61c1ffaffa13d408b718eeef4980624733afdfb46d9b7706caec7f455"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13r-media/fig4.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13r-media/fig4.jpeg",
+      "original_sha256": "81c1a5d747d91491838ac55f9ef60aad7073bdeebe4208e0722d37b7aa2cecd8"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13r-media/fig5.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13r-media/fig5.jpeg",
+      "original_sha256": "960420e2be678f388df037c8e0a872130205bb304c303217bf2ee9c069a81f65"
+    },
+    {
+      "from": "part1-generation-framework/notes/v13r-media/fig6.jpeg",
+      "to": "part1-generation-framework/archive/notes/v13r-media/fig6.jpeg",
+      "original_sha256": "51e2cf52827b5505651cf4aea888f40becd38e83df014de142d5cf8d5368de36"
+    },
+    {
+      "from": "part1-generation-framework/tools/md2docx.py",
+      "to": "part1-generation-framework/archive/tools/md2docx.py",
+      "original_sha256": "8bc224208257ef0c8ed1a4cba83da727cee050170f45391c9057bcea3a0d971a"
+    }
+  ]
+}
