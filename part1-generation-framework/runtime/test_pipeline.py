@@ -22,6 +22,16 @@ class PipelineTests(unittest.TestCase):
         prompt,_=compile_prompt(self.registry.snapshot(),self.template)
         self.assertEqual(prompt,self.template.read_text(encoding="utf-8"))
 
+    def test_grouped_dictionary_preserves_evaluated_prompt_and_hot_updates(self):
+        template=PART/"studies/round2/prompts/p25_zh.md"
+        prompt,_=compile_prompt(self.registry.snapshot(),template)
+        self.assertEqual(prompt,template.read_text(encoding="utf-8"))
+        rev=self.registry.snapshot()["revision"]
+        self.registry.set_enabled("fragrance.power",False,rev)
+        changed,_=compile_prompt(self.registry.snapshot(),template)
+        table=changed.split("[CONDITIONS ONLY;",1)[1].split("[examples]",1)[0]
+        self.assertNotIn("香氛开关",table)
+
     def test_demo_context_replaces_deleted_scenes_and_rejects_atomically(self):
         raw=scene();self.engine.demo_context({"driving":False,"saved_scenes":[{"id":"browser-one","scene":raw}]})
         self.assertIn("browser-one",self.engine.state["saved"])

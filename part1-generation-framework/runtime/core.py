@@ -132,8 +132,20 @@ def compile_prompt(snapshot, template):
         before,remaining=source.split(verbose,1)
         previous_table,after=remaining.split("[examples]",1)
         parts=previous_table.split("[ACTIONS ONLY; * means planned/proposed/sprint ACTION requiring a named warning]")
-        order={kind:[line.split(" = ",1)[0].lstrip("*") for line in part.splitlines() if " = " in line] for kind,part in zip(("conditions","actions"),parts)}
-        prompt=before+verbose_dictionary(snapshot,order)+"[examples]"+after
+        order={kind:[name for line in part.splitlines() if " = " in line for name in line.split(" = ",1)[0].lstrip("*").split("、")] for kind,part in zip(("conditions","actions"),parts)}
+        grouped=any("、" in line.split(" = ",1)[0] for line in previous_table.splitlines() if " = " in line)
+        table=verbose_dictionary(snapshot,order)
+        if grouped:
+            grouped_lines=[];groups={}
+            def flush_groups():
+                grouped_lines.extend(("*" if star else "")+"、".join(names)+" = "+values for (values,star),names in groups.items());groups.clear()
+            for line in table.splitlines():
+                if " = " not in line:
+                    flush_groups();grouped_lines.append(line);continue
+                left,values=line.split(" = ",1);star=left.startswith("*")
+                groups.setdefault((values,star),[]).append(left.lstrip("*"))
+            flush_groups();table="\n".join(grouped_lines)+"\n"
+        prompt=before+table+"[examples]"+after
     else: raise ValueError("Template has no replaceable registry section")
     return prompt,{"registry_revision":snapshot["revision"],"prompt_sha256":hashlib.sha256(prompt.encode()).hexdigest(),"schema_sha256":digest(output_schema(snapshot))}
 

@@ -1,0 +1,48 @@
+{
+  "translator": "assistant-authored English instruction translation; not an independently certified equivalence",
+  "invariants": "Same dictionary bytes, example bytes, section labels/order, JSON contract and Chinese capability tokens. Examples remain bilingual in both arms.",
+  "variants": {
+    "p24": {
+      "zh": "68ae90808d4b943775c158cfe962d26938544181498278a3fc0c1befba7fd0fc",
+      "en": "a4552d3ace7197415a7fa68695aa4aae355574229bac61f7a33e949d5c454d40",
+      "sections": [
+        "role",
+        "safety",
+        "contract",
+        "intent",
+        "conditions",
+        "selection",
+        "memory",
+        "values",
+        "brevity",
+        "personalization",
+        "final_check",
+        "completion_gate",
+        "composition_gate",
+        "normal_refusal",
+        "complete_experience"
+      ]
+    },
+    "p25": {
+      "zh": "c1c96f49643e36cffd263ac7af299efc7e773e43b5ed422c977512a3214348de",
+      "en": "eb182b4c043086a9edc51f7808c9e23422cd1164e974143a69a9f92b54bc043d",
+      "sections": [
+        "role",
+        "safety",
+        "contract",
+        "intent",
+        "conditions",
+        "selection",
+        "memory",
+        "values",
+        "brevity",
+        "personalization",
+        "final_check",
+        "completion_gate",
+        "composition_gate",
+        "normal_refusal",
+        "complete_experience"
+      ]
+    }
+  }
+}
