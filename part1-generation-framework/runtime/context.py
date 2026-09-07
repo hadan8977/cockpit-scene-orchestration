@@ -76,6 +76,7 @@ def assemble(request,engine):
     existing=select_existing(engine.state["saved"],engine.state["vehicle"],utterance)
     flags=injection_flags(utterance)
     context={"state":copy.deepcopy(engine.state["vehicle"]),"driving":engine.context["driving"],"memory_pack":pack["items"],"existing_scenes":existing}
+    flags+=injection_flags(json.dumps(context,ensure_ascii=False))
     if source=="observation":
         candidate=request.get("observation_candidate")
         # Imported candidates are never allowed to carry free-form instructions.
