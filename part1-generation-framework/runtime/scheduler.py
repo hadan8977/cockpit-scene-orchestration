@@ -84,7 +84,7 @@ class RuntimeEngine(Engine):
                 return super().confirm(pid,operation,expected_revision)
             if not p or p["status"] not in ("pending","saved") or self.clock()-p["created"]>300:raise Conflict("Proposal missing, handled or expired")
             if expected_revision!=p["revision"] or self.registry.snapshot()["revision"]!=p["revision"]:raise Conflict("Registry changed; regenerate")
-            result=validate(p["raw"],self.registry.snapshot(),self.context,self.state["saved"])
+            result=validate(p["raw"],self.registry.snapshot(),{**self.context,"injection_flags":p["provenance"].get("injection_flags",[])},self.state["saved"])
             if not result["executable"] or p["raw"]["conditions"]:raise ValueError("Cannot immediately execute this proposal")
             # User's immediate confirmation takes precedence over scheduled work.
             self._cancel_pending("preempted_by_user")
@@ -190,7 +190,7 @@ class RuntimeEngine(Engine):
                 if m.get("type")=="dislike" and m.get("primary"):
                     name=m["primary"]
                     if name not in by_name:raise ValueError("Unknown negative preference capability")
-                    denied.append({"primary":name,"secondary":m.get("value")})
+                    denied.append({"primary":name,"secondary":m.get("value"),"except":["关闭"] if "车窗" in name else []})
             self.state["memories"]=records;self.context["denied_actions"]=denied
             for s in saved:
                 if not isinstance(s,dict) or not isinstance(s.get("id"),str) or len(s["id"])>80:raise ValueError("Invalid existing scene id")

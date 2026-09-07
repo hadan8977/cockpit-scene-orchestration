@@ -13,7 +13,7 @@ from urllib.parse import urlsplit
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import Registry, Conflict, PART, canonical, compile_prompt, empty_scene, output_schema, revision, validate
-from context import assemble, relation_for
+from context import assemble, relation_for, injection_flags
 from provider import DeepSeek, Fixture, parse_json
 from scheduler import RuntimeEngine
 
@@ -110,7 +110,8 @@ def handler_for(service,token):
                 elif path=="/demo/context":result=service.engine.demo_context(body)
                 elif path=="/demo/prepare":
                     raw=body["scene"]
-                    result=service.engine.propose(raw,{"source":"demo_import","simulation":True})
+                    flags=injection_flags(json.dumps(raw,ensure_ascii=False))
+                    result=service.engine.propose(raw,{"source":"demo_import","simulation":True,"injection_flags":flags})
                 elif path=="/simulation/advance":result={"events":service.engine.advance(body["seconds"])}
                 elif path=="/simulation/trigger":result={"events":service.engine.trigger()}
                 elif path=="/memory/confirm":result=service.engine.confirm_memory(body["proposal_id"],body["index"])

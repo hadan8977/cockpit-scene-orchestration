@@ -272,7 +272,7 @@ def validate(raw,snapshot,context=None,existing_ids=()):
     for a in actions:
         if not isinstance(a,dict):continue
         for denial in context.get("denied_actions",[]):
-            if a.get("primary")==denial.get("primary") and (denial.get("secondary") is None or a.get("secondary")==denial["secondary"]):
+            if a.get("primary")==denial.get("primary") and a.get("secondary") not in denial.get("except",[]) and (denial.get("secondary") is None or a.get("secondary")==denial["secondary"]):
                 reject("negative_preference","动作违反已确认的负面偏好",a.get("primary"))
     valid=not any(d["status"]=="blocked" for d in decisions)
     # Preserve the complete proposal for explaining rejection; no executable sub-scene.
@@ -309,7 +309,8 @@ class Engine:
     def propose(self,raw,provenance,request_id=None):
         with self.lock:
             snapshot=self.registry.snapshot()
-            result=validate(raw,snapshot,self.context,self.state["saved"])
+            if provenance.get("registry_revision",snapshot["revision"])!=snapshot["revision"]:raise Conflict("Registry changed during generation")
+            result=validate(raw,snapshot,{**self.context,"injection_flags":provenance.get("injection_flags",[])},self.state["saved"])
             pid=request_id or uuid.uuid4().hex
             if pid in self.proposals:raise Conflict("Duplicate proposal id")
             self.proposals[pid]={"raw":copy.deepcopy(raw),"provenance":provenance,"created":self.clock(),"status":"pending","revision":snapshot["revision"]}
@@ -323,7 +324,7 @@ class Engine:
             if expected_revision!=p["revision"]:raise Conflict("Client proposal version mismatch")
             snapshot=self.registry.snapshot()
             # Revalidate under the latest registry and trusted vehicle state.
-            result=validate(p["raw"],snapshot,self.context,self.state["saved"])
+            result=validate(p["raw"],snapshot,{**self.context,"injection_flags":p["provenance"].get("injection_flags",[])},self.state["saved"])
             if snapshot["revision"]!=p["revision"]:
                 raise Conflict("Registry changed: regenerate and confirm the updated proposal")
             if operation not in ("save","apply_once","reject"):raise ValueError("Invalid operation")
