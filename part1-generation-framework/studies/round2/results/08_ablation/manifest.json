@@ -1,0 +1,83 @@
+{
+  "plan": {
+    "run_id": "08_ablation",
+    "repeat": 1,
+    "seed": 71436,
+    "ids": [
+      "E06",
+      "E03",
+      "N07",
+      "E05",
+      "C03",
+      "C09",
+      "C08",
+      "C05",
+      "J04",
+      "J05",
+      "N05",
+      "F06",
+      "F05",
+      "A15",
+      "A10",
+      "N04",
+      "B03",
+      "S02",
+      "B02",
+      "D12",
+      "D05",
+      "D01",
+      "K03",
+      "K07",
+      "K04",
+      "K08",
+      "G04",
+      "G02",
+      "H05",
+      "H03",
+      "I04",
+      "I06"
+    ],
+    "variants": {
+      "p24": "prompts/p24_zh.md",
+      "v3_protocol": "prompts/v3_latest_compatible.md",
+      "without_routing": "prompts/p24_without_routing.md",
+      "without_composition": "prompts/p24_without_composition.md",
+      "without_personalization": "prompts/p24_without_personalization.md",
+      "without_wording": "prompts/p24_without_wording.md",
+      "without_examples": "prompts/p24_without_examples.md",
+      "without_safety": "prompts/p24_without_safety.md",
+      "without_finalcheck": "prompts/p24_without_finalcheck.md",
+      "p25_grouped_dictionary": "prompts/p25_zh.md"
+    }
+  },
+  "created_before_first_call": true,
+  "expected": 640,
+  "prompt_hashes": {
+    "p24": "68ae90808d4b943775c158cfe962d26938544181498278a3fc0c1befba7fd0fc",
+    "v3_protocol": "a59b744f857835dba60a501ab52f69750ae7c853535873e38fd73baa86b0177d",
+    "without_routing": "7feecea730f5a47d1e965c6a81ef5ff0f7f4d98c98c044fe3e8f6683c5f755af",
+    "without_composition": "1a249b698c50e488ff3975327b430ea0b0c4b9c5d1a034103b7683552c7f1573",
+    "without_personalization": "e27834746de47d6aa6ac5763813ac72e59db12eb677c8c89141b0f9f67e1c0b9",
+    "without_wording": "e4f56520b38203ae48501ef24ea8284d5c7b9d789963de9ac17be494b4abe2fc",
+    "without_examples": "fe043455c735bc8eefd6771d443eb1247c92426b3e669d4e04c1a1b47665c44f",
+    "without_safety": "8b0c02252158668ce287a2dbaf791dfedfd35999579cf793df5e1b97b90b6c48",
+    "without_finalcheck": "2d925c35dda6b9b1d1758a51d92c5b0d3246a035fcdfa19e994df64ea6ac714d",
+    "p25_grouped_dictionary": "c1c96f49643e36cffd263ac7af299efc7e773e43b5ed422c977512a3214348de"
+  },
+  "dataset_hash": "c16343ef62a65a0da525a87830426a66e7bf88028f1bc2ccc60842e97b732a05",
+  "source_hashes": {
+    "studies\\round2\\study.py": "0898676c81e4372ebe9e5ceb467083c1d0df987b33371cfb99100dc8a2c9f364",
+    "eval\\run_eval.py": "f81f8ddf80f394f1f73c9e5dcc59a39354d1720e0789c741066eb7f4126d3f45",
+    "eval\\output_contract.py": "dc2936eb3aa873f18cc28ad7d68ed3804aefadd20e3788ee4879ee386acdb026",
+    "eval\\schema.json": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c",
+    "eval\\capabilities.json": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d"
+  },
+  "transport": "thread-local persistent Session; concurrency 4; no HTTP retries",
+  "model": "deepseek-v4-flash",
+  "parameters": {
+    "temperature": 0,
+    "thinking": "disabled",
+    "json_mode": true,
+    "max_tokens": 1000
+  }
+}

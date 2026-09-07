@@ -1,0 +1,33 @@
+{
+  "name": "ablation-wording",
+  "source_run": "08_ablation",
+  "candidate": "without_wording",
+  "baseline": "p24",
+  "ids": [
+    "E06",
+    "N07",
+    "E05",
+    "E03",
+    "C08",
+    "C05",
+    "C03",
+    "C09",
+    "J04",
+    "J05",
+    "N05",
+    "F06",
+    "F05",
+    "A15",
+    "A10",
+    "N04"
+  ],
+  "models": [
+    "luna",
+    "qwen"
+  ],
+  "samples": 64,
+  "calls": 128,
+  "sample_sha256": "edea82f96941da351b77519ee520835fe3fb74b572ade022d5daeaf6d6f52a8b",
+  "selection": "Fixed category quotas; seed 2026090716; rep 0; both locales and both positions. No score-based filtering.",
+  "report_rule": "Report all dimensions separately by judge, position and locale. Missing ratings are not imputed; incomplete coverage prevents confirmed superiority. Cluster by original case id."
+}

@@ -1,0 +1,8 @@
+{
+  "cases": 6,
+  "passed": 6,
+  "max_paid_calls": 5,
+  "results": "results.json",
+  "simulation": true,
+  "template_sha256": "68ae90808d4b943775c158cfe962d26938544181498278a3fc0c1befba7fd0fc"
+}
