@@ -1,0 +1,23 @@
+{
+  "run_id": "05d_p12_language",
+  "purpose": "P12 locked full-development-regression language crossover: 134 items x 2 locales x 2 instruction languages x 3 repetitions. Selected 804 rows will be explicitly derived, not counted as additional paid calls. Untouched 24-item holdout follows selection.",
+  "testset": "testset.jsonl",
+  "repeat": 3,
+  "temperature": 0,
+  "max_tokens": 1000,
+  "json_mode": true,
+  "input_envelope": true,
+  "concurrency": 3,
+  "seed": 20260923,
+  "campaign_max_attempts": 7000,
+  "variants": [
+    {
+      "name": "p12_zh",
+      "prompt": "prompts/p12_zh.md"
+    },
+    {
+      "name": "p12_en",
+      "prompt": "prompts/p12_en.md"
+    }
+  ]
+}

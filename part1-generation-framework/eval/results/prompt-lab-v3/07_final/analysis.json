@@ -1,0 +1,1586 @@
+{
+  "run_id": "07_final",
+  "metric_note": "usable = original task pass AND required name AND reply language; identical checks for all arms; language check is lexical and needs qualitative review",
+  "variants": {
+    "final": {
+      "n": 804,
+      "errors": 0,
+      "task_pass": 0.7885572139303483,
+      "usable_pass": 0.7885572139303483,
+      "name_ok": 1.0,
+      "language_ok": 1.0,
+      "safety_violations": 0,
+      "schema_valid": 0.9838308457711443,
+      "strict_json_valid": 1.0,
+      "latency_p50": 1.4157113499823026,
+      "latency_p95": 1.893715879975934,
+      "ttft_p50": 0.8708938360214233,
+      "understanding_p50": 1.029811978340149,
+      "by_lang": {
+        "zh": {
+          "n": 402,
+          "errors": 0,
+          "task_pass": 0.8009950248756219,
+          "usable_pass": 0.8009950248756219,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 0.9875621890547264,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.424910000001546,
+          "latency_p95": 1.8824336699821287,
+          "ttft_p50": 0.8712702989578247,
+          "understanding_p50": 1.028681993484497
+        },
+        "en": {
+          "n": 402,
+          "errors": 0,
+          "task_pass": 0.7761194029850746,
+          "usable_pass": 0.7761194029850746,
+          "name_ok": 1.0,
+          "language_ok": 1.0,
+          "safety_violations": 0,
+          "schema_valid": 0.9800995024875622,
+          "strict_json_valid": 1.0,
+          "latency_p50": 1.394576299993787,
+          "latency_p95": 1.8944143599685048,
+          "ttft_p50": 0.8708938360214233,
+          "understanding_p50": 1.0303665399551392
+        }
+      }
+    }
+  },
+  "paired": {},
+  "failures": [
+    {
+      "variant": "final",
+      "id": "J02",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N09",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F09",
+      "lang": "en",
+      "rep": 0,
+      "reason": "relevance 0.8 不在 [0, 0.5]; alt0 意图 vague 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "E10",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 缺少必需动作 氛围灯开关=['开启']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F05",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "relevance 0.9 不在 [0, 0.3]; alt0 意图 action 不在 ['none']; alt1 意图 action 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B16",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "E03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S01",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 缺少条件 指定日期 == 自定义; alt1 条件数量 1 != 期望 2; alt2 意图 vague 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C06",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅加热', '方向盘加热', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "I04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 缺少条件 副驾座椅 == 有人",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "relevance 0.5 不在 [0.6, 1.0]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S08",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['播放指定音乐', '音乐播放', '氛围灯亮度', '彩蛋', '香氛开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "G01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅加热', '方向盘加热', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S05",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['全民K歌', '唱吧', '酷狗K歌']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J02",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B16",
+      "lang": "en",
+      "rep": 0,
+      "reason": "契约 actions.0: 'secondary' is a required property; 契约 actions.0: Additional properties are not allowed ('op' was unexpected); 动作值越界或非法: 前风窗除雾=None; alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N09",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D04",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾座椅通风=['关闭']; alt2 意图 precise 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C10",
+      "lang": "en",
+      "rep": 0,
+      "reason": "动作不在能力表: 主驾座椅按摩; alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '主驾座椅按摩模式', '主驾温度控制', '音乐律动', '前排风量调节']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N04",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 逻辑 AND != OR; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D12",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 意图 precise 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C10",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '主驾座椅按摩模式', '主驾温度控制', '音乐律动', '前排风量调节']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S08",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['播放指定音乐', '音乐播放', '氛围灯亮度', '彩蛋', '香氛开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "缺少场景名; alt0 意图 clarify 不在 ['vague', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "relevance 0.2 不在 [0.3, 0.9]; alt0 意图 none 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件数量 0 != 期望 1; alt2 意图 precise 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 action 不在 ['vague', 'clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['全民K歌', '唱吧', '酷狗K歌']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '音乐播放', '主驾温度控制']; alt1 缺少条件 行程事件 == 到达; alt2 条件数量 3 != 期望 2",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J04",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "缺少场景名; alt0 意图 clarify 不在 ['vague', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N11",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['action', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['进入情景模式', '氛围灯亮度', '氛围灯开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C08",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯开关', '香氛开关', '氛围灯亮度']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S07",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 缺少条件 时段 == 上午; alt1 条件数量 2 != 期望 1; alt2 缺少条件 星期类型 == 休息日; alt3 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F11",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "relevance 0.1 不在 [0.4, 1.0]; alt0 意图 none 不在 ['vague', 'action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B14",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "relevance 0.9 不在 [0, 0.3]; alt0 意图 vague 不在 ['none']; alt1 意图 vague 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "A06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['空调总开关', 'MAX AC', '主驾座椅通风', '主驾温度控制', 'AC开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C08",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯开关', '香氛开关', '氛围灯亮度']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F06",
+      "lang": "en",
+      "rep": 0,
+      "reason": "relevance 0.5 不在 [0.6, 1.0]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D12",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 意图 precise 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F03",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "relevance 0.2 不在 [0.3, 0.9]; alt0 意图 none 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S01",
+      "lang": "en",
+      "rep": 0,
+      "reason": "条件值越界或非法: 行程事件=上车; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "I05",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 vague 不在 ['clarify', 'none']; alt1 条件数量 0 != 期望 1; alt2 条件数量 0 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "H03",
+      "lang": "en",
+      "rep": 0,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F09",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "relevance 0.8 不在 [0, 0.5]; alt0 意图 vague 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N11",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['action', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J06",
+      "lang": "zh",
+      "rep": 0,
+      "reason": "alt0 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "A09",
+      "lang": "en",
+      "rep": 0,
+      "reason": "alt0 意图 precise 不在 ['action', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "G04",
+      "lang": "en",
+      "rep": 0,
+      "reason": "应给出记忆建议而没有",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F11",
+      "lang": "en",
+      "rep": 0,
+      "reason": "relevance 0.1 不在 [0.4, 1.0]; alt0 意图 none 不在 ['vague', 'action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C08",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯开关', '香氛开关', '氛围灯亮度']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S01",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 缺少条件 指定日期 == 自定义; alt1 条件数量 1 != 期望 2; alt2 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B14",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C04",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 action 不在 ['vague', 'clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F11",
+      "lang": "en",
+      "rep": 1,
+      "reason": "relevance 0.1 不在 [0.4, 1.0]; alt0 意图 none 不在 ['vague', 'action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S05",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['全民K歌', '唱吧', '酷狗K歌']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C07",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 action 不在 ['vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N11",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['action', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "I04",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 缺少条件 副驾座椅 == 有人",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S03",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "条件值越界或非法: 指定日期=明天; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C08",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯开关', '香氛开关', '氛围灯亮度']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C10",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '主驾座椅按摩模式', '主驾温度控制', '音乐律动', '前排风量调节']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J04",
+      "lang": "en",
+      "rep": 1,
+      "reason": "缺少场景名; alt0 意图 clarify 不在 ['vague', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S08",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['播放指定音乐', '音乐播放', '氛围灯亮度', '彩蛋', '香氛开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F03",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "relevance 0.2 不在 [0.3, 0.9]; alt0 意图 none 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S01",
+      "lang": "en",
+      "rep": 1,
+      "reason": "条件值越界或非法: 行程事件=上车; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "G04",
+      "lang": "en",
+      "rep": 1,
+      "reason": "应给出记忆建议而没有",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F06",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "relevance 0.5 不在 [0.6, 1.0]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S08",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['播放指定音乐', '音乐播放', '氛围灯亮度', '彩蛋', '香氛开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C04",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 action 不在 ['vague', 'clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "relevance 0.2 不在 [0.3, 0.9]; alt0 意图 none 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F09",
+      "lang": "en",
+      "rep": 1,
+      "reason": "relevance 0.8 不在 [0, 0.5]; alt0 意图 vague 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S07",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 缺少条件 时段 == 上午; alt1 条件数量 2 != 期望 1; alt2 缺少条件 星期类型 == 休息日; alt3 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N11",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['action', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "A09",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['action', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N06",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['进入情景模式', '氛围灯亮度', '氛围灯开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "E03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N09",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C10",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '主驾座椅按摩模式', '主驾温度控制', '音乐律动', '前排风量调节']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F06",
+      "lang": "en",
+      "rep": 1,
+      "reason": "relevance 0.5 不在 [0.6, 1.0]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B16",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F05",
+      "lang": "en",
+      "rep": 1,
+      "reason": "relevance 0.9 不在 [0, 0.3]; alt0 意图 vague 不在 ['none']; alt1 意图 vague 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "G01",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J02",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D12",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 意图 precise 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N04",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 逻辑 AND != OR; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D04",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件数量 0 != 期望 1; alt2 意图 precise 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "G06",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 affect 不在 ['none']; alt1 出现禁止动作 音乐播放=放松",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N06",
+      "lang": "en",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个; 动作过多: 5 > 4",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D12",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 意图 precise 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C06",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅加热', '方向盘加热', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C06",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅加热', '方向盘加热', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "A06",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['空调总开关', 'MAX AC', '主驾座椅通风', '主驾温度控制', 'AC开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D04",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件数量 0 != 期望 1; alt2 意图 precise 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F09",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "relevance 0.8 不在 [0, 0.5]; alt0 意图 vague 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "条件值越界或非法: 指定日期=tomorrow; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S05",
+      "lang": "en",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['全民K歌', '唱吧', '酷狗K歌']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B16",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J02",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "H03",
+      "lang": "en",
+      "rep": 1,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J06",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "条件值越界或非法: 生效时间=开工; 动作值越界或非法: 进入情景模式=专注模式; alt0 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J04",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "缺少场景名; relevance 0.4 不在 [0.7, 1.0]; alt0 意图 clarify 不在 ['vague', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S07",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "alt0 缺少条件 时段 == 上午; alt1 条件数量 2 != 期望 1; alt2 缺少条件 星期类型 == 休息日; alt3 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F11",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "relevance 0.1 不在 [0.4, 1.0]; alt0 意图 none 不在 ['vague', 'action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F05",
+      "lang": "zh",
+      "rep": 1,
+      "reason": "relevance 0.9 不在 [0, 0.3]; alt0 意图 action 不在 ['none']; alt1 意图 action 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N11",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['action', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C07",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 action 不在 ['vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "H03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B16",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "relevance 0.5 不在 [0.6, 1.0]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "G06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 意图 affect 不在 ['none']; alt1 出现禁止动作 音乐播放=放松",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F05",
+      "lang": "en",
+      "rep": 2,
+      "reason": "relevance 0.9 不在 [0, 0.3]; alt0 意图 vague 不在 ['none']; alt1 意图 vague 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "relevance 0.2 不在 [0.3, 0.9]; alt0 意图 none 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S07",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 缺少条件 时段 == 上午; alt1 条件数量 2 != 期望 1; alt2 缺少条件 星期类型 == 休息日; alt3 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B14",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "条件值越界或非法: 车内PM2.5=75μg/m³",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N11",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['action', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D12",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 意图 precise 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S01",
+      "lang": "en",
+      "rep": 2,
+      "reason": "条件值越界或非法: 行程事件=上车; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S08",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['播放指定音乐', '音乐播放', '氛围灯亮度', '彩蛋', '香氛开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "I05",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 vague 不在 ['clarify', 'none']; alt1 条件数量 0 != 期望 1; alt2 条件数量 0 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J04",
+      "lang": "en",
+      "rep": 2,
+      "reason": "缺少场景名; alt0 意图 clarify 不在 ['vague', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D04",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件数量 0 != 期望 1; alt2 意图 precise 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F09",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "relevance 0.8 不在 [0, 0.5]; alt0 意图 vague 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F11",
+      "lang": "en",
+      "rep": 2,
+      "reason": "relevance 0.1 不在 [0.4, 1.0]; alt0 意图 none 不在 ['vague', 'action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "条件值越界或非法: 指定日期=tomorrow; alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J04",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "缺少场景名; relevance 0.4 不在 [0.7, 1.0]; alt0 意图 clarify 不在 ['vague', 'affect']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F06",
+      "lang": "en",
+      "rep": 2,
+      "reason": "relevance 0.5 不在 [0.6, 1.0]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "H03",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "规划中或提议动作超过一个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S08",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['播放指定音乐', '音乐播放', '氛围灯亮度', '彩蛋', '香氛开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S01",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 缺少条件 指定日期 == 自定义; alt1 条件数量 1 != 期望 2; alt2 意图 vague 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C10",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '主驾座椅按摩模式', '主驾温度控制', '音乐律动', '前排风量调节']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D12",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 意图 precise 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S03",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 缺少条件 指定日期 == 自定义; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B16",
+      "lang": "en",
+      "rep": 2,
+      "reason": "契约 actions.0: Additional properties are not allowed ('op' was unexpected); alt0 意图 precise 不在 ['clarify', 'none']; alt1 条件应为空，实际 1 个",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J02",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N04",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 条件数量 2 != 期望 1; alt1 逻辑 AND != OR; alt2 条件数量 2 != 期望 1; alt3 意图 precise 不在 ['clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S07",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 缺少条件 时段 == 上午; alt1 条件数量 2 != 期望 1; alt2 缺少条件 星期类型 == 休息日; alt3 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S05",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['全民K歌', '唱吧', '酷狗K歌']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['进入情景模式', '氛围灯亮度', '氛围灯开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F09",
+      "lang": "en",
+      "rep": 2,
+      "reason": "relevance 0.8 不在 [0, 0.5]; alt0 意图 vague 不在 ['none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N09",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "D04",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['clarify', 'none']; alt1 缺少必需动作 主驾座椅通风=['关闭']; alt2 意图 precise 不在 ['action']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F05",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "relevance 0.9 不在 [0, 0.3]; alt0 意图 vague 不在 ['none']; alt1 意图 vague 不在 ['none', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C08",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯开关', '香氛开关', '氛围灯亮度']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "N09",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 条件数量 2 != 期望 1",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "B14",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 缺少条件 车内PM2.5 > 75",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "A06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['空调总开关', 'MAX AC', '主驾座椅通风', '主驾温度控制', 'AC开关']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C04",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 action 不在 ['vague', 'clarify', 'none']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F11",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "relevance 0.1 不在 [0.4, 1.0]",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "A09",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 意图 precise 不在 ['action', 'clarify']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C06",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅加热', '方向盘加热', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C08",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯开关', '香氛开关', '氛围灯亮度']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C06",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅加热', '方向盘加热', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "E03",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['主驾座椅按摩模式', '氛围灯亮度', '音乐播放', '主驾温度控制']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "G04",
+      "lang": "en",
+      "rep": 2,
+      "reason": "应给出记忆建议而没有",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J01",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '音乐播放', '主驾温度控制']; alt1 缺少条件 行程事件 == 到达; alt2 条件数量 3 != 期望 2",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "F03",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "relevance 0.2 不在 [0.3, 0.9]; alt0 意图 none 不在 ['affect', 'vague']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "G01",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "C10",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '主驾座椅按摩模式', '主驾温度控制', '音乐律动', '前排风量调节']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "S05",
+      "lang": "en",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['全民K歌', '唱吧', '酷狗K歌']",
+      "name_ok": true,
+      "language_ok": true
+    },
+    {
+      "variant": "final",
+      "id": "J02",
+      "lang": "zh",
+      "rep": 2,
+      "reason": "alt0 候选动作一个都没有: ['氛围灯亮度', '氛围灯开关', '音乐播放', '主驾座椅按摩模式']",
+      "name_ok": true,
+      "language_ok": true
+    }
+  ]
+}

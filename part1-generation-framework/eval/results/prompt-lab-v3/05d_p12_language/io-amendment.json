@@ -1,0 +1,10 @@
+{
+  "time_utc": "2026-09-07T11:35:11.629Z",
+  "reason": "Windows WinError 5 on atomic ledger os.replace; no model/scoring/config change.",
+  "completed_rows_before": 173,
+  "aborted_attempt_index": 4453,
+  "source_before_sha256": "dae829c3d52e4272671271aaa3f242c9a01743fa62bf4635433f075f562a770b",
+  "source_after_sha256": "2f32a54865ad88082dc53a9e0c24a74f960ea1fe51bdcd15a4830a3c4f3e90c2",
+  "change": "Retry local os.replace up to 20 times at 50 ms. Never retry a network call. Old manifest retained verbatim.",
+  "test": "12 offline tests pass, including transient file-sharing failure."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "superseded_after_first_repetition",
+  "rows": 536,
+  "planned": 1608,
+  "raw_sha256": "da1c2edfdd89c14debb2ba3913f9435178af3d88e047b29001a8d4c2769326df",
+  "gzip_sha256": "e3ffbe81920ea7536998de0be7d24d13eb2f349cb6cab90dfa1e82614f535d29",
+  "archive": "raw.jsonl.gz"
+}

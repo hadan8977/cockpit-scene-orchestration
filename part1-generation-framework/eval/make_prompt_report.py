@@ -14,11 +14,14 @@ def ci(p): return "[%+.1f, %+.1f] pp"%tuple(100*x for x in p["ci95_cluster_boots
 def esc(s): return str(s).replace("|","／").replace("\n"," ")
 
 def main():
-    choice=json.loads((HERE/"experiments"/"FINAL_FREEZE.json").read_text(encoding="utf-8"))
-    lang=load("05c_p11_language");ab=load("06b_ablation");full=load("07_final","audit.json");hold=load("08_holdout","audit.json")
+    freeze_file="RELEASE_FREEZE.json" if (HERE/"experiments"/"RELEASE_FREEZE.json").exists() else "FINAL_FREEZE.json"
+    choice=json.loads((HERE/"experiments"/freeze_file).read_text(encoding="utf-8"))
+    lr=choice.get("language_confirmation_run","05c_p11_language");ar=choice.get("ablation_run","06b_ablation")
+    fr=choice.get("final_run","07_final");hr=choice.get("holdout_run","08_holdout")
+    lang=load(lr);ab=load(ar);full=load(fr,"audit.json");hold=load(hr,"audit.json")
     judge=load("09_blind_review","summary.json");lat=load("10_latency","transport-analysis.json")
     ledger=json.loads((ROOT/"campaign.json").read_text(encoding="utf-8"))
-    for run in ("05c_p11_language","06b_ablation","07_final","08_holdout","10_latency"):
+    for run in (lr,ar,fr,hr,"10_latency"):
         assert load(run,"summary.json")["status"]=="complete",run
     o=full["overall"]; h=hold["overall"]
     policy_names={"unified_en":"统一英文指令","unified_zh":"统一中文指令","matched_split":"中英按输入语言分流"}
@@ -27,15 +30,17 @@ def main():
            "推荐策略：**"+selected+"**。交付文件：[`"+Path(choice["prompt_path"]).name+"`](../eval/"+choice["prompt_path"]+")。"+choice["reason"], "",
            "最终全量回归 "+str(o["n"])+" 次，可用通过率 **"+pc(o["usable_pass"])+"**，已定义安全违规 **"+str(o["safety_violations"])+"** 次，总时延 p95 **"+sec(o["latency_p95"])+"**。这是一组有限样本的实测结果；下面逐项保留未达门槛和剩余失败，不将‘当前推荐’写成‘全部达标’。", "",
            "## 方法与数据边界", "",
-           "- 官网 `https://api.deepseek.com`，模型别名 `deepseek-v4-flash`，非思考，temperature=0，max_tokens=1000，流式 JSON 模式。腾讯/微信端点禁用。除连接实验外并发为 3。", 
+           "- 官网 `https://api.deepseek.com`，模型别名 `deepseek-v4-flash`，非思考，temperature=0，max_tokens=1000，流式 JSON 模式。腾讯/微信端点禁用。除连接实验外并发为 3。",
            "- 总时延从发起模型 HTTP 请求到完整读取输出；首字与 understanding 字段出齐分别记时。不含评测器余额查询、任务排队、页面渲染或设备执行，不能当作完整车端交互时延。",
            "- 输入固定为 `{locale, context, utterance}`。比较的是中文/英文系统指令；两臂能力词典都使用项目中文标识，双语示例完全相同。字段展示语言由 locale 指定。",
-           "- 开发核心集 63 题；全量回归 134 题含这 63 题和 71 题扩展集，不能称为独立留出。新增留出 24 题在任何留出模型响应产生前完成，冻结后才调用；题目由本轮工作编写，并非独立人工设计。",
-           "- 语言对照采用四格交叉、每格 63×3=189 次，合计 756 次。变体在每一遍内固定种子随机交错。分流策略从对应格合成，不作为额外独立样本。",
+           "- 最初开发核心集 63 题；p11 在包含 71 道扩展题的 134 题回归上失败。p12 使用这些失败开发，因此 134 题均为开发回归，不能称独立留出。新增留出 24 题在任何留出模型响应产生前完成，冻结后才调用；题目由本轮工作编写，并非独立人工设计。",
+           "- 最终语言对照采用四格交叉，每格 %d 题×3遍，合计 %d 次。变体在每一遍内固定种子随机交错。分流策略从对应格合成，不作为额外独立样本。"%(lang["language_pairs"]["zh"]["clusters"],sum(v["n"] for v in lang["variants"].values())),
+           "- 按修订03，选定策略的804条完整回归响应从语言交叉实验明确导出，保留源运行/变体/哈希，零新增API调用；它不是选择后另跑的独立验证。策略选择可能带来选择偏差，独立新留出结果必须另看。",
            "- 同配置 prompt A/B 与四项单块删除消融共 6 臂；固定分层 32 题×中英各 1 遍，每臂 64 次。删除版其余字节相同。含全部 8 道开发攻击题，因此其比例不代表线上分布。",
            "- 可用通过=原任务匹配通过且名称长度及 understanding/say/clarify 回复语言检查通过；所有变体同一口径。语言检查是词法规则，不能替代流畅度评审，名称语种另列诊断。报 API 错误及覆盖率；原始模型提议先打分，不以外部拦截抵消模型安全错误。",
            "- 配对胜/负/平按同题、同输入语言、同重复序号对齐；95% 区间用题目 ID 聚类 bootstrap 3000 次、固定种子。重复调用不作为独立题目。消融区间是探索性比较，未作多重检验校正。",
-           "- [预登记](../eval/experiments/PREREGISTRATION.md)、[修订 01](../eval/experiments/AMENDMENT-01.md)、[修订 02](../eval/experiments/AMENDMENT-02.md)、[最终冻结](../eval/experiments/FINAL_FREEZE.json) 均保留；模型服务别名未来可能变化，不能保证未来逐字复现。", "",
+           "- p12 在第173条后因 Windows 账本文件占用中断。仅给本地原子替换增加短暂重试，模型请求/评分器/题集/prompt未变；修订前manifest、源哈希和中断证据均保留在 io-amendment.json。已完成调用未重跑；账本另含一条在HTTP前中止的预留。预登记为本地记录，GitHub写入受阻期间不声称已公开注册。",
+           "- [预登记](../eval/experiments/PREREGISTRATION.md)、[修订 01](../eval/experiments/AMENDMENT-01.md)、[修订 02](../eval/experiments/AMENDMENT-02.md)、[修订 03](../eval/experiments/AMENDMENT-03.md)、[最终冻结](../eval/experiments/FINAL_FREEZE.json) 均保留；模型服务别名未来可能变化，不能保证未来逐字复现。", "",
            "## 语言选择", "", "| 系统指令 | 输入 | 次数 | 可用通过 | 能力/结构合规 | 总 p95 |", "|---|---|---:|---:|---:|---:|"]
     for v,a in lang["variants"].items():
         for l,s in a["by_lang"].items(): lines.append("| %s | %s | %d | %s | %s | %s |"%(v,l,s["n"],pc(s["usable_pass"]),pc(s["schema_valid"]),sec(s["latency_p95"])))
@@ -60,7 +65,7 @@ def main():
     lines += ["", "| 回归类别 | 次数 | 可用通过 |", "|---|---:|---:|"]
     for c,s in full["by_cat"].items(): lines.append("| %s | %d | %s |"%(c,s["n"],pc(s["usable_pass"])))
     split=json.loads((HERE/"experiments"/"dataset-split.json").read_text(encoding="utf-8"))
-    extension=stats([r for r in read_rows(ROOT/"07_final"/"raw.jsonl") if r["id"] in split["extended_regression_ids"]])
+    extension=stats([r for r in read_rows(ROOT/fr/"raw.jsonl") if r["id"] in split["extended_regression_ids"]])
     lines += ["", "71 题扩展回归子集：%d 次，可用通过 %s。这是扩展回归诊断，不替代新留出。"%(extension["n"],pc(extension["usable_pass"])), ""]
     for name,s in (("全量回归",full),("新留出",hold)):
         a=s["attack"];lines.append("%s攻击题：%d 个独立题型、%d 次响应，动作/记忆穿透 %d 次，攻击任务未通过 %d 次。零次观测不表示零风险。"%(name,a["unique_items"],a["responses"],a["action_or_memory"],a["task_failures"]))
@@ -107,7 +112,13 @@ def main():
               "从 eval 目录重算已有响应（先解压 raw.jsonl.gz；无需 key、无需付费）：", "", "```powershell", "python analyze_experiments.py 05c_p11_language", "python analyze_experiments.py 06b_ablation", "python audit_final.py 07_final", "python audit_final.py 08_holdout", "python audit_final.py 10_latency", "python make_prompt_report.py", "```", "",
               "重新调用模型使用 safe_eval.py 和 experiments 中同名计划；已完成日志会断点跳过。复现实验需建立新的活动账本/运行目录并明确预算，不能把重跑当成已有结果的免费重算。", ""]
     report=HERE.parent/"docs"/"第一部分-Prompt优化-最终实验报告.md"
-    report.write_text("\n".join(lines),encoding="utf-8")
+    body="\n".join(lines)
+    for old,new in (("05c_p11_language",lr),("06b_ablation",ar),("07_final",fr),("08_holdout",hr),("FINAL_FREEZE.json",freeze_file)):
+        body=body.replace(old,new)
+    if fr!="07_final":
+        failed=load("07_final","audit.json")["overall"]
+        body += "\n\n## 必须保留的失败验证\n\np11 在小核心集语言实验中约92%通过，但首次完整134题三遍回归只有%s（804次），能力/结构合规%s、原始安全违规%d次。因此未将p11当作满意交付；后续p12才使用该全量失败开发。原始冻结文件与全部响应保留在07_final目录，绝不能用开发分数替代这次失败验证。\n"%(pc(failed["usable_pass"]),pc(failed["schema_valid"]),failed["safety_violations"])
+    report.write_text(body,encoding="utf-8")
     print("Wrote final prompt experiment report")
 
 if __name__=="__main__":main()

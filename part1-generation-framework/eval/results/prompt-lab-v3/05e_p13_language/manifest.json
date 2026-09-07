@@ -1,0 +1,43 @@
+{
+  "plan": {
+    "run_id": "05e_p13_language",
+    "purpose": "P13 locked full-development-regression language crossover: 134 items x 2 locales x 2 instruction languages x 3 repetitions. Selected 804 rows will be explicitly derived, not counted as additional paid calls. Untouched 24-item holdout follows selection.",
+    "testset": "testset.jsonl",
+    "repeat": 3,
+    "temperature": 0,
+    "max_tokens": 1000,
+    "json_mode": true,
+    "input_envelope": true,
+    "concurrency": 3,
+    "seed": 20260924,
+    "campaign_max_attempts": 7600,
+    "variants": [
+      {
+        "name": "p13_zh",
+        "prompt": "prompts/p13_zh.md"
+      },
+      {
+        "name": "p13_en",
+        "prompt": "prompts/p13_en.md"
+      }
+    ]
+  },
+  "prompt_sha256": {
+    "p13_zh": "57488940054541ba99365f4e9521391783b42902d468ef68699ae171804d8c12",
+    "p13_en": "1168368507b98f20ac442f668e53c788124dac2dbf9e28ba94980904775fb2b2"
+  },
+  "items_sha256": "3a4cd243b0b8b8d24c3ab0becca41e6a8ba3878a2103cf8bcc8cee1fb1d35017",
+  "files": {
+    "safe_eval.py": "2f32a54865ad88082dc53a9e0c24a74f960ea1fe51bdcd15a4830a3c4f3e90c2",
+    "run_eval.py": "f81f8ddf80f394f1f73c9e5dcc59a39354d1720e0789c741066eb7f4126d3f45",
+    "output_contract.py": "dc2936eb3aa873f18cc28ad7d68ed3804aefadd20e3788ee4879ee386acdb026",
+    "validator.py": "208f9af81eb8d355abc61c0a2b9e41cca594c59733079c91faf7ebae1d52de61",
+    "vocab.json": "3673eb825f18fb7460174c29652a9cadccdcf10b04463176da992f6435ef81e9",
+    "capabilities.json": "656f6ffc154a76f64f4de4065deea7c2eb61c71e9b21b8b9ff6e6ed2eb65fd4d",
+    "schema.json": "075c47c5f8d2849944f527a7aae228d83c1f72d330383d9a64a3ad588e5d280c",
+    "requirements.txt": "8f67819aef0f6bc9b0ee131950b54c0f163307ecd96b1e0dad661c096b8f7960"
+  },
+  "expected": 1608,
+  "provider": "DeepSeek official",
+  "style": "p3"
+}

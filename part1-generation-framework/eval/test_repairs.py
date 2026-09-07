@@ -13,6 +13,21 @@ def empty():
 
 class Repairs(unittest.TestCase):
     def setUp(self): R.apply_style("p3")
+    def test_atomic_retries_only_local_replace(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/"checkpoint.json"
+            S.atomic(path,{"before":True})
+            original=S.os.replace
+            calls=[]
+            def transient(src,dst):
+                calls.append((src,dst))
+                if len(calls)==1: raise PermissionError("transient Windows file sharing")
+                return original(src,dst)
+            with patch.object(S.os,"replace",side_effect=transient),patch.object(S.time,"sleep") as sleep:
+                S.atomic(path,{"after":True})
+            self.assertEqual(json.loads(path.read_text()),{"after":True})
+            self.assertEqual(len(calls),2)
+            sleep.assert_called_once_with(.05)
     def test_time(self):
         for x,n in [("07:00",700),("23:59",2359),("00:00",0)]:
             self.assertEqual(R.value_ok("conditions","生效时间",x),(True,n))

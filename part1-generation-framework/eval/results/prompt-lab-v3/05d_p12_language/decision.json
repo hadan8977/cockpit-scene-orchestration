@@ -1,0 +1,6 @@
+{
+  "status": "superseded_after_first_repetition",
+  "completed": 536,
+  "planned": 1608,
+  "reason": "Routing, OR grouping and batch expansion failures warrant one bounded p13 revision. Remaining 1072 p12 calls cancelled before execution. No holdout seen."
+}

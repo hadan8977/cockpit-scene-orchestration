@@ -1,0 +1,7 @@
+{
+  "time_utc": "2026-09-07T11:26:55.720Z",
+  "decision": "p11 does not satisfy quality gates; continue with a new p12 candidate",
+  "holdout_not_used": true,
+  "prompt_unchanged": true,
+  "next_plan": "experiments/AMENDMENT-03.md"
+}
