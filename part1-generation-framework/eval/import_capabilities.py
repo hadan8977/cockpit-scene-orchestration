@@ -50,8 +50,14 @@ for zh in ["近光灯", "远光灯", "后雾灯"]:
     C(zh, SW, M("灯光/" + zh, "released", "灯光", note="近光灯开启可作天黑代理" if zh == "近光灯" else ""))
 C("媒体音量", {"range": [0, 100, 10, "%"]}, M("声音/音量 媒体音量", "released", "声音"))
 C("无线充电", ["充电中", "未充电"], M("设备/主驾充电面板", "released", "设备", note="手机放上去了的代理"))
-C("位置", ["家", "公司", "收藏地点"], M("位置/在某地 不在某地", "planned", "条件语义", note="op 用 == 与 !=；地点搜索型暂不放开"))
-C("导航目的地", ["家", "公司", "收藏地点"], M("导航/导航至", "planned", "条件语义", note="导航状态、预计到达时间、剩余距离已从表里删除"))
+C("位置", ["家", "公司", "收藏地点", "当前位置", "地点搜索"], M("位置/在某地 不在某地", "planned", "条件语义", note="op 用 == 与 !=；地点搜索的值是地点名"))
+C("导航目的地", ["家", "公司", "收藏地点", "当前位置", "地点搜索"], M("导航/导航至", "planned", "条件语义", note="导航状态、预计到达时间、剩余距离已从表里删除"))
+C("生效时间", {"range": [0, 2359, 1, "时"]}, M("时间/生效时间 HH:MM:SS", "released", "生效范围", exec_map="值写成 07:00 这样的时刻", note="精确时刻触发，如每天七点"))
+C("生效时间段", ["全天", "自定义"], M("生效范围/指定时间段 startTime endTime", "released", "生效范围", exec_map="自定义时值写成 HH:MM-HH:MM", note="场景级生效范围，不是触发条件"))
+C("重复周期", ["每天", "工作日", "周末", "自定义"], M("生效范围/重复 weekDays", "released", "生效范围", exec_map="工作日=[1..5]，周末=[6,7]，自定义列举星期"))
+C("日期区间", ["自定义"], M("生效范围/某几天 startDate endDate", "sprint", "生效范围", exec_map="值写成 20250101-20250501", note="季节包、假期包靠它"))
+C("指定日期", ["自定义"], M("生效范围/指定日期 某一天", "released", "生效范围", exec_map="值写成 20260214", note="生日、纪念日靠它"))
+C("生效频次", ["每次", "每天一次", "每周一次", "仅一次"], M("生效范围/生效频次", "planned", "生效范围", note="车云配置，海外暂无；一次性场景靠仅一次"))
 C("时段", ["清晨", "上午", "中午", "下午", "傍晚", "夜晚", "深夜"], M("时间/生效时间 + 生效范围 startTime/endTime", "released", "条件语义", exec_map="映射到生效范围的时间段", note="派生：时段名对应固定时间段"))
 C("星期类型", ["工作日", "休息日", "节假日"], M("生效范围/重复 weekDays", "released", "条件语义", exec_map="工作日=[1..5]，休息日=[6,7]", note="节假日含调休需要节假日表，表里没有，proposed"))
 C("天气", ["晴", "雨", "雪", "暴晒", "高温", "低温"], M("无信号；小塔能播天气说明有天气服务", "proposed", "条件语义", note="需接天气服务；暴晒可用车内温度加停车时长代理"))
@@ -77,8 +83,8 @@ A("低速行人警报音", ["开启", "关闭", "微风", "梦幻", "无尽"], M
 A("一键静音", SW, M("声音/一键静音", "no_ux", "声音"))
 A("音量", {"range": [0, 100, 10, "%"]}, M("声音/音量 媒体音量", "released", "声音", exec_map="媒体音量"))
 A("导航音量", {"range": [0, 100, 10, "%"]}, M("声音/音量 导航音量", "released", "声音")); A("语音音量", {"range": [0, 100, 10, "%"]}, M("声音/音量 语音音量", "released", "声音"))
-A("音效", ["立体声", "音乐厅", "VIP", "影院"], M("声音/音效", "released", "声音"))
-A("声场", ["全车模式", "前排模式", "主驾模式"], M("声音/声场", "released", "声音", note="“别吵醒后排”的正解：声场切前排或主驾"))
+A("音效", ["立体声", "音乐厅", "VIP", "影院", "自定义"], M("声音/音效", "released", "声音"))
+A("声场", ["全车模式", "前排模式", "主驾模式", "自定义"], M("声音/声场", "released", "声音", note="“别吵醒后排”的正解：声场切前排或主驾"))
 A("声浪", ["静音", "超跑", "量子", "无尽"], M("声音/声浪", "released", "声音"))
 A("小塔播报", ["播放天气", "自定义内容"], M("小塔/小塔播报", "released", "话", exec_map="自定义内容=契约里的 say 文本", note="六元素里的“话”有真实能力承接"))
 A("氛围灯开关", SW, M("灯光/氛围灯开关", "released", "氛围")); A("音乐律动", ["模式1", "模式2", "模式3", "关闭"], M("灯光/氛围灯音乐律动", "released", "氛围"))
@@ -90,10 +96,17 @@ for seat in ["主驾", "副驾"]:
     A(seat + "座椅按摩模式", ["关闭", "波浪", "猫步", "蛇形", "肩部", "腰部"], M("舒适/%s座椅按摩 模式" % seat, "sprint", "座椅", note="五种模式排在 sprint1"))
 A("方向盘加热", SW, M("舒适/方向盘加热", "released", "其他"))
 A("延时", {"range": [1, 600, 1, "秒"]}, M("时间/延时 0-59分0-59秒", "released", "编排", note="场景内顺序与时间线靠它"))
-A("导航目的地", ["家", "公司", "收藏地点"], M("导航/目的地", "sprint", "供", "B", note="家、公司在 26409；收藏地点待定；行驶中要确认"))
+A("导航目的地", ["家", "公司", "收藏地点", "常用地点", "当前位置", "地点搜索"], M("导航/目的地", "sprint", "供", "B", note="家、公司在 26409；其余待定；行驶中要确认"))
 A("多媒体", ["播放", "暂停", "下一首", "上一首"], M("娱乐/多媒体", "sprint", "声音"))
 A("音乐播放", ["想念", "放松", "庆祝", "专注", "安静", "浪漫", "雨天", "白噪音", "停止"], M("娱乐/QQ音乐 网易云 播放指定音乐（待定）", "proposed", "声音", exec_map="情绪类歌单→播放指定音乐或猜你喜欢；停止→多媒体暂停", note="表里只有列表播放与指定歌曲，情绪歌单要与娱乐域共建"))
-A("彩蛋", ["生日动效", "情人节动效"], M("娱乐/彩蛋", "released", "惊喜", note="自定义动效待定"))
+A("彩蛋", ["生日动效", "生日动效2", "情人节动效", "自定义动效"], M("娱乐/彩蛋", "released", "惊喜", note="生日动效2 与自定义动效待定"))
+A("播放指定音乐", ["歌曲名"], M("娱乐/多媒体 播放指定音乐", "planned", "声音", exec_map="值为歌曲名，国内中英文，海外全语种", note="“你们的歌”靠它"))
+A("QQ音乐", ["我喜欢列表", "猜你喜欢", "今日私享", "新歌推荐", "续播上次", "指定歌曲"], M("娱乐/QQ音乐", "planned", "声音", note="情绪歌单可映射到猜你喜欢或指定歌曲"))
+A("网易云音乐", ["猜你喜欢", "今日私享", "新歌推荐", "续播上次", "指定歌曲"], M("娱乐/网易云音乐", "planned", "声音"))
+for app in ["本地视频", "腾讯视频", "爱奇艺", "唱吧", "全民K歌", "酷狗K歌", "YouTube"]:
+    A(app, ["打开", "退出"], M("娱乐/" + app, "planned", "娱乐", "B", note="只在停车态；YouTube 仅海外"))
+A("壁纸", ["选择壁纸"], M("屏幕/壁纸", "planned", "屏幕", note="值为壁纸名"))
+A("主题", ["选择主题"], M("屏幕/主题", "planned", "屏幕", note="值为主题名"))
 A("进入情景模式", ["休憩模式", "露营模式", "洗车模式", "后排查看", "离车不下电模式", "多人同乘隐私模式"], M("娱乐/情景模式 进入", "planned", "预设", "B", note="官方预设；用户点名时优先调用而非重新组合"))
 A("退出情景模式", ["休憩模式", "露营模式", "洗车模式", "后排查看", "离车不下电模式", "多人同乘隐私模式"], M("娱乐/情景模式 退出", "planned", "预设"))
 A("屏幕模式", ["白天模式", "黑夜模式"], M("屏幕/模式", "released", "屏幕")); A("屏幕亮度", PCT10, M("屏幕/亮度", "released", "屏幕"))
@@ -111,14 +124,18 @@ EN = {"任意车窗": ("window.any", "any window"), "极速升温": ("hvac.max_h
       "声浪": ("audio.engine_sound", "engine sound"), "小塔播报": ("voice.announce", "assistant announce"), "延时": ("flow.delay", "delay"),
       "多媒体": ("media.transport", "media transport"), "彩蛋": ("surprise.easter_egg", "easter egg"), "进入情景模式": ("preset.enter", "enter scenario mode"),
       "退出情景模式": ("preset.exit", "exit scenario mode"), "屏幕模式": ("screen.mode", "screen mode"), "屏幕亮度": ("screen.brightness", "screen brightness"),
-      "电动遮阳帘": ("device.sunshade", "sunshade")}
+      "电动遮阳帘": ("device.sunshade", "sunshade"), "生效时间": ("scope.time_point", "effective time"), "生效时间段": ("scope.time_range", "effective time range"),
+      "重复周期": ("scope.repeat", "repeat"), "日期区间": ("scope.date_range", "date range"), "指定日期": ("scope.date", "specific date"), "生效频次": ("scope.frequency", "frequency"),
+      "播放指定音乐": ("media.play_song", "play specific song"), "QQ音乐": ("media.qqmusic", "QQ Music"), "网易云音乐": ("media.netease", "NetEase Music"),
+      "本地视频": ("app.local_video", "local video"), "腾讯视频": ("app.tencent_video", "Tencent Video"), "爱奇艺": ("app.iqiyi", "iQIYI"), "唱吧": ("app.changba", "Changba"),
+      "全民K歌": ("app.wesing", "WeSing"), "酷狗K歌": ("app.kugou_ktv", "Kugou KTV"), "YouTube": ("app.youtube", "YouTube"), "壁纸": ("screen.wallpaper", "wallpaper"), "主题": ("screen.theme", "theme")}
 for kind in meta:
     for zh, m in meta[kind].items():
         if zh in EN: m["id"], m["en"] = EN[zh]
 vocab = {"_note": "座舱原子能力 v2，来自公司 2026-07 能力表（notes/inputs/座舱原子能力-最新.xlsx），由 import_capabilities.py 生成；旧表见 vocab_v1.json。",
          "conditions": conditions, "actions": actions, "meta": meta,
          "safety_must_not": [{"primary": "低速行人警报音", "secondary_any": ["关闭"], "reason": "AVAS 不允许被场景自动关闭（欧盟 R138、美国 FMVSS 141）"}],
-         "removed_from_sheet": ["条件：时间区间、日期区间、温度控制、风量、出风模式、香氛类型与浓度、温区同步、导航状态、预计到达时间、预计到达距离、多媒体播放中、电动遮阳帘开度"]}
+         "removed_from_sheet": ["条件：多媒体 播放中（变更记录 2026.7.7 删除）", "条件：时间区间、日期区间、温度控制、风量、出风模式、香氛类型与浓度、温区同步、导航状态、预计到达时间、预计到达距离、多媒体播放中、电动遮阳帘开度"]}
 json.dump(vocab, open(os.path.join(HERE, "vocab.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 from collections import Counter
 print("conditions", len(conditions), "actions", len(actions))

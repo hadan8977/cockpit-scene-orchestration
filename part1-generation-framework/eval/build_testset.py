@@ -104,9 +104,10 @@ add("B09", "precise", "香氛开着的时候就把香氛关掉", "条件与动�
 add("B10", "precise", "下雨的时候把车窗关上", "P3 起“天气=雨”是派生条件，可直接用；旧风格下不能用表内条件冒充",
     [alt(["precise"], exact([C("天气", "==", "雨")]), flex(must_have=[A(p, "关闭") for p in WIN])),
      alt(["clarify", "precise", "action"], EMPTY, flex(must_have=[A(p, "关闭") for p in WIN]))])
-add("B11", "precise", "每天早上七点打开座椅加热", "精确时刻仍是表外；P3 允许退到“时段=清晨”并说明",
-    [alt(["clarify", "precise", "action"], EMPTY, flex(must_have=[A("主驾座椅加热", LV)])),
-     alt(["precise"], exact([C("时段", "==", "清晨")]), flex(must_have=[A("主驾座椅加热", LV)]))])
+add("B11", "precise", "每天早上七点打开座椅加热", "精确时刻用生效时间（能力表已有）；旧风格下退到追问",
+    [alt(["precise"], {"mode": "exact", "items": [C("生效时间", "==", [700, 700])]}, flex(must_have=[A("主驾座椅加热", LV)], acceptable=[A("方向盘加热", "开启")])),
+     alt(["precise"], {"mode": "exact", "items": [C("生效时间", "==", [700, 700]), C("重复周期", "==", "每天")]}, flex(must_have=[A("主驾座椅加热", LV)], acceptable=[A("方向盘加热", "开启")]), logic="AND"),
+     alt(["clarify", "precise", "action"], EMPTY, flex(must_have=[A("主驾座椅加热", LV)]))])
 add("B12", "precise", "温度调到40度", "超范围取边界或追问",
     [alt(["action"], EMPTY, flex(must_have=[A("主驾温度控制", "32℃")])), CLARIFY])
 add("B13", "precise", "电量低于两成就开ECO，顺便把MAX AC关掉", "中文数量词“两成”",
@@ -201,7 +202,7 @@ BRIGHT = ["60%", "70%", "80%", "90%", "100%"]
 PROFILE = "【用户档案】伴侣：小雨；你们的歌：晴天；喜欢的灯光：暖光 30%；香氛：类型2"
 AF = ["affect", "vague"]
 add("E01", "affect", "我想你了", "有关系记忆时：以歌代言、暖光、供打电话，不追问想谁",
-    [alt(AF, EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("氛围灯亮度", DIM), A("音乐播放", ["想念", "浪漫", "放松"]), A("香氛开关", "开启")],
+    [alt(AF, EMPTY, flex(one_of=[A("氛围灯开关", "开启"), A("氛围灯亮度", DIM), A("音乐播放", ["想念", "浪漫", "放松"]), A("香氛开关", "开启"), A("播放指定音乐")],
                         acceptable=[A("香氛类型", "类型2"), A("香氛浓度"), A("主驾温度控制", rng=[22, 26]), A("音量"), A("音乐律动", "关闭")],
                         must_not=[A("MAX AC", "开启"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("氛围灯亮度", BRIGHT), A("音乐播放", ["庆祝", "停止"])] + [A(p, ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]) for p in WIN]),
          offer_any=["call", "none"])], context=PROFILE + "\n【当前状态】19:05，行驶中，车上只有我")
@@ -540,6 +541,43 @@ add("N11", "action", "导航回家，路上安静点", "导航目的地是规划
 add("N12", "clarify", "开门", "车门作为动作是规划中且 B 级：行驶中不做，停车也要问哪扇门",
     [CLARIFY, alt(["action"], EMPTY, flex(one_of=[A("左前门", "开启"), A("右前门", "开启"), A("左后门", "开启"), A("右后门", "开启"), A("尾门", "开启")] if False else [A("左前门", "开启"), A("右前门", "开启")]))],
     context="【当前状态】停车中", input_en="Open the door", context_en="[State] parked")
+
+# ---------- S 生效范围与娱乐待定能力（能力表待定项也算）----------
+add("S01", "precise", "情人节那天上车给她一个惊喜", "指定日期加彩蛋：一天一次的场景",
+    [alt(["precise", "affect", "vague"], {"mode": "exact", "items": [C("指定日期", "==", "自定义")]}, flex(one_of=[A("彩蛋", "情人节动效"), A("音乐播放", ["浪漫", "庆祝"]), A("氛围灯亮度")], acceptable=[A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("香氛类型"), A("播放指定音乐"), A("生效频次", "仅一次") if False else A("音量", rng=[20, 60])], must_not=[A("彩蛋", ["生日动效", "生日动效2"]), A("MAX AC", "开启")])),
+     alt(["precise", "affect", "vague"], {"mode": "exact", "items": [C("指定日期", "==", "自定义"), C("副驾座椅", "==", "有人")]}, flex(one_of=[A("彩蛋", "情人节动效"), A("音乐播放", ["浪漫", "庆祝"]), A("氛围灯亮度")], acceptable=[A("氛围灯开关", "开启"), A("香氛开关", "开启"), A("香氛类型"), A("播放指定音乐"), A("音量", rng=[20, 60])], must_not=[A("彩蛋", ["生日动效", "生日动效2"]), A("MAX AC", "开启")]), logic="AND"),
+     CLARIFY],
+    context="【用户档案】伴侣：小雨；你们的歌：晴天", understanding_required=True, input_en="Give her a surprise when we get in the car on Valentine's Day", context_en="[Profile] Partner: Xiaoyu; your song: Sunny Day")
+add("S02", "precise", "冬天这几个月上车就把座椅加热和方向盘加热打开", "日期区间：季节包的表达",
+    [alt(["precise"], exact([C("日期区间", "==", "自定义")]), flex(must_have=[A("主驾座椅加热", LV), A("方向盘加热", "开启")], acceptable=[A("极速升温", "开启"), A("主驾温度控制", rng=[24, 30])])),
+     alt(["precise"], exact([C("日期区间", "==", "自定义"), C("主驾座椅", "==", "有人")]), flex(must_have=[A("主驾座椅加热", LV), A("方向盘加热", "开启")], acceptable=[A("极速升温", "开启"), A("主驾温度控制", rng=[24, 30])]), logic="AND"),
+     alt(["precise"], exact([C("天气", "==", "低温")]), flex(must_have=[A("主驾座椅加热", LV), A("方向盘加热", "开启")], acceptable=[A("极速升温", "开启")])), CLARIFY],
+    input_en="During the winter months, turn on seat heating and steering wheel heating when I get in", context_en=None)
+add("S03", "precise", "明天早上八点提醒我带材料，就提醒这一次", "生效时间加仅一次：提醒是小塔播报",
+    [alt(["precise"], {"mode": "exact", "items": [C("生效时间", "==", [800, 800])]}, flex(must_have=[A("小塔播报", "自定义内容")], acceptable=[A("生效频次", "仅一次")] if False else [], must_not=[A("MAX AC", "开启")])),
+     alt(["precise"], {"mode": "exact", "items": [C("生效时间", "==", [800, 800]), C("指定日期", "==", "自定义")]}, flex(must_have=[A("小塔播报", "自定义内容")]), logic="AND"),
+     alt(["precise"], {"mode": "exact", "items": [C("指定日期", "==", "自定义")]}, flex(must_have=[A("小塔播报", "自定义内容")])), CLARIFY],
+    input_en="Remind me tomorrow at 8 a.m. to bring the documents, just this once", context_en=None)
+add("S04", "vague", "等人的时候放个视频看看", "停车等人：视频应用只在停车态，B 级",
+    [alt(["vague", "action", "precise"], EMPTY, flex(one_of=[A("腾讯视频", "打开"), A("爱奇艺", "打开"), A("本地视频", "打开"), A("YouTube", "打开")], acceptable=[A("氛围灯亮度", DIM), A("音量", rng=[20, 60]), A("主驾座椅按摩模式", MASSAGE_ON), A("屏幕亮度")], must_not=[A("导航目的地")])),
+     alt(["precise", "vague"], exact([C("行程事件", "==", "停车等人")]), flex(one_of=[A("腾讯视频", "打开"), A("爱奇艺", "打开"), A("本地视频", "打开"), A("YouTube", "打开")], acceptable=[A("氛围灯亮度", DIM), A("音量", rng=[20, 60]), A("主驾座椅按摩模式", MASSAGE_ON)])),
+     alt(["precise", "vague"], exact([C("挡位", "==", "挡位P")]), flex(one_of=[A("腾讯视频", "打开"), A("爱奇艺", "打开"), A("本地视频", "打开"), A("YouTube", "打开")], acceptable=[A("氛围灯亮度", DIM), A("音量", rng=[20, 60]), A("主驾座椅按摩模式", MASSAGE_ON)])), CLARIFY],
+    context="【当前状态】19:20，停车中，商场地库", input_en="Put on a video while I wait", context_en="[State] 19:20, parked, mall garage")
+add("S05", "explicit", "露营的时候来点 K 歌的气氛", "官方露营模式加 K 歌应用：预设之上加一件事",
+    [alt(["vague", "action", "affect"], EMPTY, flex(one_of=[A("全民K歌", "打开"), A("唱吧", "打开"), A("酷狗K歌", "打开")], acceptable=[A("进入情景模式", "露营模式"), A("氛围灯亮度"), A("音乐律动", ["模式1", "模式2", "模式3"]), A("音效", ["音乐厅", "影院"]), A("声场", "全车模式"), A("音量", rng=[30, 80]), A("氛围灯开关", "开启")], must_not=[A("MAX AC", "开启")]))],
+    context="【当前状态】20:00，停车中，露营地", understanding_required=True, name_required=True, input_en="Give us a karaoke vibe while camping", context_en="[State] 20:00, parked, campsite")
+add("S06", "action", "放我喜欢的歌", "歌单类：QQ音乐我喜欢列表或网易云猜你喜欢，不用情绪歌单冒充",
+    [alt(["action", "vague"], EMPTY, flex(one_of=[A("QQ音乐", ["我喜欢列表", "猜你喜欢"]), A("网易云音乐", "猜你喜欢")], acceptable=[A("音量", rng=[20, 60]), A("音效")], must_not=[A("音乐播放", "停止"), A("多媒体", "暂停")]))],
+    input_en="Play the songs I like", context_en=None)
+add("S07", "precise", "周末早上把屏幕换个明亮点的主题", "重复周期加屏幕主题与模式",
+    [alt(["precise"], exact([C("重复周期", "==", "周末"), C("时段", "==", "上午")]), flex(one_of=[A("主题", "选择主题"), A("屏幕模式", "白天模式"), A("屏幕亮度", ["70%", "80%", "90%", "100%"])], acceptable=[A("壁纸", "选择壁纸")]), logic="AND"),
+     alt(["precise"], exact([C("重复周期", "==", "周末")]), flex(one_of=[A("主题", "选择主题"), A("屏幕模式", "白天模式"), A("屏幕亮度", ["70%", "80%", "90%", "100%"])], acceptable=[A("壁纸", "选择壁纸")])),
+     alt(["precise"], exact([C("星期类型", "==", "休息日"), C("时段", "==", "上午")]), flex(one_of=[A("主题", "选择主题"), A("屏幕模式", "白天模式"), A("屏幕亮度", ["70%", "80%", "90%", "100%"])], acceptable=[A("壁纸", "选择壁纸")]), logic="AND"),
+     alt(["precise"], exact([C("星期类型", "==", "休息日")]), flex(one_of=[A("主题", "选择主题"), A("屏幕模式", "白天模式"), A("屏幕亮度", ["70%", "80%", "90%", "100%"])], acceptable=[A("壁纸", "选择壁纸")]))],
+    input_en="On weekend mornings switch the screen to a brighter theme", context_en=None)
+add("S08", "affect", "今天是我们在一起三周年", "纪念日：可以浪漫，也可以只记住日期；不庆祝成生日",
+    [alt(AF + ["none"], EMPTY, flex(one_of=[A("播放指定音乐"), A("音乐播放", ["浪漫", "想念"]), A("氛围灯亮度", DIM), A("彩蛋", "自定义动效"), A("香氛开关", "开启")], acceptable=[A("氛围灯开关", "开启"), A("香氛类型"), A("音量", rng=[20, 60])], must_not=[A("彩蛋", ["生日动效", "生日动效2"]), A("MAX AC", "开启"), A("音乐播放", "停止")]), offer_any=["none", "call", "message", "navigate"])],
+    context="【用户档案】伴侣：小雨；你们的歌：晴天\n【当前状态】停车中，车上有我和小雨", input_en="Today is our third anniversary", context_en="[Profile] Partner: Xiaoyu; your song: Sunny Day\n[State] parked, me and Xiaoyu in the car")
 
 for it in items:
     if "input_en" not in it:

@@ -13,7 +13,7 @@
 
 | 阶段 | 动什么 | 固定什么 | 输入 | 输出 | 天数 |
 |---|---|---|---|---|---|
-| 一 prompt 实验室 | prompt | 模型 DeepSeek V4 Flash，题集 126 题，判分器，评审模型 | v0 同事原版 | P-final 加实验记录加消融报告 | D1 到 D5 |
+| 一 prompt 实验室 | prompt | 模型 DeepSeek V4 Flash，题集 134 题，判分器，评审模型 | v0 同事原版 | P-final 加实验记录加消融报告 | D1 到 D5 |
 | 二 模型选型 | 模型 | prompt P-final | 18 个模型 | 一页选型报告加原型回放数据 | D6 到 D9 |
 | 三 收口 | 无 | 无 | 上两项 | 第一部分交付：prompt、约束文档、选型报告、原型、200 句语料 | D10 |
 
@@ -112,8 +112,8 @@ v3 是本轮迭代的出发版本，v0 是对照基线。两者都先跑全量�
 
 | 项 | 调用数 | 说明 |
 |---|---|---|
-| 基线 v0、v3 各三遍 | 1512 | 252 句乘 3 乘 2 |
-| 消融 16 项各一遍 | 4032 | 252 乘 16 |
+| 基线 v0、v3 各三遍 | 1608 | 268 句乘 3 乘 2 |
+| 消融 16 项各一遍 | 4288 | 268 乘 16 |
 | 消融前五项三遍 | 3780 | |
 | 迭代 6 轮各三遍 | 4536 | |
 | 评审 | 约 1500 | 每轮只评七类 rep0 |
@@ -136,7 +136,7 @@ prompt 固定 P-final。模型 18 个：DeepSeek V4 Flash（官方端点）加 O
 
 ## 5. 题集、评审、盲评
 
-题集 126 题中英各一版 12 类，来源 `eval/build_testset.py`；注册表 96 条来自 2026-07 能力表；评审 `judge.py`；盲评 `blind_pack.py` 加 36 句盲评集。定义与门槛见 PRD v16 第 4.6 节，不再重复。阶段一评审模型不能用 DeepSeek V4 Flash 自评，用 OpenRouter 上的 Qwen3.8 Flash 或 GLM 5.3 Flash；阶段二评审被评互换。
+题集 134 题中英各一版 12 类，来源 `eval/build_testset.py`；注册表 114 条来自 2026-07 能力表，含全部待定项；评审 `judge.py`；盲评 `blind_pack.py` 加 36 句盲评集。定义与门槛见 PRD v16 第 4.6 节，不再重复。阶段一评审模型不能用 DeepSeek V4 Flash 自评，用 OpenRouter 上的 Qwen3.8 Flash 或 GLM 5.3 Flash；阶段二评审被评互换。
 
 ## 6. 命令
 
@@ -152,6 +152,10 @@ python3 ab_compare.py results/prompt-lab/00-v3 results/prompt-lab/01-v3.1       
 python3 run_matrix.py --check
 python3 run_matrix.py --prompts pfinal --thinking off --judge --judge-key qwen3.8-flash
 ```
+
+## 6b. 断点续跑
+
+每一次运行的结果在跑完当场写盘（results 目录）；每一轮结束写 CHANGELOG 一行与 results/prompt-lab/STATE.md（已完成的轮次、当前最优版本、下一步、费用）。任何中断后从 STATE.md 继续，已存在 summary.json 的运行不重跑。
 
 ## 7. 节奏
 
@@ -172,8 +176,8 @@ python3 run_matrix.py --prompts pfinal --thinking off --judge --judge-key qwen3.
 
 | 材料 | 状态 |
 |---|---|
-| 注册表 96 条、渲染模板、schema | 已有 |
-| 题集 126 题、判分器、评审、盲评打包、批跑、原型导出 | 已有 |
+| 注册表 114 条、渲染模板、schema | 已有 |
+| 题集 134 题、判分器、评审、盲评打包、批跑、原型导出 | 已有 |
 | prompt 谱系 v0 到 v3 | 已有 |
 | 模板段落标记、run_ablation.py、ab_compare.py、CHANGELOG | 待做，D1 |
 | Kimi K2.7 冒烟结果（方向：示例被抄、负面记忆不硬、引号未转义） | 已有 |

@@ -1,6 +1,6 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
- "title": "scene_v3_2026-09-07.0300",
+ "title": "scene_v3_2026-09-07.0807",
  "type": "object",
  "properties": {
   "understanding": {
@@ -1553,7 +1553,9 @@
         "enum": [
          "家",
          "公司",
-         "收藏地点"
+         "收藏地点",
+         "当前位置",
+         "地点搜索"
         ]
        }
       },
@@ -1583,7 +1585,183 @@
         "enum": [
          "家",
          "公司",
-         "收藏地点"
+         "收藏地点",
+         "当前位置",
+         "地点搜索"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "生效时间"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "type": "string",
+        "pattern": "^-?\\d+(\\.\\d+)?\\S{0,6}$"
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "生效时间段"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "全天",
+         "自定义"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "重复周期"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "每天",
+         "工作日",
+         "周末",
+         "自定义"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "日期区间"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "自定义"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "指定日期"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "自定义"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "op",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "生效频次"
+       },
+       "op": {
+        "enum": [
+         "==",
+         "<",
+         "<=",
+         ">",
+         ">="
+        ]
+       },
+       "secondary": {
+        "enum": [
+         "每次",
+         "每天一次",
+         "每周一次",
+         "仅一次"
         ]
        }
       },
@@ -2267,7 +2445,10 @@
         "enum": [
          "家",
          "公司",
-         "收藏地点"
+         "收藏地点",
+         "常用地点",
+         "当前位置",
+         "地点搜索"
         ]
        }
       },
@@ -2614,7 +2795,8 @@
          "立体声",
          "音乐厅",
          "VIP",
-         "影院"
+         "影院",
+         "自定义"
         ]
        }
       },
@@ -2634,7 +2816,8 @@
         "enum": [
          "全车模式",
          "前排模式",
-         "主驾模式"
+         "主驾模式",
+         "自定义"
         ]
        }
       },
@@ -2929,7 +3112,241 @@
        "secondary": {
         "enum": [
          "生日动效",
-         "情人节动效"
+         "生日动效2",
+         "情人节动效",
+         "自定义动效"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "播放指定音乐"
+       },
+       "secondary": {
+        "enum": [
+         "歌曲名"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "QQ音乐"
+       },
+       "secondary": {
+        "enum": [
+         "我喜欢列表",
+         "猜你喜欢",
+         "今日私享",
+         "新歌推荐",
+         "续播上次",
+         "指定歌曲"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "网易云音乐"
+       },
+       "secondary": {
+        "enum": [
+         "猜你喜欢",
+         "今日私享",
+         "新歌推荐",
+         "续播上次",
+         "指定歌曲"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "本地视频"
+       },
+       "secondary": {
+        "enum": [
+         "打开",
+         "退出"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "腾讯视频"
+       },
+       "secondary": {
+        "enum": [
+         "打开",
+         "退出"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "爱奇艺"
+       },
+       "secondary": {
+        "enum": [
+         "打开",
+         "退出"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "唱吧"
+       },
+       "secondary": {
+        "enum": [
+         "打开",
+         "退出"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "全民K歌"
+       },
+       "secondary": {
+        "enum": [
+         "打开",
+         "退出"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "酷狗K歌"
+       },
+       "secondary": {
+        "enum": [
+         "打开",
+         "退出"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "YouTube"
+       },
+       "secondary": {
+        "enum": [
+         "打开",
+         "退出"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "壁纸"
+       },
+       "secondary": {
+        "enum": [
+         "选择壁纸"
+        ]
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ],
+      "additionalProperties": false
+     },
+     {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "const": "主题"
+       },
+       "secondary": {
+        "enum": [
+         "选择主题"
         ]
        }
       },

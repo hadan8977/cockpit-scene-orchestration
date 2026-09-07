@@ -1,5 +1,5 @@
 {
- "version": "2026-09-07.0300",
+ "version": "2026-09-07.0807",
  "capabilities": [
   {
    "id": "window.driver",
@@ -29,7 +29,7 @@
     "100%"
    ],
    "deny_act_values": [],
-   "notes": "disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25"
+   "notes": "disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25 | disabled 09-03 02:25 演练 | enabled 09-03 02:25 | disabled 09-03 02:25 验证器演练 | enabled 09-03 02:25"
   },
   {
    "id": "window.passenger",
@@ -1107,11 +1107,13 @@
    "cond_values": [
     "家",
     "公司",
-    "收藏地点"
+    "收藏地点",
+    "当前位置",
+    "地点搜索"
    ],
    "act_values": null,
    "deny_act_values": [],
-   "notes": "op 用 == 与 !=；地点搜索型暂不放开"
+   "notes": "op 用 == 与 !=；地点搜索的值是地点名"
   },
   {
    "id": "nav.destination",
@@ -1126,15 +1128,134 @@
    "cond_values": [
     "家",
     "公司",
-    "收藏地点"
+    "收藏地点",
+    "当前位置",
+    "地点搜索"
    ],
    "act_values": [
     "家",
     "公司",
-    "收藏地点"
+    "收藏地点",
+    "常用地点",
+    "当前位置",
+    "地点搜索"
    ],
    "deny_act_values": [],
    "notes": "导航状态、预计到达时间、剩余距离已从表里删除"
+  },
+  {
+   "id": "scope.time_point",
+   "zh": "生效时间",
+   "en": "effective time",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "时间/生效时间 HH:MM:SS",
+   "exec": "值写成 07:00 这样的时刻",
+   "cond_values": {
+    "range": [
+     0,
+     2359,
+     1,
+     "时"
+    ]
+   },
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "精确时刻触发，如每天七点"
+  },
+  {
+   "id": "scope.time_range",
+   "zh": "生效时间段",
+   "en": "effective time range",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "生效范围/指定时间段 startTime endTime",
+   "exec": "自定义时值写成 HH:MM-HH:MM",
+   "cond_values": [
+    "全天",
+    "自定义"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "场景级生效范围，不是触发条件"
+  },
+  {
+   "id": "scope.repeat",
+   "zh": "重复周期",
+   "en": "repeat",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "生效范围/重复 weekDays",
+   "exec": "工作日=[1..5]，周末=[6,7]，自定义列举星期",
+   "cond_values": [
+    "每天",
+    "工作日",
+    "周末",
+    "自定义"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "scope.date_range",
+   "zh": "日期区间",
+   "en": "date range",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "sprint",
+   "source": "生效范围/某几天 startDate endDate",
+   "exec": "值写成 20250101-20250501",
+   "cond_values": [
+    "自定义"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "季节包、假期包靠它"
+  },
+  {
+   "id": "scope.date",
+   "zh": "指定日期",
+   "en": "specific date",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "released",
+   "source": "生效范围/指定日期 某一天",
+   "exec": "值写成 20260214",
+   "cond_values": [
+    "自定义"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "生日、纪念日靠它"
+  },
+  {
+   "id": "scope.frequency",
+   "zh": "生效频次",
+   "en": "frequency",
+   "group": "生效范围",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "生效范围/生效频次",
+   "exec": "",
+   "cond_values": [
+    "每次",
+    "每天一次",
+    "每周一次",
+    "仅一次"
+   ],
+   "act_values": null,
+   "deny_act_values": [],
+   "notes": "车云配置，海外暂无；一次性场景靠仅一次"
   },
   {
    "id": "ctx.time_of_day",
@@ -1577,7 +1698,8 @@
     "立体声",
     "音乐厅",
     "VIP",
-    "影院"
+    "影院",
+    "自定义"
    ],
    "deny_act_values": [],
    "notes": ""
@@ -1596,7 +1718,8 @@
    "act_values": [
     "全车模式",
     "前排模式",
-    "主驾模式"
+    "主驾模式",
+    "自定义"
    ],
    "deny_act_values": [],
    "notes": "“别吵醒后排”的正解：声场切前排或主驾"
@@ -1883,10 +2006,232 @@
    "cond_values": null,
    "act_values": [
     "生日动效",
-    "情人节动效"
+    "生日动效2",
+    "情人节动效",
+    "自定义动效"
    ],
    "deny_act_values": [],
-   "notes": "自定义动效待定"
+   "notes": "生日动效2 与自定义动效待定"
+  },
+  {
+   "id": "media.play_song",
+   "zh": "播放指定音乐",
+   "en": "play specific song",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/多媒体 播放指定音乐",
+   "exec": "值为歌曲名，国内中英文，海外全语种",
+   "cond_values": null,
+   "act_values": [
+    "歌曲名"
+   ],
+   "deny_act_values": [],
+   "notes": "“你们的歌”靠它"
+  },
+  {
+   "id": "media.qqmusic",
+   "zh": "QQ音乐",
+   "en": "QQ Music",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/QQ音乐",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "我喜欢列表",
+    "猜你喜欢",
+    "今日私享",
+    "新歌推荐",
+    "续播上次",
+    "指定歌曲"
+   ],
+   "deny_act_values": [],
+   "notes": "情绪歌单可映射到猜你喜欢或指定歌曲"
+  },
+  {
+   "id": "media.netease",
+   "zh": "网易云音乐",
+   "en": "NetEase Music",
+   "group": "声音",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/网易云音乐",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "猜你喜欢",
+    "今日私享",
+    "新歌推荐",
+    "续播上次",
+    "指定歌曲"
+   ],
+   "deny_act_values": [],
+   "notes": ""
+  },
+  {
+   "id": "app.local_video",
+   "zh": "本地视频",
+   "en": "local video",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/本地视频",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.tencent_video",
+   "zh": "腾讯视频",
+   "en": "Tencent Video",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/腾讯视频",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.iqiyi",
+   "zh": "爱奇艺",
+   "en": "iQIYI",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/爱奇艺",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.changba",
+   "zh": "唱吧",
+   "en": "Changba",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/唱吧",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.wesing",
+   "zh": "全民K歌",
+   "en": "WeSing",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/全民K歌",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.kugou_ktv",
+   "zh": "酷狗K歌",
+   "en": "Kugou KTV",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/酷狗K歌",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "app.youtube",
+   "zh": "YouTube",
+   "en": "YouTube",
+   "group": "娱乐",
+   "class": "B",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "娱乐/YouTube",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "打开",
+    "退出"
+   ],
+   "deny_act_values": [],
+   "notes": "只在停车态；YouTube 仅海外"
+  },
+  {
+   "id": "screen.wallpaper",
+   "zh": "壁纸",
+   "en": "wallpaper",
+   "group": "屏幕",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "屏幕/壁纸",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "选择壁纸"
+   ],
+   "deny_act_values": [],
+   "notes": "值为壁纸名"
+  },
+  {
+   "id": "screen.theme",
+   "zh": "主题",
+   "en": "theme",
+   "group": "屏幕",
+   "class": "A",
+   "status": "enabled",
+   "maturity": "planned",
+   "source": "屏幕/主题",
+   "exec": "",
+   "cond_values": null,
+   "act_values": [
+    "选择主题"
+   ],
+   "deny_act_values": [],
+   "notes": "值为主题名"
   },
   {
    "id": "preset.enter",

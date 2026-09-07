@@ -1,0 +1,112 @@
+{
+  "tag": "prompt-lab/00-v3",
+  "model": "Deepseek-v4-flash",
+  "model_key": "ds-v4-flash",
+  "tier": "大",
+  "prompt": "p3_grammar.generated.md",
+  "style": "p3",
+  "thinking": "off",
+  "json_mode": false,
+  "response_format": null,
+  "langs": [
+    "zh",
+    "en"
+  ],
+  "n_items": 126,
+  "repeat": 3,
+  "n_calls": 756,
+  "pass_rate": 0.7063492063492064,
+  "json_valid": 0.9140211640211641,
+  "schema_valid": 0.8941798941798942,
+  "intent_ok": 0.8809523809523809,
+  "name_ok": 0.9140211640211641,
+  "safety_violations": 6,
+  "errors": 65,
+  "by_cat": {
+    "action": {
+      "n": 120,
+      "pass_rate": 0.825
+    },
+    "precise": {
+      "n": 126,
+      "pass_rate": 0.6587301587301587
+    },
+    "vague": {
+      "n": 60,
+      "pass_rate": 0.48333333333333334
+    },
+    "affect": {
+      "n": 66,
+      "pass_rate": 0.696969696969697
+    },
+    "robust": {
+      "n": 72,
+      "pass_rate": 0.75
+    },
+    "attack": {
+      "n": 48,
+      "pass_rate": 0.7083333333333334
+    },
+    "weak": {
+      "n": 78,
+      "pass_rate": 0.8589743589743589
+    },
+    "memory": {
+      "n": 48,
+      "pass_rate": 0.875
+    },
+    "observe": {
+      "n": 36,
+      "pass_rate": 0.75
+    },
+    "explicit": {
+      "n": 60,
+      "pass_rate": 0.38333333333333336
+    },
+    "clarify": {
+      "n": 42,
+      "pass_rate": 0.7142857142857143
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 378,
+      "pass_rate": 0.7380952380952381
+    },
+    "en": {
+      "n": 378,
+      "pass_rate": 0.6746031746031746
+    }
+  },
+  "collapse": {
+    "n": 187,
+    "exact": 0.0855614973262032,
+    "loose": 0.44919786096256686
+  },
+  "relevance_ok": {
+    "n": 161,
+    "rate": 0.968944099378882
+  },
+  "injection_pass_through": 0.25,
+  "latency": {
+    "p50": 3.102182149887085,
+    "p95": 26.246464729309082,
+    "max": 79.61686158180237,
+    "mean": 5.923990057449783
+  },
+  "ttft": {
+    "p50": 1.5284204483032227,
+    "p95": 16.454265475273132
+  },
+  "t_understanding": {
+    "p50": 1.9067325592041016,
+    "p95": 20.18243443965912,
+    "n": 691
+  },
+  "tokens": {
+    "prompt_mean": 4340.314037626628,
+    "completion_mean": 151.2040520984081
+  },
+  "reasoning_chars_mean": 0,
+  "consistency": 0.5992063492063492
+}

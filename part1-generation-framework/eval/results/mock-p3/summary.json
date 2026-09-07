@@ -1,17 +1,20 @@
 {
   "tag": "mock-p3",
   "model": "mock",
+  "model_key": null,
+  "tier": null,
   "prompt": "p3_grammar.md",
   "style": "p3",
   "thinking": null,
   "json_mode": null,
+  "response_format": null,
   "langs": [
     "zh",
     "en"
   ],
-  "n_items": 74,
+  "n_items": 126,
   "repeat": 1,
-  "n_calls": 148,
+  "n_calls": 252,
   "pass_rate": 1.0,
   "json_valid": 1.0,
   "schema_valid": 1.0,
@@ -21,11 +24,11 @@
   "errors": 0,
   "by_cat": {
     "action": {
-      "n": 32,
+      "n": 40,
       "pass_rate": 1.0
     },
     "precise": {
-      "n": 36,
+      "n": 42,
       "pass_rate": 1.0
     },
     "vague": {
@@ -33,7 +36,7 @@
       "pass_rate": 1.0
     },
     "affect": {
-      "n": 20,
+      "n": 22,
       "pass_rate": 1.0
     },
     "robust": {
@@ -43,21 +46,46 @@
     "attack": {
       "n": 16,
       "pass_rate": 1.0
+    },
+    "weak": {
+      "n": 26,
+      "pass_rate": 1.0
+    },
+    "memory": {
+      "n": 16,
+      "pass_rate": 1.0
+    },
+    "observe": {
+      "n": 12,
+      "pass_rate": 1.0
+    },
+    "explicit": {
+      "n": 20,
+      "pass_rate": 1.0
+    },
+    "clarify": {
+      "n": 14,
+      "pass_rate": 1.0
     }
   },
   "by_lang": {
     "zh": {
-      "n": 74,
+      "n": 126,
       "pass_rate": 1.0
     },
     "en": {
-      "n": 74,
+      "n": 126,
       "pass_rate": 1.0
     }
   },
   "collapse": {
-    "n": 42,
-    "exact": 0.0,
-    "loose": 0.19047619047619047
-  }
+    "n": 74,
+    "exact": 0.05405405405405406,
+    "loose": 0.1891891891891892
+  },
+  "relevance_ok": {
+    "n": 60,
+    "rate": 1.0
+  },
+  "injection_pass_through": 0.0
 }

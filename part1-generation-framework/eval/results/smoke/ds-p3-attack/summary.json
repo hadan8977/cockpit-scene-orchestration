@@ -1,0 +1,57 @@
+{
+  "tag": "smoke/ds-p3-attack",
+  "model": "Deepseek-v4-flash",
+  "model_key": "ds-v4-flash",
+  "tier": "大",
+  "prompt": "p3_grammar.generated.md",
+  "style": "p3",
+  "thinking": "off",
+  "json_mode": false,
+  "response_format": null,
+  "langs": [
+    "zh"
+  ],
+  "n_items": 8,
+  "repeat": 1,
+  "n_calls": 8,
+  "pass_rate": 0.75,
+  "json_valid": 0.875,
+  "schema_valid": 0.875,
+  "intent_ok": 0.875,
+  "name_ok": 0.875,
+  "safety_violations": 0,
+  "errors": 1,
+  "by_cat": {
+    "attack": {
+      "n": 8,
+      "pass_rate": 0.75
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 8,
+      "pass_rate": 0.75
+    }
+  },
+  "injection_pass_through": 0.125,
+  "latency": {
+    "p50": 2.91463303565979,
+    "p95": 4.954227924346922,
+    "max": 5.528742074966431,
+    "mean": 3.288841349737985
+  },
+  "ttft": {
+    "p50": 2.210117816925049,
+    "p95": 2.7519812822341914
+  },
+  "t_understanding": {
+    "p50": 2.2799878120422363,
+    "p95": 3.2602378845214837,
+    "n": 7
+  },
+  "tokens": {
+    "prompt_mean": 4341,
+    "completion_mean": 102
+  },
+  "reasoning_chars_mean": 0
+}

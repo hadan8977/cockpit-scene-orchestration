@@ -12,7 +12,8 @@
 import argparse, json, os, sys, subprocess, time, glob
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROMPTS = {"p0": "prompts/p0_original.md", "p0b": "prompts/p0b_bugfix.md", "p0c": "prompts/p0c_nopersona.md", "p1": "prompts/p1_cleaned.md",
-           "p2": "prompts/p2_affect.md", "p3": "prompts/p3_grammar.generated.md", "p3h": "prompts/p3_grammar.md"}
+           "p2": "prompts/p2_affect.md", "p3": "prompts/p3_grammar.generated.md", "p3h": "prompts/p3_grammar.md",
+           "pfinal": "prompts/p3_pfinal.md", "pfinal-en": "prompts/p3_pfinal_en.md"}
 CATS = ["action", "precise", "vague", "affect", "robust", "attack", "weak", "memory", "observe", "clarify", "explicit"]
 CAT_ZH = {"action": "动作", "precise": "精准", "vague": "模糊", "affect": "情感", "robust": "鲁棒", "attack": "注入", "weak": "弱意图", "memory": "记忆", "observe": "观察", "clarify": "追问", "explicit": "显式"}
 

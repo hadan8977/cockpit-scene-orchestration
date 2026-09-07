@@ -36,12 +36,12 @@
   {
    "key": "ds-v4-flash",
    "provider": "deepseek",
-   "model": "deepseek-v4-flash",
+   "model": "Deepseek-v4-flash",
    "tier": "大",
    "params": "MoE，官方未公布激活参数",
    "thinking": "deepseek",
    "role": "主候选",
-   "note": "PRD 2.4 主候选；默认开思考，评测两种都跑"
+   "note": "微信代理端点，base_url 由 DEEPSEEK_BASE_URL 指定；模型名首字母大写"
   },
   {
    "key": "kimi-k2.7",

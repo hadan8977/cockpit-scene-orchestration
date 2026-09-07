@@ -374,12 +374,29 @@ def score_item(item, obj, prompt_style):
     return res
 
 # ---------------- 调用模型 ----------------
-def call_model(cfg, system_prompt, user_msg):
+def call_model(cfg, system_prompt, user_msg, _body=None):
+    """带有限重试：429 与 5xx 与网络异常最多重试 3 次（指数退避），避免代理并发限流被记成失败。"""
+    tries = 0
+    while True:
+        r = _call_model_once(cfg, system_prompt, user_msg, _body)
+        e = r.get("error") or ""
+        retryable = ("HTTP 429" in e) or bool(re.match(r"HTTP 5\d\d", e)) or (r.get("text") is None and e and "HTTP" not in e)
+        if not retryable or tries >= 3:
+            if tries:
+                r["retries"] = tries
+            return r
+        tries += 1
+        time.sleep(1.5 * tries + random.random())
+
+def _call_model_once(cfg, system_prompt, user_msg, _body=None):
     import requests
     url = cfg["base_url"].rstrip("/") + "/chat/completions"
-    body = {"model": cfg["model"], "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_msg}],
+    body = _body or {"model": cfg["model"], "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_msg}],
             "temperature": cfg["temperature"], "max_tokens": cfg["max_tokens"], "stream": True, "stream_options": {"include_usage": True}}
-    style = cfg.get("thinking_style", "deepseek")
+    if _body is not None:
+        style = "none"
+    if _body is None:
+        style = cfg.get("thinking_style", "deepseek")
     if cfg["thinking"] in ("off", "on") and style != "none":
         on = cfg["thinking"] == "on"
         if style == "deepseek":
@@ -393,13 +410,15 @@ def call_model(cfg, system_prompt, user_msg):
         elif style == "qwen":
             body["enable_thinking"] = on
             body["chat_template_kwargs"] = {"enable_thinking": on}
-    rf = cfg.get("response_format") or ("json_object" if cfg.get("json_mode") else None)
+    rf = None if _body is not None else (cfg.get("response_format") or ("json_object" if cfg.get("json_mode") else None))
     if rf == "json_object":
         body["response_format"] = {"type": "json_object"}
     elif rf == "json_schema" and cfg.get("schema"):
         body["response_format"] = {"type": "json_schema", "json_schema": {"name": "scene", "strict": True, "schema": cfg["schema"]}}
     if cfg.get("extra_body"):
         body.update(cfg["extra_body"])
+    if "openrouter" in cfg["base_url"]:
+        body["usage"] = {"include": True}
     headers = {"Authorization": "Bearer " + cfg["api_key"], "Content-Type": "application/json"}
     if "openrouter" in cfg["base_url"]:
         headers["HTTP-Referer"] = "https://local.eval"; headers["X-Title"] = "scene-eval"
@@ -407,8 +426,12 @@ def call_model(cfg, system_prompt, user_msg):
     t0 = time.time(); ttft = None; ttfr = None; t_und = None; und_seen = False; content = []; reasoning_chars = 0; usage = None; err = None
     try:
         with requests.post(url, headers=headers, json=body, stream=True, timeout=cfg["timeout"]) as r:
+            if r.status_code == 400 and "reasoning" in r.text.lower() and "Reasoning is mandatory" in r.text and "reasoning" in body:
+                body["reasoning"] = {"effort": "low", "exclude": True}
+                return call_model(dict(cfg, _retry=True), system_prompt, user_msg, _body=body) if not cfg.get("_retry") else {"text": None, "error": "HTTP 400 " + r.text[:200], "latency": time.time() - t0, "ttft": None, "ttfr": None, "t_und": None, "usage": None, "reasoning_chars": 0}
             if r.status_code != 200:
                 return {"text": None, "error": "HTTP %d %s" % (r.status_code, r.text[:300]), "latency": time.time() - t0, "ttft": None, "ttfr": None, "t_und": None, "usage": None, "reasoning_chars": 0}
+            r.encoding = "utf-8"
             for line in r.iter_lines(decode_unicode=True):
                 if not line or not line.startswith("data:"):
                     continue
@@ -637,6 +660,8 @@ def main():
         us = [r["usage"] for r in rows if r.get("usage")]
         if us:
             summary["tokens"] = {"prompt_mean": statistics.mean(u.get("prompt_tokens", 0) for u in us), "completion_mean": statistics.mean(u.get("completion_tokens", 0) for u in us)}
+            costs = [u.get("cost") for u in us if isinstance(u.get("cost"), (int, float))]
+            if costs: summary["cost_usd"] = {"total": sum(costs), "per_call": statistics.mean(costs), "n": len(costs)}
         rc = [r["reasoning_chars"] for r in rows]
         summary["reasoning_chars_mean"] = statistics.mean(rc) if rc else 0
     if args.repeat > 1:
@@ -666,6 +691,8 @@ def main():
         L += ["| 注入通过率（攻击题里有动作被输出的比例，必须为 0） | %.1f%% |" % (100 * summary["injection_pass_through"])]
     if "tokens" in summary:
         L += ["| 平均 prompt / 输出 token | %.0f / %.0f |" % (summary["tokens"]["prompt_mean"], summary["tokens"]["completion_mean"])]
+    if "cost_usd" in summary:
+        L += ["| 费用（OpenRouter 上报）总计 / 每次 | $%.4f / $%.5f |" % (summary["cost_usd"]["total"], summary["cost_usd"]["per_call"])]
     if "consistency" in summary:
         L += ["| 重复 %d 次输出完全一致的题占比 | %.1f%% |" % (args.repeat, 100 * summary["consistency"])]
     L += ["", "## 分语言", "", "| 语言 | 调用数 | 通过率 |", "|---|---|---|"]

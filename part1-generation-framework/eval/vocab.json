@@ -242,12 +242,46 @@
   "位置": [
    "家",
    "公司",
-   "收藏地点"
+   "收藏地点",
+   "当前位置",
+   "地点搜索"
   ],
   "导航目的地": [
    "家",
    "公司",
-   "收藏地点"
+   "收藏地点",
+   "当前位置",
+   "地点搜索"
+  ],
+  "生效时间": {
+   "range": [
+    0,
+    2359,
+    1,
+    "时"
+   ]
+  },
+  "生效时间段": [
+   "全天",
+   "自定义"
+  ],
+  "重复周期": [
+   "每天",
+   "工作日",
+   "周末",
+   "自定义"
+  ],
+  "日期区间": [
+   "自定义"
+  ],
+  "指定日期": [
+   "自定义"
+  ],
+  "生效频次": [
+   "每次",
+   "每天一次",
+   "每周一次",
+   "仅一次"
   ],
   "时段": [
    "清晨",
@@ -485,12 +519,14 @@
    "立体声",
    "音乐厅",
    "VIP",
-   "影院"
+   "影院",
+   "自定义"
   ],
   "声场": [
    "全车模式",
    "前排模式",
-   "主驾模式"
+   "主驾模式",
+   "自定义"
   ],
   "声浪": [
    "静音",
@@ -613,7 +649,10 @@
   "导航目的地": [
    "家",
    "公司",
-   "收藏地点"
+   "收藏地点",
+   "常用地点",
+   "当前位置",
+   "地点搜索"
   ],
   "多媒体": [
    "播放",
@@ -634,7 +673,61 @@
   ],
   "彩蛋": [
    "生日动效",
-   "情人节动效"
+   "生日动效2",
+   "情人节动效",
+   "自定义动效"
+  ],
+  "播放指定音乐": [
+   "歌曲名"
+  ],
+  "QQ音乐": [
+   "我喜欢列表",
+   "猜你喜欢",
+   "今日私享",
+   "新歌推荐",
+   "续播上次",
+   "指定歌曲"
+  ],
+  "网易云音乐": [
+   "猜你喜欢",
+   "今日私享",
+   "新歌推荐",
+   "续播上次",
+   "指定歌曲"
+  ],
+  "本地视频": [
+   "打开",
+   "退出"
+  ],
+  "腾讯视频": [
+   "打开",
+   "退出"
+  ],
+  "爱奇艺": [
+   "打开",
+   "退出"
+  ],
+  "唱吧": [
+   "打开",
+   "退出"
+  ],
+  "全民K歌": [
+   "打开",
+   "退出"
+  ],
+  "酷狗K歌": [
+   "打开",
+   "退出"
+  ],
+  "YouTube": [
+   "打开",
+   "退出"
+  ],
+  "壁纸": [
+   "选择壁纸"
+  ],
+  "主题": [
+   "选择主题"
   ],
   "进入情景模式": [
    "休憩模式",
@@ -1049,7 +1142,7 @@
     "maturity": "planned",
     "group": "条件语义",
     "class": "A",
-    "note": "op 用 == 与 !=；地点搜索型暂不放开",
+    "note": "op 用 == 与 !=；地点搜索的值是地点名",
     "id": "ctx.place",
     "en": "place"
    },
@@ -1061,6 +1154,64 @@
     "note": "导航状态、预计到达时间、剩余距离已从表里删除",
     "id": "nav.destination",
     "en": "navigation destination"
+   },
+   "生效时间": {
+    "source": "时间/生效时间 HH:MM:SS",
+    "maturity": "released",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "值写成 07:00 这样的时刻",
+    "note": "精确时刻触发，如每天七点",
+    "id": "scope.time_point",
+    "en": "effective time"
+   },
+   "生效时间段": {
+    "source": "生效范围/指定时间段 startTime endTime",
+    "maturity": "released",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "自定义时值写成 HH:MM-HH:MM",
+    "note": "场景级生效范围，不是触发条件",
+    "id": "scope.time_range",
+    "en": "effective time range"
+   },
+   "重复周期": {
+    "source": "生效范围/重复 weekDays",
+    "maturity": "released",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "工作日=[1..5]，周末=[6,7]，自定义列举星期",
+    "id": "scope.repeat",
+    "en": "repeat"
+   },
+   "日期区间": {
+    "source": "生效范围/某几天 startDate endDate",
+    "maturity": "sprint",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "值写成 20250101-20250501",
+    "note": "季节包、假期包靠它",
+    "id": "scope.date_range",
+    "en": "date range"
+   },
+   "指定日期": {
+    "source": "生效范围/指定日期 某一天",
+    "maturity": "released",
+    "group": "生效范围",
+    "class": "A",
+    "exec": "值写成 20260214",
+    "note": "生日、纪念日靠它",
+    "id": "scope.date",
+    "en": "specific date"
+   },
+   "生效频次": {
+    "source": "生效范围/生效频次",
+    "maturity": "planned",
+    "group": "生效范围",
+    "class": "A",
+    "note": "车云配置，海外暂无；一次性场景靠仅一次",
+    "id": "scope.frequency",
+    "en": "frequency"
    },
    "时段": {
     "source": "时间/生效时间 + 生效范围 startTime/endTime",
@@ -1464,7 +1615,7 @@
     "maturity": "sprint",
     "group": "供",
     "class": "B",
-    "note": "家、公司在 26409；收藏地点待定；行驶中要确认",
+    "note": "家、公司在 26409；其余待定；行驶中要确认",
     "id": "nav.destination",
     "en": "navigation destination"
    },
@@ -1489,9 +1640,117 @@
     "maturity": "released",
     "group": "惊喜",
     "class": "A",
-    "note": "自定义动效待定",
+    "note": "生日动效2 与自定义动效待定",
     "id": "surprise.easter_egg",
     "en": "easter egg"
+   },
+   "播放指定音乐": {
+    "source": "娱乐/多媒体 播放指定音乐",
+    "maturity": "planned",
+    "group": "声音",
+    "class": "A",
+    "exec": "值为歌曲名，国内中英文，海外全语种",
+    "note": "“你们的歌”靠它",
+    "id": "media.play_song",
+    "en": "play specific song"
+   },
+   "QQ音乐": {
+    "source": "娱乐/QQ音乐",
+    "maturity": "planned",
+    "group": "声音",
+    "class": "A",
+    "note": "情绪歌单可映射到猜你喜欢或指定歌曲",
+    "id": "media.qqmusic",
+    "en": "QQ Music"
+   },
+   "网易云音乐": {
+    "source": "娱乐/网易云音乐",
+    "maturity": "planned",
+    "group": "声音",
+    "class": "A",
+    "id": "media.netease",
+    "en": "NetEase Music"
+   },
+   "本地视频": {
+    "source": "娱乐/本地视频",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.local_video",
+    "en": "local video"
+   },
+   "腾讯视频": {
+    "source": "娱乐/腾讯视频",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.tencent_video",
+    "en": "Tencent Video"
+   },
+   "爱奇艺": {
+    "source": "娱乐/爱奇艺",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.iqiyi",
+    "en": "iQIYI"
+   },
+   "唱吧": {
+    "source": "娱乐/唱吧",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.changba",
+    "en": "Changba"
+   },
+   "全民K歌": {
+    "source": "娱乐/全民K歌",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.wesing",
+    "en": "WeSing"
+   },
+   "酷狗K歌": {
+    "source": "娱乐/酷狗K歌",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.kugou_ktv",
+    "en": "Kugou KTV"
+   },
+   "YouTube": {
+    "source": "娱乐/YouTube",
+    "maturity": "planned",
+    "group": "娱乐",
+    "class": "B",
+    "note": "只在停车态；YouTube 仅海外",
+    "id": "app.youtube",
+    "en": "YouTube"
+   },
+   "壁纸": {
+    "source": "屏幕/壁纸",
+    "maturity": "planned",
+    "group": "屏幕",
+    "class": "A",
+    "note": "值为壁纸名",
+    "id": "screen.wallpaper",
+    "en": "wallpaper"
+   },
+   "主题": {
+    "source": "屏幕/主题",
+    "maturity": "planned",
+    "group": "屏幕",
+    "class": "A",
+    "note": "值为主题名",
+    "id": "screen.theme",
+    "en": "theme"
    },
    "进入情景模式": {
     "source": "娱乐/情景模式 进入",
@@ -1555,6 +1814,7 @@
   }
  ],
  "removed_from_sheet": [
+  "条件：多媒体 播放中（变更记录 2026.7.7 删除）",
   "条件：时间区间、日期区间、温度控制、风量、出风模式、香氛类型与浓度、温区同步、导航状态、预计到达时间、预计到达距离、多媒体播放中、电动遮阳帘开度"
  ]
 }
