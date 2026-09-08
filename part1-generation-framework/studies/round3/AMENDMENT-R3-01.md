@@ -162,3 +162,33 @@ sha256 `34cf380d…`。直接用 openpyxl 读单元格字体的 strike 属性，
 
 `r3_04_fair` 在 691/804 次时停止，其前提（区别对待未上线能力）已作废，数据不用。
 `r3_05_equal` 为本轮唯一有效主表来源：134 题 × 中英 × {p31, v3_r3, v0_r3} = 804 次。
+
+## 8. 修订 R3-01c：评委的能力参考与被评臂对齐（写报告时发现，事后登记）
+
+2026-09-08，在 `dev-p36-vs-v0-fixedref` 的第一次调用之前写入。
+
+**问题。** `review.py:capability_reference()` 一直读默认的 `eval/capabilities.json`，
+而第三轮全部实验用的是 `eval/capabilities_r3.json`。两者差两处：
+
+| | 评委看到的 | 被评臂实际用的 |
+|---|---|---|
+| 动作能力条数 | 76 | 72（四个车门与十个按摩模式取值已按删除线剔除） |
+| maturity | released 82 / planned 21 / no_ux 4 / sprint 4 / proposed 3 | 全部 released（已按用户指令抹平） |
+
+评分表里还留着一句「A planned/proposed action is allowed in a concept proposal if disclosed,
+at most one」，这条规则在成熟度抹平之后已经不成立。评委确实用过它：C08 那道题里
+qwen 明确以「音乐播放是 proposed，不能像 released 那样直接执行并报告完成」为由扣了候选的分。
+
+**影响范围。** 两个臂看到的是同一份参考，所以这个缺陷是对称的，不偏向候选或基线，
+已发布的四维差值不因此作废。但它让评委据一条已被取消的产品规则加减分。
+
+**处理。** 三条：
+
+1. `capability_reference()` 改为跟随 `SCENE_CAPS`：r3 口径读 `capabilities_r3.json` 且不下发 maturity 字段。
+2. `SCENE_CAPS=r3` 时评分表自动去掉成熟度那一句。
+3. **不覆盖已有结果。** 用修正后的评委重跑一次 `dev-p36-vs-v0`，命名为
+   `dev-p36-vs-v0-fixedref`，作为敏感性检验与原结果并列报告。
+   预登记的主结果仍以 `dev-p36-vs-v0` 为准；两者结论若不一致，两个都写进报告。
+
+评委只用 dsv4：OpenRouter 密钥总额度已用尽（`Key limit exceeded (total limit)`，HTTP 403），
+qwen 本轮无法调用。

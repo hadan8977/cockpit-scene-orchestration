@@ -1,0 +1,120 @@
+{
+  "run": "holdout-p36-vs-v0",
+  "sample_sha256": "213a75d6344e4bedb915f535bae8494762673cfdd606b394ee0fca14bfa9babe",
+  "rubric_sha256": "af7d146f7ced59c918fc927ce9fffe3cb58ba53e858ab06c3bca9c35ca31fe96",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "A": {
+        "type": "object",
+        "properties": {
+          "grounding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "restraint": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wording": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "composition": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "grounding",
+          "restraint",
+          "wording",
+          "composition",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "B": {
+        "type": "object",
+        "properties": {
+          "grounding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "restraint": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wording": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "composition": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "grounding",
+          "restraint",
+          "wording",
+          "composition",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "preference": {
+        "enum": [
+          "A",
+          "B",
+          "tie"
+        ]
+      }
+    },
+    "required": [
+      "A",
+      "B",
+      "preference"
+    ],
+    "additionalProperties": false
+  },
+  "models": {
+    "dsv4": {
+      "id": "Deepseek-v4-flash",
+      "prices": [
+        3e-07,
+        1.2e-06
+      ],
+      "reasoning": {
+        "enabled": false
+      },
+      "endpoint": "tencent",
+      "note": "same model family as the generator; reported separately, never pooled with the pre-registered judges"
+    },
+    "qwen": {
+      "id": "qwen/qwen3.8-27b",
+      "prices": [
+        4.2e-07,
+        3e-06
+      ],
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "source_sha256": "8a499e187a9a6246509a40a6cf3db325eab3061dd2a61897832f66f699b7e321"
+}

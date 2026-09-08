@@ -1,0 +1,110 @@
+{
+  "run": "dev-p36-vs-v0-fixedref",
+  "sample_sha256": "7aed3a3ba451f7f7973fa94dbfe93b51021c69cb120475de24761c221ddb6f63",
+  "rubric_sha256": "58d17b2fb49f39e0550adfb472a29d3792d421a7eb2617d93dd7500d78ff5428",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "A": {
+        "type": "object",
+        "properties": {
+          "grounding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "restraint": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wording": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "composition": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "grounding",
+          "restraint",
+          "wording",
+          "composition",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "B": {
+        "type": "object",
+        "properties": {
+          "grounding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "restraint": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wording": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "composition": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "grounding",
+          "restraint",
+          "wording",
+          "composition",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "preference": {
+        "enum": [
+          "A",
+          "B",
+          "tie"
+        ]
+      }
+    },
+    "required": [
+      "A",
+      "B",
+      "preference"
+    ],
+    "additionalProperties": false
+  },
+  "models": {
+    "dsv4": {
+      "id": "Deepseek-v4-flash",
+      "prices": [
+        3e-07,
+        1.2e-06
+      ],
+      "reasoning": {
+        "enabled": false
+      },
+      "endpoint": "tencent",
+      "note": "same model family as the generator; reported separately, never pooled with the pre-registered judges"
+    }
+  },
+  "source_sha256": "e968942363aabde166e16345cdd6bc6a036f18fe635faeeeaf3772fc03f58e88"
+}
