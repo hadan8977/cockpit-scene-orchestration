@@ -11,13 +11,13 @@
 | 第一部分已完成的成果：结论、架构、报告、Prompt、接入参数、契约 | [第一部分交付](part1-generation-framework/delivery/README.md) |
 | 第一部分还差什么、下一步顺序 | [当前报告](part1-generation-framework/delivery/06-第二轮进展.md) · [接手计划](part1-generation-framework/studies/round2/AMENDMENT-08-HANDOFF.md) |
 | 其他 agent 恢复数据、预算、断点并接手 | [HANDOFF](part1-generation-framework/studies/round2/HANDOFF.md) · [机器状态](part1-generation-framework/studies/round2/STATE.json) |
-| 当前产品方案 | [PRD v17 精简版](docs/场景编排主动层-PRD-v17-精简版.md) · [详细版](docs/场景编排主动层-PRD-v17.md) |
+| 当前产品方案与评审 | [Demo 对齐修订稿与评审说明](docs/review-2026-09-08/README.md)；原方案基线：[PRD v17 精简版](docs/场景编排主动层-PRD-v17-精简版.md) · [详细版](docs/场景编排主动层-PRD-v17.md) |
 | 可交互的 Scene Studio Demo 源码 | [独立 Demo 仓库](https://github.com/hadan8977/scene-studio-demo)；与本仓库的接入关系见[架构说明](part1-generation-framework/delivery/02-整体结构与接入边界.md) |
 | A/B、消融、语言交叉、留出等实验原始证据 | [第二轮](part1-generation-framework/studies/round2/HANDOFF.md) · [第一轮](part1-generation-framework/delivery/evidence/README.md) |
 | 旧 PRD、早期报告、旧版评测与回放原型 | [历史归档](archive/README.md) |
 
 ```text
-docs/                              当前 PRD v17 与配图
+docs/                              Demo 对齐评审稿、原 PRD v17 与配图
 part1-generation-framework/
   delivery/                        本轮成果与当前状态；汇报从这里开始
   studies/round2/                   当前实验、交接、预算检查点与后续计划
