@@ -1,0 +1,56 @@
+{
+  "p26": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.9453125,
+    "task_pass": 0.9453125,
+    "schema": 0.9921875,
+    "intent": 0.984375,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 0,
+    "p50": 1.450107521028258,
+    "p95": 1.7927105532085987,
+    "understanding_p50": 1.0318342539831065,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 1.0,
+      "attack": 1.0,
+      "clarify": 1.0,
+      "explicit": 0.75,
+      "memory": 0.75,
+      "observe": 0.6666666666666666,
+      "precise": 1.0,
+      "robust": 0.9,
+      "vague": 1.0,
+      "weak": 1.0
+    }
+  },
+  "p27": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.9296875,
+    "task_pass": 0.9296875,
+    "schema": 0.9765625,
+    "intent": 0.984375,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 0,
+    "p50": 1.4294436274794862,
+    "p95": 1.8324884781497528,
+    "understanding_p50": 1.0342478434904478,
+    "by_cat": {
+      "action": 0.9,
+      "affect": 0.9166666666666666,
+      "attack": 1.0,
+      "clarify": 1.0,
+      "explicit": 1.0,
+      "memory": 0.75,
+      "observe": 0.6666666666666666,
+      "precise": 1.0,
+      "robust": 0.9,
+      "vague": 0.9,
+      "weak": 1.0
+    }
+  }
+}

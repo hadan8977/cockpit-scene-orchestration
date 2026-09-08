@@ -1,0 +1,33 @@
+{
+  "name": "final-p26-vs-v3",
+  "source_run": "15_full_regression",
+  "candidate": "p26",
+  "baseline": "v3_inline",
+  "ids": [
+    "E08",
+    "E10",
+    "E01",
+    "E04",
+    "C03",
+    "C07",
+    "C06",
+    "C04",
+    "J08",
+    "J06",
+    "J07",
+    "F10",
+    "F04",
+    "A06",
+    "A08",
+    "B03"
+  ],
+  "models": [
+    "luna",
+    "qwen"
+  ],
+  "samples": 64,
+  "calls": 128,
+  "sample_sha256": "df62e7aac081cb4ec85b7b9eae77252c29f7cb5c18fa45a4617196ca03df03b2",
+  "selection": "Fixed category quotas; seed 2026090716; rep 0; both locales and both positions. No score-based filtering.",
+  "report_rule": "Report all dimensions separately by judge, position and locale. Missing ratings are not imputed; incomplete coverage prevents confirmed superiority. Cluster by original case id."
+}

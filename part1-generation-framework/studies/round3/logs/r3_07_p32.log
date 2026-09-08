@@ -1,0 +1,9 @@
+{"run": "r3_07_p32", "completed": 32, "expected": 268}
+{"run": "r3_07_p32", "completed": 64, "expected": 268}
+{"run": "r3_07_p32", "completed": 96, "expected": 268}
+{"run": "r3_07_p32", "completed": 128, "expected": 268}
+{"run": "r3_07_p32", "completed": 160, "expected": 268}
+{"run": "r3_07_p32", "completed": 192, "expected": 268}
+{"run": "r3_07_p32", "completed": 224, "expected": 268}
+{"run": "r3_07_p32", "completed": 256, "expected": 268}
+{"p32": {"n": 268, "errors": 0, "usable": 0.8395522388059702, "task_pass": 0.8395522388059702, "schema": 0.9440298507462687, "intent": 0.9888059701492538, "name": 1.0, "language": 1.0, "safety": 0, "p50": 1.7770824190229177, "p95": 2.185655377671355, "understanding_p50": 1.315382584987674, "by_cat": {"action": 0.9047619047619048, "affect": 1.0, "attack": 1.0, "clarify": 1.0, "explicit": 0.6363636363636364, "memory": 0.625, "observe": 0.75, "precise": 0.74, "robust": 0.8333333333333334, "vague": 0.9545454545454546, "weak": 0.8461538461538461}}}

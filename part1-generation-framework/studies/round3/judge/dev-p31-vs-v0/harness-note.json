@@ -1,0 +1,5 @@
+{
+  "note": "review.py changed only in transport: per-model rate limiting (luna 18 rpm) and retry on HTTP 429, and errored samples are no longer counted as done. Rubric, schema, models and sample set are unchanged; rubric_sha256 in manifest.json is identical to the earlier run.",
+  "rubric_sha256": "af7d146f7ced59c918fc927ce9fffe3cb58ba53e858ab06c3bca9c35ca31fe96",
+  "sample_sha256": "bde42e48829882d099c2e37502ad08828f3a77732d707b07922351cdbcaf2ba6"
+}

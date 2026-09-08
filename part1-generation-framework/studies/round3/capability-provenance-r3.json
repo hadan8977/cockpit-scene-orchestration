@@ -1,0 +1,44 @@
+{
+  "source_workbook": "notes/inputs/座舱原子能力-最新.xlsx",
+  "workbook_sha256": "34cf380dc18e617ef0b0033e494f78652fe8c1f94ee9078b65f88c956e4e8c03",
+  "struck_rows": 29,
+  "live_rows": 311,
+  "rule": "literal strikethrough exclusion, chosen by the user on 2026-09-08",
+  "removed_action_capabilities": [
+    "左前门",
+    "右前门",
+    "左后门",
+    "右后门"
+  ],
+  "removed_action_values": {
+    "主驾座椅按摩模式": [
+      "波浪",
+      "猫步",
+      "蛇形",
+      "肩部",
+      "腰部"
+    ],
+    "副驾座椅按摩模式": [
+      "波浪",
+      "猫步",
+      "蛇形",
+      "肩部",
+      "腰部"
+    ]
+  },
+  "maturity": "flattened; original workbook status preserved as source_status",
+  "team_proposed_kept": [
+    "天气",
+    "行程事件",
+    "音乐播放"
+  ],
+  "counts": {
+    "capabilities": 114,
+    "with_cond_values": 64,
+    "with_act_values": 72,
+    "vocab_conditions": 64,
+    "vocab_actions": 72
+  },
+  "vocab_r3_sha256": "bc453adab617c911e434426ad7c438ff41790bb38f971d9e616b971577fedb66",
+  "capabilities_r3_sha256": "71e524f166b9c11e78ec5e5683a408844441e4ca3297287a64aeedc6cdefdb24"
+}

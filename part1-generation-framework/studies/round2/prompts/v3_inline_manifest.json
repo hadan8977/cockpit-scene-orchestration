@@ -1,0 +1,16 @@
+{
+  "arm": "v3_inline",
+  "source": "prompts/v3_latest_compatible.md",
+  "registered_in": "AMENDMENT-13.md",
+  "changes": [
+    "contract limits written into v3's own field spec lines for understanding/name/say",
+    "warnings rule states the full capability name requirement",
+    "one over-length few-shot understanding shortened 89 to 70 characters"
+  ],
+  "task_logic_touched": false,
+  "examples_added_or_removed": 0,
+  "remaining_over_80_examples": 0,
+  "source_sha256": "a59b744f857835dba60a501ab52f69750ae7c853535873e38fd73baa86b0177d",
+  "arm_sha256": "cb73e9c7ad3eb524893f93899498674b616fae5d261f567f687a53bb0b135010",
+  "frozen_before_first_call": true
+}

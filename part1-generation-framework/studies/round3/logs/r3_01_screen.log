@@ -1,0 +1,11 @@
+{"run": "r3_01_screen", "completed": 32, "expected": 384}
+{"run": "r3_01_screen", "completed": 64, "expected": 384}
+{"run": "r3_01_screen", "completed": 96, "expected": 384}
+{"run": "r3_01_screen", "completed": 128, "expected": 384}
+{"run": "r3_01_screen", "completed": 160, "expected": 384}
+{"run": "r3_01_screen", "completed": 192, "expected": 384}
+{"run": "r3_01_screen", "completed": 224, "expected": 384}
+{"run": "r3_01_screen", "completed": 256, "expected": 384}
+{"run": "r3_01_screen", "completed": 288, "expected": 384}
+{"run": "r3_01_screen", "completed": 320, "expected": 384}
+{"run": "r3_01_screen", "completed": 352, "expected": 384}

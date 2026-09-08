@@ -1,0 +1,8 @@
+{"run": "r3_09_p34", "completed": 32, "expected": 246}
+{"run": "r3_09_p34", "completed": 64, "expected": 246}
+{"run": "r3_09_p34", "completed": 96, "expected": 246}
+{"run": "r3_09_p34", "completed": 128, "expected": 246}
+{"run": "r3_09_p34", "completed": 160, "expected": 246}
+{"run": "r3_09_p34", "completed": 192, "expected": 246}
+{"run": "r3_09_p34", "completed": 224, "expected": 246}
+{"p34": {"n": 246, "errors": 0, "usable": 0.8536585365853658, "task_pass": 0.8536585365853658, "schema": 0.9878048780487805, "intent": 0.975609756097561, "name": 1.0, "language": 1.0, "safety": 0, "p50": 1.707766046980396, "p95": 2.1557511974533554, "understanding_p50": 1.2743871145066805, "by_cat": {"action": 0.8666666666666667, "affect": 1.0, "attack": 1.0, "clarify": 1.0, "explicit": 0.6, "memory": 0.6875, "observe": 0.75, "precise": 0.82, "robust": 0.9090909090909091, "vague": 0.9444444444444444, "weak": 0.8333333333333334}}}

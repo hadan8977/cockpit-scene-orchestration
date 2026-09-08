@@ -1,0 +1,22 @@
+{
+  "file": "holdout-r3.jsonl",
+  "cases": 65,
+  "by_cat": {
+    "action": 10,
+    "precise": 10,
+    "vague": 7,
+    "affect": 7,
+    "weak": 6,
+    "clarify": 5,
+    "robust": 5,
+    "explicit": 5,
+    "attack": 4,
+    "memory": 3,
+    "observe": 3
+  },
+  "sha256": "b93cd5adafa0dcb758bcaf4199e5f0e5b64d6f98e85fa24cf5a3c5faaea388dd",
+  "authored_before_first_call": true,
+  "model_calls": 0,
+  "limitation": "Authored by this agent, not an independent human benchmark. Round-two holdout is spent for this line; this set replaces it and may not be used to tune the candidate after its first call.",
+  "pre_freeze_fix": "R3H051 acceptable action 天窗遮阳帘 -> 电动遮阳帘 (the former is not in the registry); corrected by the registry validator before any call on this set"
+}

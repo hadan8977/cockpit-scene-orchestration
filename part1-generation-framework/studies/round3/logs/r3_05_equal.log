@@ -1,0 +1,26 @@
+{"run": "r3_05_equal", "completed": 32, "expected": 804}
+{"run": "r3_05_equal", "completed": 64, "expected": 804}
+{"run": "r3_05_equal", "completed": 96, "expected": 804}
+{"run": "r3_05_equal", "completed": 128, "expected": 804}
+{"run": "r3_05_equal", "completed": 160, "expected": 804}
+{"run": "r3_05_equal", "completed": 192, "expected": 804}
+{"run": "r3_05_equal", "completed": 224, "expected": 804}
+{"run": "r3_05_equal", "completed": 256, "expected": 804}
+{"run": "r3_05_equal", "completed": 288, "expected": 804}
+{"run": "r3_05_equal", "completed": 320, "expected": 804}
+{"run": "r3_05_equal", "completed": 352, "expected": 804}
+{"run": "r3_05_equal", "completed": 384, "expected": 804}
+{"run": "r3_05_equal", "completed": 416, "expected": 804}
+{"run": "r3_05_equal", "completed": 448, "expected": 804}
+{"run": "r3_05_equal", "completed": 480, "expected": 804}
+{"run": "r3_05_equal", "completed": 512, "expected": 804}
+{"run": "r3_05_equal", "completed": 544, "expected": 804}
+{"run": "r3_05_equal", "completed": 576, "expected": 804}
+{"run": "r3_05_equal", "completed": 608, "expected": 804}
+{"run": "r3_05_equal", "completed": 640, "expected": 804}
+{"run": "r3_05_equal", "completed": 672, "expected": 804}
+{"run": "r3_05_equal", "completed": 704, "expected": 804}
+{"run": "r3_05_equal", "completed": 736, "expected": 804}
+{"run": "r3_05_equal", "completed": 768, "expected": 804}
+{"run": "r3_05_equal", "completed": 800, "expected": 804}
+{"p31": {"n": 268, "errors": 0, "usable": 0.832089552238806, "task_pass": 0.832089552238806, "schema": 0.9440298507462687, "intent": 0.9888059701492538, "name": 1.0, "language": 1.0, "safety": 0, "p50": 1.7608937930199318, "p95": 2.2010087395785374, "understanding_p50": 1.3182925489963964, "by_cat": {"action": 0.9047619047619048, "affect": 1.0, "attack": 1.0, "clarify": 1.0, "explicit": 0.6363636363636364, "memory": 0.6875, "observe": 0.6666666666666666, "precise": 0.72, "robust": 0.75, "vague": 1.0, "weak": 0.8461538461538461}}, "v0_r3": {"n": 268, "errors": 0, "usable": 0.34328358208955223, "task_pass": 0.34701492537313433, "schema": 0.5298507462686567, "intent": 0.8582089552238806, "name": 0.7611940298507462, "language": 0.9813432835820896, "safety": 16, "p50": 1.715350322483573, "p95": 2.1498615971417165, "understanding_p50": 1.1390320875216275, "by_cat": {"action": 0.42857142857142855, "affect": 0.4166666666666667, "attack": 0.3125, "clarify": 0.21428571428571427, "explicit": 0.22727272727272727, "memory": 0.375, "observe": 0.3333333333333333, "precise": 0.36, "robust": 0.4583333333333333, "vague": 0.36363636363636365, "weak": 0.15384615384615385}}, "v3_r3": {"n": 268, "errors": 0, "usable": 0.6492537313432836, "task_pass": 0.6567164179104478, "schema": 0.7873134328358209, "intent": 0.9664179104477612, "name": 0.8656716417910447, "language": 0.9925373134328358, "safety": 3, "p50": 1.6390777644701302, "p95": 2.0600084213132503, "understanding_p50": 1.1552444275002927, "by_cat": {"action": 0.7380952380952381, "affect": 0.875, "attack": 0.8125, "clarify": 0.7142857142857143, "explicit": 0.36363636363636365, "memory": 0.8125, "observe": 0.3333333333333333, "precise": 0.5, "robust": 0.5416666666666666, "vague": 0.7272727272727273, "weak": 0.7692307692307693}}}

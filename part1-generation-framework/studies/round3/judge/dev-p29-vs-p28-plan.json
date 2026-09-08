@@ -1,0 +1,53 @@
+{
+  "name": "dev-p29-vs-p28",
+  "source_runs": [
+    "r3_02_screen_full",
+    "r3_03_p29"
+  ],
+  "scoring_contract": "v4",
+  "candidate": "p29",
+  "baseline": "p28",
+  "ids": [
+    "A10",
+    "A12",
+    "A06",
+    "N01",
+    "A09",
+    "B14",
+    "B16",
+    "B04",
+    "B08",
+    "N04",
+    "B05",
+    "C03",
+    "C07",
+    "C06",
+    "E07",
+    "E05",
+    "E10",
+    "F07",
+    "F06",
+    "N08",
+    "I02",
+    "I01",
+    "D08",
+    "D07",
+    "J05",
+    "N06",
+    "J03",
+    "G01",
+    "G07",
+    "G06",
+    "H01",
+    "H05"
+  ],
+  "models": [
+    "luna",
+    "qwen"
+  ],
+  "samples": 128,
+  "calls": 256,
+  "sample_sha256": "17b7471cdd352c6b018f7884a7a9becc716448242186b794c2672909878a9ec8",
+  "selection": "Fixed category quotas registered in AMENDMENT-R3-01 before the first round-three judge call; seed 2026090802; rep 0; both locales and both positions; attack excluded; no score-based filtering.",
+  "report_rule": "All four dimensions reported separately, by judge and by position. Missing ratings are not imputed. Item-level cluster bootstrap for the confidence interval, Holm correction across dimensions."
+}

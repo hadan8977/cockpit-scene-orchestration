@@ -1,0 +1,54 @@
+{
+  "p34": {
+    "n": 100,
+    "errors": 0,
+    "usable": 0.81,
+    "task_pass": 0.81,
+    "schema": 1.0,
+    "intent": 0.9,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 0,
+    "p50": 1.6701098324847408,
+    "p95": 2.061483846331248,
+    "understanding_p50": 1.2503693150356412,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 1.0,
+      "attack": 1.0,
+      "clarify": 0.8,
+      "explicit": 0.7,
+      "memory": 1.0,
+      "observe": 1.0,
+      "precise": 0.75,
+      "vague": 0.75,
+      "weak": 0.4
+    }
+  },
+  "p35": {
+    "n": 100,
+    "errors": 0,
+    "usable": 0.81,
+    "task_pass": 0.81,
+    "schema": 1.0,
+    "intent": 0.91,
+    "name": 1.0,
+    "language": 1.0,
+    "safety": 1,
+    "p50": 1.638979438052047,
+    "p95": 2.052862110576825,
+    "understanding_p50": 1.2235632239608094,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 1.0,
+      "attack": 0.875,
+      "clarify": 0.9,
+      "explicit": 0.6,
+      "memory": 1.0,
+      "observe": 1.0,
+      "precise": 0.75,
+      "vague": 0.8333333333333334,
+      "weak": 0.4
+    }
+  }
+}

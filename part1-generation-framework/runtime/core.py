@@ -87,8 +87,17 @@ def value_schema(cap, kind):
     return {"type":"string","enum":allowed}
 
 
+def _schema_path():
+    """按契约切换并支持自包含交付包：优先包内 contract/，回落到仓库 eval/。"""
+    import os
+    name="schema_v4.json" if os.environ.get("SCENE_CONTRACT","v3")!="v3" else "schema.json"
+    for p in (PART/"contract/scene.schema.json", PART/"eval"/name, PART/"eval/schema.json"):
+        if p.exists(): return p
+    raise FileNotFoundError("No output schema found near %s"%PART)
+
+
 def output_schema(snapshot):
-    schema=json.loads((PART/"eval/schema.json").read_text(encoding="utf-8"))
+    schema=json.loads(_schema_path().read_text(encoding="utf-8"))
     for kind,field in (("conditions","cond_values"),("actions","act_values")):
         options=[]
         for c in snapshot["capabilities"]:
@@ -126,6 +135,35 @@ def compile_prompt(snapshot, template):
     source=Path(template).read_text(encoding="utf-8")
     marker="[conditions: primary = values; * = 未落地，需warnings]"
     verbose="[CONDITIONS ONLY; * means planned/proposed/sprint ACTION requiring a named warning]"
+    flat="[CONDITIONS ONLY]"
+    if flat in source and verbose not in source and "[examples]" in source:
+        # 第三轮起能力表不再分成熟度，表头去掉了星号图例
+        flat_actions="[ACTIONS ONLY]"
+        before,remaining=source.split(flat,1)
+        previous_table,after=remaining.split("[examples]",1)
+        parts=previous_table.split(flat_actions)
+        order={kind:[n for line in part.splitlines() if " = " in line for n in line.split(" = ",1)[0].lstrip("*").split("、")] for kind,part in zip(("conditions","actions"),parts)}
+        table=verbose_dictionary(snapshot,order)
+        table=table.replace(verbose,flat).replace("[ACTIONS ONLY; * means planned/proposed/sprint ACTION requiring a named warning]",flat_actions)
+        lines=[];groups={}
+        def flush():
+            lines.extend("、".join(names)+" = "+values for values,names in groups.items());groups.clear()
+        for line in table.splitlines():
+            if " = " not in line:
+                flush();lines.append(line);continue
+            left,values=line.split(" = ",1)
+            groups.setdefault(values,[]).append(left.lstrip("*"))
+        flush()
+        # 模板里的能力表已由同一份注册表渲染过。这里只核对能力名集合是否仍然一致，
+        # 一致就原样返回被评测过的那份 prompt，不重新渲染；不一致说明注册表漂移了，直接拒绝。
+        rendered={k:set(v) for k,v in order.items()}
+        live={"conditions":{c["zh"] for c in snapshot["capabilities"] if c["status"]=="enabled" and c.get("cond_values")},
+              "actions":{c["zh"] for c in snapshot["capabilities"] if c["status"]=="enabled" and c.get("act_values")}}
+        for kind in ("conditions","actions"):
+            if rendered[kind]!=live[kind]:
+                raise Conflict("Prompt table drifted from registry: %s missing=%s extra=%s"%(
+                    kind,sorted(live[kind]-rendered[kind])[:5],sorted(rendered[kind]-live[kind])[:5]))
+        return source,{"registry_revision":snapshot["revision"],"prompt_sha256":hashlib.sha256(source.encode()).hexdigest(),"schema_sha256":digest(output_schema(snapshot)),"table":"verified-in-place"}
     if marker in source:
         prompt=source.split(marker,1)[0]+dictionary(snapshot)
     elif verbose in source and "[examples]" in source:
@@ -239,6 +277,14 @@ def validate(raw,snapshot,context=None,existing_ids=()):
     if not isinstance(raw,dict):return {"valid":False,"savable":False,"executable":False,"scene":empty_scene(),"decisions":[{"status":"blocked","code":"structure","reason":"Output must be a JSON object"}]}
     errors=list(Draft202012Validator(output_schema(snapshot)).iter_errors(raw))
     if errors:reject("structure","JSON structure or capability enumeration is invalid")
+    # 契约长度按语言把关：Schema 只能设一个上界，中文的更严格，在这里补
+    _han=lambda t:any("\u4e00"<=ch<="\u9fff" for ch in t)
+    for field,zh_max,en_max in (("understanding",120,200),("say",30,60),("name",14,14)):
+        text=raw.get(field)
+        if not isinstance(text,str) or not text:continue
+        limit=zh_max if _han(text) else en_max
+        if len(text)>limit:
+            reject("contract_length","%s 超长：%d 字符 > %d"%(field,len(text),limit))
     by_name={c["zh"]:c for c in snapshot["capabilities"]}
     immature=[]
     for kind,field in (("conditions","cond_values"),("actions","act_values")):

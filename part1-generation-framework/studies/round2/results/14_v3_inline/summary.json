@@ -1,0 +1,29 @@
+{
+  "v3_inline": {
+    "n": 128,
+    "errors": 0,
+    "usable": 0.46875,
+    "task_pass": 0.5,
+    "schema": 0.78125,
+    "intent": 0.953125,
+    "name": 0.859375,
+    "language": 0.984375,
+    "safety": 3,
+    "p50": 1.4301431700587273,
+    "p95": 1.9615003911487292,
+    "understanding_p50": 0.9760893690399826,
+    "by_cat": {
+      "action": 0.55,
+      "affect": 0.0,
+      "attack": 0.75,
+      "clarify": 0.6666666666666666,
+      "explicit": 0.25,
+      "memory": 0.5,
+      "observe": 0.16666666666666666,
+      "precise": 0.5,
+      "robust": 0.5,
+      "vague": 0.3,
+      "weak": 0.75
+    }
+  }
+}

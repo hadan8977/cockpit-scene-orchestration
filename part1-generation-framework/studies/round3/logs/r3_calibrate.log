@@ -1,0 +1,17 @@
+{"review": "calibration", "completed": 1, "expected": 16, "error": null}
+{"review": "calibration", "completed": 2, "expected": 16, "error": null}
+{"review": "calibration", "completed": 3, "expected": 16, "error": null}
+{"review": "calibration", "completed": 4, "expected": 16, "error": null}
+{"review": "calibration", "completed": 5, "expected": 16, "error": null}
+{"review": "calibration", "completed": 6, "expected": 16, "error": null}
+{"review": "calibration", "completed": 7, "expected": 16, "error": null}
+{"review": "calibration", "completed": 8, "expected": 16, "error": null}
+{"review": "calibration", "completed": 9, "expected": 16, "error": null}
+{"review": "calibration", "completed": 10, "expected": 16, "error": null}
+{"review": "calibration", "completed": 11, "expected": 16, "error": null}
+{"review": "calibration", "completed": 12, "expected": 16, "error": null}
+{"review": "calibration", "completed": 13, "expected": 16, "error": null}
+{"review": "calibration", "completed": 14, "expected": 16, "error": null}
+{"review": "calibration", "completed": 15, "expected": 16, "error": null}
+{"review": "calibration", "completed": 16, "expected": 16, "error": null}
+{"luna": {"total": 8, "valid": 8, "expected_preferences": 8, "identical_ties": true, "dimension_reversals": [], "calibrated": true}, "qwen": {"total": 8, "valid": 8, "expected_preferences": 8, "identical_ties": true, "dimension_reversals": [], "calibrated": true}}

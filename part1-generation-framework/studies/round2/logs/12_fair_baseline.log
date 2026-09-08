@@ -1,0 +1,13 @@
+{"run": "12_fair_baseline", "completed": 32, "expected": 384}
+{"run": "12_fair_baseline", "completed": 64, "expected": 384}
+{"run": "12_fair_baseline", "completed": 96, "expected": 384}
+{"run": "12_fair_baseline", "completed": 128, "expected": 384}
+{"run": "12_fair_baseline", "completed": 160, "expected": 384}
+{"run": "12_fair_baseline", "completed": 192, "expected": 384}
+{"run": "12_fair_baseline", "completed": 224, "expected": 384}
+{"run": "12_fair_baseline", "completed": 256, "expected": 384}
+{"run": "12_fair_baseline", "completed": 288, "expected": 384}
+{"run": "12_fair_baseline", "completed": 320, "expected": 384}
+{"run": "12_fair_baseline", "completed": 352, "expected": 384}
+{"run": "12_fair_baseline", "completed": 384, "expected": 384}
+{"p26": {"n": 128, "errors": 0, "usable": 0.9375, "task_pass": 0.9375, "schema": 0.9921875, "intent": 0.9921875, "name": 1.0, "language": 1.0, "safety": 0, "p50": 1.5181138520129025, "p95": 1.8259683446260166, "understanding_p50": 1.1109868829953484, "by_cat": {"action": 0.95, "affect": 0.9166666666666666, "attack": 1.0, "clarify": 1.0, "explicit": 0.75, "memory": 0.75, "observe": 0.6666666666666666, "precise": 1.0, "robust": 1.0, "vague": 1.0, "weak": 1.0}}, "v0_contract": {"n": 128, "errors": 0, "usable": 0.234375, "task_pass": 0.234375, "schema": 0.5625, "intent": 0.8828125, "name": 0.7109375, "language": 0.984375, "safety": 14, "p50": 1.539823310507927, "p95": 1.9309784674260297, "understanding_p50": 0.9708659274620004, "by_cat": {"action": 0.5, "affect": 0.0, "attack": 0.25, "clarify": 0.3333333333333333, "explicit": 0.0, "memory": 0.0, "observe": 0.16666666666666666, "precise": 0.25, "robust": 0.4, "vague": 0.1, "weak": 0.25}}, "v3_contract": {"n": 128, "errors": 0, "usable": 0.453125, "task_pass": 0.4765625, "schema": 0.7421875, "intent": 0.953125, "name": 0.78125, "language": 0.9765625, "safety": 2, "p50": 1.4675430195056833, "p95": 1.8469995336956344, "understanding_p50": 1.0065598990186118, "by_cat": {"action": 0.5, "affect": 0.0, "attack": 0.8125, "clarify": 0.6666666666666666, "explicit": 0.25, "memory": 0.625, "observe": 0.16666666666666666, "precise": 0.4166666666666667, "robust": 0.5, "vague": 0.3, "weak": 0.625}}}

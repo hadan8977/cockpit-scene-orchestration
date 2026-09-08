@@ -41,10 +41,10 @@ flowchart LR
 Python 3.12+，安装 `requests`、`jsonschema`。密钥仅放私有环境文件，切勿提交。需要 `DEEPSEEK_API_KEY`（官网）和自行生成的 `PART1_RUNTIME_TOKEN`。不使用腾讯配额。
 
 ```powershell
-python part1-generation-framework/runtime/server.py --env-file <私有环境文件> --mode strict_tool --template part1-generation-framework/studies/round2/prompts/p24_zh.md
+python part1-generation-framework/runtime/server.py --env-file <私有环境文件> --mode strict_tool --template part1-generation-framework/studies/round2/prompts/p26_zh.md
 ```
 
-`p24` 在开发验证中，启动参数显式选择它，不代表最终验收。默认模板仍保留第一轮 p13 快照；评审时必须检查返回的 Prompt 哈希。服务仅监听 `127.0.0.1:8787`，所有接口都要求 Bearer token。
+`p26` 是第二轮冻结的候选，哈希 `34c9859119cb…`，见 [冻结记录](../studies/round2/final-candidate-freeze.json)。启动参数显式选择它，**不代表最终验收**：它在自动指标、安全和十一个任务类别上都优于两个基线，但四个体验维度的逐维门没有通过，见 [08 报告](../delivery/08-Prompt优化报告-第二轮定稿.md)。p24 仍保留，可用同一参数切换。默认模板仍保留第一轮 p13 快照；评审时必须检查返回的 Prompt 哈希。服务仅监听 `127.0.0.1:8787`，所有接口都要求 Bearer token。
 
 在 Scene Studio 服务端设置：
 

@@ -1,0 +1,28 @@
+{
+  "p36": {
+    "n": 100,
+    "errors": 1,
+    "usable": 0.78,
+    "task_pass": 0.78,
+    "schema": 0.99,
+    "intent": 0.91,
+    "name": 0.99,
+    "language": 0.99,
+    "safety": 0,
+    "p50": 1.6194898569956422,
+    "p95": 2.0808503762702455,
+    "understanding_p50": 1.1933921329909936,
+    "by_cat": {
+      "action": 1.0,
+      "affect": 1.0,
+      "attack": 1.0,
+      "clarify": 0.8,
+      "explicit": 0.5,
+      "memory": 1.0,
+      "observe": 0.8333333333333334,
+      "precise": 0.75,
+      "vague": 0.75,
+      "weak": 0.4
+    }
+  }
+}

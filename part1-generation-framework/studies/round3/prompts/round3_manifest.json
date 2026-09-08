@@ -1,0 +1,95 @@
+{
+  "contract": "v4",
+  "registered_in": "PREREGISTRATION-round3.md",
+  "frozen_before_first_call": true,
+  "limits": {
+    "understanding": 120,
+    "name": 14,
+    "say": 30
+  },
+  "arms": [
+    {
+      "source": "prompts/v0_latest_protocol_compatible.md",
+      "target": "prompts/v0_c4.md",
+      "change": "the existing protocol line that already stated the limits is updated in place to the v4 numbers, plus the full-capability-name requirement for warnings",
+      "occurrences_replaced": 1,
+      "task_logic_touched": false,
+      "source_sha256": "d72eba4e5791207c6503d87cdaf39f03aa553e110e0214bad46821086f6b4847",
+      "target_sha256": "d28c1860cfa27e3f50ccd59278bbf5031652245811a499b7789041621d5089e5"
+    },
+    {
+      "source": "prompts/v3_latest_compatible.md",
+      "target": "prompts/v3_c4.md",
+      "change": "the existing protocol line that already stated the limits is updated in place to the v4 numbers, plus the full-capability-name requirement for warnings",
+      "occurrences_replaced": 1,
+      "task_logic_touched": false,
+      "source_sha256": "a59b744f857835dba60a501ab52f69750ae7c853535873e38fd73baa86b0177d",
+      "target_sha256": "a3ef61e8fb204f4303ead9e67f52ef49d168f60c177dd9349b46bcdde555e166"
+    },
+    {
+      "candidate": "p28",
+      "parent": "p26",
+      "changes": [
+        "brevity block rewritten for the v4 limits and the judges' grounding definition",
+        "complete_experience wording paragraph rewritten",
+        "completion_gate rule 6 and the final checklist updated to the v4 limits"
+      ],
+      "parent_sha256": "34c9859119cb1b34d6333f65b703abea6093b53cf5fdd6efab7e58d839527128",
+      "candidate_sha256": "2e8bcf25b4eb8eeac3244a72c60b1c81994e0c955c9defcb9d09bd65f411672d",
+      "parent_chars": 25464,
+      "candidate_chars": 25680
+    },
+    {
+      "candidate": "p29",
+      "source": "prompts/p28_zh.md",
+      "target": "prompts/p29_zh.md",
+      "change": "wording layer only: all 24 [examples] understandings rewritten to the three-part grounding rule at target length; say filled where the scene acts now; brevity length rule made request-dependent; english word target 15-22 -> 12-18 (22 words does not fit 120 chars); final_check name residue from the v3 contract corrected to 14 chars / 2-5 zh chars; indoor-smell now routes to outside air instead of recirculation",
+      "structure_rules_touched": false,
+      "line_count_unchanged": true,
+      "registered_in": "AMENDMENT-R3-01.md",
+      "source_sha256": "2e8bcf25b4eb8eeac3244a72c60b1c81994e0c955c9defcb9d09bd65f411672d",
+      "target_sha256": "51fc414ad92afef1978ce792f16b3757f93643472c4fb4ac12cbe827111bf5ef"
+    },
+    {
+      "candidate": "p30",
+      "source": "prompts/p29_zh.md",
+      "target": "prompts/p30_zh.md",
+      "change": "the explicit character/word quota in [brevity] is removed; length now follows the three content requirements. composition_gate states plainly that two atomic capabilities is a finished answer when two cover the goal.",
+      "reason": "user correction: a character count must not be forced; some requests are fully served by two atomic capabilities",
+      "structure_rules_touched": false,
+      "line_count_unchanged": true,
+      "source_sha256": "51fc414ad92afef1978ce792f16b3757f93643472c4fb4ac12cbe827111bf5ef",
+      "target_sha256": "2bdd13e48b420dad5fcafaaf915b27fabaf85b873ec0ff5478edd5094bee8d45"
+    }
+  ],
+  "correction": "Round two AMENDMENT-11 claimed the baselines were never told the contract. That was wrong: v3 line 120 and v0 line 286 already stated understanding 80, name 10 and say 15 as a protocol line. The round-two contract arms therefore restated what was already stated, which explains why usability moved only from 45.3 to 46.9 percent. The format failures are genuine non-compliance by the baselines, not non-disclosure. Round three updates that same line in place rather than appending a new block.",
+  "holdout": {
+    "file": "holdout-r3.jsonl",
+    "cases": 65,
+    "sha256": "b93cd5adafa0dcb758bcaf4199e5f0e5b64d6f98e85fa24cf5a3c5faaea388dd",
+    "frozen_before_first_call": true
+  },
+  "fairness_correction": {
+    "issue": "v0_c4 and v3_c4 were charged '规划中或提议动作缺少能力名警告' and '规划中或提议动作超过一个' although their prompts never listed which capabilities are unreleased; the candidate prompt marks all 23 with '*'. 36% of v3_c4 failures and 12% of v0_c4 failures were solely that charge.",
+    "audit": "Capability membership and value ranges were checked first: v0's own embedded lists are 64 conditions and 76 actions, identical in name and in value range to the enabled registry, so no vocabulary mismatch existed. v0 also keeps conditions and actions as two separate lists, so cases like 媒体音量 used as an action violate v0's own prompt, not only the registry.",
+    "fix": "v0_c5 / v3_c5 disclose the same 23 unreleased action capabilities and the same one-per-scene rule, in place on the sentence that already discussed warnings.",
+    "arms": {
+      "prompts/v0_c5.md": {
+        "source": "prompts/v0_c4.md",
+        "source_sha256": "d28c1860cfa27e3f50ccd59278bbf5031652245811a499b7789041621d5089e5",
+        "target_sha256": "2b5168c52604072a1944f954df0e2edfb79ddecc026787832c0aa9791a50aef3",
+        "change": "the maturity disclosure is appended to the existing warnings sentence, in place; nothing else touched",
+        "immature_disclosed": 23,
+        "line_count_unchanged": true
+      },
+      "prompts/v3_c5.md": {
+        "source": "prompts/v3_c4.md",
+        "source_sha256": "a3ef61e8fb204f4303ead9e67f52ef49d168f60c177dd9349b46bcdde555e166",
+        "target_sha256": "b1f2c307869d8b1cb69565ba8a1eb84fdabd350a66fdd1b231f4eaadc9a5c07a",
+        "change": "the maturity disclosure is appended to the existing warnings sentence, in place; nothing else touched",
+        "immature_disclosed": 23,
+        "line_count_unchanged": true
+      }
+    }
+  }
+}

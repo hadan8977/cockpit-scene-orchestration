@@ -16,6 +16,7 @@ import threading
 import argparse, json, os, re, sys, time, random, statistics
 import concurrent.futures as cf
 from datetime import datetime
+import contract_limits as CL
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 VOCAB = json.load(open(os.path.join(HERE, "vocab_v1.json"), encoding="utf-8"))   # p0/p1/p2 用旧表；p3 在 apply_style 里换成 v2
@@ -34,7 +35,7 @@ def apply_style(style):
     global PRIM, PRESETS, VOCAB, CURRENT_STYLE
     CURRENT_STYLE = style
     if style == "p3":
-        VOCAB = json.load(open(os.path.join(HERE, "vocab.json"), encoding="utf-8"))
+        VOCAB = json.load(open(os.path.join(HERE, CL.VOCAB_FILE), encoding="utf-8"))
     else:
         VOCAB = json.load(open(os.path.join(HERE, "vocab_v1.json"), encoding="utf-8"))
         if style == "p2" and "extensions_p2" in VOCAB:
@@ -315,16 +316,22 @@ def score_item(item, obj, prompt_style):
         from output_contract import policy_violations, is_driving, schema_errors
         res["strict_schema_valid"] = not schema_errors(obj, strict=True)
         res["violations"].extend(policy_violations(item, obj, out, is_driving(item, item.get("_lang", "zh"))))
-    res["name_ok"] = (0 < len(out["name"]) <= 10) if out["name"] else ((out["intent"] or "") in ("none", "clarify"))
+    res["name_ok"] = (0 < len(out["name"]) <= CL.NAME_MAX) if out["name"] else ((out["intent"] or "") in ("none", "clarify"))
     derived, explicit = derive_intent(out)
     res["intent_derived"] = derived
     if prompt_style in ("p2", "p3"):
         max_actions = item.get("max_actions", 4)
         if derived in ("affect", "vague") and len(out["actions"]) > max_actions:
             res["violations"].append("动作过多: %d > %d" % (len(out["actions"]), max_actions))
-        say_max = item.get("say_max", 15)
+        say_max = item.get("say_max")
+        if say_max is None:
+            # 半角英文按同样的卡片显示宽度折算：中文 N 字符 ≈ 英文 2N 字符
+            say_max = CL.SAY_MAX * 2 if item.get("_lang") == "en" and os.environ.get("SCENE_WIDTH", "1") == "1" else CL.SAY_MAX
         if out["say"] and len(out["say"]) > say_max:
             res["violations"].append("话太长: %d 字 > %d" % (len(out["say"]), say_max))
+        und_max = CL.UNDERSTANDING_MAX * 2 if item.get("_lang") == "en" and os.environ.get("SCENE_WIDTH", "1") == "1" else CL.UNDERSTANDING_MAX
+        if out["understanding"] and len(out["understanding"]) > und_max:
+            res["violations"].append("理解句太长: %d 字 > %d" % (len(out["understanding"]), und_max))
         if out["offer"] is not None:
             ot = out["offer"].get("type") if isinstance(out["offer"], dict) else None
             if ot not in OFFER_TYPES:
@@ -762,7 +769,7 @@ def main():
          "| 指标 | 值 |", "|---|---|",
          "| 总通过率 | %.1f%% |" % (100 * summary["pass_rate"]), "| JSON 可解析 | %.1f%% |" % (100 * summary["json_valid"]),
          "| 能力表内（schema 合法） | %.1f%% |" % (100 * summary["schema_valid"]), "| 意图判断正确 | %.1f%% |" % (100 * summary["intent_ok"]),
-         "| 名称合规（1 到 10 字） | %.1f%% |" % (100 * summary["name_ok"]), "| 安全违规次数 | %d |" % summary["safety_violations"], "| 调用错误 | %d |" % summary["errors"]]
+         "| 名称合规（1 到 %d 字符） | %.1f%% |" % (CL.NAME_MAX, 100 * summary["name_ok"]), "| 安全违规次数 | %d |" % summary["safety_violations"], "| 调用错误 | %d |" % summary["errors"]]
     if "collapse" in summary:
         L += ["| 预设坍缩率 精确 / 宽松（情绪与模糊题，n=%d） | %.1f%% / %.1f%% |" % (summary["collapse"]["n"], 100 * summary["collapse"]["exact"], 100 * summary["collapse"]["loose"])]
     if "latency" in summary:

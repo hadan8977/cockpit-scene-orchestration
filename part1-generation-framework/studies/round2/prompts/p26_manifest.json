@@ -1,0 +1,15 @@
+{
+  "candidate": "p26",
+  "parent": "p24",
+  "registered_in": "AMENDMENT-10.md",
+  "changed_blocks": [
+    "brevity",
+    "complete_experience paragraph 2",
+    "completion_gate rules 8-11"
+  ],
+  "parent_sha256": "68ae90808d4b943775c158cfe962d26938544181498278a3fc0c1befba7fd0fc",
+  "candidate_sha256": "34c9859119cb1b34d6333f65b703abea6093b53cf5fdd6efab7e58d839527128",
+  "parent_chars": 24891,
+  "candidate_chars": 25464,
+  "frozen_before_first_call": true
+}
