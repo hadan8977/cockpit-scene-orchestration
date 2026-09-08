@@ -79,7 +79,7 @@ def handler_for(service,token):
             if path=="/health":return self.send_json(200,{"ok":True,"simulation":True,"provider":service.provider.mode,"registry_revision":service.engine.registry.snapshot()["revision"]})
             if path=="/registry":return self.send_json(200,service.engine.registry.snapshot())
             if path=="/schema":return self.send_json(200,output_schema(service.engine.registry.snapshot()))
-            if path=="/state":return self.send_json(200,{**copy.deepcopy(service.engine.state),"saved_scenes":service.engine.saved_view()})
+            if path=="/state":return self.send_json(200,{**copy.deepcopy(service.engine.state),"registry_revision":service.engine.registry.snapshot()["revision"],"saved_scenes":service.engine.saved_view()})
             return self.send_json(404,{"error":"Unknown route"})
         def do_POST(self):
             if not self.authorized():return self.send_json(401,{"error":"Authentication required"})
@@ -103,18 +103,19 @@ def handler_for(service,token):
                     cancel=service.pending.get(body["request_id"])
                     if cancel:cancel.set()
                     result={"cancelled":bool(cancel)}
-                elif path=="/confirm":result=service.engine.confirm(body["proposal_id"],body["operation"],body["registry_revision"])
+                elif path=="/confirm":result=service.engine.confirm(body["proposal_id"],body["operation"],body["registry_revision"],body.get("trial"))
                 elif path=="/restore":result=service.engine.restore(body["proposal_id"])
                 elif path=="/execution/cancel":result=service.engine.cancel_execution(body["proposal_id"])
                 elif path=="/registry/toggle":result=service.engine.registry.set_enabled(body["id"],body["enabled"],body["registry_revision"])
                 elif path=="/simulation/state":result=service.engine.update_vehicle(body["values"],body["driving"])
+                elif path=="/simulation/manual":result=service.engine.manual_override(body["values"],body["driving"])
                 elif path=="/demo/context":result=service.engine.demo_context(body)
                 elif path=="/demo/prepare":
                     raw=body["scene"]
                     flags=injection_flags(json.dumps(raw,ensure_ascii=False))
                     result=service.engine.propose(raw,{"source":"demo_import","simulation":True,"injection_flags":flags})
                 elif path=="/simulation/advance":result={"events":service.engine.advance(body["seconds"])}
-                elif path=="/simulation/trigger":result={"events":service.engine.trigger()}
+                elif path=="/simulation/trigger":result={"events":service.engine.trigger(body.get("trial",True),body.get("new_trip",False))}
                 elif path=="/memory/confirm":result=service.engine.confirm_memory(body["proposal_id"],body["index"])
                 elif path=="/memory/delete":result=service.engine.delete_memory(body["id"])
                 else:return self.send_json(404,{"error":"Unknown route"})

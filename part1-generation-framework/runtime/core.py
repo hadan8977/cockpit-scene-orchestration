@@ -254,7 +254,8 @@ def validate(raw,snapshot,context=None,existing_ids=()):
             if not cap.get(field) or not _typed_value(cap,kind,value):reject("invalid_value","值域、单位、步长或日期不合法",name);continue
             identity=(name,entry.get("op"),value) if kind=="conditions" else name
             if identity in seen and name!="延时":reject("duplicate","重复条件或动作",name)
-            seen.add(identity)
+            if kind=="actions" and name=="延时":seen.clear()
+            else:seen.add(identity)
             if kind=="actions":
                 if value in cap.get("deny_act_values",[]) or (cap["id"]=="safety.avas" and value=="关闭"):reject("forbidden","安全功能禁止关闭",name)
                 if context.get("driving"):

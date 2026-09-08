@@ -62,7 +62,8 @@ class RuntimeEngine(Engine):
         self._event("timeline_started",execution_id=pid,priority=priority,trial_seconds=3 if trial else 0)
         self.advance(0)
 
-    def confirm(self,pid,operation,expected_revision):
+    def confirm(self,pid,operation,expected_revision,trial=None):
+        if trial is not None and type(trial) is not bool:raise ValueError("trial must be boolean")
         with self.lock,self.registry.lock:
             p=self.proposals.get(pid)
             if operation!="apply_once":
@@ -74,9 +75,15 @@ class RuntimeEngine(Engine):
                         # Merge a full proposal without changing its trigger semantics.
                         if target["scene"]["conditions"]!=p["raw"]["conditions"] or target["scene"]["logic"]!=p["raw"]["logic"]:raise ValueError("Trigger changes require a new scene")
                         merged=copy.deepcopy(target["scene"])
-                        actions={a["primary"]:a for a in merged["actions"]}
-                        actions.update({a["primary"]:a for a in p["raw"]["actions"]})
-                        merged["actions"]=list(actions.values());merged["relation"]={"type":"new","scene_id":None}
+                        if any(a["primary"]=="延时" for a in merged["actions"]+p["raw"]["actions"]):
+                            if relation["type"]!="modify":raise ValueError("Timed scenes require a full modify proposal")
+                            # The complete validated sequence preserves every stage.
+                            merged["actions"]=copy.deepcopy(p["raw"]["actions"])
+                        else:
+                            actions={a["primary"]:a for a in merged["actions"]}
+                            actions.update({a["primary"]:a for a in p["raw"]["actions"]})
+                            merged["actions"]=list(actions.values())
+                        merged["relation"]={"type":"new","scene_id":None}
                         if not validate(merged,self.registry.snapshot(),self.context,self.state["saved"])["savable"]:raise ValueError("Merged scene invalid")
                         event=super().confirm(pid,operation,expected_revision)
                         self.state["saved"].pop(pid);target["scene"]=merged;target["registry_revision"]=expected_revision
@@ -88,7 +95,7 @@ class RuntimeEngine(Engine):
             if not result["executable"] or p["raw"]["conditions"]:raise ValueError("Cannot immediately execute this proposal")
             # User's immediate confirmation takes precedence over scheduled work.
             self._cancel_pending("preempted_by_user")
-            self._start(pid,p["raw"],priority=100,trial=p["raw"]["intent"]!="action")
+            self._start(pid,p["raw"],priority=100,trial=p["raw"]["intent"]!="action" if trial is None else trial)
             p["status"]="applied"
             event=self._event("apply_once",proposal_id=pid,executed=True,registry_revision=p["revision"])
             self._persist();return {**event,"status":"applied"}
@@ -103,9 +110,29 @@ class RuntimeEngine(Engine):
             # Pending jobs are revalidated before every segment; no automatic tick.
             self._persist();return copy.deepcopy(self.state["vehicle"])
 
-    def trigger(self):
+    def manual_override(self,values,driving):
+        """A deliberate manual action takes ownership of only its devices."""
+        if not isinstance(values,dict) or not values or type(driving) is not bool:raise ValueError("Invalid manual controls")
+        raw=empty_scene();raw.update({"name":"手动","intent":"action","actions":[{"primary":k,"secondary":v} for k,v in values.items()]})
+        checked=validate(raw,self.registry.snapshot(),{**self.context,"driving":driving,"denied_actions":[]},self.state["saved"])
+        if not checked["executable"]:raise ValueError("Manual controls rejected by capability policy")
+        with self.lock:
+            for job in self.state["timeline"]:
+                if job["status"]=="pending" and job["action"]["primary"] in values:job["status"]="overridden_by_user"
+            current=self.update_vehicle(values,driving)
+            last=self.state.get("last_execution")
+            if last and not last["restored"]:
+                last["before"].update(values);last["after"].update(values)
+            self._event("manual_override",values=values);self._persist();return current
+
+    def trigger(self,trial=True,new_trip=False):
         """Explicitly tick conditional simulation; no autonomous real actions."""
+        if type(trial) is not bool or type(new_trip) is not bool:raise ValueError("trial and new_trip must be boolean")
         with self.lock,self.registry.lock:
+            if new_trip:
+                self._cancel_pending("cancelled_on_new_trip")
+                self.state["trigger_latches"]={}
+                self._event("new_trip")
             current=self.registry.snapshot();events=[];claimed=set()
             candidates=[]
             for sid,row in self.state["saved"].items():
@@ -123,7 +150,7 @@ class RuntimeEngine(Engine):
                     events.append(self._event("trigger_yielded",scene_id=sid,reason="more specific scene or current user command"));continue
                 claimed|=names
                 execution_id=sid+"-"+uuid.uuid4().hex[:8]
-                self._start(execution_id,row["scene"],priority=10+len(row["scene"]["conditions"]),trial=True)
+                self._start(execution_id,row["scene"],priority=10+len(row["scene"]["conditions"]),trial=trial)
                 events.append(self._event("condition_triggered",scene_id=sid,execution_id=execution_id))
             self._persist();return events
 
