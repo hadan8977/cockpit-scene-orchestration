@@ -1,0 +1,520 @@
+[
+  {
+    "id": "quiet",
+    "locale": "en",
+    "input": "Make a quiet rest scene. Please no music or fragrance.",
+    "context": "Parked, no other preferences.",
+    "A": {
+      "understanding": "A quiet rest without music or fragrance",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Rest",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "10%"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "1挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "A lively mood",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Party",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "香氛开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "音量",
+          "secondary": "80%"
+        }
+      ],
+      "say": "Let's party!",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "expected": {
+      "winner": "A",
+      "dimensions": [
+        "grounding",
+        "restraint",
+        "wording",
+        "composition"
+      ]
+    },
+    "sample_id": "quiet-AB"
+  },
+  {
+    "id": "quiet",
+    "locale": "en",
+    "input": "Make a quiet rest scene. Please no music or fragrance.",
+    "context": "Parked, no other preferences.",
+    "A": {
+      "understanding": "A lively mood",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Party",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "香氛开关",
+          "secondary": "开启"
+        },
+        {
+          "primary": "音量",
+          "secondary": "80%"
+        }
+      ],
+      "say": "Let's party!",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "A quiet rest without music or fragrance",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Rest",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "10%"
+        },
+        {
+          "primary": "前排风量调节",
+          "secondary": "1挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "expected": {
+      "winner": "B",
+      "dimensions": [
+        "grounding",
+        "restraint",
+        "wording",
+        "composition"
+      ]
+    },
+    "sample_id": "quiet-BA"
+  },
+  {
+    "id": "one-control",
+    "locale": "zh",
+    "input": "主驾座椅加热设成1挡，别动别的。",
+    "context": "停车中。",
+    "A": {
+      "understanding": "只开主驾一挡加热",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "暖座",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "1挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "顺便营造温暖氛围",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "暖座",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "3挡"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "80%"
+        },
+        {
+          "primary": "香氛开关",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "expected": {
+      "winner": "A",
+      "dimensions": [
+        "grounding",
+        "restraint",
+        "composition"
+      ]
+    },
+    "sample_id": "one-control-AB"
+  },
+  {
+    "id": "one-control",
+    "locale": "zh",
+    "input": "主驾座椅加热设成1挡，别动别的。",
+    "context": "停车中。",
+    "A": {
+      "understanding": "顺便营造温暖氛围",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "暖座",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "3挡"
+        },
+        {
+          "primary": "氛围灯亮度",
+          "secondary": "80%"
+        },
+        {
+          "primary": "香氛开关",
+          "secondary": "开启"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "只开主驾一挡加热",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "暖座",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾座椅加热",
+          "secondary": "1挡"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "expected": {
+      "winner": "B",
+      "dimensions": [
+        "grounding",
+        "restraint",
+        "composition"
+      ]
+    },
+    "sample_id": "one-control-BA"
+  },
+  {
+    "id": "identical",
+    "locale": "en",
+    "input": "Set the driver temperature to 24 degrees.",
+    "context": "Parked.",
+    "A": {
+      "understanding": "Set driver temperature to 24",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Warmth",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "24℃"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "expected": {
+      "winner": "tie",
+      "dimensions": [
+        "grounding",
+        "restraint",
+        "wording",
+        "composition"
+      ]
+    },
+    "B": {
+      "understanding": "Set driver temperature to 24",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Warmth",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "24℃"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "sample_id": "identical-AB"
+  },
+  {
+    "id": "identical",
+    "locale": "en",
+    "input": "Set the driver temperature to 24 degrees.",
+    "context": "Parked.",
+    "A": {
+      "understanding": "Set driver temperature to 24",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Warmth",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "24℃"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "expected": {
+      "winner": "tie",
+      "dimensions": [
+        "grounding",
+        "restraint",
+        "wording",
+        "composition"
+      ]
+    },
+    "B": {
+      "understanding": "Set driver temperature to 24",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "Warmth",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "主驾温度控制",
+          "secondary": "24℃"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "sample_id": "identical-BA"
+  },
+  {
+    "id": "no-capability",
+    "locale": "zh",
+    "input": "把氛围灯设成红色。",
+    "context": "停车中；能力表支持亮度，不支持颜色。",
+    "A": {
+      "understanding": "灯光颜色暂不支持",
+      "relevance": 0.8,
+      "intent": "clarify",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [
+        "红色"
+      ],
+      "warnings": [],
+      "clarify": "要调亮度吗？"
+    },
+    "B": {
+      "understanding": "已切成红色",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "红光",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯颜色",
+          "secondary": "红色"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "expected": {
+      "winner": "A",
+      "dimensions": [
+        "grounding",
+        "restraint",
+        "composition"
+      ]
+    },
+    "sample_id": "no-capability-AB"
+  },
+  {
+    "id": "no-capability",
+    "locale": "zh",
+    "input": "把氛围灯设成红色。",
+    "context": "停车中；能力表支持亮度，不支持颜色。",
+    "A": {
+      "understanding": "已切成红色",
+      "relevance": 0.8,
+      "intent": "vague",
+      "name": "红光",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [
+        {
+          "primary": "氛围灯颜色",
+          "secondary": "红色"
+        }
+      ],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [],
+      "warnings": [],
+      "clarify": null
+    },
+    "B": {
+      "understanding": "灯光颜色暂不支持",
+      "relevance": 0.8,
+      "intent": "clarify",
+      "name": "",
+      "logic": "AND",
+      "conditions": [],
+      "actions": [],
+      "say": "",
+      "offer": {
+        "type": "none",
+        "target": ""
+      },
+      "memory": [],
+      "unsupported": [
+        "红色"
+      ],
+      "warnings": [],
+      "clarify": "要调亮度吗？"
+    },
+    "expected": {
+      "winner": "B",
+      "dimensions": [
+        "grounding",
+        "restraint",
+        "composition"
+      ]
+    },
+    "sample_id": "no-capability-BA"
+  }
+]

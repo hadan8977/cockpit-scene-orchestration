@@ -10,3 +10,4 @@ part1-generation-framework/eval/results/prompt-lab-v3/**/raw.jsonl
 **/*private-ledger.json
 **/runtime-state/
 part1-generation-framework/studies/**/results/**/raw.jsonl
+part1-generation-framework/studies/**/judge/**/raw.jsonl

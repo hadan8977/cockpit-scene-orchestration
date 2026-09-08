@@ -1,0 +1,112 @@
+{"run": "r3_04_fair", "completed": 32, "expected": 804}
+{"run": "r3_04_fair", "completed": 64, "expected": 804}
+{"run": "r3_04_fair", "completed": 96, "expected": 804}
+{"run": "r3_04_fair", "completed": 128, "expected": 804}
+{"run": "r3_04_fair", "completed": 160, "expected": 804}
+{"run": "r3_04_fair", "completed": 192, "expected": 804}
+{"run": "r3_04_fair", "completed": 224, "expected": 804}
+{"run": "r3_04_fair", "completed": 256, "expected": 804}
+{"run": "r3_04_fair", "completed": 288, "expected": 804}
+{"run": "r3_04_fair", "completed": 320, "expected": 804}
+{"run": "r3_04_fair", "completed": 352, "expected": 804}
+{"run": "r3_04_fair", "completed": 384, "expected": 804}
+{"run": "r3_04_fair", "completed": 416, "expected": 804}
+{"run": "r3_04_fair", "completed": 448, "expected": 804}
+{"run": "r3_04_fair", "completed": 480, "expected": 804}
+{"run": "r3_04_fair", "completed": 512, "expected": 804}
+{"run": "r3_04_fair", "completed": 544, "expected": 804}
+{"run": "r3_04_fair", "completed": 576, "expected": 804}
+{"run": "r3_04_fair", "completed": 608, "expected": 804}
+{"run": "r3_04_fair", "completed": 640, "expected": 804}
+{"run": "r3_04_fair", "completed": 672, "expected": 804}
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x76fb580972c0>: Failed to resolve 'api.deepseek.com' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.deepseek.com', port=443): Max retries exceeded with url: /user/balance (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x76fb580972c0>: Failed to resolve 'api.deepseek.com' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/work/work/cockpit-scene-orchestration-latest/part1-generation-framework/studies/round3/study.py", line 226, in <module>
+    args=ap.parse_args();run(args.plan,args.env_file,args.max_new)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/work/work/cockpit-scene-orchestration-latest/part1-generation-framework/studies/round3/study.py", line 211, in run
+    for record in pool.map(work,jobs):
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/work/work/cockpit-scene-orchestration-latest/part1-generation-framework/studies/round3/study.py", line 204, in work
+    index=budget.reserve("deepseek",[plan["run_id"],item["id"],lang,rep,variant],prompts[variant]+user,1000)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/work/work/cockpit-scene-orchestration-latest/part1-generation-framework/studies/round3/study.py", line 96, in reserve
+    b = self.balance()
+        ^^^^^^^^^^^^^^
+  File "/root/work/work/cockpit-scene-orchestration-latest/part1-generation-framework/studies/round3/study.py", line 86, in balance
+    r = requests.get("https://api.deepseek.com/user/balance", headers={"Authorization": "Bearer " + self.keys["DEEPSEEK_API_KEY"]}, timeout=20, allow_redirects=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.deepseek.com', port=443): Max retries exceeded with url: /user/balance (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x76fb580972c0>: Failed to resolve 'api.deepseek.com' ([Errno -2] Name or service not known)"))

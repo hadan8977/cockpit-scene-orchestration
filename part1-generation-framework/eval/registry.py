@@ -11,9 +11,10 @@
 """
 import json, os, sys, re
 from datetime import datetime
+import contract_limits as CL
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REG = os.path.join(HERE, "capabilities.json")
+REG = os.path.join(HERE, CL.CAPS_FILE)
 
 IDS = {
     "主驾车窗": ("window.driver", "driver window", "车窗", "B"), "副驾车窗": ("window.passenger", "passenger window", "车窗", "B"),
@@ -190,21 +191,21 @@ def schema():
                   "required": ["primary", "secondary"], "additionalProperties": False} for c in caps if c["act_values"]]
     sch = {"$schema": "https://json-schema.org/draft/2020-12/schema", "title": "scene_v3_" + reg["version"], "type": "object",
            "properties": {
-               "understanding": {"type": "string", "maxLength": 80},
+               "understanding": {"type": "string", "maxLength": CL.UNDERSTANDING_MAX},
                "relevance": {"type": "number", "minimum": 0, "maximum": 1},
                "intent": {"enum": ["action", "precise", "vague", "affect", "observation", "clarify", "none"]},
-               "name": {"type": "string", "maxLength": 10},
+               "name": {"type": "string", "maxLength": CL.NAME_MAX},
                "logic": {"enum": ["AND", "OR"]},
                "conditions": {"type": "array", "maxItems": 4, "items": {"oneOf": cond_items}},
                "actions": {"type": "array", "maxItems": 8, "items": {"oneOf": act_items}},
-               "say": {"type": "string", "maxLength": 15},
+               "say": {"type": "string", "maxLength": CL.SAY_MAX},
                "offer": {"type": "object", "properties": {"type": {"enum": ["call", "navigate", "message", "none"]}, "target": {"type": "string", "maxLength": 20}}, "required": ["type"]},
                "memory": {"type": "array", "maxItems": 3, "items": {"type": "object", "properties": {"type": {"enum": ["preference", "relationship", "place", "dislike"]}, "content": {"type": "string", "maxLength": 80}, "confidence": {"type": "number", "minimum": 0, "maximum": 1}}, "required": ["type", "content", "confidence"]}},
                "unsupported": {"type": "array", "items": {"type": "string"}}, "warnings": {"type": "array", "items": {"type": "string"}},
                "clarify": {"type": ["string", "null"]}},
            "required": ["understanding", "relevance", "intent", "name", "logic", "conditions", "actions", "say", "offer", "memory", "unsupported", "warnings", "clarify"],
            "additionalProperties": False}
-    path = os.path.join(HERE, "schema.json")
+    path = os.path.join(HERE, CL.SCHEMA_FILE)
     json.dump(sch, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("schema", path, "conditions", len(cond_items), "actions", len(act_items))
 

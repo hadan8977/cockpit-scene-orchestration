@@ -1,0 +1,55 @@
+{
+  "candidate": "p36",
+  "frozen_at": "2026-09-08",
+  "prompt": {
+    "file": "studies/round3/prompts/p36_zh.md",
+    "sha256": "cffcda9a8f58920e3cbcfc9d532373d204d865bb2098c75163b6d23a6707b6aa"
+  },
+  "lineage": [
+    "p26 (round2 结构层)",
+    "p28 (round3 起点)",
+    "p29 措辞层示例重写",
+    "p30 取消字数配额",
+    "p31 r3 能力表 + 去成熟度分层",
+    "p33 不用追问代替判断 / 否定偏好落到动作 / say 说完整",
+    "p34 契约按显示宽度折算",
+    "p35 拒绝也要说话",
+    "p36 抬权说法一律按攻击整条拒绝"
+  ],
+  "capabilities": {
+    "file": "eval/capabilities_r3.json",
+    "sha256": "71e524f166b9c11e78ec5e5683a408844441e4ca3297287a64aeedc6cdefdb24",
+    "vocab": "eval/vocab_r3.json",
+    "vocab_sha256": "bc453adab617c911e434426ad7c438ff41790bb38f971d9e616b971577fedb66"
+  },
+  "schema": {
+    "file": "eval/schema_v4.json",
+    "sha256": "d6b8c52bb79b964288be34ecf89ab854aa6356c0c156f1de415d8d9e9e0ebc4e"
+  },
+  "contract": {
+    "understanding_zh": 120,
+    "understanding_en": 240,
+    "name": 14,
+    "say_zh": 30,
+    "say_en": 60
+  },
+  "model": {
+    "id": "deepseek-v4-flash",
+    "temperature": 0,
+    "thinking": "disabled",
+    "json_mode": true,
+    "max_tokens": 1000
+  },
+  "testsets": {
+    "dev": "eval/testset.jsonl",
+    "dev_sha256": "7639f40f52797ece37664df3d5f29c77e32438a7bad0e8baddb361e28546e294",
+    "holdout": "studies/round3/holdout-r3.jsonl",
+    "holdout_sha256": "56602f231c819c7981413443b318c427387994d80cbb18fbcb21d183acc54ac2",
+    "out_of_scope_rule": "PRD 3.5：单动作不走场景；越界题打 scope=car_control 并从统计中排除（开发集 11、留出集 15）"
+  },
+  "results": {
+    "dev_run": "r3_12_p36",
+    "holdout_run": "r3_13_p36_holdout",
+    "review": "dev-p36-vs-v0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+ "package": "scene-agent-v1",
+ "candidate": "p36",
+ "note": "每个文件的 sha256；改动任何一个都会和这里对不上。",
+ "files": {
+  "FINAL-p36.json": "99f9be2be45ed5d48b172a9bae90eb71781bbe9dca0fa4c7a1907cddab221abd",
+  "README.md": "d7195e6ed5f9b955696b043d36245e5644cbe8147c07cb0345d9d4e2741e2db0",
+  "contract/scene.schema.json": "d6b8c52bb79b964288be34ecf89ab854aa6356c0c156f1de415d8d9e9e0ebc4e",
+  "gates/contract_limits.py": "7e05ea8e4221c134665626ba5a95864ece0f6eed30bcf20177e5431faecda9ff",
+  "gates/output_contract.py": "b462f2d9d00d1933b6a977c560536d8283dff274a641cbf50c31ac66dd2783a8",
+  "prompt/p36_zh.md": "cffcda9a8f58920e3cbcfc9d532373d204d865bb2098c75163b6d23a6707b6aa",
+  "registry/capabilities.json": "71e524f166b9c11e78ec5e5683a408844441e4ca3297287a64aeedc6cdefdb24",
+  "registry/vocab.json": "bc453adab617c911e434426ad7c438ff41790bb38f971d9e616b971577fedb66",
+  "runtime/__init__.py": "d2c419aafb7e52d16ff72a90d1c73cd40fe37a07a83d7ddbede2af1ccdbbdcf1",
+  "runtime/context.py": "a76252ced53f6ced4680295a5558bb02138161d7ccd10795cabb826daef7befc",
+  "runtime/core.py": "6bd081b8d010db17817debc10526be1f38bc6659f0fa633c280ff809fa503818",
+  "runtime/provider.py": "24a91957124ede8ea7f3d513086c7ddf55d548d61183559659602b68fbc230cd",
+  "runtime/scheduler.py": "11a67d0853662e19b36b7437d2e40fbe61c4a74ab91faf88ec7a10d9224b14ff",
+  "runtime/server.py": "998856b146660e50b339dd6bc163ec86636ed0b1cbde7e616ef03f5b06690ace",
+  "verify.py": "02b4721e31aa77ac92867bf28367389c5d9dcb28ed758e3e2b76e6cf79af70aa"
+ }
+}
